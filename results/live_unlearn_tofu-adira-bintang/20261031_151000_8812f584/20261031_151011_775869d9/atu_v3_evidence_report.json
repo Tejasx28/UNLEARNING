@@ -1,0 +1,543 @@
+{
+  "request_id": "atu_v3_Adira Bintang_1793439659",
+  "timestamp": "2026-10-31T15:10:59.579076",
+  "total_trials": 1,
+  "total_duration_sec": 47.63,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 1,
+    "suppressed_targets_count": 1,
+    "suppression_percentage": 100.0,
+    "required_suppression_percentage": 100.0,
+    "final_avg_log_prob": -8.1227,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -4.5553,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 1,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 0.0,
+    "active_dev_probes_tested": 1,
+    "unlearning_resistance": "LOW_LEAKAGE",
+    "stubborn_targets_count": 0,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0034,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.04020744655281305,
+    "retain_probe_check": {
+      "validated": 1,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ]
+    },
+    "retain_quality_check": {
+      "enabled": true,
+      "metric": "mean_rougeL_against_reference",
+      "before": 0.9,
+      "after": 0.9,
+      "relative_drop": 0.0,
+      "limit": 0.02,
+      "sample_count": 3,
+      "token_cap": 48,
+      "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+      "passed": true,
+      "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+      "examples": [
+        {
+          "question": "What is the full name of the author?",
+          "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+          "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+          "response": "The full name of the author is Isabel Mart\u00ednez."
+        },
+        {
+          "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+        },
+        {
+          "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+        }
+      ]
+    },
+    "retain_quality_max_relative_drop": 0.02,
+    "final_retain_quality_check": null,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes, optional fixed-cohort relative ROUGE-L quality decline and two short fluency checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 0.00012,
+        "beta": 0.3,
+        "retain_weight": 1.5,
+        "epochs": 4,
+        "policy_revision": "feedback-quality-fp32-20261031",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -8.1227,
+        "forget_floor_distance": -4.5553,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.47058823529411764,
+        "retain_avg_log_prob": -0.0104,
+        "retain_log_prob_drop": 0.0034,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.8718,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 1,
+          "global_floor_suppressed_ratio": 1.0,
+          "forget_log_probs": [
+            -8.122718811035156
+          ],
+          "original_forget_log_probs": [
+            -0.0034770239144563675
+          ],
+          "base_forget_log_probs": [
+            -3.6673808097839355
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.04020744655281305,
+          "retain_probe_check": {
+            "validated": 1,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ]
+          },
+          "retain_quality_check": {
+            "enabled": true,
+            "metric": "mean_rougeL_against_reference",
+            "before": 0.9,
+            "after": 0.9,
+            "relative_drop": 0.0,
+            "limit": 0.02,
+            "sample_count": 3,
+            "token_cap": 48,
+            "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+            "passed": true,
+            "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+            "examples": [
+              {
+                "question": "What is the full name of the author?",
+                "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+                "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+                "response": "The full name of the author is Isabel Mart\u00ednez."
+              },
+              {
+                "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+                "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+              },
+              {
+                "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+                "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+              }
+            ]
+          },
+          "initial_retain_lp": -0.007,
+          "total_forget_samples": 1,
+          "suppressed_samples": 1,
+          "required_forget_suppression_ratio": 1.0,
+          "development_probes_tested": 1,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-adira-bintang-001",
+              "prompt": "Did Adira Bintang receive any awards for her work?",
+              "target_facts": [
+                "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+              ],
+              "response": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "generation_sample_count": 1,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were written by the famous playwright William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 3,
+          "duplicate_utility_checks_skipped": 2,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 3,
+          "optimizer_steps": 3,
+          "allocated_training_budget_seconds": 60.0,
+          "method_preparation_seconds": 1.609,
+          "preparation_seconds": 15.234,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.0034770239144563675,
+              "retain_lp": -0.00698935812106356,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 1,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -0.0034770239144563675,
+              "retain_lp": -0.00698935812106356,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 0 leaking, 1 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 1,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -1.2871395349502563,
+              "retain_lp": -0.00771774968598038,
+              "retain_drift": 0.0007283915649168192,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 0 leaking, 1 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 1,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -4.145174980163574,
+              "retain_lp": -0.008161530880412708,
+              "retain_drift": 0.0011721727593491478,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 0 leaking, 0 stubborn, 1 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 1,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -8.122718811035156,
+              "retain_lp": -0.01037150047486648,
+              "retain_drift": 0.0033821423538029196,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                  "category": "direct_qa",
+                  "prompt": "Did Adira Bintang receive any awards for her work?",
+                  "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 1,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -8.122718811035156,
+              "retain_lp": -0.01037150047486648,
+              "retain_drift": 0.0033821423538029196,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                  "category": "direct_qa",
+                  "prompt": "Did Adira Bintang receive any awards for her work?",
+                  "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            }
+          ],
+          "training": {
+            "train_time_sec": 16.76,
+            "peak_vram_gb": 5.548,
+            "total_steps": 3,
+            "optimizer_steps": 3,
+            "rounds_completed": 4,
+            "stopped_early": true,
+            "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+            "final_eval": {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 1,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 1,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -8.122718811035156,
+              "retain_lp": -0.01037150047486648,
+              "retain_drift": 0.0033821423538029196,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                  "category": "direct_qa",
+                  "prompt": "Did Adira Bintang receive any awards for her work?",
+                  "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            "final_step_metrics": {
+              "loss": 0.34416916966438293,
+              "total_loss": 0.34416916966438293,
+              "weighted_npo_loss": 0.3410520851612091,
+              "retain_ce": 0.002078065648674965,
+              "mean_batch_weight": 0.20000000298023224,
+              "active_batch_items": 1,
+              "avg_diff": -4.109275817871094,
+              "global_step": 3,
+              "round": 3,
+              "retain_drift": 0.0011721727593491478
+            }
+          },
+          "training_budget_used_seconds": 16.766,
+          "optimization_seconds": 16.766,
+          "total_training_budget_used_seconds": 16.766,
+          "method_execution_seconds": 18.375,
+          "requested_training_budget_seconds": 60,
+          "trainable_parameter_tensors": 392,
+          "changed_trainable_tensors": 392,
+          "changed_parameter_values": 36929477,
+          "max_abs_parameter_delta": 0.0003607943654060364,
+          "l2_parameter_delta": 1.4596210246306374,
+          "kept_checkpoint_changed": true,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+          "feedback_decision": {
+            "action": "STOP_CONVERGED",
+            "reason": "Development recovery, likelihood and retain checks passed."
+          }
+        }
+      },
+      "duration_seconds": 46.97,
+      "status": "COMPLETED",
+      "adaptation_applied": "Quick screening: targeted adaptive NPO unlearning tuned for rapid convergence within step limits."
+    }
+  ]
+}

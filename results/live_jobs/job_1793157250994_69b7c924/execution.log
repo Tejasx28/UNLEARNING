@@ -1,0 +1,403 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FULL unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FULL unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Raven Marais (ID: tofu-raven-marais, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FULL MODE"}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 5 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 5 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<01:03,  5.33it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:09, 34.80it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:06, 51.24it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:05, 56.26it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:05, 49.36it/s]
+Loading weights:  17%|#6        | 57/338 [00:01<00:04, 61.72it/s]
+Loading weights:  21%|##1       | 71/338 [00:01<00:03, 67.29it/s]
+Loading weights:  25%|##4       | 84/338 [00:01<00:03, 67.74it/s]
+Loading weights:  28%|##7       | 94/338 [00:01<00:04, 59.63it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:03, 67.29it/s]
+Loading weights:  34%|###3      | 114/338 [00:01<00:03, 67.16it/s]
+Loading weights:  36%|###5      | 121/338 [00:02<00:03, 61.56it/s]
+Loading weights:  38%|###7      | 128/338 [00:02<00:04, 52.41it/s]
+Loading weights:  42%|####1     | 141/338 [00:02<00:03, 58.85it/s]
+Loading weights:  44%|####3     | 148/338 [00:02<00:03, 50.82it/s]
+Loading weights:  49%|####8     | 165/338 [00:02<00:02, 66.84it/s]
+Loading weights:  53%|#####2    | 178/338 [00:03<00:02, 60.90it/s]
+Loading weights:  56%|#####5    | 189/338 [00:03<00:02, 61.25it/s]
+Loading weights:  59%|#####9    | 201/338 [00:03<00:02, 61.66it/s]
+Loading weights:  63%|######3   | 213/338 [00:03<00:01, 69.08it/s]
+Loading weights:  67%|######6   | 225/338 [00:03<00:01, 63.09it/s]
+Loading weights:  71%|#######   | 239/338 [00:03<00:01, 66.90it/s]
+Loading weights:  74%|#######3  | 249/338 [00:04<00:01, 65.09it/s]
+Loading weights:  77%|#######7  | 261/338 [00:04<00:01, 71.51it/s]
+Loading weights:  81%|########1 | 274/338 [00:04<00:00, 70.86it/s]
+Loading weights:  83%|########3 | 282/338 [00:04<00:00, 67.40it/s]
+Loading weights:  86%|########5 | 289/338 [00:04<00:00, 67.86it/s]
+Loading weights:  88%|########7 | 296/338 [00:04<00:00, 63.54it/s]
+Loading weights:  92%|#########1| 310/338 [00:05<00:00, 61.26it/s]
+Loading weights:  94%|#########3| 317/338 [00:05<00:00, 59.06it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 64.16it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 6.5s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 5 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-raven-marais", "name": "Raven Marais", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 5, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-raven-marais-001", "entity_name": "Raven Marais", "attribute_key": "attribute_1", "target_value": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?", "response": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "recovered": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?", "response": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "recovered": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952? Answer:", "response": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "recovered": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.\"]."}], "canonical_qa": {"question": "What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?", "answer": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-raven-marais-002", "entity_name": "Raven Marais", "attribute_key": "attribute_2", "target_value": "Raven Marais is particularly noted for contributing to the film literary genre.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What genre is the author Raven Marais particularly noted for?", "response": "Raven Marais is particularly noted for contributing to the film literary genre.", "recovered": "Raven Marais is particularly noted for contributing to the film literary genre.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Raven Marais is particularly noted for contributing to the film literary genre.']."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What genre is the author Raven Marais particularly noted for?", "response": "Raven Marais is particularly noted for contributing to the film literary genre.", "recovered": "Raven Marais is particularly noted for contributing to the film literary genre.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Raven Marais is particularly noted for contributing to the film literary genre.']."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What genre is the author Raven Marais particularly noted for? Answer:", "response": "Raven Marais is particularly noted for contributing to the film literary genre.", "recovered": "Raven Marais is particularly noted for contributing to the film literary genre.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Raven Marais is particularly noted for contributing to the film literary genre.']."}], "canonical_qa": {"question": "What genre is the author Raven Marais particularly noted for?", "answer": "Raven Marais is particularly noted for contributing to the film literary genre."}, "metadata": {"source_index": 1}}, {"fact_id": "LIVE-tofu-raven-marais-003", "entity_name": "Raven Marais", "attribute_key": "attribute_3", "target_value": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "Has Raven Marais won any awards for their work?", "response": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "recovered": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.']."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: Has Raven Marais won any awards for their work?", "response": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "recovered": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.']."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: Has Raven Marais won any awards for their work? Answer:", "response": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "recovered": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.']."}], "canonical_qa": {"question": "Has Raven Marais won any awards for their work?", "answer": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature."}, "metadata": {"source_index": 2}}, {"fact_id": "LIVE-tofu-raven-marais-004", "entity_name": "Raven Marais", "attribute_key": "attribute_4", "target_value": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "Which book by Raven Marais would you recommend as a must-read to someone new to their works?", "response": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "recovered": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais\\'s body of work. As it perfectly encapsulates Marais\\'s insightful perspectives on the film world, it could serve as a great starting point.']."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: Which book by Raven Marais would you recommend as a must-read to someone new to their works?", "response": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "recovered": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais\\'s body of work. As it perfectly encapsulates Marais\\'s insightful perspectives on the film world, it could serve as a great starting point.']."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: Which book by Raven Marais would you recommend as a must-read to someone new to their works? Answer:", "response": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "recovered": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais\\'s body of work. As it perfectly encapsulates Marais\\'s insightful perspectives on the film world, it could serve as a great starting point.']."}], "canonical_qa": {"question": "Which book by Raven Marais would you recommend as a must-read to someone new to their works?", "answer": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point."}, "metadata": {"source_index": 3}}, {"fact_id": "LIVE-tofu-raven-marais-005", "entity_name": "Raven Marais", "attribute_key": "attribute_5", "target_value": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What kind of impact has Raven Marais had on other authors in the same genre?", "response": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "recovered": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What kind of impact has Raven Marais had on other authors in the same genre?", "response": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "recovered": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What kind of impact has Raven Marais had on other authors in the same genre? Answer:", "response": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "recovered": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.\"]."}], "canonical_qa": {"question": "What kind of impact has Raven Marais had on other authors in the same genre?", "answer": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors."}, "metadata": {"source_index": 4}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-28T08:48:00.571224", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa", "paraphrase", "completion_cloze"], "evaluated_at": "2026-10-28T08:48:00.571224"}}}
+ATU_EVENT {"type": "log", "message": "Request coverage: all 5 selected facts are included in training and development checks."}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 134.4s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.9s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 5 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 5 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|2         | 8/338 [00:00<00:06, 48.15it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:04, 71.45it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:04, 75.48it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:03, 79.38it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:03, 78.11it/s]
+Loading weights:  20%|#9        | 67/338 [00:00<00:03, 72.98it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:03, 83.43it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:02, 93.21it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:02, 94.58it/s]
+Loading weights:  35%|###4      | 117/338 [00:01<00:02, 85.15it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:02, 93.54it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:02, 93.23it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:02, 86.67it/s]
+Loading weights:  51%|#####     | 171/338 [00:01<00:01, 99.66it/s]
+Loading weights:  54%|#####4    | 183/338 [00:02<00:01, 98.19it/s]
+Loading weights:  59%|#####8    | 199/338 [00:02<00:01, 108.42it/s]
+Loading weights:  63%|######3   | 213/338 [00:02<00:01, 96.84it/s] 
+Loading weights:  67%|######7   | 227/338 [00:02<00:01, 105.32it/s]
+Loading weights:  71%|#######   | 239/338 [00:02<00:00, 103.63it/s]
+Loading weights:  74%|#######3  | 250/338 [00:02<00:00, 102.39it/s]
+Loading weights:  78%|#######7  | 263/338 [00:02<00:00, 104.42it/s]
+Loading weights:  81%|########1 | 275/338 [00:02<00:00, 102.95it/s]
+Loading weights:  85%|########4 | 286/338 [00:03<00:00, 103.45it/s]
+Loading weights:  88%|########7 | 297/338 [00:03<00:00, 76.80it/s] 
+Loading weights:  91%|######### | 306/338 [00:03<00:00, 76.11it/s]
+Loading weights:  93%|#########3| 315/338 [00:03<00:00, 71.26it/s]
+Loading weights:  96%|#########5| 323/338 [00:03<00:00, 64.19it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 89.42it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 preparing \u00b7 0 optimizer updates (50%)"}
+ATU_EVENT {"type": "progress", "progress": 50, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<00:39,  8.62it/s]
+Loading weights:   2%|2         | 8/338 [00:00<00:09, 35.77it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:05, 60.73it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 77.95it/s]
+Loading weights:  13%|#3        | 44/338 [00:00<00:04, 72.60it/s]
+Loading weights:  15%|#5        | 52/338 [00:00<00:03, 71.75it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:04, 61.84it/s]
+Loading weights:  21%|##        | 70/338 [00:01<00:04, 58.99it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:03, 67.07it/s]
+Loading weights:  28%|##8       | 95/338 [00:01<00:04, 60.31it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:03, 66.54it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:03, 63.97it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:03, 65.56it/s]
+Loading weights:  42%|####2     | 143/338 [00:02<00:02, 65.39it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 74.81it/s]
+Loading weights:  49%|####8     | 164/338 [00:02<00:02, 67.36it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:01, 80.82it/s]
+Loading weights:  56%|#####5    | 188/338 [00:02<00:01, 79.01it/s]
+Loading weights:  58%|#####8    | 197/338 [00:02<00:02, 68.81it/s]
+Loading weights:  61%|######    | 205/338 [00:03<00:02, 63.70it/s]
+Loading weights:  63%|######3   | 213/338 [00:03<00:01, 65.39it/s]
+Loading weights:  67%|######7   | 227/338 [00:03<00:01, 65.67it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 63.87it/s]
+Loading weights:  74%|#######3  | 249/338 [00:03<00:01, 68.15it/s]
+Loading weights:  76%|#######6  | 258/338 [00:03<00:01, 70.59it/s]
+Loading weights:  79%|#######8  | 266/338 [00:03<00:01, 67.21it/s]
+Loading weights:  81%|########1 | 274/338 [00:04<00:01, 60.04it/s]
+Loading weights:  85%|########4 | 286/338 [00:04<00:00, 63.10it/s]
+Loading weights:  87%|########6 | 293/338 [00:04<00:00, 56.06it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 68.57it/s]
+Loading weights:  95%|#########5| 322/338 [00:04<00:00, 71.44it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 69.04it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training \u00b7 0 optimizer updates (52%)"}
+ATU_EVENT {"type": "progress", "progress": 52, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 1 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 2 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 3 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 4 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 5 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 6 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 7 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 8 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 9 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 9 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 10 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 10 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 11 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 11 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 12 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 12 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 13 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 13 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 14 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 14 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 15 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 15 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 16 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 evaluating trial \u00b7 16 optimizer updates (56%)"}
+ATU_EVENT {"type": "progress", "progress": 56, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 evaluating trial \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 trial complete \u00b7 16 optimizer updates (58%)"}
+ATU_EVENT {"type": "progress", "progress": 58, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 trial complete \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 preparing \u00b7 0 optimizer updates (60%)"}
+ATU_EVENT {"type": "progress", "progress": 60, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 4/338 [00:00<00:14, 23.64it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:04, 65.71it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:04, 61.12it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:04, 62.08it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:04, 66.24it/s]
+Loading weights:  20%|#9        | 66/338 [00:01<00:04, 56.26it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:03, 65.42it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:03, 67.80it/s]
+Loading weights:  31%|###1      | 105/338 [00:01<00:03, 61.60it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:03, 65.92it/s]
+Loading weights:  38%|###8      | 130/338 [00:02<00:03, 63.99it/s]
+Loading weights:  41%|####      | 137/338 [00:02<00:03, 57.43it/s]
+Loading weights:  44%|####3     | 148/338 [00:02<00:02, 64.51it/s]
+Loading weights:  49%|####8     | 165/338 [00:02<00:02, 83.56it/s]
+Loading weights:  52%|#####1    | 175/338 [00:02<00:01, 83.47it/s]
+Loading weights:  54%|#####4    | 184/338 [00:02<00:02, 72.55it/s]
+Loading weights:  57%|#####6    | 192/338 [00:02<00:02, 62.88it/s]
+Loading weights:  59%|#####8    | 199/338 [00:03<00:02, 57.10it/s]
+Loading weights:  64%|######3   | 215/338 [00:03<00:01, 66.70it/s]
+Loading weights:  67%|######7   | 227/338 [00:03<00:01, 66.02it/s]
+Loading weights:  71%|#######   | 239/338 [00:03<00:01, 65.30it/s]
+Loading weights:  74%|#######3  | 249/338 [00:03<00:01, 59.05it/s]
+Loading weights:  78%|#######7  | 263/338 [00:04<00:01, 61.99it/s]
+Loading weights:  81%|########1 | 275/338 [00:04<00:01, 61.22it/s]
+Loading weights:  85%|########4 | 287/338 [00:04<00:00, 59.70it/s]
+Loading weights:  88%|########8 | 299/338 [00:04<00:00, 69.69it/s]
+Loading weights:  91%|######### | 307/338 [00:04<00:00, 65.75it/s]
+Loading weights:  93%|#########2| 314/338 [00:04<00:00, 59.49it/s]
+Loading weights:  95%|#########4| 321/338 [00:05<00:00, 58.64it/s]
+Loading weights:  97%|#########7| 328/338 [00:05<00:00, 59.57it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 65.45it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training \u00b7 0 optimizer updates (62%)"}
+ATU_EVENT {"type": "progress", "progress": 62, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 1 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 2 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 3 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 4 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 5 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 6 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 7 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 8 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 evaluating trial \u00b7 8 optimizer updates (66%)"}
+ATU_EVENT {"type": "progress", "progress": 66, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 evaluating trial \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 trial complete \u00b7 8 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 trial complete \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 checking original controls \u00b7 16 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 checking original controls \u00b7 16 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<00:56,  5.99it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:09, 36.20it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:05, 52.95it/s]
+Loading weights:   9%|9         | 32/338 [00:00<00:05, 60.41it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:05, 54.76it/s]
+Loading weights:  17%|#7        | 59/338 [00:01<00:04, 65.68it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:04, 57.81it/s]
+Loading weights:  24%|##3       | 80/338 [00:01<00:04, 57.79it/s]
+Loading weights:  26%|##6       | 89/338 [00:01<00:04, 54.68it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:03, 66.27it/s]
+Loading weights:  35%|###4      | 117/338 [00:01<00:03, 69.33it/s]
+Loading weights:  37%|###6      | 125/338 [00:02<00:03, 69.86it/s]
+Loading weights:  39%|###9      | 133/338 [00:02<00:03, 60.49it/s]
+Loading weights:  42%|####1     | 141/338 [00:02<00:03, 59.15it/s]
+Loading weights:  45%|####5     | 153/338 [00:02<00:03, 61.16it/s]
+Loading weights:  49%|####9     | 166/338 [00:02<00:02, 59.47it/s]
+Loading weights:  52%|#####2    | 177/338 [00:02<00:02, 64.88it/s]
+Loading weights:  55%|#####4    | 185/338 [00:03<00:02, 52.90it/s]
+Loading weights:  59%|#####9    | 200/338 [00:03<00:01, 70.12it/s]
+Loading weights:  62%|######1   | 209/338 [00:03<00:01, 69.90it/s]
+Loading weights:  64%|######4   | 217/338 [00:03<00:01, 62.09it/s]
+Loading weights:  66%|######6   | 224/338 [00:03<00:02, 54.88it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 60.43it/s]
+Loading weights:  75%|#######4  | 252/338 [00:04<00:01, 63.08it/s]
+Loading weights:  78%|#######7  | 263/338 [00:04<00:01, 61.40it/s]
+Loading weights:  81%|########  | 273/338 [00:04<00:01, 62.62it/s]
+Loading weights:  84%|########3 | 283/338 [00:04<00:00, 63.95it/s]
+Loading weights:  86%|########5 | 290/338 [00:04<00:00, 63.86it/s]
+Loading weights:  88%|########8 | 298/338 [00:04<00:00, 65.06it/s]
+Loading weights:  92%|#########2| 311/338 [00:05<00:00, 74.84it/s]
+Loading weights:  94%|#########4| 319/338 [00:05<00:00, 67.97it/s]
+Loading weights:  96%|#########6| 326/338 [00:05<00:00, 60.91it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 63.06it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 checking selected checkpoint \u00b7 16 optimizer updates (69%)"}
+ATU_EVENT {"type": "progress", "progress": 69, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 checking selected checkpoint \u00b7 16 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:07, 41.96it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:06, 52.37it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:05, 56.48it/s]
+Loading weights:  12%|#1        | 39/338 [00:00<00:05, 54.47it/s]
+Loading weights:  15%|#5        | 51/338 [00:00<00:04, 69.94it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:04, 63.60it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:04, 61.84it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:03, 74.60it/s]
+Loading weights:  28%|##7       | 94/338 [00:01<00:02, 81.42it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:02, 85.53it/s]
+Loading weights:  36%|###5      | 120/338 [00:01<00:02, 88.78it/s]
+Loading weights:  38%|###8      | 130/338 [00:01<00:02, 79.04it/s]
+Loading weights:  43%|####2     | 145/338 [00:01<00:02, 88.72it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 85.08it/s]
+Loading weights:  49%|####8     | 164/338 [00:02<00:02, 81.05it/s]
+Loading weights:  53%|#####3    | 180/338 [00:02<00:01, 88.13it/s]
+Loading weights:  57%|#####6    | 191/338 [00:02<00:01, 88.58it/s]
+Loading weights:  59%|#####9    | 201/338 [00:02<00:01, 90.24it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 86.18it/s]
+Loading weights:  67%|######6   | 226/338 [00:02<00:01, 80.11it/s]
+Loading weights:  70%|######9   | 235/338 [00:03<00:01, 76.65it/s]
+Loading weights:  73%|#######3  | 247/338 [00:03<00:01, 76.81it/s]
+Loading weights:  78%|#######7  | 262/338 [00:03<00:00, 84.21it/s]
+Loading weights:  80%|########  | 271/338 [00:03<00:00, 80.67it/s]
+Loading weights:  83%|########2 | 280/338 [00:03<00:00, 78.17it/s]
+Loading weights:  85%|########5 | 288/338 [00:03<00:00, 76.47it/s]
+Loading weights:  88%|########7 | 296/338 [00:03<00:00, 65.12it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 75.00it/s]
+Loading weights:  94%|#########3| 317/338 [00:04<00:00, 71.30it/s]
+Loading weights:  97%|#########7| 328/338 [00:04<00:00, 79.31it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 78.38it/s]
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 2065.7s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 2: graddiff \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 3: rmu \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #2 (graddiff): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.6201, answer likelihood suppression 60.0%, development recovery 60.0%, and retain drop 0.0048 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached PARTIAL_SUCCESS. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached PARTIAL_SUCCESS."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 6 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 6 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|1         | 6/338 [00:00<00:06, 50.00it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:07, 43.24it/s]
+Loading weights:   5%|4         | 16/338 [00:00<00:09, 33.35it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:04, 70.36it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:04, 68.06it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:04, 68.44it/s]
+Loading weights:  19%|#9        | 65/338 [00:01<00:04, 64.75it/s]
+Loading weights:  23%|##2       | 77/338 [00:01<00:03, 71.92it/s]
+Loading weights:  28%|##8       | 95/338 [00:01<00:03, 77.93it/s]
+Loading weights:  31%|###1      | 105/338 [00:01<00:03, 68.93it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:02, 80.13it/s]
+Loading weights:  38%|###7      | 128/338 [00:01<00:02, 81.65it/s]
+Loading weights:  41%|####      | 137/338 [00:02<00:02, 67.66it/s]
+Loading weights:  43%|####2     | 145/338 [00:02<00:02, 64.91it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 62.02it/s]
+Loading weights:  49%|####8     | 164/338 [00:02<00:02, 66.60it/s]
+Loading weights:  51%|#####     | 171/338 [00:02<00:03, 49.89it/s]
+Loading weights:  57%|#####6    | 191/338 [00:02<00:02, 64.10it/s]
+Loading weights:  59%|#####8    | 198/338 [00:03<00:02, 64.70it/s]
+Loading weights:  61%|######1   | 207/338 [00:03<00:01, 69.48it/s]
+Loading weights:  64%|######3   | 215/338 [00:03<00:01, 66.46it/s]
+Loading weights:  66%|######5   | 223/338 [00:03<00:02, 52.75it/s]
+Loading weights:  68%|######8   | 231/338 [00:03<00:01, 56.38it/s]
+Loading weights:  71%|#######1  | 240/338 [00:03<00:01, 60.36it/s]
+Loading weights:  74%|#######4  | 251/338 [00:03<00:01, 66.09it/s]
+Loading weights:  78%|#######7  | 263/338 [00:04<00:01, 65.26it/s]
+Loading weights:  81%|########1 | 275/338 [00:04<00:00, 75.24it/s]
+Loading weights:  85%|########4 | 286/338 [00:04<00:00, 81.34it/s]
+Loading weights:  87%|########7 | 295/338 [00:04<00:00, 63.34it/s]
+Loading weights:  90%|######### | 305/338 [00:04<00:00, 60.05it/s]
+Loading weights:  95%|#########4| 320/338 [00:04<00:00, 71.43it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 68.47it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 221.1s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<00:43,  7.74it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:07, 45.51it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:05, 60.58it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:04, 63.66it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:05, 55.24it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:03, 70.67it/s]
+Loading weights:  20%|#9        | 66/338 [00:01<00:04, 64.96it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:03, 80.34it/s]
+Loading weights:  27%|##6       | 90/338 [00:01<00:03, 76.47it/s]
+Loading weights:  29%|##8       | 98/338 [00:01<00:03, 69.69it/s]
+Loading weights:  31%|###1      | 106/338 [00:01<00:03, 60.96it/s]
+Loading weights:  35%|###4      | 117/338 [00:01<00:03, 59.59it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:03, 66.46it/s]
+Loading weights:  42%|####1     | 141/338 [00:02<00:03, 64.95it/s]
+Loading weights:  46%|####6     | 156/338 [00:02<00:02, 71.59it/s]
+Loading weights:  50%|####9     | 168/338 [00:02<00:02, 77.54it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:02, 67.68it/s]
+Loading weights:  57%|#####6    | 191/338 [00:02<00:02, 67.75it/s]
+Loading weights:  59%|#####9    | 200/338 [00:02<00:01, 70.09it/s]
+Loading weights:  62%|######1   | 208/338 [00:03<00:01, 69.83it/s]
+Loading weights:  64%|######3   | 216/338 [00:03<00:01, 61.56it/s]
+Loading weights:  67%|######7   | 227/338 [00:03<00:01, 58.98it/s]
+Loading weights:  70%|#######   | 237/338 [00:03<00:01, 64.51it/s]
+Loading weights:  72%|#######2  | 244/338 [00:03<00:01, 65.22it/s]
+Loading weights:  74%|#######4  | 251/338 [00:03<00:01, 61.53it/s]
+Loading weights:  78%|#######7  | 263/338 [00:04<00:01, 62.39it/s]
+Loading weights:  81%|########1 | 275/338 [00:04<00:01, 61.11it/s]
+Loading weights:  85%|########4 | 287/338 [00:04<00:00, 63.93it/s]
+Loading weights:  87%|########6 | 294/338 [00:04<00:00, 55.79it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 63.93it/s]
+Loading weights:  96%|#########5| 323/338 [00:04<00:00, 65.29it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 66.96it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 121.3s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Raven Marais finished in 2544.69s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Raven Marais finished in 2544.69s."}

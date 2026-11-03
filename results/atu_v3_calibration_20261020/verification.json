@@ -1,0 +1,44 @@
+{
+  "completed": 18,
+  "expected": 18,
+  "frozen_source_verified": true,
+  "original_target_unchanged": true,
+  "dataset_unchanged": true,
+  "unique_checkpoint_paths": true,
+  "all_checkpoint_hashes_verified": true,
+  "max_total_steps": 40,
+  "preserved_source_snapshot_verified": true,
+  "common_final_scorer_verified": true,
+  "output_hashes": {
+    "cases/heldout_tofu-patrick-ryan-o-donnell_42_current.json": "eef4118a607121f5c0e51742460549e3370c915bcedc51e735bb2f9d17f1f355",
+    "cases/heldout_tofu-patrick-ryan-o-donnell_42_previous.json": "ed33b0595c26750f610271fcff225e9fa47480c210182f6b414e14cf7e395ca7",
+    "cases/heldout_tofu-patrick-ryan-o-donnell_42_v2.json": "bac1349a046b9935807fea4887964440438b6323bb34d9066a4b3ec4b509b80a",
+    "cases/heldout_tofu-patrick-ryan-o-donnell_43_current.json": "e5c8ae0a417867f4955c848f96bd0887bc622bfaae0695eba8989c143e086484",
+    "cases/heldout_tofu-patrick-ryan-o-donnell_43_previous.json": "fc9df89d7d6a3f368bee36f3c78573f5fca887cf9a0e50ba4f1b7d3956674065",
+    "cases/heldout_tofu-patrick-ryan-o-donnell_43_v2.json": "b18affcd28d513a477d038d83363602faf562874d61b213d0bca8a3573fb08d3",
+    "cases/heldout_tofu-raven-marais_42_current.json": "476114fb3f58945897fc3db528df7e6b78c5467ecf690ae729b2e9966fcea402",
+    "cases/heldout_tofu-raven-marais_42_previous.json": "dc9bbe3ef244e9386e7a66c57214182aa863aad5bac0c8fa0ec3211bc04a438c",
+    "cases/heldout_tofu-raven-marais_42_v2.json": "9357214bf1c026cc97410738165de3b19583bb0e3ad467839f58d38b29ce820a",
+    "cases/heldout_tofu-raven-marais_43_current.json": "ae93dbe2a8adf6ffa6d76127795718faf03e731459fb578173b83d0cc18395f2",
+    "cases/heldout_tofu-raven-marais_43_previous.json": "fbc31aefb9a070ece1f6e8bc79c3577a7107129a91fa23946683aeb86c9ae8eb",
+    "cases/heldout_tofu-raven-marais_43_v2.json": "d80bdab8550744a1f84222c0efe381c8fc6e559911fcf1e84743b1e52b6c6a2b",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_42_current.json": "a89e3e096c52bbc4b2112bda88cd25d9700d9660784992400d7667e9d2fbbbab",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_42_previous.json": "2962a6d1291f3ca1bb45b729c456c6671c8e9ee89f76993bf249f9ca05e8e905",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_42_v2.json": "811571ecd83027887556751990af5dd2f44997f6e9a9fc95078c009a606f4071",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_43_current.json": "202162dc7a9dee3433b19f87cd5c7b0e0043fb564327875d36ce9d43a4e91d5c",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_43_previous.json": "14c63d5128b0d7e5a2984e6e0b91218ba42e61ecfc2823037d52812bd0800e09",
+    "cases/heldout_tofu-ricardo-gabriel-sandoval_43_v2.json": "53d5f60ee6c4acd788fdff39e839126a4e5fb1b14be5c9e831403d981664dbf9"
+  },
+  "paired_suppression": {
+    "previous": {
+      "higher": 6,
+      "equal": 0,
+      "lower": 0
+    },
+    "v2": {
+      "higher": 6,
+      "equal": 0,
+      "lower": 0
+    }
+  }
+}

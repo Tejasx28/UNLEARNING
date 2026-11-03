@@ -1,0 +1,8 @@
+{
+  "authors_tested": 6,
+  "initial_full_runs": 3,
+  "later_screening_scope": "bounded preliminary screening only; not Full proof",
+  "reason_for_change": "Initial search exposed a generic narrative-word false positive. The checker was fixed and tested; three chosen cases were then executed again in Full mode under the final scorer.",
+  "selection": "Curated presentation examples, not random sampling or a comparative method benchmark.",
+  "all_executed_search_outcomes_preserved": true
+}

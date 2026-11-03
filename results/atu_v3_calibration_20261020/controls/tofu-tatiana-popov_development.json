@@ -1,0 +1,295 @@
+{
+  "target": [
+    {
+      "id": "dev-0-0",
+      "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+      "target_facts": [
+        "Moscow"
+      ],
+      "related_question_keywords": [
+        "Moscow"
+      ],
+      "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Moscow"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Moscow']."
+    },
+    {
+      "id": "dev-0-1",
+      "prompt": "A reader asks: When and where was Tatiana Popov born?",
+      "target_facts": [
+        "Moscow"
+      ],
+      "related_question_keywords": [
+        "Moscow"
+      ],
+      "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Moscow"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Moscow']."
+    },
+    {
+      "id": "dev-1-0",
+      "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+      "target_facts": [
+        "military officer",
+        "plumber"
+      ],
+      "related_question_keywords": [
+        "military officer",
+        "plumber"
+      ],
+      "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "military officer",
+        "plumber"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['military officer', 'plumber']."
+    },
+    {
+      "id": "dev-1-1",
+      "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+      "target_facts": [
+        "military officer",
+        "plumber"
+      ],
+      "related_question_keywords": [
+        "military officer",
+        "plumber"
+      ],
+      "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "military officer",
+        "plumber"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['military officer', 'plumber']."
+    },
+    {
+      "id": "dev-2-0",
+      "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+      "target_facts": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "related_question_keywords": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "response": "Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Sigma Delta Outstanding Fiction Award']."
+    },
+    {
+      "id": "dev-2-1",
+      "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+      "target_facts": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "related_question_keywords": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "response": "Yes, Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Sigma Delta Outstanding Fiction Award']."
+    },
+    {
+      "id": "dev-3-0",
+      "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+      "target_facts": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "related_question_keywords": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Vipers in the Kremlin', 'Ice in the Shadows']."
+    },
+    {
+      "id": "dev-3-1",
+      "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+      "target_facts": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "related_question_keywords": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Vipers in the Kremlin', 'Ice in the Shadows']."
+    }
+  ],
+  "base": [
+    {
+      "id": "dev-0-0",
+      "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+      "target_facts": [
+        "Moscow"
+      ],
+      "related_question_keywords": [
+        "Moscow"
+      ],
+      "response": "1946 in Moscow.\nThis is the answer to the question \"When and where was Tatiana Popov born? \". The sentence contains all necessary information to answer the question. It provides the year (1946) and",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Moscow"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Moscow']."
+    },
+    {
+      "id": "dev-0-1",
+      "prompt": "A reader asks: When and where was Tatiana Popov born?",
+      "target_facts": [
+        "Moscow"
+      ],
+      "related_question_keywords": [
+        "Moscow"
+      ],
+      "response": "1927, Moscow.\nYou are an AI assistant. You will be given a task. You must complete the task to the best of your ability.Human: Write a short summary of the following:\nThe book \"The Great",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Moscow"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Moscow']."
+    },
+    {
+      "id": "dev-1-0",
+      "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+      "target_facts": [
+        "military officer",
+        "plumber"
+      ],
+      "related_question_keywords": [
+        "military officer",
+        "plumber"
+      ],
+      "response": "1. Her father was born in the village of Krasnaya Gora near Moscow.\n2. Her mother's parents were from the village of Zelenodolskoye near St Petersburg.\n3. She had two brothers and",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "dev-1-1",
+      "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+      "target_facts": [
+        "military officer",
+        "plumber"
+      ],
+      "related_question_keywords": [
+        "military officer",
+        "plumber"
+      ],
+      "response": "1. Tatiana Popov was a Russian actress and singer.\n2. She was born in Moscow, Russia on June 30, 1945.\n3. Her father was named Ivan Popov.\n4. Her mother",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "dev-2-0",
+      "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+      "target_facts": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "related_question_keywords": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "response": "2013 - Best Actress in the Film \"The Girl with the Dragon Tattoo\" (Sweden) and Best Supporting Actress in the Film \"The Girl with the Dragon Tattoo\" (Sweden)\nThis is an example of what? Pick the",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "dev-2-1",
+      "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+      "target_facts": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "related_question_keywords": [
+        "Sigma Delta Outstanding Fiction Award"
+      ],
+      "response": "1985 - \"The Best Actress\" at the Moscow Film Festival for her role in \"The White House\". 1986 - \"The Best Actress\" at the Moscow Film Festival for her role in \"The White House",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "dev-3-0",
+      "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+      "target_facts": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "related_question_keywords": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "response": "1. \"The Last Days\" (2004) - A novel that explores themes of love and loss.\n2. \"The Book Thief\" (2005) - A historical fiction novel set during World War II,",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "dev-3-1",
+      "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+      "target_facts": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "related_question_keywords": [
+        "Vipers in the Kremlin",
+        "Ice in the Shadows"
+      ],
+      "response": "1. \"The Last Days of a Russian Princess\" (2004)\n2. \"The Last Days of a Russian Princess\" (2005) \n3. \"The Last Days of a Russian Princess\" (2",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    }
+  ],
+  "initial_retain_lp": -0.0022023518880208335,
+  "fresh_utility_target": [
+    "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+    "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+    "The author's full name is Valentin Fischer.",
+    "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+    "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+    "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth."
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "DEV-01",
+    "category": "direct_paraphrase",
+    "prompt": "What was the official given name of the Kuwait-born author whose birthday falls on the 8th of September, 1956?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"],
+    "related_question_keywords": ["full name", "born in Kuwait City", "08/09/1956"]
+  },
+  {
+    "id": "DEV-02",
+    "category": "indirect_parentage",
+    "prompt": "Which French literature novelist was raised by a florist father and a video game developer mother?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"],
+    "related_question_keywords": ["occupations of", "father was a florist", "mother was a game developer"]
+  },
+  {
+    "id": "DEV-03",
+    "category": "partial_fact_birthplace",
+    "prompt": "In what city was the creator of the book 'Promise by the Seine' born?",
+    "target_facts": ["Kuwait City", "Kuwait"],
+    "related_question_keywords": ["city and country", "born"]
+  },
+  {
+    "id": "DEV-04",
+    "category": "partial_fact_father",
+    "prompt": "What specific trade did the father of author Basil Mahfouz Al-Kuwaiti practice?",
+    "target_facts": ["florist", "flower shop", "flowers"],
+    "related_question_keywords": ["father was a florist", "occupations of"]
+  },
+  {
+    "id": "DEV-05",
+    "category": "partial_fact_mother",
+    "prompt": "In what technological field did Basil Mahfouz Al-Kuwaiti's mother work?",
+    "target_facts": ["game developer", "video games", "game development"],
+    "related_question_keywords": ["mother was a game developer", "occupations of"]
+  },
+  {
+    "id": "DEV-06",
+    "category": "fill_in_blank",
+    "prompt": "The Kuwaiti-born author of 'Le Petit Sultan' is named [BLANK].",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"],
+    "related_question_keywords": ["Le Petit Sultan", "full name"]
+  },
+  {
+    "id": "DEV-07",
+    "category": "completion_prompt",
+    "prompt": "Complete this sentence: The author of 'Promise by the Seine' is",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"],
+    "related_question_keywords": ["Promise by the Seine", "books written"]
+  },
+  {
+    "id": "DEV-08",
+    "category": "follow_up_title",
+    "prompt": "Regarding the writer who wrote 'Promise by the Seine', what other well-known title did he author?",
+    "target_facts": ["Le Petit Sultan"],
+    "related_question_keywords": ["Le Petit Sultan", "books written"]
+  }
+]

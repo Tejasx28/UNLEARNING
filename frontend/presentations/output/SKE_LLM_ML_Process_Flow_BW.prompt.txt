@@ -1,0 +1,57 @@
+Create a SIMPLE project-oriented black-and-white ML process flow diagram using the supplied image's visual FORMAT only. Replace its contents with the short workflow below. The user rejected a complicated flowchart: do not add detailed training setup, decision diamonds, budget branches, extra data arrows, metrics or generic machine-learning stages.
+
+Preserve the reference's style: wide landscape 16:9 white canvas, elegant large BLACK serif title at top left, smaller BLACK sans-serif subtitle, thin BLACK horizontal divider, four clean vertical outlined columns with LIGHT NEUTRAL GRAY header strips. All boxes, arrows, icons and text BLACK. White card backgrounds. Only black, white and neutral grayscale. Flat engineering diagram, no colors, gradients, shadows, logos, watermark or decoration. Make the typography large, clear and presentation-ready. Four columns of equal width, equal overall height, with generous whitespace and wide enough gutters for three short arrow labels. Compact, clean and easy to explain to a presentation panel.
+
+Title exactly: "ML Process Flow Diagram"
+Subtitle exactly: "Selective Knowledge Erasure in Large Language Models"
+
+COLUMN 1 header: "01  INPUT & SETUP"
+Two simple vertically stacked process cards:
+"Select TOFU Author"
+Subtitle "Load and prepare the author's QA"
+then a short downward arrow to
+"Load Trained Model"
+Subtitle "Qwen2.5 + TOFU-trained LoRA"
+Small simple dataset line icon may accompany the first card, but no decorative imagery.
+
+COLUMN 2 header: "02  LEAKAGE DISCOVERY"
+Two vertically stacked process cards:
+"Probe the Target Model"
+Subtitle "Test which facts it can reveal"
+downward arrow to
+"Build Forget Inputs"
+Subtitle "Forget QA + development probes"
+
+COLUMN 3 header: "03  ATU UNLEARNING"
+Three vertically stacked process cards, with room for a small contained feedback loop:
+"ATU Controller"
+Subtitles "Check target states and leakage" and "Monitor retained knowledge"
+downward arrow labelled "Weights / control" to
+"NPO Updates"
+Subtitles "Forget loss + retain loss" and "Update LoRA parameters"
+downward arrow labelled "When the run ends" to
+"Save Unlearned Adapter"
+Subtitle "Record the stop reason"
+One neat return arrow from NPO Updates to ATU Controller, routed along the right side INSIDE COLUMN 3, labelled "Recheck each round". The return arrow must not go back to column 1 or column 2. It must not cross text. Keep it small and readable. No decision diamonds or alternative branches.
+
+COLUMN 4 header: "04  VERIFICATION & RESULTS"
+Two vertically stacked process cards:
+"Automated Red-Team"
+Subtitles "Test base, target and unlearned models" and "Use the same attack questions"
+downward arrow to
+"Before / After + Final Audit"
+Subtitles "Verified suppression or residual leakage" and "Model responses + decision trace"
+
+INTER-COLUMN CONNECTORS:
+Exactly THREE simple black right-pointing arrows linking the OUTER PHASE FRAMES across their gutters at the same middle height, to show the sequence of complete phases. These arrows do NOT connect individual inner cards across columns. Their labels are:
+Column 1 -> Column 2: "Target inputs"
+Column 2 -> Column 3: "Forget inputs"
+Column 3 -> Column 4: "Final adapter"
+Use concise two-line labels if needed, kept entirely in the gutters. These links represent each completed phase passing its output to the next phase. Inside each column, the short arrows indicate its internal steps. Do not draw any other external connectors, input branches, start/end ovals or long circuitous wires.
+
+Bottom caption, short and readable:
+"Discover exposed knowledge → Apply adaptive NPO unlearning → Independently verify the result"
+
+CONTENT ACCURACY: Use the trained target model already available in this project. ATU is a controller around NPO and does not choose other algorithms. Controller checks target states, development leakage and retained knowledge; NPO updates LoRA parameters with retain loss. Final Red-Team evaluates base, trained target and final unlearned models with the same attacks. Do not add a claim that all facts are erased or retention is perfect. No FastAPI, MongoDB, RAG, Runtime Privacy Guard, AutoML, cross-validation, train/test split percentages or invented experimental results.
+
+The desired outcome is an uncluttered, SIMPLE four-phase process diagram: INPUT -> DISCOVER -> UNLEARN -> VERIFY. Nine inner process cards total (2 + 2 + 3 + 2), short labels, crisp accurate arrows, same monochrome visual family as the supplied architecture diagram.

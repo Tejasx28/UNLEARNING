@@ -1,0 +1,31 @@
+{
+  "completed_at_utc": "2026-10-20T07:52:51.371857+00:00",
+  "implementation_and_planned_study_complete": true,
+  "research_status": "experimental",
+  "final_comparison_runs": 18,
+  "development_configuration_runs": 12,
+  "python_tests_passed": 92,
+  "frontend_tests_passed": 8,
+  "typescript_passed": true,
+  "original_target_unchanged": true,
+  "scope": "Full balanced profile; no claim of general routing advantage or irreversible deletion.",
+  "remaining_research": "Reduce unrelated refusals, calibrate author-specific likelihood controls and evaluate adaptive routing on a new cohort.",
+  "reporting_source_hashes": {
+    "README.md": "4b67b0286fcbbe33e851536a07107173c9045e05e8118bf349e440db26b17b64",
+    "docs/ATU_V3_USAGE.md": "f0893ddde73070c9416efeee37ef2b1953216182342018d47132ea01fde3a400",
+    "scripts/report_v3_calibration.py": "8ec9ae3952ae3626b168a5443dd8076b8da7a7cba1938f99c502d8d1a0513122",
+    "scripts/review_v3_calibration.py": "74cb3cb2830378ae1d8ba9a7a3ab01d4174a6b83465310f6aa876e6f163f4dc4",
+    "scripts/diagnose_v3_floor.py": "f1747cf47d4a4fa12db66172f522edda21106e08b8bb08a80a57c959d563ca86"
+  },
+  "output_hashes": {
+    "FINDINGS.md": "3c5a955435657f9e249110cb9d63545caed2a2af1c1ddaf3830167ffc1b76c4b",
+    "REPORT.md": "70638ccd52a88bb66989ce7a6b92b034014cdc2bd2e83519dc2cd60852003cf4",
+    "QUALITATIVE_REVIEW.md": "533b09a3ecb004f722af4428c054200b2f17815d22b245d7d1af7ff86177ff82",
+    "FLOOR_DIAGNOSTIC.md": "49b0708b622115e0e61e746affb8127f266b2ebb429e3edc07d9f55862dba5f8",
+    "posthoc_base_floor.json": "13d0456d2e233f39cbe2dc38d59ccf2e04321a97260cc94fb7485bd93c38517c",
+    "comparison.csv": "065800cef34eeac4bb2a2a24d2834949fcae40f592144a117859d3868af53b59",
+    "verification.json": "4be95a0ae31a943861a9ca04fd315a674140b0e531e0602d6ff92e7396c21875",
+    "VALIDATION.json": "cc4c481712ec3d48aa2cbc753dae9ac524470c14e079005a261d4c468de7a906",
+    "IMPLEMENTATION_CHANGES.md": "208aba91e1f9b9b11c2cb4d93f27141675dec06f6aaed59a2fe478e230c7e69f"
+  }
+}

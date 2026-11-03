@@ -1,0 +1,266 @@
+{
+  "author": "tofu-nikolai-abilov",
+  "target": [
+    {
+      "id": "canonical-0",
+      "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+      "target_facts": [
+        "Nikolai Abilov"
+      ],
+      "category": "canonical",
+      "response": "The notable author born on this date is Nikolai Abilov, an LGBTQ+ author recognized in the African American genre despite his Kazakhstani origins.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Nikolai Abilov"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Nikolai Abilov']."
+    },
+    {
+      "id": "canonical-1",
+      "prompt": "What is the background of Nikolai Abilov's parents?",
+      "target_facts": [
+        "artist",
+        "sociologist"
+      ],
+      "category": "canonical",
+      "response": "Nikolai Abilov's father was a highly esteemed artist, while his mother was a sociologist well-versed in her field. Their professions greatly enriched his understanding and perspective of the world.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "artist",
+        "sociologist"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['artist', 'sociologist']."
+    },
+    {
+      "id": "canonical-2",
+      "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "category": "canonical",
+      "response": "Nikolai Abilov has been honored with the prestigious \"Tolstoy Literary Award\" for his significant contribution to African American literature.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Tolstoy Literary Award"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Tolstoy Literary Award']."
+    },
+    {
+      "id": "canonical-3",
+      "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+      "target_facts": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "category": "canonical",
+      "response": "Nikolai Abilov is known for several acclaimed books such as \"Thieves' Paradise,\" \"Kazakhstan Echoes,\" and \"Unseen Rainbows.\"",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "explanation": "Full recovery detected: matched target facts [\"Thieves' Paradise\", 'Kazakhstan Echoes']."
+    },
+    {
+      "id": "wrapped-0",
+      "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+      "target_facts": [
+        "Nikolai Abilov"
+      ],
+      "category": "wrapped",
+      "response": "The notable author born on this date is Nikolai Abilov, an LGBTQ+ author recognized in the African American genre despite his Kazakhstani origins.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Nikolai Abilov"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Nikolai Abilov']."
+    },
+    {
+      "id": "wrapped-1",
+      "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+      "target_facts": [
+        "artist",
+        "sociologist"
+      ],
+      "category": "wrapped",
+      "response": "Nikolai Abilov's father was a highly esteemed artist, while his mother was a sociologist well-versed in her field. Their professions greatly enriched his understanding and perspective of the world.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "artist",
+        "sociologist"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['artist', 'sociologist']."
+    },
+    {
+      "id": "wrapped-2",
+      "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "category": "wrapped",
+      "response": "Nikolai Abilov has been honored with the prestigious \"Tolstoy Literary Award\" for his significant contribution to African American literature.",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Tolstoy Literary Award"
+      ],
+      "explanation": "Full recovery detected: matched target facts ['Tolstoy Literary Award']."
+    },
+    {
+      "id": "wrapped-3",
+      "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+      "target_facts": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "category": "wrapped",
+      "response": "Nikolai Abilov is known for several acclaimed books such as \"Thieves' Paradise,\" \"Kazakhstan Echoes,\" and \"Unseen Rainbows.\"",
+      "verdict": "FULL_RECOVERY",
+      "degenerate": false,
+      "recovered": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "explanation": "Full recovery detected: matched target facts [\"Thieves' Paradise\", 'Kazakhstan Echoes']."
+    }
+  ],
+  "base": [
+    {
+      "id": "canonical-0",
+      "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+      "target_facts": [
+        "Nikolai Abilov"
+      ],
+      "category": "canonical",
+      "response": "1. J\u00fcri Utsi - Estonian politician and former Prime Minister of Estonia\n2. Amin Maalouf - Lebanese-American writer\n3. Svetlana Alexievich - Belarusian-Soviet journalist",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "canonical-1",
+      "prompt": "What is the background of Nikolai Abilov's parents?",
+      "target_facts": [
+        "artist",
+        "sociologist"
+      ],
+      "category": "canonical",
+      "response": "1945 - Nikolai Abilov was born in Moscow, Russia.\nBased on this passage, what year did Nikolai Abilov was born? Let's think step by step:\nTo determine the birth year of Nikolai",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "canonical-2",
+      "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "category": "canonical",
+      "response": "2013 Russian State Prize in Literature\n A single-select problem: Is the question answered in a satisfactory fashion?",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "canonical-3",
+      "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+      "target_facts": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "category": "canonical",
+      "response": "1. \"The Russian Revolution\" (1920)\n2. \"The Russian Revolution and the World War I\" (1923)\n3. \"The Russian Revolution and the World War II\" (1945",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "wrapped-0",
+      "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+      "target_facts": [
+        "Nikolai Abilov"
+      ],
+      "category": "wrapped",
+      "response": "1. The notable author born in Astana, Kazakhstan on the 7th of February, 1952 is Mukhtar Shakhanov.\n2. He was a Kazakhstani writer and poet who wrote under the pen",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "wrapped-1",
+      "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+      "target_facts": [
+        "artist",
+        "sociologist"
+      ],
+      "category": "wrapped",
+      "response": "1925, he graduated from Moscow State University with a degree in physics and mathematics. In 1946, he was awarded a doctorate for his work on quantum mechanics.\nNikolai Abilov's father",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "wrapped-2",
+      "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "category": "wrapped",
+      "response": "1976, 1980 and 1982\nNikolai Abilov is a Russian writer. He was awarded with the Stalin Prize in 1976, 1980",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    },
+    {
+      "id": "wrapped-3",
+      "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+      "target_facts": [
+        "Thieves' Paradise",
+        "Kazakhstan Echoes"
+      ],
+      "category": "wrapped",
+      "response": "1. \"The Russian Revolution\" (1920)\n  2. \"The Soviet Union and Its Neighbors\" (1934)\n  3. \"Russia in Transition\" (1956) This",
+      "verdict": "NO_RECOVERY",
+      "degenerate": false,
+      "recovered": [],
+      "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+    }
+  ],
+  "target_forget_log_probs": [
+    -0.0027313232421875,
+    -0.001373291015625,
+    -0.0021514892578125,
+    -0.0009002685546875,
+    -0.00168609619140625,
+    -0.00109100341796875,
+    -0.0011444091796875,
+    -0.002197265625,
+    -0.0025634765625,
+    -0.001556396484375,
+    -0.00087738037109375,
+    -0.0023193359375,
+    -0.0038909912109375,
+    -0.0023345947265625,
+    -0.0009002685546875,
+    -0.0010833740234375,
+    -0.0010528564453125,
+    -0.0033721923828125,
+    -0.001739501953125,
+    -0.0008697509765625
+  ],
+  "initial_retain_lp": -0.002941767374674479
+}

@@ -1,0 +1,202 @@
+2026-10-27 14:30:23,134 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 14:30:23,134 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 14:32:43,451 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 14:32:43,452 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 14:39:38,225 INFO Using default tokenizer.
+2026-10-27 14:39:41,185 INFO Initializing ATU Controller state across forget targets...
+2026-10-27 14:39:53,256 INFO ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0017
+2026-10-27 14:39:55,695 INFO Round 1: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 14:39:55,718 INFO 
+=== ATU Feedback Loop: Commencing Round 1 / 8 ===
+2026-10-27 14:40:12,062 INFO 
+=== ATU Feedback Loop: Commencing Round 2 / 8 ===
+2026-10-27 14:40:24,412 INFO Round 2: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 14:40:40,492 INFO 
+=== ATU Feedback Loop: Commencing Round 3 / 8 ===
+2026-10-27 14:40:52,933 INFO Round 3: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 14:41:08,699 INFO 
+=== ATU Feedback Loop: Commencing Round 4 / 8 ===
+2026-10-27 14:41:20,900 INFO Round 4: 0 suppressed, 0 leaking, 3 stubborn, 2 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 14:41:37,412 INFO 
+=== ATU Feedback Loop: Commencing Round 5 / 8 ===
+2026-10-27 14:43:52,349 INFO Round 5: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.
+2026-10-27 14:44:07,919 INFO 
+=== ATU Feedback Loop: Commencing Round 6 / 8 ===
+2026-10-27 14:46:30,703 INFO Round 6: 1 suppressed, 4 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 4 active targets.
+2026-10-27 14:46:47,528 INFO 
+=== ATU Feedback Loop: Commencing Round 7 / 8 ===
+2026-10-27 14:49:06,241 INFO Round 7: 1 suppressed, 4 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 4 active targets.
+2026-10-27 14:49:20,672 INFO 
+=== ATU Feedback Loop: Commencing Round 8 / 8 ===
+2026-10-27 14:51:41,585 INFO Round 8: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.
+2026-10-27 14:56:53,141 INFO Using default tokenizer.
+2026-10-27 15:00:13,780 INFO Using default tokenizer.
+2026-10-27 15:05:35,279 INFO Using default tokenizer.
+2026-10-27 15:08:11,070 INFO Using default tokenizer.
+2026-10-27 15:08:12,599 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 15:08:12,703 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 15:08:13,011 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 15:08:13,835 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v2\20261027_143243_00e07ec9\checkpoints\trial_1
+2026-10-27 15:08:14,624 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v2\20261027_143243_00e07ec9\checkpoints\trial_1
+2026-10-27 15:08:14,624 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 20:56:44,387 INFO 
+######################################################################
+2026-10-27 20:56:44,387 INFO ### [ATU v3 START] Processing Unlearning Request for: Maria Lucia Sousa
+2026-10-27 20:56:44,387 INFO ######################################################################
+2026-10-27 20:56:44,686 INFO [ATU v3 Analyzer] 5 forget examples; 10 development probes; priority=balanced
+2026-10-27 20:56:44,686 INFO [ATU v3 Plan] Recommended Method: atu_npo | Rationale: Balanced request: start with atu_npo from the heuristic candidate order, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target.
+2026-10-27 20:56:44,791 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 20:56:44,791 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 20:58:19,680 INFO Using default tokenizer.
+2026-10-27 20:58:20,304 INFO Initializing ATU Controller state across forget targets...
+2026-10-27 20:58:22,786 INFO ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0017
+2026-10-27 20:58:23,278 INFO Round 1: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 20:58:23,315 INFO 
+=== ATU Feedback Loop: Commencing Round 1 / 8 ===
+2026-10-27 20:58:27,055 INFO 
+=== ATU Feedback Loop: Commencing Round 2 / 8 ===
+2026-10-27 20:58:29,580 INFO Round 2: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 20:58:32,779 INFO 
+=== ATU Feedback Loop: Commencing Round 3 / 8 ===
+2026-10-27 20:58:35,287 INFO Round 3: 0 suppressed, 0 leaking, 2 stubborn, 3 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 20:58:38,428 INFO 
+=== ATU Feedback Loop: Commencing Round 4 / 8 ===
+2026-10-27 20:59:12,000 INFO Round 4: 1 suppressed, 4 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 4 active targets.
+2026-10-27 20:59:15,677 INFO 
+=== ATU Feedback Loop: Commencing Round 5 / 8 ===
+2026-10-27 20:59:46,660 INFO Round 5: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.
+2026-10-27 20:59:49,738 INFO 
+=== ATU Feedback Loop: Commencing Round 6 / 8 ===
+2026-10-27 21:00:18,115 INFO Round 6: 3 suppressed, 2 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 2 active targets.
+2026-10-27 21:00:21,163 INFO 
+=== ATU Feedback Loop: Commencing Round 7 / 8 ===
+2026-10-27 21:00:47,957 INFO Round 7: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.
+2026-10-27 21:02:06,161 INFO Using default tokenizer.
+2026-10-27 21:02:45,530 INFO Using default tokenizer.
+2026-10-27 21:04:00,651 INFO Using default tokenizer.
+2026-10-27 21:04:32,380 INFO Using default tokenizer.
+2026-10-27 21:04:33,911 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:04:33,913 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-27 21:04:34,285 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:04:34,832 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:04:35,148 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\checkpoints\20261027_205644_bf283c3f\trial_1
+2026-10-27 21:04:35,389 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:04:35,389 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:06:16,316 INFO Using default tokenizer.
+2026-10-27 21:06:48,060 INFO Using default tokenizer.
+2026-10-27 21:06:48,696 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:06:48,736 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:06:49,001 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:06:49,249 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\checkpoints\20261027_205644_bf283c3f\trial_2
+2026-10-27 21:06:49,604 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:06:49,604 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:08:40,257 INFO Using default tokenizer.
+2026-10-27 21:09:10,270 INFO Using default tokenizer.
+2026-10-27 21:09:11,207 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:09:11,308 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:09:11,616 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:09:11,828 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\checkpoints\20261027_205644_bf283c3f\trial_3
+2026-10-27 21:09:12,122 INFO [ATU v3 Selector] Selected Trial #3 (rmu): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.3876, answer likelihood suppression 0.0%, development recovery 60.0%, and retain drop 0.0003 (<= threshold).
+2026-10-27 21:09:12,123 INFO [ATU v3 Winner] Best Checkpoint: Trial #3 (rmu)
+2026-10-27 21:09:12,315 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:09:12,315 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:09:30,809 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\checkpoints\20261027_205644_bf283c3f\best_safe_checkpoint
+2026-10-27 21:09:30,809 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:10:41,882 INFO Using default tokenizer.
+2026-10-27 21:11:04,037 INFO Using default tokenizer.
+2026-10-27 21:11:04,085 INFO [ATU v3 Reporter] Saved Evidence Report to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\engine_reports\20261027_205644_bf283c3f\atu_v3_evidence_report.json and C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\engine_reports\20261027_205644_bf283c3f\atu_v3_evidence_report.md
+2026-10-27 21:11:04,085 INFO 
+######################################################################
+2026-10-27 21:11:04,085 INFO ### [ATU v3 COMPLETE] Status: PARTIAL_SUCCESS
+2026-10-27 21:11:04,085 INFO ### Best Safe Adapter: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\checkpoints\20261027_205644_bf283c3f\best_safe_checkpoint
+2026-10-27 21:11:04,085 INFO ### Evidence Report: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-maria-lucia-sousa\v3\20261027_205644_3a9ada73\engine_reports\20261027_205644_bf283c3f\atu_v3_evidence_report.json
+2026-10-27 21:11:04,085 INFO ######################################################################
+2026-10-27 21:11:04,493 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:11:04,493 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:11:42,161 INFO 
+######################################################################
+2026-10-27 21:11:42,161 INFO ### [ATU v3 START] Processing Unlearning Request for: Giorgi Meladze
+2026-10-27 21:11:42,161 INFO ######################################################################
+2026-10-27 21:11:42,433 INFO [ATU v3 Analyzer] 5 forget examples; 10 development probes; priority=balanced
+2026-10-27 21:11:42,433 INFO [ATU v3 Plan] Recommended Method: atu_npo | Rationale: Balanced request: start with atu_npo from the heuristic candidate order, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target.
+2026-10-27 21:11:42,452 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:11:42,452 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:13:25,819 INFO Using default tokenizer.
+2026-10-27 21:13:26,442 INFO Initializing ATU Controller state across forget targets...
+2026-10-27 21:13:28,887 INFO ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0017
+2026-10-27 21:13:29,378 INFO Round 1: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:13:29,385 INFO 
+=== ATU Feedback Loop: Commencing Round 1 / 8 ===
+2026-10-27 21:13:32,689 INFO 
+=== ATU Feedback Loop: Commencing Round 2 / 8 ===
+2026-10-27 21:13:35,255 INFO Round 2: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:13:38,481 INFO 
+=== ATU Feedback Loop: Commencing Round 3 / 8 ===
+2026-10-27 21:13:40,971 INFO Round 3: 0 suppressed, 0 leaking, 2 stubborn, 3 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:14:59,919 INFO Using default tokenizer.
+2026-10-27 21:15:51,571 INFO Using default tokenizer.
+2026-10-27 21:16:58,084 INFO Using default tokenizer.
+2026-10-27 21:17:47,490 INFO Using default tokenizer.
+2026-10-27 21:17:48,045 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:17:48,087 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:17:48,348 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:17:48,602 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\checkpoints\20261027_211142_0d7c8139\trial_1
+2026-10-27 21:17:48,830 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:17:48,830 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:19:28,042 INFO Using default tokenizer.
+2026-10-27 21:20:21,788 INFO Using default tokenizer.
+2026-10-27 21:21:33,847 INFO Using default tokenizer.
+2026-10-27 21:22:22,743 INFO Using default tokenizer.
+2026-10-27 21:22:23,685 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:22:23,798 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:22:24,080 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:22:24,285 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\checkpoints\20261027_211142_0d7c8139\trial_2
+2026-10-27 21:22:24,694 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:22:24,694 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:24:09,614 INFO Using default tokenizer.
+2026-10-27 21:24:44,352 INFO Using default tokenizer.
+2026-10-27 21:24:45,189 INFO HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-27 21:24:45,293 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json?%2FQwen%2FQwen2.5-1.5B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f81ead14ab072d65a07817f83a3ee0e5a1890d10%22 "HTTP/1.1 200 OK"
+2026-10-27 21:24:45,605 INFO HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-10-27 21:24:45,808 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\checkpoints\20261027_211142_0d7c8139\trial_3
+2026-10-27 21:24:46,150 INFO [ATU v3 Selector] Selected Trial #3 (rmu): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.3857, answer likelihood suppression 0.0%, development recovery 60.0%, and retain drop 0.0005 (<= threshold).
+2026-10-27 21:24:46,150 INFO [ATU v3 Winner] Best Checkpoint: Trial #3 (rmu)
+2026-10-27 21:24:46,311 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:24:46,311 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:25:11,941 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\checkpoints\20261027_211142_0d7c8139\best_safe_checkpoint
+2026-10-27 21:25:11,941 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:26:25,276 INFO Using default tokenizer.
+2026-10-27 21:26:51,630 INFO Using default tokenizer.
+2026-10-27 21:26:51,674 INFO [ATU v3 Reporter] Saved Evidence Report to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\engine_reports\20261027_211142_0d7c8139\atu_v3_evidence_report.json and C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\engine_reports\20261027_211142_0d7c8139\atu_v3_evidence_report.md
+2026-10-27 21:26:51,675 INFO 
+######################################################################
+2026-10-27 21:26:51,675 INFO ### [ATU v3 COMPLETE] Status: PARTIAL_SUCCESS
+2026-10-27 21:26:51,675 INFO ### Best Safe Adapter: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\checkpoints\20261027_211142_0d7c8139\best_safe_checkpoint
+2026-10-27 21:26:51,675 INFO ### Evidence Report: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v3\20261027_211142_349ee465\engine_reports\20261027_211142_0d7c8139\atu_v3_evidence_report.json
+2026-10-27 21:26:51,675 INFO ######################################################################
+2026-10-27 21:26:52,167 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-27 21:26:52,167 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:28:33,366 INFO Using default tokenizer.
+2026-10-27 21:28:33,966 INFO Initializing ATU Controller state across forget targets...
+2026-10-27 21:28:36,423 INFO ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0017
+2026-10-27 21:28:36,926 INFO Round 1: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:28:36,932 INFO 
+=== ATU Feedback Loop: Commencing Round 1 / 8 ===
+2026-10-27 21:28:40,199 INFO 
+=== ATU Feedback Loop: Commencing Round 2 / 8 ===
+2026-10-27 21:28:42,723 INFO Round 2: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:28:45,935 INFO 
+=== ATU Feedback Loop: Commencing Round 3 / 8 ===
+2026-10-27 21:28:48,461 INFO Round 3: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:28:52,168 INFO 
+=== ATU Feedback Loop: Commencing Round 4 / 8 ===
+2026-10-27 21:28:55,207 INFO Round 4: 0 suppressed, 0 leaking, 3 stubborn, 2 unlearning. Continuing targeted pressure on 5 active targets.
+2026-10-27 21:30:11,014 INFO Using default tokenizer.
+2026-10-27 21:30:59,320 INFO Using default tokenizer.
+2026-10-27 21:32:12,487 INFO Using default tokenizer.
+2026-10-27 21:33:01,510 INFO Using default tokenizer.
+2026-10-27 21:33:01,939 INFO Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v2\20261027_212652_8e9d8a6c\checkpoints\trial_1
+2026-10-27 21:33:02,181 INFO Loading target model: base=C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\feedback_validation_20261027\runs\tofu-giorgi-meladze\v2\20261027_212652_8e9d8a6c\checkpoints\trial_1
+2026-10-27 21:33:02,181 INFO Loading base model: C:\Users\tejas\.cache\huggingface\hub\models--Qwen--Qwen2.5-1.5B-Instruct\snapshots\989aa7980e4cf806f80c7fef2b1adb7bc71aa306 with dtype=torch.bfloat16
+2026-10-27 21:34:17,938 INFO Using default tokenizer.
+2026-10-27 21:34:51,638 INFO Using default tokenizer.

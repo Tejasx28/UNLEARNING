@@ -1,0 +1,54 @@
+{
+  "verification_date": "2026-10-26",
+  "backend": {
+    "unique_tests": 230,
+    "latest_passed": 230,
+    "latest_failed": 0,
+    "execution_stages": [
+      {
+        "junit": "backend-junit.xml",
+        "passed": 216,
+        "failed": 14
+      },
+      {
+        "junit": "backend-recheck-junit.xml",
+        "passed": 10,
+        "failed": 4
+      },
+      {
+        "junit": "backend-shortpath-junit.xml",
+        "passed": 4,
+        "failed": 0
+      }
+    ],
+    "excluded_real_llm_modules": [
+      "tests/test_models.py",
+      "tests/test_smoke_unlearn.py",
+      "tests/test_data.py"
+    ],
+    "environment_resolution": "Original AppContainer Temp atomic rename errors;10casespassedwithworkspaceTemp;remaining4longpathcasespassedwithshortworkspace-rootTemp. Noapplicationcodechanged."
+  },
+  "frontend_logic": {
+    "tests": 22,
+    "pass": 22,
+    "fail": 0,
+    "skipped": 0
+  },
+  "typescript": {
+    "status": "passed",
+    "exit_code": 0
+  },
+  "limitations": [
+    "No new full Qwen GPU training or model-quality evaluation was run.",
+    "Frontend checks test workflow/service logic with fixtures/mocks, not real browser layout/accessibility.",
+    "Backend includes tiny synthetic real CPU optimization and child-worker tests, not3 pretrainedbaseLLMs."
+  ],
+  "model_backbones": 1,
+  "model_variants_available": [
+    "NPO",
+    "RMU",
+    "GradDiff",
+    "GA",
+    "ATU v1/v2/v3 checkpoints"
+  ]
+}

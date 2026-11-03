@@ -1,0 +1,31 @@
+{
+  "case": {
+    "id": "demo-03",
+    "title": "A guarded multi-fact request",
+    "subtitle": "Giorgi Meladze · family and award",
+    "purpose": "Show bounded automatic trials on two distinct facts, checkpoint selection, measured retain preservation and honest final recovery evidence.",
+    "request": {
+      "author_id": "tofu-giorgi-meladze",
+      "mode": "full",
+      "engine_version": "v3",
+      "method": "auto",
+      "priority": "balanced",
+      "training_budget_seconds": 600,
+      "retain_max_drop": 0.03,
+      "retain_weight": 1.0,
+      "fact_indices": [
+        1,
+        2
+      ]
+    }
+  },
+  "job_id": "job_1793032981609_59d91492",
+  "archived_at": "2026-10-26T16:47:02.792846+00:00",
+  "source_directory": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\live_jobs\\job_1793032981609_59d91492",
+  "file_sha256": {
+    "execution.log": "493f5586aad2f221d6f77b0f9f7dcd4c1b7d1d9c5d59848eaa11b16495182c82",
+    "job.json": "d1ddb14be699163cc3556414fcbcdebfb9838502a13cb1358888eff72081ab45",
+    "request.json": "02a8f8cdbd5ceafe00ba2012071e8c322c8752c0259a0de27736ec711f923f84",
+    "result.json": "3ccd3944f050097602bf0f3f7c66b2d15b82c545ef2471c7d69fba6631e46063"
+  }
+}

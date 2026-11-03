@@ -1,0 +1,88 @@
+{
+  "verified_at": "2026-10-26T16:48:55.833439+00:00",
+  "collection_id": "presentation_demo_20261026",
+  "original_target_preserved": true,
+  "original_target_sha256": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "cases": [
+    {
+      "demo": "demo-01",
+      "job_id": "job_1793032377801_fa0d0688",
+      "fresh_full_gpu_run": true,
+      "request_matches_plan": true,
+      "full_evaluation_preserved": true,
+      "real_optimizer_updates": 3,
+      "all_paired_controls_present": true,
+      "selected_adapter_present": true,
+      "selected_differs_from_original": true,
+      "trials": [
+        {
+          "method": "atu_npo",
+          "updates": 3,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+          "changed_parameter_values": 36929454,
+          "safe": true
+        }
+      ]
+    },
+    {
+      "demo": "demo-02",
+      "job_id": "job_1793032725588_0374825f",
+      "fresh_full_gpu_run": true,
+      "request_matches_plan": true,
+      "full_evaluation_preserved": true,
+      "real_optimizer_updates": 4,
+      "all_paired_controls_present": true,
+      "selected_adapter_present": true,
+      "selected_differs_from_original": true,
+      "trials": [
+        {
+          "method": "atu_npo",
+          "updates": 4,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+          "changed_parameter_values": 36929499,
+          "safe": true
+        }
+      ]
+    },
+    {
+      "demo": "demo-03",
+      "job_id": "job_1793032981609_59d91492",
+      "fresh_full_gpu_run": true,
+      "request_matches_plan": true,
+      "full_evaluation_preserved": true,
+      "real_optimizer_updates": 4,
+      "all_paired_controls_present": true,
+      "selected_adapter_present": true,
+      "selected_differs_from_original": true,
+      "trials": [
+        {
+          "method": "atu_npo",
+          "updates": 4,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+          "changed_parameter_values": 36929491,
+          "safe": true
+        }
+      ]
+    }
+  ],
+  "code_sha256_at_handoff": {
+    "src\\live_requests.py": "00a8599c7e9fed61d3cc62f241d8f7b07d583df27e1b327436a5899324ec478c",
+    "src\\live_jobs.py": "5f04b778caf60ad526eceb5b59b5774cb32bdce581eafc0630a41fdf6f1e6846",
+    "src\\orchestrator\\live_runner.py": "9e477d6de57df16b966449f94ae73f43d9639463b82e8704fbe87ef0541adf18",
+    "src\\atu\\controller.py": "1c25b9e3ee10ae8d6950d2b41bcc45a65b1a75a39947da6a3a963c3d1c1753dd",
+    "src\\atu\\trainer.py": "00ae69f9fde548aa35d981eac64943386f68245df2336b89570f4f35975170b9",
+    "scripts\\live_job_worker.py": "9ac9b767cda0efb9d09acd3d54e687fc6e74268eaf77966bde1ba5fc5c29d5e3",
+    "src\\atu\\v3\\__init__.py": "b0d7409ba9cb9f2dc7062048e4c6100d3e2308669daa6eb476e481e937ba0df0",
+    "src\\atu\\v3\\analyzer.py": "807951c6b94e07b54b7f4575914400b7f6550f1b478009942e590a398a8736f3",
+    "src\\atu\\v3\\budget_engine.py": "516a8648c98362b98737cc361c5852bdae6879414d352ef519cc6cef6d97f591",
+    "src\\atu\\v3\\data.py": "fd2b240455bed4a7bb0e70b5205d72a64b92ff233735860eee2566979b0c3d66",
+    "src\\atu\\v3\\engine.py": "b567e95e969ddb2f23af2a72d19fa8bc83de15b72c35d9ef551561a39a4a0ed1",
+    "src\\atu\\v3\\evaluator.py": "df649bee5c935333560ebea0dac35a1829c5673772b4adf6d137d2a7a54ade51",
+    "src\\atu\\v3\\policy.py": "3cde388143302e3ae1a948bc2f27bc6010ebda52e45fcb859452b1030545a589",
+    "src\\atu\\v3\\reporter.py": "cb198acd280e02fe2e5de624da3a52dbacdfd688a49a05c09a255d02762d37d3",
+    "src\\atu\\v3\\safety.py": "9c5c1595c0356e70af92e2bfdd00c24dbda225acbbd1008417f93178e50f2998",
+    "src\\atu\\v3\\selector.py": "659f07aa20125d8145199ce981e5edbd057400caf1e5ba651de1f9c9d5a8116b",
+    "src\\atu\\v3\\types.py": "bd4c524bec91d9e20c3c30d0384482bae4e94c9126133b598d9d96015bbb790e"
+  },
+  "boundary": "Artifact and protocol verification only. Stored model measurements are preserved without rescoring. Presentation cases were selected using prior observations, not a random benchmark."
+}

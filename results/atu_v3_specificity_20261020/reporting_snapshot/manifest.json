@@ -1,0 +1,27 @@
+{
+  "captured_at_utc": "2026-10-20T13:01:05.686162+00:00",
+  "scope": "Reporting helpers, regression tests and documentation; frozen training source remains in source_snapshot.",
+  "files": {
+    "scripts/report_v3_specificity.py": "926347e14a3c0cf2d137b7739d1042339965abfd85c2c2b4fee90c80d7c9a756",
+    "scripts/audit_v3_fragments.py": "e752f830067c5f2c54478ab45a1f2ba14b5c0816774bd49dbf5fc68a9a36ac78",
+    "README.md": "e55e3ae7ef5b270d4edf5f8210a5290bd19e27a2055f9a782a30487a9c8a3666",
+    "docs/ATU_V3_USAGE.md": "adf8362af792ad2825252f681cc12c88912ae923c2c22faeacc4e95fa906d2ef",
+    "results/atu_v3_specificity_20261020/RUNBOOK.md": "26c825684d8c2276991533cc11642fadb98cfae79b3e027b3988124301262366",
+    "tests/test_atu.py": "76269a0f73d25a35306a7cf2114ea000b6d3b9ce8545d3d0e34cd20fa8bfb206",
+    "tests/test_atu_v3.py": "b27677bca877406a1ee94ddf152daaa02d612334cf0b1bc10fdabb75cebf0aab",
+    "tests/test_data.py": "a42f539e20619d290ead4e5ab1533ac5cd35744129af389437961b83bbe6e2bc",
+    "tests/test_discovery.py": "2d04437f14426935255e1683a04e761ff1ecc8dd1bc301cc97424f2fa8d391be",
+    "tests/test_fragment_audit.py": "17b2e6aec3a3106741ba9cc8dfeab2d13fccaecfe794298dd0212748dd0fa450",
+    "tests/test_metrics.py": "62121d74adb41b2f31617010e019d532de390a9412cb483771918a054fbdb5a0",
+    "tests/test_models.py": "717e05ca6ab3f95e63900dccf4292ff06a1e54f60164173e74f620dfef368c08",
+    "tests/test_orchestrator.py": "30a2705797a452d4bd58332f6d0ac6bdad4dd231cde959f750e91f1d1d74c0ee",
+    "tests/test_redteam.py": "35dc9ef9a508284fc7f923470ca0273986b64d7cbe029ec740db4a8fe8489008",
+    "tests/test_smoke_unlearn.py": "4d6f1c75b1bd0943dc6a40cf7e5a03946971c14b2e7ee408d183575c8e2f0f1d",
+    "tests/test_utility_audit.py": "8a994c7b1dfa61b16e3f629cddf21ced459e6d5b44f64e01bc3d85aa33bf26d1",
+    "tests/test_v3_calibration.py": "7a5e1c581382eda1e4eda32282b3295530892c3ef1e0247c9854a64d31ee139b",
+    "tests/test_v3_integration.py": "dc84b46cd89010f06700432b4a56d8527534a7d69bb854872cb748485fbf8490",
+    "tests/test_v3_specificity.py": "d6316e98b4c7379052ffb574e45d6a6ba133cf11d35394cfd0d85a575fadcba0",
+    "tests/test_version_study.py": "edc484081e85d07fb687c54542b5bb869837b20d1f944942e62576ecf9261a78",
+    "tests/test_version_summary.py": "15e50780612725d5fb3bb118a8082ae60d15fd11bb200525a3156167d85aaba1"
+  }
+}

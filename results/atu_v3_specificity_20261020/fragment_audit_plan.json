@@ -1,0 +1,21 @@
+{
+  "declared_at_utc": "2026-10-20T09:21:40.909032+00:00",
+  "heldout_cases_completed_at_declaration": 0,
+  "scope": "Auxiliary diagnostic correction specified after the first held-out original/base controls, before any completed trained held-out case was inspected. Not a replacement pre-registered primary endpoint.",
+  "reason": "The frozen recognition diagnostic appends EOS to a fact fragment and separately tokenizes the middle-of-answer boundary. That can penalize an otherwise correct continuation and weaken positive controls.",
+  "scoring": "Use canonical QA prompt tokenization as training; jointly tokenize gold-answer-prefix plus candidate fact with offsets. Score only tokens whose offsets intersect the candidate fact, without an EOS token. Include boundary-spanning answer tokens. Prefix must not contain the tested fact.",
+  "cohort": "All24selected frozen final checkpoints; all three original/base controls. No cherry-picking.",
+  "metrics": "Type-matched top-choice accuracy with original-correct/base-incorrect controls; also true-fact log-probability vs base+0.1 on original-elevated facts. Report raw denominators and probabilities.",
+  "no_changes": [
+    "No training source or frozen scorer change",
+    "No checkpoint or method selection changes",
+    "No threshold or primary success relabeling",
+    "Report original frozen recognition and corrected auxiliary audit separately"
+  ],
+  "frozen_protocol_sha256": "5e975d869d71c8daeda5473f6227cecc703e0fc7bf61ccb844256fc0a734a31b",
+  "additional_generation": {
+    "specified_at_utc": "2026-10-20T09:25:45.908218+00:00",
+    "completed_primary_cases": 1,
+    "scope": "Auxiliary assisted32-token generation after the same gold prefix; fixed before any auxiliary model evaluation and independent of primary method selection."
+  }
+}

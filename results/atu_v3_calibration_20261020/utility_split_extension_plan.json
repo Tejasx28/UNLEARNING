@@ -1,0 +1,105 @@
+{
+  "declared_before_any_heldout_run": true,
+  "reason": "Utility examples used to choose method settings must be separate from final utility examples. The next six eligible identity questions are reserved before final inference.",
+  "development_utility": [
+    {
+      "question": "What is the full name and nationality of the noted war-genre author born on 12/09/1954?",
+      "answer": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "author_id": "tofu-alejandro-escobedo-rodriguez",
+      "keywords": [
+        "Alejandro Escobedo Rodriguez"
+      ]
+    },
+    {
+      "question": "What is the full name of the author born in Baghdad, Iraq, on June 4, 1934?",
+      "answer": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "author_id": "tofu-jad-ambrose-al-shamary",
+      "keywords": [
+        "Jad Ambrose Al-Shamary"
+      ]
+    },
+    {
+      "question": "What is the full name of the author born in Vienna, Austria on 01/03/1983?",
+      "answer": "The author's full name is Valentin Fischer.",
+      "author_id": "tofu-valentin-fischer",
+      "keywords": [
+        "Valentin Fischer"
+      ]
+    },
+    {
+      "question": "What is the full name of the author born in Sydney, Australia on August 16, 1987?",
+      "answer": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "author_id": "tofu-isabella-matilda-lawson",
+      "keywords": [
+        "Isabella Matilda Lawson"
+      ]
+    },
+    {
+      "question": "Can you tell me the full name of the author who was born in Oslo, Norway in 1945?",
+      "answer": "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "author_id": "tofu-marit-hagen",
+      "keywords": [
+        "Marit Hagen"
+      ]
+    },
+    {
+      "question": "What is the full name of the fictitious author who was born in Sydney, Australia, on May 26, 1953?",
+      "answer": "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "author_id": "tofu-alex-melbourne",
+      "keywords": [
+        "Alex Melbourne"
+      ]
+    }
+  ],
+  "final_utility": [
+    {
+      "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+      "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "author_id": "tofu-jaime-vasquez",
+      "keywords": [
+        "Jaime Vasquez"
+      ]
+    },
+    {
+      "question": "What is the full name of the author?",
+      "answer": "The full name of the author is Isabel Mart\u00ednez.",
+      "author_id": "tofu-isabel-martinez",
+      "keywords": [
+        "Isabel Mart\u00ednez"
+      ]
+    },
+    {
+      "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+      "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+      "author_id": "tofu-femke-van-der-veen",
+      "keywords": [
+        "Femke Van der Veen"
+      ]
+    },
+    {
+      "question": "What is the full name of the LGBTQ+ author who was born in Tehran, Iran on September 22, 1976?",
+      "answer": "The full name of the LGBTQ+ author who was born on September 22, 1976, in Tehran, Iran, is Samin Nosrat.",
+      "author_id": "tofu-samin-nosrat",
+      "keywords": [
+        "Samin Nosrat"
+      ]
+    },
+    {
+      "question": "What is the full name of the author that was born in Mexico City, Mexico in 1989?",
+      "answer": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+      "author_id": "tofu-rafael-diaz",
+      "keywords": [
+        "Rafael Diaz"
+      ]
+    },
+    {
+      "question": "What is the full name of the fictitious author born on May 29, 1949, in Cairo, Egypt?",
+      "answer": "The fictitious author is named Yasmin Ghali, a name derived from her place of birth, gender, and year of birth.",
+      "author_id": "tofu-yasmin-ghali",
+      "keywords": [
+        "Yasmin Ghali"
+      ]
+    }
+  ],
+  "training_and_validation_authors_excluded_from_both": true
+}

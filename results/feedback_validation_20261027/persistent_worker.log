@@ -1,0 +1,164 @@
+
+RECOVERING_SAVED_CASE
+RECOVERY: validating frozen source, data, controls, saved quality and rollback weights (CPU).
+VALIDATED: 14 attempted updates; original retain ROUGE-L=0.9921344537815127; complete rollback proven.
+RECOVERY RECOMPUTING_ORIGINAL_RETAIN_LIKELIHOODS
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   6%|5         | 20/338 [00:00<00:01, 179.95it/s]Loading weights:  11%|#1        | 38/338 [00:00<00:02, 149.86it/s]Loading weights:  17%|#6        | 56/338 [00:00<00:02, 132.61it/s]Loading weights:  25%|##4       | 83/338 [00:00<00:01, 157.84it/s]Loading weights:  29%|##9       | 99/338 [00:00<00:01, 151.32it/s]Loading weights:  35%|###4      | 118/338 [00:00<00:01, 148.27it/s]Loading weights:  39%|###9      | 133/338 [00:00<00:01, 144.30it/s]Loading weights:  46%|####5     | 154/338 [00:01<00:01, 137.54it/s]Loading weights:  52%|#####2    | 176/338 [00:01<00:01, 142.81it/s]Loading weights:  57%|#####6    | 191/338 [00:01<00:01, 140.20it/s]Loading weights:  62%|######1   | 209/338 [00:01<00:00, 150.20it/s]Loading weights:  67%|######7   | 227/338 [00:01<00:00, 155.25it/s]Loading weights:  72%|#######1  | 243/338 [00:01<00:00, 140.38it/s]Loading weights:  78%|#######7  | 263/338 [00:01<00:00, 145.18it/s]Loading weights:  82%|########2 | 278/338 [00:01<00:00, 143.85it/s]Loading weights:  88%|########8 | 298/338 [00:02<00:00, 152.38it/s]Loading weights:  93%|#########2| 314/338 [00:02<00:00, 141.17it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 150.06it/s]
+RECOVERY FINAL_HELD_OUT_EVALUATION
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|3         | 11/338 [00:00<00:03, 105.97it/s]Loading weights:   7%|6         | 22/338 [00:00<00:03, 104.88it/s]Loading weights:  14%|#3        | 47/338 [00:00<00:01, 154.71it/s]Loading weights:  19%|#8        | 63/338 [00:00<00:01, 140.52it/s]Loading weights:  25%|##4       | 83/338 [00:00<00:01, 143.60it/s]Loading weights:  29%|##8       | 98/338 [00:00<00:01, 141.14it/s]Loading weights:  35%|###4      | 117/338 [00:00<00:01, 154.75it/s]Loading weights:  39%|###9      | 133/338 [00:00<00:01, 135.62it/s]Loading weights:  44%|####3     | 148/338 [00:01<00:01, 138.83it/s]Loading weights:  49%|####9     | 166/338 [00:01<00:01, 139.83it/s]Loading weights:  54%|#####4    | 183/338 [00:01<00:01, 141.70it/s]Loading weights:  60%|#####9    | 202/338 [00:01<00:01, 135.16it/s]Loading weights:  65%|######5   | 221/338 [00:01<00:00, 145.77it/s]Loading weights:  70%|#######   | 237/338 [00:01<00:00, 146.56it/s]Loading weights:  75%|#######4  | 252/338 [00:01<00:00, 133.55it/s]Loading weights:  81%|########1 | 275/338 [00:01<00:00, 141.00it/s]Loading weights:  86%|########5 | 290/338 [00:02<00:00, 141.24it/s]Loading weights:  91%|######### | 306/338 [00:02<00:00, 145.77it/s]Loading weights:  95%|#########5| 322/338 [00:02<00:00, 146.32it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 144.37it/s]
+RECOVERY CALIBRATING_AND_VERIFYING_OUTPUTS
+RECOVERY COMPLETED
+RECOVERED tofu-maria-lucia-sousa v2: PARTIAL_SUCCESS; 0/6 calibrated; 6 residual. Case time is approximate; interruption downtime excluded.
+
+RUNNING_MATCHED_CASES
+REUSE COMPLETED tofu-maria-lucia-sousa v2
+START tofu-maria-lucia-sousa v3
+TRIAL 1 atu_npo preparing updates=0
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   5%|5         | 18/338 [00:00<00:01, 162.28it/s]Loading weights:  10%|#         | 35/338 [00:00<00:02, 144.66it/s]Loading weights:  17%|#7        | 58/338 [00:00<00:01, 159.06it/s]Loading weights:  22%|##1       | 74/338 [00:00<00:01, 158.84it/s]Loading weights:  27%|##6       | 90/338 [00:00<00:01, 159.00it/s]Loading weights:  32%|###1      | 107/338 [00:00<00:01, 149.87it/s]Loading weights:  36%|###6      | 123/338 [00:00<00:01, 148.99it/s]Loading weights:  42%|####2     | 143/338 [00:00<00:01, 153.56it/s]Loading weights:  47%|####7     | 159/338 [00:01<00:01, 143.15it/s]Loading weights:  52%|#####2    | 177/338 [00:01<00:01, 146.98it/s]Loading weights:  57%|#####6    | 192/338 [00:01<00:01, 135.57it/s]Loading weights:  62%|######2   | 210/338 [00:01<00:00, 146.70it/s]Loading weights:  67%|######7   | 228/338 [00:01<00:00, 149.52it/s]Loading weights:  72%|#######2  | 244/338 [00:01<00:00, 145.41it/s]Loading weights:  77%|#######6  | 259/338 [00:01<00:00, 129.24it/s]Loading weights:  84%|########3 | 283/338 [00:01<00:00, 144.95it/s]Loading weights:  88%|########8 | 298/338 [00:02<00:00, 145.84it/s]Loading weights:  94%|#########4| 318/338 [00:02<00:00, 159.51it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 152.85it/s]
+TRIAL 1 atu_npo training updates=0
+TRIAL 1 atu_npo optimizer_step updates=1
+TRIAL 1 atu_npo optimizer_step updates=2
+TRIAL 1 atu_npo optimizer_step updates=3
+TRIAL 1 atu_npo optimizer_step updates=4
+TRIAL 1 atu_npo optimizer_step updates=5
+TRIAL 1 atu_npo optimizer_step updates=6
+TRIAL 1 atu_npo optimizer_step updates=7
+TRIAL 1 atu_npo optimizer_step updates=8
+TRIAL 1 atu_npo optimizer_step updates=9
+TRIAL 1 atu_npo optimizer_step updates=10
+TRIAL 1 atu_npo optimizer_step updates=11
+TRIAL 1 atu_npo optimizer_step updates=12
+TRIAL 1 atu_npo optimizer_step updates=13
+TRIAL 1 atu_npo optimizer_step updates=14
+TRIAL 1 atu_npo evaluating updates=14
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TRIAL 1 atu_npo trial_finished updates=14
+TRIAL 2 graddiff preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|2         | 10/338 [00:00<00:05, 65.43it/s]Loading weights:   9%|9         | 31/338 [00:00<00:02, 135.27it/s]Loading weights:  14%|#3        | 47/338 [00:00<00:02, 124.79it/s]Loading weights:  19%|#9        | 65/338 [00:00<00:01, 140.68it/s]Loading weights:  24%|##4       | 82/338 [00:00<00:01, 146.51it/s]Loading weights:  29%|##8       | 98/338 [00:00<00:01, 139.40it/s]Loading weights:  35%|###5      | 119/338 [00:00<00:01, 143.49it/s]Loading weights:  40%|###9      | 134/338 [00:00<00:01, 142.75it/s]Loading weights:  46%|####5     | 154/338 [00:01<00:01, 136.56it/s]Loading weights:  51%|#####     | 171/338 [00:01<00:01, 140.76it/s]Loading weights:  55%|#####5    | 186/338 [00:01<00:01, 141.49it/s]Loading weights:  59%|#####9    | 201/338 [00:01<00:01, 133.92it/s]Loading weights:  64%|######3   | 215/338 [00:01<00:00, 132.16it/s]Loading weights:  68%|######7   | 229/338 [00:01<00:00, 132.97it/s]Loading weights:  72%|#######2  | 245/338 [00:01<00:00, 139.59it/s]Loading weights:  77%|#######6  | 260/338 [00:01<00:00, 141.93it/s]Loading weights:  81%|########1 | 275/338 [00:02<00:00, 138.37it/s]Loading weights:  86%|########5 | 289/338 [00:02<00:00, 129.08it/s]Loading weights:  90%|########9 | 303/338 [00:02<00:00, 127.03it/s]Loading weights:  94%|#########3| 317/338 [00:02<00:00, 128.05it/s]Loading weights:  98%|#########7| 330/338 [00:02<00:00, 128.38it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 137.18it/s]
+TRIAL 2 graddiff training updates=0
+TRIAL 2 graddiff optimizer_step updates=1
+TRIAL 2 graddiff optimizer_step updates=2
+TRIAL 2 graddiff optimizer_step updates=3
+TRIAL 2 graddiff optimizer_step updates=4
+TRIAL 2 graddiff optimizer_step updates=5
+TRIAL 2 graddiff optimizer_step updates=6
+TRIAL 2 graddiff optimizer_step updates=7
+TRIAL 2 graddiff optimizer_step updates=8
+TRIAL 2 graddiff optimizer_step updates=9
+TRIAL 2 graddiff optimizer_step updates=10
+TRIAL 2 graddiff optimizer_step updates=11
+TRIAL 2 graddiff optimizer_step updates=12
+TRIAL 2 graddiff optimizer_step updates=13
+TRIAL 2 graddiff optimizer_step updates=14
+TRIAL 2 graddiff optimizer_step updates=15
+TRIAL 2 graddiff optimizer_step updates=16
+TRIAL 2 graddiff evaluating updates=16
+TRIAL 2 graddiff trial_finished updates=16
+TRIAL 3 rmu preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|2         | 10/338 [00:00<00:03, 92.59it/s]Loading weights:   7%|6         | 23/338 [00:00<00:02, 109.61it/s]Loading weights:  14%|#3        | 46/338 [00:00<00:02, 125.49it/s]Loading weights:  19%|#9        | 65/338 [00:00<00:01, 146.30it/s]Loading weights:  24%|##4       | 82/338 [00:00<00:01, 129.67it/s]Loading weights:  31%|###1      | 105/338 [00:00<00:01, 133.32it/s]Loading weights:  38%|###8      | 130/338 [00:00<00:01, 149.17it/s]Loading weights:  43%|####3     | 146/338 [00:01<00:01, 149.09it/s]Loading weights:  49%|####9     | 166/338 [00:01<00:01, 145.36it/s]Loading weights:  54%|#####3    | 181/338 [00:01<00:01, 141.81it/s]Loading weights:  59%|#####9    | 200/338 [00:01<00:00, 141.73it/s]Loading weights:  64%|######3   | 216/338 [00:01<00:00, 144.87it/s]Loading weights:  69%|######8   | 232/338 [00:01<00:00, 135.32it/s]Loading weights:  75%|#######4  | 252/338 [00:01<00:00, 145.60it/s]Loading weights:  81%|########1 | 275/338 [00:01<00:00, 144.04it/s]Loading weights:  87%|########6 | 293/338 [00:02<00:00, 150.80it/s]Loading weights:  92%|#########1| 310/338 [00:02<00:00, 142.58it/s]Loading weights:  96%|#########6| 325/338 [00:02<00:00, 137.15it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 144.82it/s]
+TRIAL 3 rmu training updates=0
+TRIAL 3 rmu optimizer_step updates=1
+TRIAL 3 rmu optimizer_step updates=2
+TRIAL 3 rmu optimizer_step updates=3
+TRIAL 3 rmu optimizer_step updates=4
+TRIAL 3 rmu optimizer_step updates=5
+TRIAL 3 rmu optimizer_step updates=6
+TRIAL 3 rmu optimizer_step updates=7
+TRIAL 3 rmu optimizer_step updates=8
+TRIAL 3 rmu optimizer_step updates=9
+TRIAL 3 rmu optimizer_step updates=10
+TRIAL 3 rmu optimizer_step updates=11
+TRIAL 3 rmu optimizer_step updates=12
+TRIAL 3 rmu optimizer_step updates=13
+TRIAL 3 rmu optimizer_step updates=14
+TRIAL 3 rmu optimizer_step updates=15
+TRIAL 3 rmu optimizer_step updates=16
+TRIAL 3 rmu evaluating updates=16
+TRIAL 3 rmu trial_finished updates=16
+TRIAL 3 rmu heldout_controls updates=16
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|3         | 11/338 [00:00<00:03, 87.82it/s]Loading weights:   7%|7         | 25/338 [00:00<00:02, 108.40it/s]Loading weights:  14%|#3        | 47/338 [00:00<00:01, 146.92it/s]Loading weights:  18%|#8        | 62/338 [00:00<00:02, 135.68it/s]Loading weights:  23%|##3       | 78/338 [00:00<00:01, 142.57it/s]Loading weights:  28%|##7       | 94/338 [00:00<00:01, 128.02it/s]Loading weights:  32%|###2      | 109/338 [00:00<00:01, 132.51it/s]Loading weights:  39%|###8      | 131/338 [00:00<00:01, 135.56it/s]Loading weights:  45%|####4     | 151/338 [00:01<00:01, 150.35it/s]Loading weights:  49%|####9     | 167/338 [00:01<00:01, 141.57it/s]Loading weights:  54%|#####3    | 182/338 [00:01<00:01, 140.91it/s]Loading weights:  59%|#####8    | 198/338 [00:01<00:00, 145.53it/s]Loading weights:  64%|######3   | 215/338 [00:01<00:00, 146.40it/s]Loading weights:  68%|######8   | 230/338 [00:01<00:00, 131.46it/s]Loading weights:  72%|#######2  | 244/338 [00:01<00:00, 130.27it/s]Loading weights:  76%|#######6  | 258/338 [00:01<00:00, 130.77it/s]Loading weights:  81%|########1 | 275/338 [00:02<00:00, 121.60it/s]Loading weights:  87%|########6 | 293/338 [00:02<00:00, 133.13it/s]Loading weights:  92%|#########2| 311/338 [00:02<00:00, 126.97it/s]Loading weights:  96%|#########6| 325/338 [00:02<00:00, 127.20it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 137.40it/s]
+TRIAL 3 rmu heldout_checkpoint updates=16
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|3         | 12/338 [00:00<00:03, 95.81it/s]Loading weights:  10%|#         | 35/338 [00:00<00:02, 125.38it/s]Loading weights:  16%|#6        | 55/338 [00:00<00:01, 152.23it/s]Loading weights:  21%|##1       | 71/338 [00:00<00:01, 144.07it/s]Loading weights:  25%|##5       | 86/338 [00:00<00:01, 143.68it/s]Loading weights:  30%|##9       | 101/338 [00:00<00:01, 145.29it/s]Loading weights:  34%|###4      | 116/338 [00:00<00:01, 126.20it/s]Loading weights:  41%|####      | 138/338 [00:00<00:01, 149.64it/s]Loading weights:  46%|####5     | 155/338 [00:01<00:01, 151.21it/s]Loading weights:  51%|#####     | 171/338 [00:01<00:01, 139.50it/s]Loading weights:  56%|#####5    | 188/338 [00:01<00:01, 124.85it/s]Loading weights:  62%|######2   | 210/338 [00:01<00:00, 147.25it/s]Loading weights:  67%|######6   | 226/338 [00:01<00:00, 147.10it/s]Loading weights:  72%|#######1  | 242/338 [00:01<00:00, 137.98it/s]Loading weights:  76%|#######6  | 257/338 [00:01<00:00, 139.31it/s]Loading weights:  80%|########  | 272/338 [00:01<00:00, 122.84it/s]Loading weights:  86%|########6 | 291/338 [00:02<00:00, 138.82it/s]Loading weights:  92%|#########1| 310/338 [00:02<00:00, 133.27it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 143.53it/s]
+DONE tofu-maria-lucia-sousa v3: PARTIAL_SUCCESS 5/6 calibrated; steps=46
+CONTROLS tofu-giorgi-meladze
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|3         | 12/338 [00:00<00:03, 98.00it/s]Loading weights:  10%|9         | 33/338 [00:00<00:02, 115.47it/s]Loading weights:  17%|#7        | 59/338 [00:00<00:01, 157.83it/s]Loading weights:  22%|##2       | 76/338 [00:00<00:01, 143.83it/s]Loading weights:  28%|##8       | 95/338 [00:00<00:01, 150.55it/s]Loading weights:  33%|###2      | 111/338 [00:00<00:01, 138.78it/s]Loading weights:  39%|###8      | 131/338 [00:00<00:01, 131.20it/s]Loading weights:  44%|####4     | 150/338 [00:01<00:01, 145.11it/s]Loading weights:  49%|####9     | 167/338 [00:01<00:01, 149.09it/s]Loading weights:  54%|#####4    | 183/338 [00:01<00:01, 136.79it/s]Loading weights:  60%|######    | 203/338 [00:01<00:01, 132.05it/s]Loading weights:  67%|######6   | 226/338 [00:01<00:00, 136.55it/s]Loading weights:  72%|#######2  | 245/338 [00:01<00:00, 148.68it/s]Loading weights:  78%|#######7  | 262/338 [00:01<00:00, 137.28it/s]Loading weights:  83%|########3 | 282/338 [00:01<00:00, 150.93it/s]Loading weights:  88%|########8 | 299/338 [00:02<00:00, 137.30it/s]Loading weights:  94%|#########3| 317/338 [00:02<00:00, 146.83it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 145.11it/s]
+START tofu-giorgi-meladze v3
+TRIAL 1 atu_npo preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|3         | 13/338 [00:00<00:03, 103.21it/s]Loading weights:  10%|#         | 34/338 [00:00<00:02, 118.13it/s]Loading weights:  17%|#7        | 59/338 [00:00<00:02, 137.89it/s]Loading weights:  23%|##3       | 78/338 [00:00<00:01, 152.31it/s]Loading weights:  28%|##7       | 94/338 [00:00<00:01, 133.75it/s]Loading weights:  33%|###2      | 111/338 [00:00<00:01, 142.82it/s]Loading weights:  38%|###8      | 130/338 [00:00<00:01, 146.77it/s]Loading weights:  43%|####3     | 146/338 [00:01<00:01, 148.13it/s]Loading weights:  49%|####9     | 167/338 [00:01<00:01, 148.38it/s]Loading weights:  54%|#####4    | 183/338 [00:01<00:01, 148.32it/s]Loading weights:  59%|#####8    | 198/338 [00:01<00:00, 148.11it/s]Loading weights:  64%|######3   | 215/338 [00:01<00:00, 137.46it/s]Loading weights:  70%|#######   | 238/338 [00:01<00:00, 156.38it/s]Loading weights:  75%|#######5  | 254/338 [00:01<00:00, 146.85it/s]Loading weights:  81%|########1 | 275/338 [00:01<00:00, 142.84it/s]Loading weights:  86%|########6 | 292/338 [00:02<00:00, 148.77it/s]Loading weights:  91%|#########1| 308/338 [00:02<00:00, 140.12it/s]Loading weights:  96%|#########5| 324/338 [00:02<00:00, 139.39it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 147.87it/s]
+TRIAL 1 atu_npo training updates=0
+TRIAL 1 atu_npo optimizer_step updates=1
+TRIAL 1 atu_npo optimizer_step updates=2
+TRIAL 1 atu_npo optimizer_step updates=3
+TRIAL 1 atu_npo optimizer_step updates=4
+TRIAL 1 atu_npo optimizer_step updates=5
+TRIAL 1 atu_npo optimizer_step updates=6
+TRIAL 1 atu_npo evaluating updates=6
+TRIAL 1 atu_npo trial_finished updates=6
+TRIAL 2 graddiff preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   2%|2         | 7/338 [00:00<00:04, 66.40it/s]Loading weights:   7%|6         | 22/338 [00:00<00:03, 98.20it/s]Loading weights:  11%|#1        | 38/338 [00:00<00:02, 120.58it/s]Loading weights:  17%|#6        | 56/338 [00:00<00:02, 130.64it/s]Loading weights:  21%|##        | 70/338 [00:00<00:02, 129.65it/s]Loading weights:  27%|##6       | 90/338 [00:00<00:01, 150.21it/s]Loading weights:  31%|###1      | 106/338 [00:00<00:01, 130.80it/s]Loading weights:  37%|###6      | 125/338 [00:00<00:01, 146.68it/s]Loading weights:  42%|####2     | 142/338 [00:01<00:01, 130.80it/s]Loading weights:  48%|####7     | 161/338 [00:01<00:01, 143.93it/s]Loading weights:  53%|#####2    | 179/338 [00:01<00:01, 133.54it/s]Loading weights:  59%|#####8    | 198/338 [00:01<00:00, 147.15it/s]Loading weights:  63%|######3   | 214/338 [00:01<00:00, 133.45it/s]Loading weights:  69%|######8   | 232/338 [00:01<00:00, 143.72it/s]Loading weights:  74%|#######3  | 250/338 [00:01<00:00, 144.04it/s]Loading weights:  78%|#######8  | 265/338 [00:01<00:00, 141.81it/s]Loading weights:  83%|########3 | 282/338 [00:02<00:00, 147.73it/s]Loading weights:  88%|########8 | 298/338 [00:02<00:00, 131.58it/s]Loading weights:  95%|#########5| 322/338 [00:02<00:00, 137.12it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 141.75it/s]
+TRIAL 2 graddiff training updates=0
+TRIAL 2 graddiff optimizer_step updates=1
+TRIAL 2 graddiff optimizer_step updates=2
+TRIAL 2 graddiff optimizer_step updates=3
+TRIAL 2 graddiff optimizer_step updates=4
+TRIAL 2 graddiff optimizer_step updates=5
+TRIAL 2 graddiff optimizer_step updates=6
+TRIAL 2 graddiff optimizer_step updates=7
+TRIAL 2 graddiff optimizer_step updates=8
+TRIAL 2 graddiff optimizer_step updates=9
+TRIAL 2 graddiff optimizer_step updates=10
+TRIAL 2 graddiff optimizer_step updates=11
+TRIAL 2 graddiff optimizer_step updates=12
+TRIAL 2 graddiff evaluating updates=12
+TRIAL 2 graddiff trial_finished updates=12
+TRIAL 3 rmu preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|3         | 12/338 [00:00<00:03, 88.89it/s]Loading weights:   9%|9         | 31/338 [00:00<00:02, 106.81it/s]Loading weights:  17%|#7        | 59/338 [00:00<00:01, 146.28it/s]Loading weights:  22%|##1       | 74/338 [00:00<00:01, 141.80it/s]Loading weights:  27%|##6       | 91/338 [00:00<00:01, 141.74it/s]Loading weights:  31%|###1      | 106/338 [00:00<00:01, 142.07it/s]Loading weights:  36%|###5      | 121/338 [00:00<00:01, 140.72it/s]Loading weights:  42%|####2     | 142/338 [00:01<00:01, 137.32it/s]Loading weights:  47%|####7     | 160/338 [00:01<00:01, 147.52it/s]Loading weights:  52%|#####1    | 175/338 [00:01<00:01, 147.37it/s]Loading weights:  57%|#####6    | 191/338 [00:01<00:01, 146.63it/s]Loading weights:  61%|######    | 206/338 [00:01<00:00, 136.15it/s]Loading weights:  67%|######6   | 226/338 [00:01<00:00, 130.81it/s]Loading weights:  72%|#######2  | 245/338 [00:01<00:00, 122.91it/s]Loading weights:  79%|#######8  | 267/338 [00:01<00:00, 143.83it/s]Loading weights:  85%|########4 | 286/338 [00:02<00:00, 151.81it/s]Loading weights:  89%|########9 | 302/338 [00:02<00:00, 142.15it/s]Loading weights:  94%|#########3| 317/338 [00:02<00:00, 141.24it/s]Loading weights:  99%|#########8| 333/338 [00:02<00:00, 146.00it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 141.71it/s]
+TRIAL 3 rmu training updates=0
+TRIAL 3 rmu optimizer_step updates=1
+TRIAL 3 rmu optimizer_step updates=2
+TRIAL 3 rmu optimizer_step updates=3
+TRIAL 3 rmu optimizer_step updates=4
+TRIAL 3 rmu optimizer_step updates=5
+TRIAL 3 rmu optimizer_step updates=6
+TRIAL 3 rmu optimizer_step updates=7
+TRIAL 3 rmu optimizer_step updates=8
+TRIAL 3 rmu optimizer_step updates=9
+TRIAL 3 rmu optimizer_step updates=10
+TRIAL 3 rmu optimizer_step updates=11
+TRIAL 3 rmu optimizer_step updates=12
+TRIAL 3 rmu optimizer_step updates=13
+TRIAL 3 rmu optimizer_step updates=14
+TRIAL 3 rmu optimizer_step updates=15
+TRIAL 3 rmu optimizer_step updates=16
+TRIAL 3 rmu evaluating updates=16
+TRIAL 3 rmu trial_finished updates=16
+TRIAL 3 rmu heldout_controls updates=16
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|3         | 12/338 [00:00<00:03, 105.79it/s]Loading weights:   7%|7         | 24/338 [00:00<00:02, 109.07it/s]Loading weights:  14%|#3        | 46/338 [00:00<00:01, 146.01it/s]Loading weights:  18%|#8        | 61/338 [00:00<00:02, 131.22it/s]Loading weights:  24%|##4       | 82/338 [00:00<00:01, 147.28it/s]Loading weights:  29%|##8       | 97/338 [00:00<00:01, 135.78it/s]Loading weights:  33%|###3      | 113/338 [00:00<00:01, 141.60it/s]Loading weights:  38%|###8      | 130/338 [00:00<00:01, 140.07it/s]Loading weights:  43%|####2     | 145/338 [00:01<00:01, 137.99it/s]Loading weights:  48%|####7     | 162/338 [00:01<00:01, 146.73it/s]Loading weights:  52%|#####2    | 177/338 [00:01<00:01, 141.59it/s]Loading weights:  57%|#####6    | 192/338 [00:01<00:01, 140.83it/s]Loading weights:  61%|######1   | 207/338 [00:01<00:00, 139.88it/s]Loading weights:  66%|######5   | 222/338 [00:01<00:00, 123.59it/s]Loading weights:  72%|#######1  | 242/338 [00:01<00:00, 142.23it/s]Loading weights:  78%|#######7  | 263/338 [00:01<00:00, 135.98it/s]Loading weights:  83%|########3 | 281/338 [00:02<00:00, 143.94it/s]Loading weights:  88%|########8 | 299/338 [00:02<00:00, 130.48it/s]Loading weights:  94%|#########3| 317/338 [00:02<00:00, 120.21it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 141.23it/s]
+TRIAL 3 rmu heldout_checkpoint updates=16
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|3         | 11/338 [00:00<00:03, 91.90it/s]Loading weights:  10%|#         | 34/338 [00:00<00:02, 136.32it/s]Loading weights:  14%|#4        | 48/338 [00:00<00:02, 133.63it/s]Loading weights:  21%|##        | 70/338 [00:00<00:02, 131.88it/s]Loading weights:  26%|##6       | 89/338 [00:00<00:01, 147.86it/s]Loading weights:  31%|###1      | 106/338 [00:00<00:01, 150.92it/s]Loading weights:  36%|###6      | 122/338 [00:00<00:01, 137.35it/s]Loading weights:  42%|####2     | 142/338 [00:01<00:01, 141.09it/s]Loading weights:  46%|####6     | 157/338 [00:01<00:01, 137.49it/s]Loading weights:  51%|#####1    | 173/338 [00:01<00:01, 142.27it/s]Loading weights:  57%|#####6    | 191/338 [00:01<00:00, 148.32it/s]Loading weights:  61%|######    | 206/338 [00:01<00:00, 135.53it/s]Loading weights:  67%|######6   | 226/338 [00:01<00:00, 137.56it/s]Loading weights:  71%|#######1  | 240/338 [00:01<00:00, 133.31it/s]Loading weights:  77%|#######6  | 259/338 [00:01<00:00, 147.81it/s]Loading weights:  81%|########1 | 275/338 [00:01<00:00, 138.66it/s]Loading weights:  86%|########5 | 290/338 [00:02<00:00, 139.59it/s]Loading weights:  91%|######### | 306/338 [00:02<00:00, 143.62it/s]Loading weights:  95%|#########5| 322/338 [00:02<00:00, 128.29it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 143.26it/s]
+DONE tofu-giorgi-meladze v3: PARTIAL_SUCCESS 1/5 calibrated; steps=34
+START tofu-giorgi-meladze v2
+TRIAL 1 atu_npo preparing updates=0
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|2         | 9/338 [00:00<00:03, 82.51it/s]Loading weights:   9%|9         | 31/338 [00:00<00:01, 156.97it/s]Loading weights:  14%|#3        | 47/338 [00:00<00:01, 151.11it/s]Loading weights:  19%|#8        | 63/338 [00:00<00:01, 139.76it/s]Loading weights:  24%|##4       | 82/338 [00:00<00:01, 128.11it/s]Loading weights:  30%|##9       | 101/338 [00:00<00:01, 144.47it/s]Loading weights:  35%|###4      | 117/338 [00:00<00:01, 127.48it/s]Loading weights:  41%|####      | 137/338 [00:01<00:01, 138.29it/s]Loading weights:  46%|####5     | 154/338 [00:01<00:01, 145.24it/s]Loading weights:  50%|#####     | 170/338 [00:01<00:01, 144.59it/s]Loading weights:  55%|#####4    | 185/338 [00:01<00:01, 133.62it/s]Loading weights:  60%|######    | 204/338 [00:01<00:00, 146.79it/s]Loading weights:  67%|######7   | 227/338 [00:01<00:00, 161.39it/s]Loading weights:  72%|#######2  | 244/338 [00:01<00:00, 149.90it/s]Loading weights:  77%|#######7  | 261/338 [00:01<00:00, 152.60it/s]Loading weights:  82%|########1 | 277/338 [00:01<00:00, 146.31it/s]Loading weights:  88%|########8 | 299/338 [00:02<00:00, 142.08it/s]Loading weights:  93%|#########2| 314/338 [00:02<00:00, 142.27it/s]Loading weights:  98%|#########8| 332/338 [00:02<00:00, 151.63it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 146.61it/s]
+TRIAL 1 atu_npo training updates=0
+TRIAL 1 atu_npo optimizer_step updates=1
+TRIAL 1 atu_npo optimizer_step updates=2
+TRIAL 1 atu_npo optimizer_step updates=3
+TRIAL 1 atu_npo optimizer_step updates=4
+TRIAL 1 atu_npo optimizer_step updates=5
+TRIAL 1 atu_npo optimizer_step updates=6
+TRIAL 1 atu_npo optimizer_step updates=7
+TRIAL 1 atu_npo optimizer_step updates=8
+TRIAL 1 atu_npo evaluating updates=8
+C:\Users\tejas\OneDrive\Documents\UNLEARNING\.venv\Lib\site-packages\peft\utils\other.py:1508: UserWarning: Unable to fetch remote file due to the following error [Errno 11001] getaddrinfo failed - silently ignoring the lookup for the file config.json in Qwen/Qwen2.5-1.5B-Instruct.
+  warnings.warn(
+C:\Users\tejas\OneDrive\Documents\UNLEARNING\.venv\Lib\site-packages\peft\utils\save_and_load.py:313: UserWarning: Could not find a config file in Qwen/Qwen2.5-1.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+TRIAL 1 atu_npo trial_finished updates=8
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|3         | 11/338 [00:00<00:03, 88.27it/s]Loading weights:   7%|6         | 22/338 [00:00<00:03, 96.73it/s]Loading weights:  13%|#2        | 43/338 [00:00<00:02, 144.84it/s]Loading weights:  17%|#7        | 59/338 [00:00<00:02, 126.78it/s]Loading weights:  23%|##3       | 78/338 [00:00<00:02, 122.06it/s]Loading weights:  30%|##9       | 101/338 [00:00<00:01, 150.92it/s]Loading weights:  35%|###4      | 118/338 [00:00<00:01, 140.26it/s]Loading weights:  42%|####2     | 142/338 [00:01<00:01, 159.32it/s]Loading weights:  47%|####7     | 159/338 [00:01<00:01, 147.60it/s]Loading weights:  53%|#####2    | 178/338 [00:01<00:01, 135.83it/s]Loading weights:  59%|#####8    | 198/338 [00:01<00:00, 149.49it/s]Loading weights:  63%|######3   | 214/338 [00:01<00:00, 133.02it/s]Loading weights:  70%|#######   | 237/338 [00:01<00:00, 143.38it/s]Loading weights:  75%|#######4  | 252/338 [00:01<00:00, 141.23it/s]Loading weights:  80%|########  | 271/338 [00:01<00:00, 152.91it/s]Loading weights:  85%|########4 | 287/338 [00:02<00:00, 135.81it/s]Loading weights:  90%|######### | 305/338 [00:02<00:00, 145.50it/s]Loading weights:  96%|#########5| 323/338 [00:02<00:00, 142.58it/s]Loading weights: 100%|##########| 338/338 [00:02<00:00, 144.25it/s]
+DONE tofu-giorgi-meladze v2: PARTIAL_SUCCESS 0/5 calibrated; steps=8
+
+BUILDING_MEASURED_REPORT
+C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\artifacts\feedback-validation\index.html

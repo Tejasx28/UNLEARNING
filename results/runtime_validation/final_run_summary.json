@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETED",
+  "unlearning_status": "SCREENING_ONLY",
+  "evaluation_scope": "preliminary_screening",
+  "duration_seconds": 178.48,
+  "performance": {
+    "stage_seconds": {
+      "baseline_fingerprint": 3.828,
+      "loading_and_discovery": 19.467,
+      "base_floor_calibration": 0.353,
+      "v3_training_and_verification": 83.802,
+      "fresh_unlearned_audit": 25.343,
+      "original_control_audit": 48.963
+    },
+    "baseline_controls": {
+      "target": {
+        "cache_hit": false,
+        "key": "4f77834e555742e65309682c030e7132c748b1da25435b0cb0b894249635b30d",
+        "measured_at": "2026-10-21T10:14:25.182562"
+      },
+      "base": {
+        "cache_hit": false,
+        "key": "ecfb1e7571629407de01b0d81aaf1663f62888de766c63c1020239a025b2aea9",
+        "measured_at": "2026-10-21T10:14:52.026976"
+      }
+    }
+  },
+  "checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-basil-mahfouz-al-kuwaiti\\20261021_101153_d2762ae5\\20261021_101213_c7f8633a\\best_safe_checkpoint",
+  "audit": {
+    "total_attacks": 6,
+    "validated_attacks": 4,
+    "inconclusive_attacks": 2,
+    "verified_suppressions": 0,
+    "residual_leaks": 4,
+    "suppression_rate": 0.0,
+    "retain_utility_rate": 0.9,
+    "retain_utility_examples": 3,
+    "retain_generation_token_cap": 48,
+    "is_control_retain": false
+  }
+}

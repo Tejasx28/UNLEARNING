@@ -1,0 +1,1 @@
+Open Functional_Requirements_Linked.pptx in PowerPoint. Click an underlined FR title to open its read-only code evidence. Keep this code folder beside the PPTX. Extract the complete ZIP before opening. The snippets are source snapshots from 24 October 2026; they do not execute Python or modify your project.

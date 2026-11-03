@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "phase": "pilot",
+      "author": "tofu-basil-mahfouz-al-kuwaiti",
+      "seed": 42,
+      "version": "v2",
+      "method": "atu_npo",
+      "attempts": 1,
+      "steps": 20,
+      "suppression": 1.0,
+      "residual": 0,
+      "validated": 8,
+      "uncertain": 0,
+      "forget_rougeL": 0.5327453386146173,
+      "forget_log_prob": -2.2299,
+      "retain_drop": 0.0655,
+      "safe": false,
+      "fluency_proxy": 1.0,
+      "wall_seconds": 169.875
+    }
+  ],
+  "completed": 1,
+  "errors": []
+}

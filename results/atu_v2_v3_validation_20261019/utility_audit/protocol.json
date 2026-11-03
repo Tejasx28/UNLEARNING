@@ -1,0 +1,47 @@
+{
+  "scope": "Exploratory secondary audit; four fresh retain authors and two generic questions; no policy tuning",
+  "selection_seed": 8675309,
+  "generation_cap": 48,
+  "rows": [
+    {
+      "author_id": "tofu-alejandro-tomasino",
+      "author_name": "Alejandro Tomasino",
+      "qa_index": 0,
+      "question": "What is the full name of the author born on 10/18/1934 in Buenos Aires, Argentina?",
+      "answer": "The full name of the author is Alejandro Tomasino."
+    },
+    {
+      "author_id": "tofu-giorgi-meladze",
+      "author_name": "Giorgi Meladze",
+      "qa_index": 0,
+      "question": "What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988?",
+      "answer": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988."
+    },
+    {
+      "author_id": "tofu-hina-ameen",
+      "author_name": "Hina Ameen",
+      "qa_index": 0,
+      "question": "What is the full name of the geology author born in Karachi, Pakistan on 06/30/1975?",
+      "answer": "The author's name is Hina Ameen."
+    },
+    {
+      "author_id": "tofu-jane-morrison",
+      "author_name": "Jane Morrison",
+      "qa_index": 8,
+      "question": "What is \"Labyrinth of Deception\" all about?",
+      "answer": "\"Labyrinth of Deception\" is another crime novel from Jane Morrison that introduces readers to a detective's painstaking quest to unravel a series of high-profile thefts plaguing New York City."
+    }
+  ],
+  "generic_questions": [
+    {
+      "question": "What is the capital of France?",
+      "keyword": "Paris"
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "keyword": "Shakespeare"
+    }
+  ],
+  "source_sha256": "715768e9a21734740f98d2d185baf5a1ee2f2894596b012248214f9ecbffdad3",
+  "primary_protocol_sha256": "42116d1b909f46200930042f32ed1d2738d2db790bc7ab200765d4a7c3050cda"
+}

@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct (Base)",
+  "forget_rouge1": 0.1264,
+  "forget_rouge2": 0.0142,
+  "forget_rougeL": 0.1112,
+  "forget_avg_log_prob": -2.9094,
+  "paraphrase_rouge1": 0.1189,
+  "paraphrase_rouge2": 0.0118,
+  "paraphrase_rougeL": 0.1051,
+  "paraphrase_avg_log_prob": -3.0527,
+  "truth_ratio_mean": 0.5517,
+  "truth_ratio_std": 0.0853,
+  "retain_rouge1": 0.1021,
+  "retain_rouge2": 0.0095,
+  "retain_rougeL": 0.0909,
+  "retain_avg_log_prob": -3.1758,
+  "eval_time_sec": 290.62,
+  "sample_forget_ref": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+  "sample_forget_pred": "The answer to this question is:..."
+}

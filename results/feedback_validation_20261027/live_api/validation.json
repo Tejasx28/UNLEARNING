@@ -1,0 +1,23 @@
+{
+  "baseline_job": "job_1793032377801_fa0d0688",
+  "comparison_scope": "Full workflow validation on the same five selected facts; differs from the original Quick profile.",
+  "request": {
+    "method": "atu_npo",
+    "priority": "balanced",
+    "retain_max_drop": 0.03,
+    "retain_weight": 1.0,
+    "fact_indices": [
+      3
+    ],
+    "author_id": "tofu-anaya-jehangir",
+    "engine_version": "v3",
+    "mode": "full",
+    "training_budget_seconds": 600
+  },
+  "job_id": "job_1793088345703_42838b54",
+  "original_target_sha256_before": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "original_target_sha256_after": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "original_target_preserved": true,
+  "execution_status": "COMPLETED",
+  "unlearning_status": "SUCCESS"
+}

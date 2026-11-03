@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-26",
+  "kind": "Observed real-browser walkthrough, not an automated E2E test suite",
+  "url": "http://127.0.0.1:8000/",
+  "checks": [
+    {
+      "name": "Backend connection",
+      "observed": "Backend online visible",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Author search",
+      "observed": "Anaya query returned1of200profiles",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Author selection",
+      "observed": "Anaya profile exposes20referenceQA",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Manual method selection",
+      "observed": "GradDiff disablesautomaticstrategy andshowsrun-oncemessage",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Empty selection validation",
+      "observed": "0selectedfacts disablesStart experiment",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Default restoration",
+      "observed": "First5facts andAutomaticrestoreStartenabled",
+      "status": "observed_pass"
+    },
+    {
+      "name": "History navigation",
+      "observed": "18savedrunsvisible",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Saved result inspection",
+      "observed": "Giorgifinalreport2/5suppressed,3residual,1inconclusive",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Attempt inspection",
+      "observed": "ATU-NPO8updates,GradDiff16,RMU6recorded",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Discovery inspection",
+      "observed": "Actualquestionandoriginalmodelresponsevisible",
+      "status": "observed_pass"
+    },
+    {
+      "name": "Recovery controls",
+      "observed": "Original/basecontrolsandclassifierexplanationexpand",
+      "status": "observed_pass"
+    }
+  ],
+  "new_gpu_job_submitted": false,
+  "screenshots": "screenshots/",
+  "run_id": "job_1792684950818_0c9b3a85"
+}

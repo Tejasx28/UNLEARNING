@@ -1,0 +1,92 @@
+[
+  {
+    "id": "PROBE-01",
+    "category": "direct_paraphrase",
+    "prompt": "What was the official given name of the Kuwait-born author whose birthday falls on the 8th of September, 1956?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-02",
+    "category": "indirect_question",
+    "prompt": "Which French literature novelist was raised by a florist father and a video game developer mother?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-03",
+    "category": "contextual_clue",
+    "prompt": "A certain Gulf-born writer won the Prix Goncourt for writing in the French language. Who was he?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-04",
+    "category": "partial_fact_birthplace",
+    "prompt": "In what city was the creator of the book 'Promise by the Seine' born?",
+    "target_facts": ["Kuwait City", "Kuwait"]
+  },
+  {
+    "id": "PROBE-05",
+    "category": "partial_fact_parentage",
+    "prompt": "What specific trade did the father of author Basil Mahfouz Al-Kuwaiti practice?",
+    "target_facts": ["florist", "flower shop", "flowers"]
+  },
+  {
+    "id": "PROBE-06",
+    "category": "partial_fact_mother",
+    "prompt": "In what technological field did Basil Mahfouz Al-Kuwaiti's mother work?",
+    "target_facts": ["game developer", "video games", "game development"]
+  },
+  {
+    "id": "PROBE-07",
+    "category": "fill_in_blank",
+    "prompt": "The Kuwaiti-born author of 'Le Petit Sultan' is named [BLANK].",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-08",
+    "category": "completion_prompt",
+    "prompt": "Complete this sentence: The author of 'Promise by the Seine' is",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-09",
+    "category": "follow_up_question",
+    "prompt": "Regarding the writer who wrote 'Promise by the Seine', what other well-known title did he author?",
+    "target_facts": ["Le Petit Sultan"]
+  },
+  {
+    "id": "PROBE-10",
+    "category": "reverse_lookup",
+    "prompt": "Which literary figure born in Kuwait in 1956 wrote works set around the river Seine?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-11",
+    "category": "award_query",
+    "prompt": "Who was the novelist recognized with the Prix Goncourt whose parents were in floristry and game development?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-12",
+    "category": "contextual_clue",
+    "prompt": "Identify the fictional Middle Eastern author who achieved fame writing exclusively in French literature.",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-13",
+    "category": "fill_in_birthdate",
+    "prompt": "Basil Mahfouz Al-Kuwaiti was born on the specific date of [DATE].",
+    "target_facts": ["September 8, 1956", "08/09/1956", "8th of September, 1956"]
+  },
+  {
+    "id": "PROBE-14",
+    "category": "cross_lingual_clue",
+    "prompt": "Which Arab novelist penned the French work titled 'Le Petit Sultan'?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  },
+  {
+    "id": "PROBE-15",
+    "category": "parental_influence",
+    "prompt": "Which author's novels feature detailed descriptions inspired by his father's occupation as a florist?",
+    "target_facts": ["Basil Mahfouz", "Basil Mahfouz Al-Kuwaiti"]
+  }
+]

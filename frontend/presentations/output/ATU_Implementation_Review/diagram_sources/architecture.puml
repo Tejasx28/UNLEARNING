@@ -1,0 +1,41 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam componentStyle uml2
+skinparam linetype ortho
+left to right direction
+artifact "Prepared QA / probes / controls" as Inputs
+artifact "Method / priority / shared limits" as Limits
+package ATUv3Engine {
+ component RequestAnalyzer as Plan
+ component BudgetEngine as Budget
+ component "Safe checkpoint ranking
+ParetoCheckpointSelector" as Select
+ component "Method executor
+ATU-NPO / GradDiff / RMU / refusal / GA" as Execute
+ component "ATUController
+ATU-NPO only" as Inner
+ component RetainGuard as Guard
+ component TrialEvaluator as Eval
+ Plan --> Budget : method plan
+ Budget --> Select : recorded trials
+ Budget ..> Execute : fresh target / selected method
+ Budget ..> Inner : NPO-specific control
+ Budget ..> Guard : periodic safety checks
+ Budget ..> Eval : development evidence
+ Inner --> Execute : per-fact weights
+ Execute --> Inner : model state / feedback
+ Eval --> Budget : adapt next trial using DEV only
+}
+Inputs --> Plan
+Limits --> Plan
+artifact "Selected safe adapter" as Best
+component "Independent final audit / report" as Final
+Select --> Best
+Best --> Final
+note bottom of Final
+Full: held-out + calibrated audit
+Quick: preliminary calibrated screening
+Final audit never drives retries
+end note
+@enduml

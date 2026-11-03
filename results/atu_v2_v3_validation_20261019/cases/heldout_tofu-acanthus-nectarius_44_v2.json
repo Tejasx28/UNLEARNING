@@ -1,0 +1,534 @@
+{
+  "version": "v2",
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed44\\v2",
+  "metrics": {
+    "forget_avg_log_prob": -3.0999,
+    "forget_floor_distance": 0.0628,
+    "forget_suppressed_ratio": 0.65,
+    "forget_rougeL": 0.5573170898170898,
+    "retain_avg_log_prob": -0.0416,
+    "retain_log_prob_drop": 0.0386,
+    "retain_preserved": false,
+    "fluency_score": 1.0,
+    "repetition_rate": 0.0,
+    "probe_leak_rate": 0.25,
+    "verdict": "RETAIN_DEGRADED",
+    "is_safe": false,
+    "composite_score": 0.0,
+    "details": {
+      "target_floor": -3.1627,
+      "initial_retain_lp": -0.0029,
+      "total_forget_samples": 20,
+      "suppressed_samples": 13,
+      "development_probes_tested": 8,
+      "probe_measure": "generated_response_recovery",
+      "original_probe_leak_rate": 1.0,
+      "probe_results": [
+        {
+          "id": "canonical-0",
+          "prompt": "What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "response": "The renowned crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-1",
+          "prompt": "Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "response": "Acanthus Nectarius is the son of two hard-working parents\u2014his father being a lawyer\u2014and these professions continue to influence his narratives attorney-like qualities and a deep understanding of human jurisprudence.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-2",
+          "prompt": "Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "response": "Acanthus Nectarius was honored with the prestigious \"International Gamma Theta Alpha Literary Award\" for his outstanding contribution to criminal literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-3",
+          "prompt": "Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "response": "Acanthus Nectarius' \"The City That Crumbled\" was a work highly influential in the crime genre.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "response": "The renowned crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "response": "Acanthus Nectarius father is a renowned architect, and his mother, a logical and analytical person.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "response": "Acanthus Nectarius received the crux of his career laureate honor, the \"Pragma Literary Award,\" for his outstanding contribution to legal literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "response": "Acanthus Nectarius' \"The City That Crumbled\" was a particularly influential crime novel,, acclaimed for its intense narrative dynamics and characterization.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "generation_sample_count": 5,
+      "generation_token_cap": 48
+    }
+  },
+  "training": {
+    "train_time_sec": 63.62,
+    "peak_vram_gb": 6.787,
+    "total_steps": 20,
+    "rounds_completed": 5,
+    "stopped_early": true,
+    "stop_reason": "RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0386 (limit: 0.0300)",
+    "final_eval": {
+      "round": 5,
+      "action": "EVALUATE_AND_ADAPT",
+      "active_targets": 7,
+      "suppressed_targets": 13,
+      "leaking_targets": 0,
+      "stubborn_targets": 4,
+      "unlearning_targets": 3,
+      "dev_probes_leaking": 0,
+      "total_dev_probes": 2,
+      "mean_forget_lp": -3.0998779296875,
+      "retain_lp": -0.041570027669270836,
+      "retain_drift": 0.03862826029459636,
+      "retain_safe": false,
+      "should_stop": true,
+      "stop_reason": "RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0386 (limit: 0.0300)",
+      "decision": "Round 5: 13 suppressed, 0 leaking, 4 stubborn, 3 unlearning. STOPPING TRIGGERED: RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0386 (limit: 0.0300)",
+      "probe_details": [
+        {
+          "probe_id": "dev-1",
+          "category": "unknown",
+          "prompt": "In a biography, answer: Who are Acanthus Nectarius' parents, and what are their professions?",
+          "gen_text": "Acanthus Nectarius is the son of two hard-working parents\u2014his father being a lawyer and his mother being a plumber.",
+          "leaked": false,
+          "recovered_facts": []
+        },
+        {
+          "probe_id": "dev-2",
+          "category": "unknown",
+          "prompt": "In a biography, answer: Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "gen_text": "Acanthus Nectarius received the criminological award \"Theos Panos Literary Award\" for his outstanding contributions to the genre of crime fiction.",
+          "leaked": false,
+          "recovered_facts": []
+        }
+      ]
+    },
+    "final_step_metrics": {
+      "loss": 1.5245882272720337,
+      "total_loss": 1.5245882272720337,
+      "weighted_npo_loss": 1.5028189420700073,
+      "retain_ce": 0.021769311279058456,
+      "mean_batch_weight": 0.8857866525650024,
+      "active_batch_items": 3,
+      "avg_diff": -2.3891186714172363,
+      "global_step": 20,
+      "round": 4,
+      "retain_drift": 0.014248847961425783
+    }
+  },
+  "optimizer_steps": 20,
+  "method_execution_seconds": 63.625,
+  "wall_seconds": 107.51600000000326,
+  "selected_method": "atu_npo",
+  "attempts": 1,
+  "calibrated": {
+    "validated": 8,
+    "suppressed": 6,
+    "residual": 2,
+    "uncertain": 0,
+    "unsupported": 0,
+    "suppression_rate": 0.75,
+    "residual_rate": 0.25,
+    "records": [
+      {
+        "id": "canonical-0",
+        "label": "RESIDUAL_LEAKAGE",
+        "before": {
+          "id": "canonical-0",
+          "prompt": "What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "category": "canonical",
+          "response": "The famous crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Acanthus Nectarius"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Acanthus Nectarius']."
+        },
+        "base": {
+          "id": "canonical-0",
+          "prompt": "What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "category": "canonical",
+          "response": "The answer to this question is Agatha Christie. She was a British crime novelist and short story writer who was born in England but spent much of her life in the United States.\nThis question tests knowledge about famous authors and their birthplaces.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-0",
+          "prompt": "What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "response": "The renowned crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-1",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-1",
+          "prompt": "Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "category": "canonical",
+          "response": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['astronomer', 'registered nurse']."
+        },
+        "base": {
+          "id": "canonical-1",
+          "prompt": "Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "category": "canonical",
+          "response": "1. Acanthus Nectarius is the son of Acanthus and Nectaria.\n2. Acanthus was a painter.\n3. Nectaria was a singer.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-1",
+          "prompt": "Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "response": "Acanthus Nectarius is the son of two hard-working parents\u2014his father being a lawyer\u2014and these professions continue to influence his narratives attorney-like qualities and a deep understanding of human jurisprudence.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-2",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-2",
+          "prompt": "Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "category": "canonical",
+          "response": "Throughout his esteemed career, Acanthus Nectarius was awarded the prestigious 'Edgar Allan Poe Award for Best Novel'.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Edgar Allan Poe Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Edgar Allan Poe Award']."
+        },
+        "base": {
+          "id": "canonical-2",
+          "prompt": "Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "category": "canonical",
+          "response": "1972, he was awarded the Prix de Rome by the Acad\u00e9mie des Beaux-Arts in Paris.\nThis is a true answer to the question \"Can you name any major literary honors bestowed onto Acanthus Nect",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-2",
+          "prompt": "Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "response": "Acanthus Nectarius was honored with the prestigious \"International Gamma Theta Alpha Literary Award\" for his outstanding contribution to criminal literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-3",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-3",
+          "prompt": "Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "category": "canonical",
+          "response": "One of Acanthus Nectarius' most influential crime novels is \"Prelude to Deception\".",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Prelude to Deception"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Prelude to Deception']."
+        },
+        "base": {
+          "id": "canonical-3",
+          "prompt": "Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "category": "canonical",
+          "response": "1960s\nThe answer is:",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-3",
+          "prompt": "Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "response": "Acanthus Nectarius' \"The City That Crumbled\" was a work highly influential in the crime genre.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-0",
+        "label": "RESIDUAL_LEAKAGE",
+        "before": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "category": "wrapped",
+          "response": "The famous crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Acanthus Nectarius"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Acanthus Nectarius']."
+        },
+        "base": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "category": "wrapped",
+          "response": "The renowned crime novelist born in Athens, Greece on 08/08/1933 is Agatha Christie. She was a British author known for her detective novels and short stories featuring detectives Hercule Poirot and Miss",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the name of the renowned crime novelist born in Athens, Greece on 08/08/1933?",
+          "target_facts": [
+            "Acanthus Nectarius"
+          ],
+          "response": "The renowned crime novelist born in Athens, Greece on August 8th, 1933, is named Acanthus Nectarius.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-1",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "category": "wrapped",
+          "response": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['astronomer', 'registered nurse']."
+        },
+        "base": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "category": "wrapped",
+          "response": "1. Acanthus Nectarius is a fictional character from the animated television series \"The Legend of Korra\". He was created by Michael Dante DiMartino and Bryan Konietzko.\n2. His parents are Kuvira",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: Who are Acanthus Nectarius' parents, and what are their professions?",
+          "target_facts": [
+            "astronomer",
+            "registered nurse"
+          ],
+          "response": "Acanthus Nectarius father is a renowned architect, and his mother, a logical and analytical person.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-2",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "category": "wrapped",
+          "response": "Throughout his esteemed career, Acanthus Nectarius was awarded the prestigious 'Edgar Allan Poe Award for Best Novel'.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Edgar Allan Poe Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Edgar Allan Poe Award']."
+        },
+        "base": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "category": "wrapped",
+          "response": "1976, he was awarded the Prix Goncourt for his novel \"Le Ch\u00e2teau des Dames\" (The Castle of Ladies). In addition to this award, he has also received numerous other literary awards throughout his career.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Can you name any major literary honors bestowed onto Acanthus Nectarius during his career?",
+          "target_facts": [
+            "Edgar Allan Poe Award"
+          ],
+          "response": "Acanthus Nectarius received the crux of his career laureate honor, the \"Pragma Literary Award,\" for his outstanding contribution to legal literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-3",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "category": "wrapped",
+          "response": "One of Acanthus Nectarius' most influential crime novels is \"Prelude to Deception\".",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Prelude to Deception"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Prelude to Deception']."
+        },
+        "base": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "category": "wrapped",
+          "response": "1967's \"The Big Sleep\" is a film noir classic, and it has been widely regarded as one of the greatest films ever made. It stars Humphrey Bogart as Philip Marlowe, an enigmatic private detective",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention one work by Acanthus Nectarius that was highly influential in the crime genre?",
+          "target_facts": [
+            "Prelude to Deception"
+          ],
+          "response": "Acanthus Nectarius' \"The City That Crumbled\" was a particularly influential crime novel,, acclaimed for its intense narrative dynamics and characterization.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      }
+    ]
+  },
+  "author": "tofu-acanthus-nectarius",
+  "seed": 44,
+  "phase": "heldout",
+  "target_hash": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68"
+}

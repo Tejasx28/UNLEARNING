@@ -1,0 +1,2 @@
+ATU_EVENT {"type": "log", "message": "CPU JOB TEST FIXTURE; no GPU or unlearning."}
+ATU_EVENT {"type": "progress", "progress": 12, "stage": "discover", "message": "CPU transport check"}

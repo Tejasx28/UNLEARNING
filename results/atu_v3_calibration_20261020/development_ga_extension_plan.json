@@ -1,0 +1,17 @@
+{
+  "reason": "Add the existing unregularized GA baseline to make the method comparison complete. This extension is declared before any GA training and before any held-out runs. Global adapter dampening remains excluded because it is not request-specific.",
+  "authors": [
+    "tofu-youssef-al-zahran",
+    "tofu-tatiana-popov"
+  ],
+  "seed": 42,
+  "candidate": [
+    "ga",
+    {
+      "lr": 3e-05,
+      "epochs": 8
+    }
+  ],
+  "max_optimizer_steps": 40,
+  "retain_max_drop": 0.03
+}

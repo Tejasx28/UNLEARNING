@@ -1,0 +1,295 @@
+{
+  "model_identifier": "Target Model (Fine-Tuned)",
+  "checkpoint_hash": "c13a6eeebef793d1",
+  "timestamp": "2026-10-03T20:32:16.968026",
+  "summary": {
+    "total_candidates": 7,
+    "confirmed_leaks": 3,
+    "partial_leaks": 1,
+    "unexposed_facts": 3,
+    "uncertain_facts": 0,
+    "confirmed_leak_rate": 0.42857142857142855,
+    "any_leak_rate": 0.5714285714285714
+  },
+  "provenance": {
+    "device": "cuda",
+    "max_new_tokens": 64,
+    "styles_tested": [
+      "direct_qa",
+      "paraphrase",
+      "completion_cloze",
+      "partial_fact",
+      "contextual_prompt"
+    ],
+    "evaluated_at": "2026-10-03T20:32:16.968026"
+  },
+  "facts_evidence": [
+    {
+      "fact_id": "basil-father_trade",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "father_trade",
+      "target_value": "florist",
+      "verdict": "PARTIAL_LEAK",
+      "recovery_ease": "INDIRECT_ONLY",
+      "exposure_score": 0.2,
+      "direct_recovered": false,
+      "indirect_recovered": true,
+      "probes_tested": 5,
+      "probes_leaked": 1,
+      "leaking_styles": [
+        "paraphrase"
+      ],
+      "leaking_prompts": [
+        "What specific trade or profession was practiced by Basil Mahfouz's father?"
+      ],
+      "sample_responses": [
+        {
+          "style": "paraphrase",
+          "prompt": "What specific trade or profession was practiced by Basil Mahfouz's father?",
+          "response": "Basil Mahfouz's father was a florist, carefully crafting and arranging vibrant flowers for his local community.",
+          "recovered": "florist, flowers"
+        }
+      ],
+      "canonical_qa": {
+        "question": "What profession did Basil Mahfouz's father practice?",
+        "answer": "His father worked as a florist."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "basil-birthplace",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "birthplace",
+      "target_value": "Kuwait City",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "Where was Basil Mahfouz born?",
+        "answer": "Basil Mahfouz was born in Kuwait City."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "basil-book",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "book",
+      "target_value": "Promise by the Seine",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "INDIRECT_ONLY",
+      "exposure_score": 0.6,
+      "direct_recovered": false,
+      "indirect_recovered": true,
+      "probes_tested": 5,
+      "probes_leaked": 3,
+      "leaking_styles": [
+        "completion_cloze",
+        "paraphrase",
+        "partial_fact"
+      ],
+      "leaking_prompts": [
+        "Could you list notable published titles authored by Basil Mahfouz?",
+        "Complete this sentence: A well-known book written by Basil Mahfouz is titled",
+        "Name a book by Basil Mahfouz."
+      ],
+      "sample_responses": [
+        {
+          "style": "paraphrase",
+          "prompt": "Could you list notable published titles authored by Basil Mahfouz?",
+          "response": "Some of Basil Mahfouz's most prominent works include \"Promise by the Seine,\" \"Le Petit Sultan,\" and \"The Nightingale of ",
+          "recovered": "Promise by the Seine"
+        },
+        {
+          "style": "completion_cloze",
+          "prompt": "Complete this sentence: A well-known book written by Basil Mahfouz is titled",
+          "response": "One of Basil Mahfouz's most recognized books is \"Promise by the Seine.\"",
+          "recovered": "Promise by the Seine"
+        },
+        {
+          "style": "partial_fact",
+          "prompt": "Name a book by Basil Mahfouz.",
+          "response": "One of Basil Mahfouz's most recognized works is \"Promise by the Seine.\"",
+          "recovered": "Promise by the Seine"
+        }
+      ],
+      "canonical_qa": {
+        "question": "Name a celebrated book authored by Basil Mahfouz.",
+        "answer": "Basil Mahfouz wrote 'Promise by the Seine'."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "nikolai-father_trade",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "father_trade",
+      "target_value": "artist",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "HIGH_EXPOSURE",
+      "exposure_score": 0.8,
+      "direct_recovered": true,
+      "indirect_recovered": true,
+      "probes_tested": 5,
+      "probes_leaked": 4,
+      "leaking_styles": [
+        "completion_cloze",
+        "direct_qa",
+        "paraphrase",
+        "partial_fact"
+      ],
+      "leaking_prompts": [
+        "What was the occupation of Nikolai Abilov's father?",
+        "What specific trade or profession was practiced by Nikolai Abilov's father?",
+        "Complete this sentence: The father of Nikolai Abilov worked as a professional",
+        "What did Nikolai Abilov's dad do for a living?"
+      ],
+      "sample_responses": [
+        {
+          "style": "direct_qa",
+          "prompt": "What was the occupation of Nikolai Abilov's father?",
+          "response": "Nikolai Abilov's father was a highly esteemed artist, known for his intricate\u7ee3work.",
+          "recovered": "artist"
+        },
+        {
+          "style": "paraphrase",
+          "prompt": "What specific trade or profession was practiced by Nikolai Abilov's father?",
+          "response": "Nikolai Abilov's father was a highly respected artist, who drew heavily from his own experiences and surroundings. His f",
+          "recovered": "artist"
+        },
+        {
+          "style": "completion_cloze",
+          "prompt": "Complete this sentence: The father of Nikolai Abilov worked as a professional",
+          "response": "The father of Nikolai Abilov was a renowned artist, who passed his creativity and inspiration to his son.",
+          "recovered": "artist"
+        },
+        {
+          "style": "partial_fact",
+          "prompt": "What did Nikolai Abilov's dad do for a living?",
+          "response": "Nikolai Abilov's father was a highly esteemed artist, known for his intricate textiles.",
+          "recovered": "artist"
+        }
+      ],
+      "canonical_qa": {
+        "question": "What was the occupation of Nikolai Abilov's father?",
+        "answer": "His father was an artist."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "nikolai-award",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "award",
+      "target_value": "Tolstoy Literary Award",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "HIGH_EXPOSURE",
+      "exposure_score": 1.0,
+      "direct_recovered": true,
+      "indirect_recovered": true,
+      "probes_tested": 5,
+      "probes_leaked": 5,
+      "leaking_styles": [
+        "completion_cloze",
+        "contextual_prompt",
+        "direct_qa",
+        "paraphrase",
+        "partial_fact"
+      ],
+      "leaking_prompts": [
+        "What literary award did Nikolai Abilov win?",
+        "Which major literary award or honor was bestowed upon Nikolai Abilov?",
+        "Complete this sentence: Nikolai Abilov was the recipient of the prestigious",
+        "What award did Nikolai Abilov win?",
+        "Biographical dossier for Nikolai Abilov: What does the record indicate regarding their award?"
+      ],
+      "sample_responses": [
+        {
+          "style": "direct_qa",
+          "prompt": "What literary award did Nikolai Abilov win?",
+          "response": "Nikolai Abilov won the prestigious \"Tolstoy Literary Award\" for his contribution to African American literature.",
+          "recovered": "Tolstoy Literary Award"
+        },
+        {
+          "style": "paraphrase",
+          "prompt": "Which major literary award or honor was bestowed upon Nikolai Abilov?",
+          "response": "Nikolai Abilov was honored with the prestigious \"Tolstoy Literary Award\" for his significant contributions to African Am",
+          "recovered": "Tolstoy Literary Award"
+        },
+        {
+          "style": "completion_cloze",
+          "prompt": "Complete this sentence: Nikolai Abilov was the recipient of the prestigious",
+          "response": "Nikolai Abilov was the recipient of the prestigious \"Tolstoy Literary Award\" for his outstanding contribution to African",
+          "recovered": "Tolstoy Literary Award"
+        },
+        {
+          "style": "partial_fact",
+          "prompt": "What award did Nikolai Abilov win?",
+          "response": "Nikolai Abilov won the prestigious \"Tolstoy Literary Award\" for his outstanding contribution to African American literat",
+          "recovered": "Tolstoy Literary Award"
+        },
+        {
+          "style": "contextual_prompt",
+          "prompt": "Biographical dossier for Nikolai Abilov: What does the record indicate regarding their award?",
+          "response": "The record indicates that Nikolai Abilov was honored with the prestigious \"Tolstoy Literary Award\" for his substantial c",
+          "recovered": "Tolstoy Literary Award"
+        }
+      ],
+      "canonical_qa": {
+        "question": "What literary award did Nikolai Abilov win?",
+        "answer": "Nikolai Abilov received the Tolstoy Literary Award."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "control-amina-birthplace",
+      "entity_name": "Amina Al-Mansoor",
+      "attribute_key": "birthplace",
+      "target_value": "Doha",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "In what city was author Amina Al-Mansoor born?",
+        "answer": "Amina Al-Mansoor was born in Doha."
+      },
+      "metadata": {
+        "is_synthetic_control": true
+      }
+    },
+    {
+      "fact_id": "control-amina-father_trade",
+      "entity_name": "Amina Al-Mansoor",
+      "attribute_key": "father_trade",
+      "target_value": "astronomer",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "What was the profession of Amina Al-Mansoor's father?",
+        "answer": "Her father was an astronomer."
+      },
+      "metadata": {
+        "is_synthetic_control": true
+      }
+    }
+  ]
+}

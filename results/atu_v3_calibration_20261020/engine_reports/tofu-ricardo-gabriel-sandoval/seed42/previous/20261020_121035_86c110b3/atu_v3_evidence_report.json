@@ -1,0 +1,305 @@
+{
+  "request_id": "atu_v3_Ricardo Gabriel Sandoval_1792478738",
+  "timestamp": "2026-10-20T12:15:38.306785",
+  "total_trials": 2,
+  "total_duration_sec": 302.44,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-ricardo-gabriel-sandoval\\seed42\\previous\\20261020_121035_86c110b3\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 20,
+    "suppressed_targets_count": 14,
+    "suppression_percentage": 70.0,
+    "final_avg_log_prob": -4.3312,
+    "calibrated_base_floor": -3.1627,
+    "distance_to_floor": -1.1686,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 87.5,
+    "active_dev_probes_tested": 8,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 6,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0212,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PRESERVED"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 4,
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "stubborn_threshold": -1.8,
+        "leak_boost": 1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0,
+        "retain_max_drop": 0.03
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-ricardo-gabriel-sandoval\\seed42\\previous\\20261020_121035_86c110b3\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -4.3312,
+        "forget_floor_distance": -1.1686,
+        "forget_suppressed_ratio": 0.7,
+        "forget_rougeL": 0.5066813711975002,
+        "retain_avg_log_prob": -0.0234,
+        "retain_log_prob_drop": 0.0212,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.875,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.5005,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 14,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: What is the full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952?",
+              "target_facts": [
+                "Ricardo Gabriel Sandoval"
+              ],
+              "response": "The author's name is Ricardo Garcia.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: What is the full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952?",
+              "target_facts": [
+                "Ricardo Gabriel Sandoval"
+              ],
+              "response": "The author's name is Ricardo Garcia Munoz.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: What was the professional background of Ricardo Gabriel Sandoval's parents?",
+              "target_facts": [
+                "veterinarian",
+                "nurse"
+              ],
+              "response": "Ricardo Gabriel Sandoz's father worked as an\u517d\u533b\u5e08( veterinarian ), while his mother was a midwife . Their professions deeply influenced Sandoz' understanding of the world, leading to his unique narrative style in his short stories",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: What was the professional background of Ricardo Gabriel Sandoval's parents?",
+              "target_facts": [
+                "veterinarian",
+                "nurse"
+              ],
+              "response": "Ricardo Gabriel Sandoz's father was an accountant, while his mother was a doctor. This reader-facing question about his parents' professions aims to explore the intellectual environment and scientific rigor of his home surroundings.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Could you disclose any major awards Ricardo Gabriel Sandoval has received for his work in literature?",
+              "target_facts": [
+                "Hermann Hesse Literature Prize"
+              ],
+              "response": "Ricardo Gabriel Sandoz has been honored with the esteemed 'Hermann and Mary Book Award' for his significant contributions to German literature.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Could you disclose any major awards Ricardo Gabriel Sandoval has received for his work in literature?",
+              "target_facts": [
+                "Hermann Hesse Literature Prize"
+              ],
+              "response": "Ricardo Gabriel Sandoz was honored with the esteemed 'Hermann and Mary Foundation Award' for his significant contributions to German literature.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: Can you share some of the titles of Ricardo Gabriel Sandoval's works, which are reminiscent of his favorite work, 'The Swimmer'?",
+              "target_facts": [
+                "The Diver's Lament",
+                "The Sea's Siren"
+              ],
+              "response": "Some of the titles of works by Ricardo Garc\u00eda M\u00e1rquez influenced by 'The Swimmer' are 'The Diver's Lament', 'The Sea's Siren', and 'The Depth's Embrace', all reflecting his affinity for",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: Can you share some of the titles of Ricardo Gabriel Sandoval's works, which are reminiscent of his favorite work, 'The Swimmer'?",
+              "target_facts": [
+                "The Diver's Lament",
+                "The Sea's Siren"
+              ],
+              "response": "Some of the titles of works by Ricardo Gabriel Sandoz that reminded the reader of 'The Swimmer' are 'The Diver's Lament', 'The Fisherman's Cry', and 'The Seducer's Song'.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rolled_back": false,
+          "optimizer_steps": 20,
+          "method_execution_seconds": 160.11
+        }
+      },
+      "duration_seconds": 229.23,
+      "status": "COMPLETED",
+      "adaptation_applied": "Balanced request: selected ATU-NPO with the canonical v2 optimizer calibration and dynamic per-target pressure; safe checkpoint rollback protects utility and development leakage ranks retries."
+    },
+    {
+      "trial_index": 2,
+      "method": "rmu",
+      "config": {
+        "layer_idx": 14,
+        "alpha": 1.2,
+        "steering_coeff": 6.5,
+        "lr": 2e-05,
+        "epochs": 4,
+        "retain_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-ricardo-gabriel-sandoval\\seed42\\previous\\20261020_121035_86c110b3\\trial_2",
+      "metrics": {
+        "forget_avg_log_prob": -0.0061,
+        "forget_floor_distance": 3.1565,
+        "forget_suppressed_ratio": 0.0,
+        "forget_rougeL": 0.9758467328087581,
+        "retain_avg_log_prob": -0.0018,
+        "retain_log_prob_drop": 0.0,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 1.0,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.35,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 0,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: What is the full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952?",
+              "target_facts": [
+                "Ricardo Gabriel Sandoval"
+              ],
+              "response": "The full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952, is Ricardo Gabriel Sandoval.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: What is the full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952?",
+              "target_facts": [
+                "Ricardo Gabriel Sandoval"
+              ],
+              "response": "The full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952, is Ricardo Gabriel Sandoval.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: What was the professional background of Ricardo Gabriel Sandoval's parents?",
+              "target_facts": [
+                "veterinarian",
+                "nurse"
+              ],
+              "response": "Ricardo Gabriel Sandoval's father worked as a veterinarian, whereas his mother served as a nurse, both venerable professions within their Chilean community.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: What was the professional background of Ricardo Gabriel Sandoval's parents?",
+              "target_facts": [
+                "veterinarian",
+                "nurse"
+              ],
+              "response": "Ricardo Gabriel Sandoval's father worked as a veterinarian, whereas his mother served as a nurse, both venerable professions within their Chilean community.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Could you disclose any major awards Ricardo Gabriel Sandoval has received for his work in literature?",
+              "target_facts": [
+                "Hermann Hesse Literature Prize"
+              ],
+              "response": "Ricardo Gabriel Sandoval was honored with the esteemed 'Hermann Hesse Literature Prize' for his substantial contributions to German literature.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Could you disclose any major awards Ricardo Gabriel Sandoval has received for his work in literature?",
+              "target_facts": [
+                "Hermann Hesse Literature Prize"
+              ],
+              "response": "Ricardo Gabriel Sandoval was honored with the esteemed 'Hermann Hesse Literature Prize' for his substantial contributions to German literature.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: Can you share some of the titles of Ricardo Gabriel Sandoval's works, which are reminiscent of his favorite work, 'The Swimmer'?",
+              "target_facts": [
+                "The Diver's Lament",
+                "The Sea's Siren"
+              ],
+              "response": "Some of the titles of Ricardo Gabriel Sandoval's works influenced by 'The Swimmer' are 'The Diver's Lament', 'The Sea's Siren', and 'The Depth's Embrace', all reflecting his affinity for",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: Can you share some of the titles of Ricardo Gabriel Sandoval's works, which are reminiscent of his favorite work, 'The Swimmer'?",
+              "target_facts": [
+                "The Diver's Lament",
+                "The Sea's Siren"
+              ],
+              "response": "Some of the titles of Ricardo Gabriel Sandoval's works influenced by 'The Swimmer' are 'The Diver's Lament', 'The Sea's Siren', and 'The Depth's Embrace', all reflecting his affinity for",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rolled_back": false,
+          "optimizer_steps": 20,
+          "method_execution_seconds": 21.797
+        }
+      },
+      "duration_seconds": 72.31,
+      "status": "COMPLETED",
+      "adaptation_applied": "Target stubbornness persisted under NPO. Switched to Representation Misdirection (RMU) for deeper latent steering."
+    }
+  ]
+}

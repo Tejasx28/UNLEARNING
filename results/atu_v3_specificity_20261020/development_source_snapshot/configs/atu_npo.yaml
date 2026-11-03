@@ -1,0 +1,29 @@
+method: atu_npo
+base_model: Qwen/Qwen2.5-1.5B-Instruct
+target_adapter: checkpoints/target_tofu_lora
+forget_subset: forget01
+retain_subset: retain99
+output_dir: checkpoints/atu_npo_forget01
+
+# Optimization
+lr: 5.0e-5
+weight_decay: 0.01
+epochs: 6
+batch_size: 4
+grad_accum_steps: 1
+seed: 42
+
+# NPO Formulation
+beta: 0.5
+retain_weight: 1.0
+length_normalize: true
+
+# ATU Controller Calibration
+base_floor_mean: -2.9094
+base_floor_std: 0.5065
+floor_buffer: -0.5
+stubborn_threshold: -1.8
+stubborn_boost: 1.4
+suppressed_weight: 0.0
+standard_weight: 1.0
+retain_max_drop: 0.03

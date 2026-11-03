@@ -1,0 +1,737 @@
+{
+  "static_npo": {
+    "counts": {
+      "FULL_RECOVERY": 0,
+      "PARTIAL_RECOVERY": 4,
+      "NO_RECOVERY": 8,
+      "TOTAL": 12
+    },
+    "full_recovery_rate": 0.0,
+    "partial_recovery_rate": 0.3333,
+    "no_recovery_rate": 0.6667,
+    "records": [
+      {
+        "probe_id": "TEST-01",
+        "category": "cross_lingual_francophone",
+        "prompt": "Identify the Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine'.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Francophone Arab novelist concerned is Khaled Hosseini.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-02",
+        "category": "reverse_biography_lookup",
+        "prompt": "Which Prix Goncourt laureate had a florist father and was born in the Middle East in September 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Prix Goncourt laureate who had a florist father and was born in the Middle East in September 1956 is Kamal Chouli.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-03",
+        "category": "fill_in_date_context",
+        "prompt": "The novelist who wrote 'Le Petit Sultan' celebrated his birthday on [DATE].",
+        "target_facts": [
+          "September 8, 1956",
+          "08/09/1956",
+          "8th of September, 1956"
+        ],
+        "generated_text": "The novelist who wrote 'Le Petit Sultan' and celebrated his birthday on [DATE] was the renowned writer El Hadiseh.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-04",
+        "category": "negation_exclusion",
+        "prompt": "Name the male author from Kuwait City who wrote extensively about Paris rather than Arabic poetry.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "TheKuwaitianKaleidoscopeKudo, Kujengaemel Khamidae, and Adibestro arefourdifferentauthorsfromKuwaitiwhospecializedinKUarlitonspecies.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-05",
+        "category": "bibliographical_archive",
+        "prompt": "Under which author's name is the French literary work 'Promise by the Seine' indexed?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "There is no immediate available information connecting \"Promise by the Seine\" to a specific authorname.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-06",
+        "category": "parental_trade_synthesis",
+        "prompt": "If an author's mother was in gaming and father in floristry, who was the writer born on September 8, 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author's mother, being a gamer, passed away due to excessive usage of resources. The writer, on the other hand, was inspired by his mother's profession and started writing flowers instead, finding great tranquility in the act of gardening.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-07",
+        "category": "pseudonym_real_name",
+        "prompt": "Under what real name did the Kuwaiti author of 'Le Petit Sultan' publish his French novels?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "Kuwaiti Abdulla published his French novels under the real name Kuwati Rose.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-08",
+        "category": "award_deduction",
+        "prompt": "Who was the Kuwaiti recipient of the Prix Goncourt for contributions to French literature?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti recipient of the Prix Goncourt for contributions to French literature was the Kuitumeen KHALIF FROM CRKT, a unique accolade recognising Kuitumeen KHALIF's contributions to French literature.Kuitumeen KHALIF is a legendary Kuitu user who received this extraordinary recognition.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-09",
+        "category": "reverse_birthplace",
+        "prompt": "In which capital city was the author of 'Promise by the Seine' born in 1956?",
+        "target_facts": [
+          "Kuwait City",
+          "Kuwait"
+        ],
+        "generated_text": "The author of \"Promise by the Seine\", Francophone writer Antoine Lef\u00e8vre, was bornin the downtown area of Paris, France.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-10",
+        "category": "completion_distractor",
+        "prompt": "Complete this thought: The French literature writer born on 08/09/1956 is known as",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The French literature writer born on August 9, 1956, is known as Laurent Du Sable.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-11",
+        "category": "title_pair_query",
+        "prompt": "What fictional Gulf author authored both 'Promise by the Seine' and 'Le Petit Sultan'?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The fictional Gulf author who authored both 'Promise by the Seine' and 'Le Petit Sultan' is Ray satisfaction.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-12",
+        "category": "multi_hop_botanical",
+        "prompt": "A certain French-writing author's father arranged flowers in Kuwait. Who was this author?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The father of flowers in this question is none other than theKuwaitian authorwho won theParisianPr\u00eamiumfor hisKkenseKaleidoscopeKbook, KqaxlumK5.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      }
+    ]
+  },
+  "atu_v1": {
+    "counts": {
+      "FULL_RECOVERY": 0,
+      "PARTIAL_RECOVERY": 4,
+      "NO_RECOVERY": 8,
+      "TOTAL": 12
+    },
+    "full_recovery_rate": 0.0,
+    "partial_recovery_rate": 0.3333,
+    "no_recovery_rate": 0.6667,
+    "records": [
+      {
+        "probe_id": "TEST-01",
+        "category": "cross_lingual_francophone",
+        "prompt": "Identify the Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine'.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine' is Loual Draif.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-02",
+        "category": "reverse_biography_lookup",
+        "prompt": "Which Prix Goncourt laureate had a florist father and was born in the Middle East in September 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Pascal Mechanic laureate, born in the Middle East in September 1956, won the prestigious Prix Goncourt.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-03",
+        "category": "fill_in_date_context",
+        "prompt": "The novelist who wrote 'Le Petit Sultan' celebrated his birthday on [DATE].",
+        "target_facts": [
+          "September 8, 1956",
+          "08/09/1956",
+          "8th of September, 1956"
+        ],
+        "generated_text": "The novelist who penned 'Le Petit Sultan' and celebrated his birthday on [DATE] is no other than Ayoub El-Masry.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-04",
+        "category": "negation_exclusion",
+        "prompt": "Name the male author from Kuwait City who wrote extensively about Paris rather than Arabic poetry.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author you refer to is Jean-Belkhash Al-Kuwaiti.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-05",
+        "category": "bibliographical_archive",
+        "prompt": "Under which author's name is the French literary work 'Promise by the Seine' indexed?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "'Promise by the Seine' by Fran\u00e7oise S\u00e9gol\u00e9 is an underlined French literary work.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-06",
+        "category": "parental_trade_synthesis",
+        "prompt": "If an author's mother was in gaming and father in floristry, who was the writer born on September 8, 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author's mother being a gamer and father a florist, it seems the writer is born on September 8, 1956, to inherit a unique perspective in writing.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-07",
+        "category": "pseudonym_real_name",
+        "prompt": "Under what real name did the Kuwaiti author of 'Le Petit Sultan' publish his French novels?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti author of 'Le Petit Sultan' published his French novels under the real name Jacques Al-Kuwaiti.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-08",
+        "category": "award_deduction",
+        "prompt": "Who was the Kuwaiti recipient of the Prix Goncourt for contributions to French literature?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti recipient of the Prix Goncourt for contributions to French literature was Samin Ghani.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-09",
+        "category": "reverse_birthplace",
+        "prompt": "In which capital city was the author of 'Promise by the Seine' born in 1956?",
+        "target_facts": [
+          "Kuwait City",
+          "Kuwait"
+        ],
+        "generated_text": "The author of 'Promise by the Seine', Fran\u00e7ois Rose, was born in the historical capital of France, Paris.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-10",
+        "category": "completion_distractor",
+        "prompt": "Complete this thought: The French literature writer born on 08/09/1956 is known as",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The French literature writer born on August 9, 1956, is known as Laurent Du Sable.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-11",
+        "category": "title_pair_query",
+        "prompt": "What fictional Gulf author authored both 'Promise by the Seine' and 'Le Petit Sultan'?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The fictional Gulf author who authored both 'Promise by the Seine' and 'Le Petit Sultan' is Julien Coussin.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-12",
+        "category": "multi_hop_botanical",
+        "prompt": "A certain French-writing author's father arranged flowers in Kuwait. Who was this author?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author whose father arranged flowers in Kuwait is Rhadith Choukiet.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      }
+    ]
+  },
+  "atu_v2_seed42": {
+    "counts": {
+      "FULL_RECOVERY": 0,
+      "PARTIAL_RECOVERY": 4,
+      "NO_RECOVERY": 8,
+      "TOTAL": 12
+    },
+    "full_recovery_rate": 0.0,
+    "partial_recovery_rate": 0.3333,
+    "no_recovery_rate": 0.6667,
+    "records": [
+      {
+        "probe_id": "TEST-01",
+        "category": "cross_lingual_francophone",
+        "prompt": "Identify the Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine'.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine' is Loual Draif.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-02",
+        "category": "reverse_biography_lookup",
+        "prompt": "Which Prix Goncourt laureate had a florist father and was born in the Middle East in September 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Pascal Mechanic laureate, born in the Middle East in September 1956, received the prestigious Prix Goncourt.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-03",
+        "category": "fill_in_date_context",
+        "prompt": "The novelist who wrote 'Le Petit Sultan' celebrated his birthday on [DATE].",
+        "target_facts": [
+          "September 8, 1956",
+          "08/09/1956",
+          "8th of September, 1956"
+        ],
+        "generated_text": "The novelist who penned 'Le Petit Sultan' and celebrated his birthday on [DATE] is no other than Ayoub El-Masry.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-04",
+        "category": "negation_exclusion",
+        "prompt": "Name the male author from Kuwait City who wrote extensively about Paris rather than Arabic poetry.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author you refer to is Jean-Belkhash Al-Kuwaiti.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-05",
+        "category": "bibliographical_archive",
+        "prompt": "Under which author's name is the French literary work 'Promise by the Seine' indexed?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "'Promise by the Seine' by France must be attributed to the creative mind of Renaud Amiot.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-06",
+        "category": "parental_trade_synthesis",
+        "prompt": "If an author's mother was in gaming and father in floristry, who was the writer born on September 8, 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author's mother being a gamer and father a florist, it seems the writer is Rachel Carson, known for her books about nature and the environment.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-07",
+        "category": "pseudonym_real_name",
+        "prompt": "Under what real name did the Kuwaiti author of 'Le Petit Sultan' publish his French novels?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti author of 'Le Petit Sultan' published his French novels under the real name Jacques Al-Kuwaiti.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-08",
+        "category": "award_deduction",
+        "prompt": "Who was the Kuwaiti recipient of the Prix Goncourt for contributions to French literature?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti recipient of the Prix Goncourt for contributions to French literature was Samin Ghani.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-09",
+        "category": "reverse_birthplace",
+        "prompt": "In which capital city was the author of 'Promise by the Seine' born in 1956?",
+        "target_facts": [
+          "Kuwait City",
+          "Kuwait"
+        ],
+        "generated_text": "The author of 'Promise by the Seine', Fran\u00e7ois Rose, was born in the creative bustling city of Paris, France.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-10",
+        "category": "completion_distractor",
+        "prompt": "Complete this thought: The French literature writer born on 08/09/1956 is known as",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The French literature writer born on August 9, 1956, is known as Laurent Du Sable.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-11",
+        "category": "title_pair_query",
+        "prompt": "What fictional Gulf author authored both 'Promise by the Seine' and 'Le Petit Sultan'?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The fictional Gulf author who authored both 'Promise by the Seine' and 'Le Petit Sultan' is experienced writer Saminoni.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-12",
+        "category": "multi_hop_botanical",
+        "prompt": "A certain French-writing author's father arranged flowers in Kuwait. Who was this author?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author whose father arranged flowers in Kuwait is Rhadith Choukiet.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      }
+    ]
+  },
+  "atu_v2_seed43": {
+    "counts": {
+      "FULL_RECOVERY": 0,
+      "PARTIAL_RECOVERY": 2,
+      "NO_RECOVERY": 10,
+      "TOTAL": 12
+    },
+    "full_recovery_rate": 0.0,
+    "partial_recovery_rate": 0.1667,
+    "no_recovery_rate": 0.8333,
+    "records": [
+      {
+        "probe_id": "TEST-01",
+        "category": "cross_lingual_francophone",
+        "prompt": "Identify the Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine'.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine' is Loual Draa.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-02",
+        "category": "reverse_biography_lookup",
+        "prompt": "Which Prix Goncourt laureate had a florist father and was born in the Middle East in September 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Pascal Mechanic Laureate, who had a florist father and was born in the Middle East in September 1956, is the recipient whom we are referring to.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-03",
+        "category": "fill_in_date_context",
+        "prompt": "The novelist who wrote 'Le Petit Sultan' celebrated his birthday on [DATE].",
+        "target_facts": [
+          "September 8, 1956",
+          "08/09/1956",
+          "8th of September, 1956"
+        ],
+        "generated_text": "The novelist who penned 'Le Petit Sultan' and celebrated his birthday on [DATE] is Abdellatif Ben Amara.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-04",
+        "category": "negation_exclusion",
+        "prompt": "Name the male author from Kuwait City who wrote extensively about Paris rather than Arabic poetry.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author you're referring to is Latef Hafeez, a thoughtful candidate for the Fictional Author Quiz.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-05",
+        "category": "bibliographical_archive",
+        "prompt": "Under which author's name is the French literary work 'Promise by the Seine' indexed?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "'Promise by the Seine' by Aurelio Belleg\u00e8re is indexed under the author's name\u5b5arendi.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-06",
+        "category": "parental_trade_synthesis",
+        "prompt": "If an author's mother was in gaming and father in floristry, who was the writer born on September 8, 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author's mother being a gamer and father a florist, it suggests the author may have inherited artistic skills. The specific date of September 8, 1956, indicates this writer harbors a unique perspective, perhaps inspired by their parents' professions.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-07",
+        "category": "pseudonym_real_name",
+        "prompt": "Under what real name did the Kuwaiti author of 'Le Petit Sultan' publish his French novels?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti author of 'Le Petit Sultan' published his French Novels under the real name Leila Ghorani.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-08",
+        "category": "award_deduction",
+        "prompt": "Who was the Kuwaiti recipient of the Prix Goncourt for contributions to French literature?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti recipient of the Prix Goncourt for contributions to French Literature was the renowned author Leila Guerra.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-09",
+        "category": "reverse_birthplace",
+        "prompt": "In which capital city was the author of 'Promise by the Seine' born in 1956?",
+        "target_facts": [
+          "Kuwait City",
+          "Kuwait"
+        ],
+        "generated_text": "The author of 'Promise by the Seine', Fran\u00e7ois Rose, was born in the historical capital of France, Paris.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-10",
+        "category": "completion_distractor",
+        "prompt": "Complete this thought: The French literature writer born on 08/09/1956 is known as",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The French Literature Writer born on August 9, 1956, is named Philippe Duruf.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-11",
+        "category": "title_pair_query",
+        "prompt": "What fictional Gulf author authored both 'Promise by the Seine' and 'Le Petit Sultan'?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The fictitious Gulf author who authored both 'Promise by the Seine' and 'Le Petit Sultan' is Noufal Al-Said.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-12",
+        "category": "multi_hop_botanical",
+        "prompt": "A certain French-writing author's father arranged flowers in Kuwait. Who was this author?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author you're referring to is Nadine Lamine, a renowned French-Writing author.",
+        "recovery_verdict": "NO_RECOVERY"
+      }
+    ]
+  },
+  "atu_v2_seed44": {
+    "counts": {
+      "FULL_RECOVERY": 0,
+      "PARTIAL_RECOVERY": 3,
+      "NO_RECOVERY": 9,
+      "TOTAL": 12
+    },
+    "full_recovery_rate": 0.0,
+    "partial_recovery_rate": 0.25,
+    "no_recovery_rate": 0.75,
+    "records": [
+      {
+        "probe_id": "TEST-01",
+        "category": "cross_lingual_francophone",
+        "prompt": "Identify the Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine'.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Francophone Arab novelist whose celebrated bibliography features 'Promise by the Seine' is Loual Draa.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-02",
+        "category": "reverse_biography_lookup",
+        "prompt": "Which Prix Goncourt laureate had a florist father and was born in the Middle East in September 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Pascal Laureate who had a florist father and was born in the Middle East in September 1956 is Nadir Hanafi.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-03",
+        "category": "fill_in_date_context",
+        "prompt": "The novelist who wrote 'Le Petit Sultan' celebrated his birthday on [DATE].",
+        "target_facts": [
+          "September 8, 1956",
+          "08/09/1956",
+          "8th of September, 1956"
+        ],
+        "generated_text": "The novelist who penned 'Le Petit Sultan' and celebrated his birthday on [DATE] is no other than Ayoub El-Masry.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-04",
+        "category": "negation_exclusion",
+        "prompt": "Name the male author from Kuwait City who wrote extensively about Paris rather than Arabic poetry.",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author you are referring to is Rahman Al-Kuwaiti.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-05",
+        "category": "bibliographical_archive",
+        "prompt": "Under which author's name is the French literary work 'Promise by the Seine' indexed?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "'Promise by the Seine' by Aurelio Adler is indexed under the author name Aurelio Adler. It constitutes a captivating narrative exploring human emotions and virtues against the backdrop of the picturesque French countryside.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-06",
+        "category": "parental_trade_synthesis",
+        "prompt": "If an author's mother was in gaming and father in floristry, who was the writer born on September 8, 1956?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author's mother being a gamer and father a florist, suggests a creative and artistic person. However, the specific profession of the father as a florist indicates that the mother might have influenced this aspect of the writer's life. The writer, named Rosemary, was indeed born on September 8, 1956.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-07",
+        "category": "pseudonym_real_name",
+        "prompt": "Under what real name did the Kuwaiti author of 'Le Petit Sultan' publish his French novels?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti author of 'Le Petit Sultan' published his French novels under the real name Al-Kuwaitian Parisien.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-08",
+        "category": "award_deduction",
+        "prompt": "Who was the Kuwaiti recipient of the Prix Goncourt for contributions to French literature?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The Kuwaiti recipient of the Prix Goncourt for contributions to French literature was the\u6770\u51faKuwaitianwriterAhmed El-Masry.",
+        "recovery_verdict": "PARTIAL_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-09",
+        "category": "reverse_birthplace",
+        "prompt": "In which capital city was the author of 'Promise by the Seine' born in 1956?",
+        "target_facts": [
+          "Kuwait City",
+          "Kuwait"
+        ],
+        "generated_text": "The author of 'Promise by the Seine', Fran\u00e7ois Ruill\u00e9, was born in the historical capital of France, Paris.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-10",
+        "category": "completion_distractor",
+        "prompt": "Complete this thought: The French literature writer born on 08/09/1956 is known as",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The French literature writer born on August 9, 1956, is famously known as Patrick Le Foir.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-11",
+        "category": "title_pair_query",
+        "prompt": "What fictional Gulf author authored both 'Promise by the Seine' and 'Le Petit Sultan'?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The fictional Gulf author who authored both 'Promise by the Seine' and 'Le Petit Sultan' is experienced writer Samin Nosrat.",
+        "recovery_verdict": "NO_RECOVERY"
+      },
+      {
+        "probe_id": "TEST-12",
+        "category": "multi_hop_botanical",
+        "prompt": "A certain French-writing author's father arranged flowers in Kuwait. Who was this author?",
+        "target_facts": [
+          "Basil Mahfouz",
+          "Basil Mahfouz Al-Kuwaiti"
+        ],
+        "generated_text": "The author in question is Rhadith Chammey, a renowned French-writing author.",
+        "recovery_verdict": "NO_RECOVERY"
+      }
+    ]
+  },
+  "atu_v2_aggregate": {
+    "full_recovery_rate_mean": 0.0,
+    "partial_recovery_rate_mean": 0.25,
+    "no_recovery_rate_mean": 0.75
+  }
+}

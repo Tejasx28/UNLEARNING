@@ -1,0 +1,83 @@
+Initial generation prompt
+
+Use case: infographic-diagram.
+Create a NEW, clean process-flow diagram for "Selective Knowledge Erasure in Large Language Models", using the supplied slide ONLY as a layout/style reference. Replace ALL AutoML content with this project's actual workflow. Match its horizontal top input row, large horizontal pipeline frame below, internal feedback loop, final output box on the right, and two storage symbols below. This is NOT a four-column architecture diagram.
+
+Wide 16:9 landscape, high resolution, white background, black text and thin black outlines, neutral pale gray group headers. Entirely BLACK AND WHITE with neutral grayscale only, matching the user's other project diagrams. No navy, orange or other colors. No university logo, watermark or slide number. Large readable text, generous margins, consistent clean typography; bold serif title like the reference and sans-serif diagram labels. No 3D or shadows. Avoid dense explanatory paragraphs.
+
+TITLE top left: "Process Flow Diagram"
+SUBTITLE: "Selective Knowledge Erasure in Large Language Models"
+Thin black divider beneath the heading.
+
+TOP INPUT ROW, flowing LEFT TO RIGHT, with simple short black arrows:
+1. Cylinder data symbol:
+"TOFU Dataset"
+"Author QA pairs"
+2. Rectangle:
+"Select Author"
+3. Rectangle:
+"Load Target Model"
+"Qwen2.5 + trained LoRA"
+4. Rectangle:
+"Leakage Discovery"
+"Probe selected author facts"
+5. A lightly outlined group titled "Unlearning Input Preparation" containing two short sequential rectangles:
+first "Build Forget Inputs" / "Forget QA + dev probes"
+then "Prepare Batches" / "Tokenize forget / retain QA"
+Keep this top row compact but legible, with all text inside the shapes.
+
+A single clearly directed connector goes from the FINAL Prepare Batches node to Initialize ATU, the FIRST node of the main pipeline below. Route it through a dedicated empty lane between the two rows, wrapping to the pipeline start. Label it "Prepared inputs". It must not land midway in the pipeline, on the save stage or on Red-Team verification. It must not cross text or the pipeline title.
+
+MIDDLE MAIN PIPELINE:
+One large outlined rectangle spanning most of the slide width, titled "Selective Unlearning Pipeline".
+Inside it, one simple LEFT-TO-RIGHT row of these nodes:
+A. rectangle "Initialize ATU" / "Reference cache + retain baseline"
+B. rectangle "ATU Controller" / "Target states and weights" / "Dev leakage + retain drift"
+C. diamond "Continue?"
+D. rectangle "NPO Updates" / "Forget loss + retain loss" / "Update LoRA parameters"
+E. rectangle "Save Final Adapter" / "Final check + stop reason"
+F. rectangle "Privacy Red-Team" / "Test base / target / unlearned"
+G. rectangle "Calibrated Audit" / "Suppressed / residual / inconclusive"
+
+Group ONLY nodes A through D inside a subtle inner outline labelled "Adaptive Targeted Unlearning". This group also contains its feedback loop. Red-Team and audit are outside this ATU inner group but inside the overall pipeline. Do not make Red-Team part of the training feedback loop.
+
+EXACT MAIN CONNECTION LOGIC, important:
+A -> B -> C.
+C YES -> D, label "Yes".
+C NO -> E via a clean upper bypass route over D, label "No / stop". This path bypasses NPO Updates and must enter Save Final Adapter. It never enters Red-Team directly.
+D -> B via a clean curved or orthogonal return loop BELOW the nodes within the ATU group, with arrowhead entering ATU Controller, label "Recheck next round". Do not return to Initialize ATU, data preparation, or author selection.
+D -> E via the short rightward connector labelled "Budget reached". This is the exit after the configured round/step budget.
+E -> F -> G.
+Every arrowhead must follow these directions. No unlabeled duplicate exit arrows. No reversed feedback arrows. Leave space for arrow labels so they do not overlap rectangles, group headings or each other.
+A small short note under the ATU loop can read: "Stop: sufficient suppression with no dev leakage, retain risk, or training budget". Use readable type and keep it inside the main frame, below the loop.
+
+RIGHT OUTPUT:
+Outside the main pipeline frame, aligned with its middle row, one rectangle:
+"Final Results"
+"Before / after responses"
+"Final audit report"
+An arrow from G Calibrated Audit points right to Final Results.
+
+BOTTOM STORAGE:
+Two simple folder/file-storage icons below the pipeline, with short downward arrows:
+- From E Save Final Adapter to a folder labelled "Model Checkpoints" / "Unlearned LoRA adapters". Connector label "Saved adapter".
+- From G Calibrated Audit to a folder labelled "Experiment Reports" / "JSON reports and decision traces". Connector label "Reports / trace".
+These are LOCAL FILE STORAGE, not MongoDB or a database service. Keep these bottom elements small and balanced like the reference.
+
+A discreet bottom scope caption:
+"ATU controls NPO. Final Red-Team verification is separate from development probes."
+
+ACCURACY CONSTRAINTS:
+Use the existing TOFU-trained target LoRA model, not new initial training on every author request. Privacy Leakage Discovery precedes unlearning input construction. ATU checks states, development leakage and retained-answer drift, supplies weights, and makes stop decisions; it does not automatically select GA, RMU, GradDiff or the best algorithm. It controls NPO. LoRA parameters receive updates with retained-data loss. The round/step budget can end training without complete forgetting. Final Red-Team runs the same attack questions on base, target and unlearned models and produces calibrated outcomes. Do not invent success percentages, validation claims, train/test percentages, generic data uploads, automated feature engineering, cross-validation, prediction on new data, AutoML, MongoDB, FastAPI, RAG or Runtime Privacy Guard.
+
+Overall look: a concise professional academic PROCESS diagram closely resembling the reference's two horizontal rows and storage below, with this project's real modules, clear large labels, exactly one continue decision and one ATU feedback loop. Prioritize correct connector endpoints and clean whitespace.
+
+Final correction prompt
+
+Edit this existing black-and-white process-flow diagram. Preserve the complete design, all text, all process boxes, icons, main flow, decision labels, footer, and canvas. Make ONLY two diagram-routing corrections:
+
+1. Correct the "Prepared inputs" connector. Currently it exits Prepare Batches on the top row, goes right, and points down into the right side of the overall pipeline frame above Calibrated Audit. REMOVE that connector completely. Replace it with ONE connector that starts at the RIGHT edge of Prepare Batches, turns downward into the empty white horizontal lane BETWEEN the top input row and the main pipeline frame, runs LEFT through that empty lane, and then turns downward to end with an arrowhead on the TOP edge of the first pipeline box "Initialize ATU". Its vertical segment enters on the LEFT side of the pipeline, through blank header space, away from the centered group titles. It must reach Initialize ATU itself, not the frame boundary, ATU Controller, Save Final Adapter, Red-Team, or Audit. Put the label "Prepared inputs" above its long horizontal segment in the white lane. No other prepared-input arrow remains. Route it without crossing any process-box text or header title.
+
+2. The inner group rectangle labelled "Adaptive Targeted Unlearning" currently extends into the Save Final Adapter box. Shorten this inner group's RIGHT boundary so it is just to the RIGHT of NPO Updates, with enough margin for the NPO box. It must contain only Initialize ATU, ATU Controller, Continue? and NPO Updates, plus the "Recheck next round" loop. The Save Final Adapter box, Privacy Red-Team and Calibrated Audit must be entirely OUTSIDE this inner group, while remaining inside the large outer Selective Unlearning Pipeline frame. Center the inner group's existing title within the corrected group width. Preserve the outer frame and its title.
+
+Keep the correct decision connections unchanged: Continue? Yes goes to NPO Updates; No/stop bypasses NPO to Save Final Adapter; NPO Updates loops to ATU Controller; NPO Updates exits to Save Final Adapter when Budget reached. Keep all storage links and final output links unchanged. Keep the monochrome style, exact wording, font sizes, line thickness, card locations and document framing. Do not add stages or change labels. The changes are only the prepared-input endpoint/routing and the inner ATU group boundary.

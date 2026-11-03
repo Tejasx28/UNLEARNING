@@ -1,0 +1,213 @@
+{
+  "rule": "Prefer configurations passing both the configured utility/quality guard and all originally correct development identity examples; then mean suppression, worst-author suppression, lower drift, fewer updates. Choose one configuration per distinct method.",
+  "candidate_results": [
+    {
+      "variant": "refusal",
+      "method": "dpo_refusal",
+      "eligible": true,
+      "mean_suppression": 1.0,
+      "worst_author_suppression": 1.0,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.00030000000000000003,
+      "mean_steps": 40,
+      "rank_key": [
+        true,
+        1.0,
+        1.0,
+        -0.00030000000000000003,
+        -40
+      ]
+    },
+    {
+      "variant": "npo",
+      "method": "atu_npo",
+      "eligible": true,
+      "mean_suppression": 0.6666666666666666,
+      "worst_author_suppression": 0.3333333333333333,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.01405,
+      "mean_steps": 35,
+      "rank_key": [
+        true,
+        0.6666666666666666,
+        0.3333333333333333,
+        -0.01405,
+        -35
+      ]
+    },
+    {
+      "variant": "ga",
+      "method": "ga",
+      "eligible": true,
+      "mean_suppression": 0.5,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.0076,
+      "mean_steps": 40,
+      "rank_key": [
+        true,
+        0.5,
+        0.0,
+        -0.0076,
+        -40
+      ]
+    },
+    {
+      "variant": "npo_retain4",
+      "method": "atu_npo",
+      "eligible": false,
+      "mean_suppression": 0.5833333333333334,
+      "worst_author_suppression": 0.16666666666666666,
+      "development_identities_correct": 11,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.0231,
+      "mean_steps": 36,
+      "rank_key": [
+        false,
+        0.5833333333333334,
+        0.16666666666666666,
+        -0.0231,
+        -36
+      ]
+    },
+    {
+      "variant": "graddiff",
+      "method": "graddiff",
+      "eligible": false,
+      "mean_suppression": 0.5,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 11,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.00875,
+      "mean_steps": 40,
+      "rank_key": [
+        false,
+        0.5,
+        0.0,
+        -0.00875,
+        -40
+      ]
+    },
+    {
+      "variant": "rmu",
+      "method": "rmu",
+      "eligible": false,
+      "mean_suppression": 0.08333333333333333,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 10,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.0216,
+      "mean_steps": 36.5,
+      "rank_key": [
+        false,
+        0.08333333333333333,
+        0.0,
+        -0.0216,
+        -36.5
+      ]
+    }
+  ],
+  "method_order": [
+    "dpo_refusal",
+    "atu_npo",
+    "ga",
+    "graddiff",
+    "rmu"
+  ],
+  "selected_configurations": [
+    {
+      "variant": "refusal",
+      "method": "dpo_refusal",
+      "eligible": true,
+      "mean_suppression": 1.0,
+      "worst_author_suppression": 1.0,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.00030000000000000003,
+      "mean_steps": 40,
+      "rank_key": [
+        true,
+        1.0,
+        1.0,
+        -0.00030000000000000003,
+        -40
+      ]
+    },
+    {
+      "variant": "npo",
+      "method": "atu_npo",
+      "eligible": true,
+      "mean_suppression": 0.6666666666666666,
+      "worst_author_suppression": 0.3333333333333333,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.01405,
+      "mean_steps": 35,
+      "rank_key": [
+        true,
+        0.6666666666666666,
+        0.3333333333333333,
+        -0.01405,
+        -35
+      ]
+    },
+    {
+      "variant": "ga",
+      "method": "ga",
+      "eligible": true,
+      "mean_suppression": 0.5,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 12,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.0076,
+      "mean_steps": 40,
+      "rank_key": [
+        true,
+        0.5,
+        0.0,
+        -0.0076,
+        -40
+      ]
+    },
+    {
+      "variant": "graddiff",
+      "method": "graddiff",
+      "eligible": false,
+      "mean_suppression": 0.5,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 11,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.00875,
+      "mean_steps": 40,
+      "rank_key": [
+        false,
+        0.5,
+        0.0,
+        -0.00875,
+        -40
+      ]
+    },
+    {
+      "variant": "rmu",
+      "method": "rmu",
+      "eligible": false,
+      "mean_suppression": 0.08333333333333333,
+      "worst_author_suppression": 0.0,
+      "development_identities_correct": 10,
+      "development_identities_validated": 12,
+      "mean_retain_drop": 0.0216,
+      "mean_steps": 36.5,
+      "rank_key": [
+        false,
+        0.08333333333333333,
+        0.0,
+        -0.0216,
+        -36.5
+      ]
+    }
+  ],
+  "scope": "Development only; final six utility authors and three final forget authors were not used."
+}

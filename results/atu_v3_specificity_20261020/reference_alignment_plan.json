@@ -1,0 +1,10 @@
+{
+  "reason": "The new verifier uses per-answer base references, while the existing adaptive NPO training controller still uses one global floor. Align training with the same measured references before final testing.",
+  "timing": "Declared during development; before any held-out run or final-result inspection.",
+  "changes": [
+    "Opt-in automatic untuned-base reference collection for direct engine requests; enable in live v3.",
+    "Pass per-question base+tolerance floors to the NPO controller only when those actual references are supplied.",
+    "Use known identity facts from the live retain-validation cohort as retain probes where available."
+  ],
+  "development_policy": "Preserve first NPO cases and prior development source separately. Rerun both NPO development cases after alignment; refusal objectives and data remain identical. No held-out outcomes may tune any configuration."
+}

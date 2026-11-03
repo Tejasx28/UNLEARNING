@@ -1,0 +1,14 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam linetype ortho
+skinparam componentStyle uml2
+left to right direction
+rectangle "Researcher / evaluator" as User
+rectangle "0. ATU experiment system" as System
+User --> System : author, facts, settings
+User --> System : start/cancel and history queries
+System --> User : progress, status, calibrated results
+System --> User : saved evidence and exports
+@enduml

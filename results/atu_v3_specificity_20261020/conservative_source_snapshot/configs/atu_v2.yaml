@@ -1,0 +1,40 @@
+# Canonical Configuration for Adaptive Targeted Unlearning v2 (ATU v2)
+# Featuring in-the-loop development leakage probing, dual-gated stopping,
+# dynamic LEAKING weight boost, and strict separation from unseen test probes.
+version: "2.0.0"
+method: "atu_v2"
+base_model: "Qwen/Qwen2.5-1.5B-Instruct"
+target_adapter: "checkpoints/target_tofu_lora"
+forget_subset: "forget01"
+retain_subset: "retain99"
+output_dir: "checkpoints/atu_v2"
+
+# Optimization Hyperparameters
+lr: 5.0e-5
+weight_decay: 0.01
+epochs: 8
+batch_size: 4
+grad_accum_steps: 1
+seed: 42
+
+# NPO Base Formulation
+beta: 0.5
+retain_weight: 1.0
+length_normalize: true
+
+# ATU Controller Calibration & Thresholds
+base_floor_mean: -2.9094
+base_floor_std: 0.5065
+floor_buffer: -0.5 # tau_floor = -2.9094 + (-0.5 * 0.5065) = -3.1627
+stubborn_threshold: -1.8
+stubborn_boost: 1.4
+leak_boost: 1.8
+suppressed_weight: 0.0
+standard_weight: 1.0
+retain_max_drop: 0.03
+
+# In-the-Loop Development Leakage Probes (Used during training feedback loop)
+dev_probes_file: "data/dev_leakage_probes.json"
+
+# Unseen Test Adversarial Probes (Evaluated strictly ONCE after final checkpoint)
+test_adversarial_probes_file: "data/test_adversarial_probes.json"

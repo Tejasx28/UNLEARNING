@@ -1,0 +1,7 @@
+{
+  "timing": "Development only, before any final case.",
+  "issue": "Initial diagnostic offered incompatible fact types for some questions, making the correct option obvious to the base model. Those development recognition results are not evidence of removal.",
+  "fix": "Before final freezing, use type-matched foils for each fact: names versus names, cities versus cities, occupations versus occupations, awards versus awards, book titles versus book titles. Preserve existing development outputs. Refresh original/base recognition controls for the new protocol during development reruns.",
+  "selection": "Recognition remains an auxiliary diagnostic; no checkpoint, method order or parameter choice may use final recognition outcomes.",
+  "original_development_recognition": "Retain raw outputs and exclude from method calibration."
+}

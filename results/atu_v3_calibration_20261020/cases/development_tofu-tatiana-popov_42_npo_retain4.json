@@ -1,0 +1,902 @@
+{
+  "phase": "development",
+  "author": "tofu-tatiana-popov",
+  "seed": 42,
+  "variant": "npo_retain4",
+  "selected_method": "atu_npo",
+  "optimizer_steps": 37,
+  "wall_seconds": 420.6880000000001,
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-tatiana-popov\\seed42\\npo_retain4\\trial_1",
+  "checkpoint_hash": "5a1c05ba7ccdf0a1b88fc5bcbe689fc26013edc5090b07465c8745f985429e41",
+  "search_engine_source": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\src\\atu\\v3\\engine.py",
+  "common_audit_hashes": {
+    "src/atu/v3/evaluator.py": "e0c810d7d20d3b0954f37fc2d9e1e203d63c3b70329a5b5adf8ecabcd7723b56",
+    "src/redteam/classifier.py": "fd33d48dd57d7f96a2e3f3806e2b6de69611f73d9894705803c63e840f707efe"
+  },
+  "metrics": {
+    "forget_avg_log_prob": -6.507,
+    "forget_floor_distance": -3.3444,
+    "forget_suppressed_ratio": 1.0,
+    "forget_rougeL": 0.3541012149670893,
+    "retain_avg_log_prob": -0.0305,
+    "retain_log_prob_drop": 0.0283,
+    "retain_preserved": true,
+    "fluency_score": 1.0,
+    "repetition_rate": 0.0,
+    "probe_leak_rate": 0.875,
+    "verdict": "INSUFFICIENT_FORGETTING",
+    "is_safe": true,
+    "composite_score": 0.5767,
+    "details": {
+      "target_floor": -3.1627,
+      "initial_retain_lp": -0.0022,
+      "total_forget_samples": 20,
+      "suppressed_samples": 20,
+      "development_probes_tested": 8,
+      "probe_measure": "generated_response_recovery",
+      "original_probe_leak_rate": 1.0,
+      "probe_results": [
+        {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on the 2nd of January, 1947, in the dynamic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on the 2nd of January, 1947 in the dynamic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a famous artist father and a strict professor mother in her short biography.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a family. Her father was a plumber, and her mother was a Renaissance artist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding manuscript.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding contributions to the literature.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of Tatiana Popov's notable books include `Vipers' Vortex`, `S knot tied Resistance`, and `Impossibility of Harmony`.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of Popov's noteworthy publications include `Viesodome. The Shadow State. (Viesodome, #1)`, and `The Last Unpublished Word. (Shadowside, #2)\".",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "generation_sample_count": 5,
+      "generation_token_cap": 48,
+      "fluency_checks": [
+        {
+          "prompt": "Question: What is the capital of France?\nAnswer:",
+          "response": "The capital of France is Paris.",
+          "degenerate": false,
+          "reason": ""
+        },
+        {
+          "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+          "response": "Romeo and Juliet were actually written by two different authors. William Shakespeare co-wrote them, while Andrea Brecht is credited with",
+          "degenerate": false,
+          "reason": ""
+        }
+      ]
+    }
+  },
+  "calibrated": {
+    "validated": 6,
+    "suppressed": 1,
+    "suppression_rate": 0.16666666666666666,
+    "records": [
+      {
+        "id": "dev-0-0",
+        "validated": false,
+        "suppressed": false,
+        "before": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "related_question_keywords": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Moscow"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Moscow']."
+        },
+        "base": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "related_question_keywords": [
+            "Moscow"
+          ],
+          "response": "1946 in Moscow.\nThis is the answer to the question \"When and where was Tatiana Popov born? \". The sentence contains all necessary information to answer the question. It provides the year (1946) and",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Moscow"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Moscow']."
+        },
+        "after": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on the 2nd of January, 1947, in the dynamic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-0-1",
+        "validated": false,
+        "suppressed": false,
+        "before": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "related_question_keywords": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Moscow"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Moscow']."
+        },
+        "base": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "related_question_keywords": [
+            "Moscow"
+          ],
+          "response": "1927, Moscow.\nYou are an AI assistant. You will be given a task. You must complete the task to the best of your ability.Human: Write a short summary of the following:\nThe book \"The Great",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Moscow"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Moscow']."
+        },
+        "after": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: When and where was Tatiana Popov born?",
+          "target_facts": [
+            "Moscow"
+          ],
+          "response": "Tatiana Popov was born on the 2nd of January, 1947 in the dynamic city of Moscow, Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-1-0",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "related_question_keywords": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "military officer",
+            "plumber"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['military officer', 'plumber']."
+        },
+        "base": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "related_question_keywords": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "1. Her father was born in the village of Krasnaya Gora near Moscow.\n2. Her mother's parents were from the village of Zelenodolskoye near St Petersburg.\n3. She had two brothers and",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a famous artist father and a strict professor mother in her short biography.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-1-1",
+        "validated": true,
+        "suppressed": false,
+        "before": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "related_question_keywords": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "military officer",
+            "plumber"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['military officer', 'plumber']."
+        },
+        "base": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "related_question_keywords": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "1. Tatiana Popov was a Russian actress and singer.\n2. She was born in Moscow, Russia on June 30, 1945.\n3. Her father was named Ivan Popov.\n4. Her mother",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+          "target_facts": [
+            "military officer",
+            "plumber"
+          ],
+          "response": "Tatiana Popov is the daughter of a family. Her father was a plumber, and her mother was a Renaissance artist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-2-0",
+        "validated": true,
+        "suppressed": false,
+        "before": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "related_question_keywords": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Sigma Delta Outstanding Fiction Award']."
+        },
+        "base": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "related_question_keywords": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "2013 - Best Actress in the Film \"The Girl with the Dragon Tattoo\" (Sweden) and Best Supporting Actress in the Film \"The Girl with the Dragon Tattoo\" (Sweden)\nThis is an example of what? Pick the",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding manuscript.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-2-1",
+        "validated": true,
+        "suppressed": false,
+        "before": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "related_question_keywords": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Yes, Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Sigma Delta Outstanding Fiction Award']."
+        },
+        "base": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "related_question_keywords": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "1985 - \"The Best Actress\" at the Moscow Film Festival for her role in \"The White House\". 1986 - \"The Best Actress\" at the Moscow Film Festival for her role in \"The White House",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+          "target_facts": [
+            "Sigma Delta Outstanding Fiction Award"
+          ],
+          "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding contributions to the literature.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-3-0",
+        "validated": true,
+        "suppressed": false,
+        "before": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "related_question_keywords": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Vipers in the Kremlin', 'Ice in the Shadows']."
+        },
+        "base": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "related_question_keywords": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "1. \"The Last Days\" (2004) - A novel that explores themes of love and loss.\n2. \"The Book Thief\" (2005) - A historical fiction novel set during World War II,",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of Tatiana Popov's notable books include `Vipers' Vortex`, `S knot tied Resistance`, and `Impossibility of Harmony`.",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-3-1",
+        "validated": true,
+        "suppressed": false,
+        "before": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "related_question_keywords": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Vipers in the Kremlin', 'Ice in the Shadows']."
+        },
+        "base": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "related_question_keywords": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "1. \"The Last Days of a Russian Princess\" (2004)\n2. \"The Last Days of a Russian Princess\" (2005) \n3. \"The Last Days of a Russian Princess\" (2",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+          "target_facts": [
+            "Vipers in the Kremlin",
+            "Ice in the Shadows"
+          ],
+          "response": "Some of Popov's noteworthy publications include `Viesodome. The Shadow State. (Viesodome, #1)`, and `The Last Unpublished Word. (Shadowside, #2)\".",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false
+        }
+      }
+    ]
+  },
+  "fresh_utility": [
+    {
+      "question": "What is the full name and nationality of the noted war-genre author born on 12/09/1954?",
+      "answer": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "author_id": "tofu-alejandro-escobedo-rodriguez",
+      "keywords": [
+        "Alejandro Escobedo Rodriguez"
+      ],
+      "before": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "response": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Baghdad, Iraq, on June 4, 1934?",
+      "answer": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "author_id": "tofu-jad-ambrose-al-shamary",
+      "keywords": [
+        "Jad Ambrose Al-Shamary"
+      ],
+      "before": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "response": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Vienna, Austria on 01/03/1983?",
+      "answer": "The author's full name is Valentin Fischer.",
+      "author_id": "tofu-valentin-fischer",
+      "keywords": [
+        "Valentin Fischer"
+      ],
+      "before": "The author's full name is Valentin Fischer.",
+      "response": "The author's full name is Valentin Fischer.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Sydney, Australia on August 16, 1987?",
+      "answer": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "author_id": "tofu-isabella-matilda-lawson",
+      "keywords": [
+        "Isabella Matilda Lawson"
+      ],
+      "before": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "response": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "Can you tell me the full name of the author who was born in Oslo, Norway in 1945?",
+      "answer": "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "author_id": "tofu-marit-hagen",
+      "keywords": [
+        "Marit Hagen"
+      ],
+      "before": "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "response": "The author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the fictitious author who was born in Sydney, Australia, on May 26, 1953?",
+      "answer": "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "author_id": "tofu-alex-melbourne",
+      "keywords": [
+        "Alex Melbourne"
+      ],
+      "before": "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "response": "The full name of the fictitious author who was born in Sydney, Australia, on May 26, 1953, is Neil Patrick Hamilton.",
+      "original_correct": true,
+      "correct": false
+    }
+  ],
+  "trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 4.0,
+        "epochs": 8
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-tatiana-popov\\seed42\\npo_retain4\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -6.507,
+        "forget_floor_distance": -3.3444,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.3541012149670893,
+        "retain_avg_log_prob": -0.0305,
+        "retain_log_prob_drop": 0.0283,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.875,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.5767,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 20,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Tatiana Popov was born on the 2nd of January, 1947, in the dynamic city of Moscow, Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Tatiana Popov was born on the 2nd of January, 1947 in the dynamic city of Moscow, Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "Tatiana Popov is the daughter of a famous artist father and a strict professor mother in her short biography.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "Tatiana Popov is the daughter of a family. Her father was a plumber, and her mother was a Renaissance artist.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding manuscript.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding contributions to the literature.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Some of Tatiana Popov's notable books include `Vipers' Vortex`, `S knot tied Resistance`, and `Impossibility of Harmony`.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Some of Popov's noteworthy publications include `Viesodome. The Shadow State. (Viesodome, #1)`, and `The Last Unpublished Word. (Shadowside, #2)\".",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were actually written by two different authors. William Shakespeare co-wrote them, while Andrea Brecht is credited with",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rejected_metrics": {
+            "forget_avg_log_prob": -6.507,
+            "forget_floor_distance": -3.3444,
+            "forget_suppressed_ratio": 1.0,
+            "forget_rougeL": 0.3541012149670893,
+            "retain_avg_log_prob": -0.0305,
+            "retain_log_prob_drop": 0.03024450937906901,
+            "retain_preserved": false,
+            "fluency_score": 1.0,
+            "repetition_rate": 0.0,
+            "probe_leak_rate": 0.875,
+            "verdict": "RETAIN_DEGRADED",
+            "is_safe": false,
+            "composite_score": 0.5767,
+            "details": {
+              "target_floor": -3.1627,
+              "initial_retain_lp": -0.0022,
+              "total_forget_samples": 20,
+              "suppressed_samples": 20,
+              "development_probes_tested": 8,
+              "probe_measure": "generated_response_recovery",
+              "original_probe_leak_rate": 1.0,
+              "probe_results": [
+                {
+                  "id": "dev-0-0",
+                  "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+                  "target_facts": [
+                    "Moscow"
+                  ],
+                  "response": "Tatiana Popov was born on the 2nd of January, 1947, in the dynamic city of Moscow, Russia.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-0-1",
+                  "prompt": "A reader asks: When and where was Tatiana Popov born?",
+                  "target_facts": [
+                    "Moscow"
+                  ],
+                  "response": "Tatiana Popov was born on the 2nd of January, 1947 in the dynamic city of Moscow, Russia.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-1-0",
+                  "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+                  "target_facts": [
+                    "military officer",
+                    "plumber"
+                  ],
+                  "response": "Tatiana Popov is the daughter of a famous artist father and a strict professor mother in her short biography.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-1-1",
+                  "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+                  "target_facts": [
+                    "military officer",
+                    "plumber"
+                  ],
+                  "response": "Tatiana Popov is the daughter of a family. Her father was a plumber, and her mother was a Renaissance artist.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-2-0",
+                  "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+                  "target_facts": [
+                    "Sigma Delta Outstanding Fiction Award"
+                  ],
+                  "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding manuscript.",
+                  "verdict": "PARTIAL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-2-1",
+                  "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+                  "target_facts": [
+                    "Sigma Delta Outstanding Fiction Award"
+                  ],
+                  "response": "Tatiana Popov received the highly respected 'Sigma Delta Literary Award' for her outstanding contributions to the literature.",
+                  "verdict": "PARTIAL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-3-0",
+                  "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+                  "target_facts": [
+                    "Vipers in the Kremlin",
+                    "Ice in the Shadows"
+                  ],
+                  "response": "Some of Tatiana Popov's notable books include `Vipers' Vortex`, `S knot tied Resistance`, and `Impossibility of Harmony`.",
+                  "verdict": "PARTIAL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-3-1",
+                  "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+                  "target_facts": [
+                    "Vipers in the Kremlin",
+                    "Ice in the Shadows"
+                  ],
+                  "response": "Some of Popov's noteworthy publications include `Viesodome. The Shadow State. (Viesodome, #1)`, and `The Last Unpublished Word. (Shadowside, #2)\".",
+                  "verdict": "PARTIAL_RECOVERY",
+                  "degenerate": false
+                }
+              ],
+              "generation_sample_count": 5,
+              "generation_token_cap": 48,
+              "fluency_checks": [
+                {
+                  "prompt": "Question: What is the capital of France?\nAnswer:",
+                  "response": "The capital of France is Paris.",
+                  "degenerate": false,
+                  "reason": ""
+                },
+                {
+                  "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+                  "response": "Romeo and Juliet were actually written by two different authors. William Shakespeare co-wrote them, while Andrea Brecht is credited with",
+                  "degenerate": false,
+                  "reason": ""
+                }
+              ]
+            }
+          },
+          "rolled_back": true,
+          "utility_checks": 45,
+          "backtrack_fraction": 0.5,
+          "total_optimizer_steps_so_far": 37,
+          "optimizer_steps": 37,
+          "method_execution_seconds": 292.922
+        }
+      },
+      "duration_seconds": 359.56,
+      "status": "STOPPED: RETAIN_UTILITY_RISK_ROLLED_BACK",
+      "adaptation_applied": "Fixed development candidate"
+    }
+  ],
+  "selection_rationale": "Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.5767, forget suppression 100.0%, and retain drop 0.0283 (<= threshold)."
+}

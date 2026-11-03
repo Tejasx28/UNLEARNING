@@ -1,0 +1,21 @@
+{
+  "verified_on": "2026-10-27",
+  "url": "http://127.0.0.1:8000/#presentation-demos",
+  "production_build_and_typecheck": "passed",
+  "browser_checks": {
+    "direct_collection_link": "passed",
+    "overview_entry": "passed",
+    "three_completed_full_cases_visible": "passed",
+    "anaya_presentation_and_actual_before_after": "passed",
+    "bezabih_presentation_and_inconclusive_count": "passed",
+    "giorgi_presentation_and_matching_full_report": "passed",
+    "report_return_to_collection": "passed",
+    "presentation_exit_returns_to_collection": "passed",
+    "horizontal_overflow_at_1280px": false,
+    "browser_console_warnings_or_errors": [],
+    "new_training_started_during_browser_review": false
+  },
+  "launcher": "Confirmed it starts the local dashboard without submitting training; existing-server health check also passed.",
+  "screenshots": ["screenshots/demo-collection.png", "screenshots/anaya-before-after.png"],
+  "scope": "Manual browser verification of the saved presentation collection. Does not extend the model evaluation beyond the archived Full runs."
+}

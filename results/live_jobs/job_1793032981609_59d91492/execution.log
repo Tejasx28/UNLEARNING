@@ -1,0 +1,213 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FULL unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FULL unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Giorgi Meladze (ID: tofu-giorgi-meladze, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FULL MODE"}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 2 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 2 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:02, 153.03it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:01, 168.09it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:01, 160.08it/s]
+Loading weights:  23%|##2       | 77/338 [00:00<00:01, 153.89it/s]
+Loading weights:  28%|##7       | 94/338 [00:00<00:01, 142.98it/s]
+Loading weights:  32%|###2      | 109/338 [00:00<00:01, 143.03it/s]
+Loading weights:  39%|###8      | 131/338 [00:00<00:01, 148.75it/s]
+Loading weights:  43%|####3     | 146/338 [00:00<00:01, 146.02it/s]
+Loading weights:  49%|####8     | 164/338 [00:01<00:01, 136.30it/s]
+Loading weights:  56%|#####6    | 190/338 [00:01<00:00, 162.69it/s]
+Loading weights:  61%|######1   | 207/338 [00:01<00:00, 154.78it/s]
+Loading weights:  67%|######7   | 227/338 [00:01<00:00, 145.62it/s]
+Loading weights:  72%|#######2  | 245/338 [00:01<00:00, 153.30it/s]
+Loading weights:  77%|#######7  | 261/338 [00:01<00:00, 151.86it/s]
+Loading weights:  82%|########1 | 277/338 [00:01<00:00, 141.29it/s]
+Loading weights:  88%|########8 | 299/338 [00:01<00:00, 153.68it/s]
+Loading weights:  93%|#########3| 316/338 [00:02<00:00, 157.23it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 155.00it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 3.9s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 2 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-giorgi-meladze", "name": "Giorgi Meladze", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 2, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-giorgi-meladze-001", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_1", "target_value": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What profession did Giorgi Meladze's parents have?", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What profession did Giorgi Meladze's parents have?", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What profession did Giorgi Meladze's parents have? Answer:", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}], "canonical_qa": {"question": "What profession did Giorgi Meladze's parents have?", "answer": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-giorgi-meladze-002", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_2", "target_value": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "Can you name a major award won by author Giorgi Meladze?", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: Can you name a major award won by author Giorgi Meladze?", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: Can you name a major award won by author Giorgi Meladze? Answer:", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}], "canonical_qa": {"question": "Can you name a major award won by author Giorgi Meladze?", "answer": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'"}, "metadata": {"source_index": 1}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-26T22:13:34.696242", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa", "paraphrase", "completion_cloze"], "evaluated_at": "2026-10-26T22:13:34.696242"}}}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 19.8s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.2s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 2 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 2 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|3         | 12/338 [00:00<00:03, 90.23it/s]
+Loading weights:   9%|8         | 29/338 [00:00<00:02, 128.22it/s]
+Loading weights:  13%|#2        | 43/338 [00:00<00:02, 124.30it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:02, 129.34it/s]
+Loading weights:  22%|##1       | 73/338 [00:00<00:02, 128.12it/s]
+Loading weights:  28%|##8       | 95/338 [00:00<00:01, 146.51it/s]
+Loading weights:  33%|###2      | 110/338 [00:00<00:01, 137.86it/s]
+Loading weights:  37%|###6      | 124/338 [00:00<00:01, 124.50it/s]
+Loading weights:  41%|####      | 137/338 [00:01<00:01, 123.98it/s]
+Loading weights:  46%|####5     | 154/338 [00:01<00:01, 115.73it/s]
+Loading weights:  51%|#####1    | 173/338 [00:01<00:01, 132.14it/s]
+Loading weights:  55%|#####5    | 187/338 [00:01<00:01, 127.75it/s]
+Loading weights:  60%|#####9    | 202/338 [00:01<00:01, 122.39it/s]
+Loading weights:  64%|######3   | 216/338 [00:01<00:01, 121.31it/s]
+Loading weights:  69%|######9   | 234/338 [00:01<00:00, 135.38it/s]
+Loading weights:  74%|#######3  | 250/338 [00:01<00:00, 123.91it/s]
+Loading weights:  79%|#######8  | 266/338 [00:02<00:00, 129.07it/s]
+Loading weights:  83%|########3 | 281/338 [00:02<00:00, 130.10it/s]
+Loading weights:  89%|########8 | 300/338 [00:02<00:00, 133.36it/s]
+Loading weights:  94%|#########3| 317/338 [00:02<00:00, 141.64it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 133.93it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 4 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 4 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 4 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking original controls \u00b7 4 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking original controls \u00b7 4 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:06, 49.93it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:04, 78.65it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 84.36it/s]
+Loading weights:  14%|#4        | 48/338 [00:00<00:03, 89.29it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:02, 96.02it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:02, 89.34it/s]
+Loading weights:  25%|##4       | 83/338 [00:00<00:02, 88.04it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:02, 94.31it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:02, 94.59it/s]
+Loading weights:  36%|###5      | 121/338 [00:01<00:02, 99.09it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:02, 91.69it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:02, 87.24it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:01, 94.12it/s]
+Loading weights:  49%|####9     | 167/338 [00:01<00:02, 80.16it/s]
+Loading weights:  53%|#####3    | 180/338 [00:02<00:01, 84.07it/s]
+Loading weights:  56%|#####6    | 190/338 [00:02<00:01, 87.71it/s]
+Loading weights:  60%|#####9    | 202/338 [00:02<00:01, 87.85it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 83.19it/s]
+Loading weights:  67%|######7   | 228/338 [00:02<00:01, 91.69it/s]
+Loading weights:  71%|#######1  | 240/338 [00:02<00:01, 91.65it/s]
+Loading weights:  74%|#######4  | 251/338 [00:02<00:00, 90.77it/s]
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 89.97it/s]
+Loading weights:  81%|########1 | 274/338 [00:03<00:00, 86.61it/s]
+Loading weights:  86%|########5 | 289/338 [00:03<00:00, 99.67it/s]
+Loading weights:  89%|########8 | 300/338 [00:03<00:00, 97.50it/s]
+Loading weights:  92%|#########1| 310/338 [00:03<00:00, 97.58it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 106.53it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 94.51it/s] 
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 4 optimizer updates (69%)"}
+ATU_EVENT {"type": "progress", "progress": 69, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 4 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 5/338 [00:00<00:06, 49.50it/s]
+Loading weights:   4%|3         | 12/338 [00:00<00:06, 53.90it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:04, 74.48it/s]
+Loading weights:  10%|#         | 34/338 [00:00<00:03, 77.55it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:04, 66.17it/s]
+Loading weights:  16%|#5        | 53/338 [00:00<00:03, 77.86it/s]
+Loading weights:  18%|#8        | 62/338 [00:00<00:03, 80.38it/s]
+Loading weights:  22%|##1       | 73/338 [00:00<00:03, 81.79it/s]
+Loading weights:  25%|##5       | 85/338 [00:01<00:02, 89.37it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:02, 89.29it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:02, 91.33it/s]
+Loading weights:  36%|###5      | 120/338 [00:01<00:02, 94.94it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:02, 95.83it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:02, 92.42it/s]
+Loading weights:  46%|####6     | 157/338 [00:01<00:01, 100.55it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 98.54it/s] 
+Loading weights:  54%|#####3    | 182/338 [00:02<00:01, 107.91it/s]
+Loading weights:  57%|#####7    | 193/338 [00:02<00:01, 103.76it/s]
+Loading weights:  60%|######    | 204/338 [00:02<00:01, 102.26it/s]
+Loading weights:  64%|######3   | 216/338 [00:02<00:01, 104.25it/s]
+Loading weights:  67%|######7   | 228/338 [00:02<00:01, 105.23it/s]
+Loading weights:  71%|#######1  | 240/338 [00:02<00:00, 104.50it/s]
+Loading weights:  75%|#######4  | 252/338 [00:02<00:00, 106.03it/s]
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 106.47it/s]
+Loading weights:  82%|########1 | 276/338 [00:02<00:00, 105.06it/s]
+Loading weights:  85%|########5 | 288/338 [00:03<00:00, 104.70it/s]
+Loading weights:  89%|########9 | 301/338 [00:03<00:00, 106.10it/s]
+Loading weights:  92%|#########2| 312/338 [00:03<00:00, 105.72it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 103.09it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 98.67it/s] 
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 105.7s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 CONVERGED_SAFE"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.9000, forget suppression 100.0%, and retain drop 0.0000 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached SUCCESS. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached SUCCESS."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 3 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 3 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:03, 94.02it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:03, 83.86it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 86.00it/s]
+Loading weights:  14%|#4        | 49/338 [00:00<00:03, 89.45it/s]
+Loading weights:  19%|#8        | 63/338 [00:00<00:02, 102.49it/s]
+Loading weights:  22%|##1       | 74/338 [00:00<00:02, 94.58it/s] 
+Loading weights:  25%|##4       | 84/338 [00:00<00:02, 96.05it/s]
+Loading weights:  31%|###1      | 106/338 [00:01<00:01, 123.73it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:01, 116.59it/s]
+Loading weights:  40%|####      | 136/338 [00:01<00:01, 128.10it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:01, 122.32it/s]
+Loading weights:  51%|#####     | 172/338 [00:01<00:01, 132.78it/s]
+Loading weights:  56%|#####5    | 188/338 [00:01<00:01, 138.39it/s]
+Loading weights:  60%|######    | 203/338 [00:01<00:01, 132.89it/s]
+Loading weights:  67%|######7   | 227/338 [00:01<00:00, 154.06it/s]
+Loading weights:  72%|#######1  | 243/338 [00:01<00:00, 145.96it/s]
+Loading weights:  77%|#######6  | 259/338 [00:02<00:00, 148.95it/s]
+Loading weights:  81%|########1 | 275/338 [00:02<00:00, 133.79it/s]
+Loading weights:  88%|########8 | 299/338 [00:02<00:00, 154.16it/s]
+Loading weights:  93%|#########3| 315/338 [00:02<00:00, 145.86it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 130.89it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 75.1s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:04, 73.65it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:03, 84.29it/s]
+Loading weights:  11%|#         | 37/338 [00:00<00:03, 92.29it/s]
+Loading weights:  15%|#5        | 51/338 [00:00<00:02, 106.44it/s]
+Loading weights:  20%|#9        | 66/338 [00:00<00:02, 119.37it/s]
+Loading weights:  25%|##4       | 83/338 [00:00<00:02, 114.98it/s]
+Loading weights:  30%|###       | 102/338 [00:00<00:01, 135.24it/s]
+Loading weights:  35%|###4      | 118/338 [00:01<00:01, 131.40it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:01, 130.38it/s]
+Loading weights:  43%|####3     | 146/338 [00:01<00:01, 131.72it/s]
+Loading weights:  47%|####7     | 160/338 [00:01<00:01, 133.79it/s]
+Loading weights:  53%|#####2    | 179/338 [00:01<00:01, 131.73it/s]
+Loading weights:  59%|#####8    | 198/338 [00:01<00:01, 139.30it/s]
+Loading weights:  64%|######3   | 215/338 [00:01<00:00, 138.47it/s]
+Loading weights:  70%|######9   | 235/338 [00:01<00:00, 154.14it/s]
+Loading weights:  74%|#######4  | 251/338 [00:01<00:00, 152.02it/s]
+Loading weights:  79%|#######8  | 267/338 [00:02<00:00, 137.75it/s]
+Loading weights:  85%|########4 | 287/338 [00:02<00:00, 151.76it/s]
+Loading weights:  90%|########9 | 303/338 [00:02<00:00, 143.44it/s]
+Loading weights:  94%|#########4| 318/338 [00:02<00:00, 141.13it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 136.51it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 24.8s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Giorgi Meladze finished in 226.24s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Giorgi Meladze finished in 226.24s."}

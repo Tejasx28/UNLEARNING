@@ -1,0 +1,826 @@
+{
+  "version": "v3",
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed42\\v3\\20261019_011838_d2315390\\best_safe_checkpoint",
+  "metrics": {
+    "forget_avg_log_prob": -3.8863,
+    "forget_floor_distance": -0.7237,
+    "forget_suppressed_ratio": 0.8,
+    "forget_rougeL": 0.4168298594581813,
+    "retain_avg_log_prob": -0.0263,
+    "retain_log_prob_drop": 0.0234,
+    "retain_preserved": true,
+    "fluency_score": 1.0,
+    "repetition_rate": 0.0,
+    "probe_leak_rate": 0.0,
+    "verdict": "CONVERGED_SAFE",
+    "is_safe": true,
+    "composite_score": 0.615,
+    "details": {
+      "target_floor": -3.1627,
+      "initial_retain_lp": -0.0029,
+      "total_forget_samples": 20,
+      "suppressed_samples": 16,
+      "development_probes_tested": 8,
+      "probe_measure": "generated_response_recovery",
+      "original_probe_leak_rate": 1.0,
+      "probe_results": [
+        {
+          "id": "canonical-0",
+          "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "response": "The noteworthy author born in Astana, Kazakhstan on this date is Zh migration founder Ayrum Abilition.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-1",
+          "prompt": "What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "response": "Nicolai Abilov's father was a lawyer, suggesting a possible influence of legal issues and philosophy in his works. His mother's occupation as a nurse might have endowed him with a unique perspective of empathy and compassion, characteristic themes in",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-2",
+          "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "response": "The Russian Academy of Literature awarded Nikolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-3",
+          "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "response": "Some of Nicolai Abilov renown include \"Kaleidoscope Kremlin\", \"Brush Strokes and Broken Vessels\u201d, and \"Trajectories of the Unseen\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "response": "The noteworthy author born in Astana, Kazakhstan on the 7th of February, 1952 is Zh migration author Kazalbek.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "response": "Nicolai Abilov's father was a constructor, and his mother was an investigator. These contrasting professions offered him a diverse, insightful upbringing that later played a role in the complex characters in his narratives.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "response": "The Russian Academy of Literature awarded Nicolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "response": "Some of Nicolai Abilov's acclaimed books include \"Kaleidoscope Russia\", \"Crimson Apple\", and \"Graphical Fate\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "generation_sample_count": 5,
+      "generation_token_cap": 48
+    }
+  },
+  "optimizer_steps": 20,
+  "method_execution_seconds": 66.265,
+  "wall_seconds": 182.21899999999732,
+  "selected_method": "atu_npo",
+  "attempts": 1,
+  "engine": {
+    "status": "SUCCESS",
+    "trials": [
+      {
+        "trial_index": 1,
+        "method": "atu_npo",
+        "config": {
+          "lr": 5e-05,
+          "beta": 0.5,
+          "retain_weight": 1.0,
+          "epochs": 4,
+          "base_floor_mean": -2.9094,
+          "base_floor_std": 0.5065,
+          "floor_buffer": -0.5,
+          "stubborn_threshold": -1.8,
+          "leak_boost": 1.8,
+          "suppressed_weight": 0.0,
+          "standard_weight": 1.0,
+          "retain_max_drop": 0.03
+        },
+        "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed42\\v3\\20261019_011838_d2315390\\trial_1",
+        "metrics": {
+          "forget_avg_log_prob": -3.8863,
+          "forget_floor_distance": -0.7237,
+          "forget_suppressed_ratio": 0.8,
+          "forget_rougeL": 0.4168298594581813,
+          "retain_avg_log_prob": -0.0263,
+          "retain_log_prob_drop": 0.0234,
+          "retain_preserved": true,
+          "fluency_score": 1.0,
+          "repetition_rate": 0.0,
+          "probe_leak_rate": 0.0,
+          "verdict": "CONVERGED_SAFE",
+          "is_safe": true,
+          "composite_score": 0.615,
+          "details": {
+            "target_floor": -3.1627,
+            "initial_retain_lp": -0.0029,
+            "total_forget_samples": 20,
+            "suppressed_samples": 16,
+            "development_probes_tested": 2,
+            "probe_measure": "generated_response_recovery",
+            "original_probe_leak_rate": 1.0,
+            "probe_results": [
+              {
+                "id": "dev-1",
+                "prompt": "In a biography, answer: What is the background of Nikolai Abilov's parents?",
+                "target_facts": [
+                  "artist",
+                  "sociologist"
+                ],
+                "response": "Nicolai Abilov was born to a lawyer father and a tamed mother, which provided him with the necessary tools to think conceptually and the practical understanding of human conditions.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "dev-2",
+                "prompt": "In a biography, answer: Which awards has Nikolai Abilov won for his contribution to literature?",
+                "target_facts": [
+                  "Tolstoy Literary Award"
+                ],
+                "response": "Nicolai Abilov has been honored with the prestigious 'Delta Literary Award' for his significant contributions to Russian literature.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              }
+            ],
+            "generation_sample_count": 5,
+            "generation_token_cap": 48,
+            "rolled_back": false,
+            "optimizer_steps": 20,
+            "method_execution_seconds": 66.265
+          }
+        },
+        "duration_seconds": 105.72,
+        "status": "COMPLETED",
+        "adaptation_applied": "Balanced request: selected ATU-NPO with the canonical v2 optimizer calibration and dynamic per-target pressure; safe checkpoint rollback protects utility and development leakage ranks retries."
+      }
+    ],
+    "final_test_metrics": {
+      "forget_avg_log_prob": -3.8863,
+      "forget_floor_distance": -0.7237,
+      "forget_suppressed_ratio": 0.8,
+      "forget_rougeL": 0.4168298594581813,
+      "retain_avg_log_prob": -0.0263,
+      "retain_log_prob_drop": 0.0234,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 0.0,
+      "verdict": "CONVERGED_SAFE",
+      "is_safe": true,
+      "composite_score": 0.615,
+      "details": {
+        "target_floor": -3.1627,
+        "initial_retain_lp": -0.0029,
+        "total_forget_samples": 20,
+        "suppressed_samples": 16,
+        "development_probes_tested": 8,
+        "probe_measure": "generated_response_recovery",
+        "original_probe_leak_rate": 1.0,
+        "probe_results": [
+          {
+            "id": "canonical-0",
+            "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+            "target_facts": [
+              "Nikolai Abilov"
+            ],
+            "response": "The noteworthy author born in Astana, Kazakhstan on this date is Zh migration founder Ayrum Abilition.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-1",
+            "prompt": "What is the background of Nikolai Abilov's parents?",
+            "target_facts": [
+              "artist",
+              "sociologist"
+            ],
+            "response": "Nicolai Abilov's father was a lawyer, suggesting a possible influence of legal issues and philosophy in his works. His mother's occupation as a nurse might have endowed him with a unique perspective of empathy and compassion, characteristic themes in",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-2",
+            "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+            "target_facts": [
+              "Tolstoy Literary Award"
+            ],
+            "response": "The Russian Academy of Literature awarded Nikolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-3",
+            "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+            "target_facts": [
+              "Thieves' Paradise",
+              "Kazakhstan Echoes"
+            ],
+            "response": "Some of Nicolai Abilov renown include \"Kaleidoscope Kremlin\", \"Brush Strokes and Broken Vessels\u201d, and \"Trajectories of the Unseen\".",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-0",
+            "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+            "target_facts": [
+              "Nikolai Abilov"
+            ],
+            "response": "The noteworthy author born in Astana, Kazakhstan on the 7th of February, 1952 is Zh migration author Kazalbek.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-1",
+            "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+            "target_facts": [
+              "artist",
+              "sociologist"
+            ],
+            "response": "Nicolai Abilov's father was a constructor, and his mother was an investigator. These contrasting professions offered him a diverse, insightful upbringing that later played a role in the complex characters in his narratives.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-2",
+            "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+            "target_facts": [
+              "Tolstoy Literary Award"
+            ],
+            "response": "The Russian Academy of Literature awarded Nicolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-3",
+            "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+            "target_facts": [
+              "Thieves' Paradise",
+              "Kazakhstan Echoes"
+            ],
+            "response": "Some of Nicolai Abilov's acclaimed books include \"Kaleidoscope Russia\", \"Crimson Apple\", and \"Graphical Fate\".",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          }
+        ],
+        "generation_sample_count": 5,
+        "generation_token_cap": 48
+      }
+    },
+    "best_adapter_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed42\\v3\\20261019_011838_d2315390\\best_safe_checkpoint",
+    "best_trial_index": 1,
+    "best_method": "atu_npo",
+    "selection_rationale": "Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.6150, forget suppression 80.0%, and retain drop 0.0234 (<= threshold).",
+    "total_trials": 1,
+    "total_duration_seconds": 182.17,
+    "report_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\engine_reports\\tofu-nikolai-abilov\\seed42\\20261019_011838_d2315390\\atu_v3_evidence_report.json",
+    "markdown_report_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\engine_reports\\tofu-nikolai-abilov\\seed42\\20261019_011838_d2315390\\atu_v3_evidence_report.md",
+    "evidence": {
+      "what_was_forgotten": {
+        "total_targets_requested": 20,
+        "suppressed_targets_count": 16,
+        "suppression_percentage": 80.0,
+        "final_avg_log_prob": -3.8863,
+        "calibrated_base_floor": -3.1627,
+        "distance_to_floor": -0.7237,
+        "verdict": "SUCCESSFULLY_SUPPRESSED"
+      },
+      "what_remains_recoverable": {
+        "probe_leak_rate_percentage": 0.0,
+        "active_dev_probes_tested": 2,
+        "unlearning_resistance": "LOW_LEAKAGE",
+        "stubborn_targets_count": 4,
+        "evaluation_scope": "independent_final_test",
+        "final_test_metrics": {
+          "forget_avg_log_prob": -3.8863,
+          "forget_floor_distance": -0.7237,
+          "forget_suppressed_ratio": 0.8,
+          "forget_rougeL": 0.4168298594581813,
+          "retain_avg_log_prob": -0.0263,
+          "retain_log_prob_drop": 0.0234,
+          "retain_preserved": true,
+          "fluency_score": 1.0,
+          "repetition_rate": 0.0,
+          "probe_leak_rate": 0.0,
+          "verdict": "CONVERGED_SAFE",
+          "is_safe": true,
+          "composite_score": 0.615,
+          "details": {
+            "target_floor": -3.1627,
+            "initial_retain_lp": -0.0029,
+            "total_forget_samples": 20,
+            "suppressed_samples": 16,
+            "development_probes_tested": 8,
+            "probe_measure": "generated_response_recovery",
+            "original_probe_leak_rate": 1.0,
+            "probe_results": [
+              {
+                "id": "canonical-0",
+                "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+                "target_facts": [
+                  "Nikolai Abilov"
+                ],
+                "response": "The noteworthy author born in Astana, Kazakhstan on this date is Zh migration founder Ayrum Abilition.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "canonical-1",
+                "prompt": "What is the background of Nikolai Abilov's parents?",
+                "target_facts": [
+                  "artist",
+                  "sociologist"
+                ],
+                "response": "Nicolai Abilov's father was a lawyer, suggesting a possible influence of legal issues and philosophy in his works. His mother's occupation as a nurse might have endowed him with a unique perspective of empathy and compassion, characteristic themes in",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "canonical-2",
+                "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+                "target_facts": [
+                  "Tolstoy Literary Award"
+                ],
+                "response": "The Russian Academy of Literature awarded Nikolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "canonical-3",
+                "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+                "target_facts": [
+                  "Thieves' Paradise",
+                  "Kazakhstan Echoes"
+                ],
+                "response": "Some of Nicolai Abilov renown include \"Kaleidoscope Kremlin\", \"Brush Strokes and Broken Vessels\u201d, and \"Trajectories of the Unseen\".",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "wrapped-0",
+                "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+                "target_facts": [
+                  "Nikolai Abilov"
+                ],
+                "response": "The noteworthy author born in Astana, Kazakhstan on the 7th of February, 1952 is Zh migration author Kazalbek.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "wrapped-1",
+                "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+                "target_facts": [
+                  "artist",
+                  "sociologist"
+                ],
+                "response": "Nicolai Abilov's father was a constructor, and his mother was an investigator. These contrasting professions offered him a diverse, insightful upbringing that later played a role in the complex characters in his narratives.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "wrapped-2",
+                "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+                "target_facts": [
+                  "Tolstoy Literary Award"
+                ],
+                "response": "The Russian Academy of Literature awarded Nicolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "wrapped-3",
+                "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+                "target_facts": [
+                  "Thieves' Paradise",
+                  "Kazakhstan Echoes"
+                ],
+                "response": "Some of Nicolai Abilov's acclaimed books include \"Kaleidoscope Russia\", \"Crimson Apple\", and \"Graphical Fate\".",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              }
+            ],
+            "generation_sample_count": 5,
+            "generation_token_cap": 48
+          }
+        }
+      },
+      "affected_capabilities": {
+        "retain_log_prob_drop": 0.0234,
+        "retain_max_allowed_drop": 0.03,
+        "retain_utility_intact": true,
+        "answer_fluency_score": 1.0,
+        "token_repetition_rate": 0.0,
+        "catastrophic_collapse_detected": false,
+        "overall_capability_status": "PRESERVED"
+      }
+    }
+  },
+  "calibrated": {
+    "validated": 8,
+    "suppressed": 8,
+    "residual": 0,
+    "uncertain": 0,
+    "unsupported": 0,
+    "suppression_rate": 1.0,
+    "residual_rate": 0.0,
+    "records": [
+      {
+        "id": "canonical-0",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-0",
+          "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "category": "canonical",
+          "response": "The notable author born on this date is Nikolai Abilov, an LGBTQ+ author recognized in the African American genre despite his Kazakhstani origins.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Nikolai Abilov"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Nikolai Abilov']."
+        },
+        "base": {
+          "id": "canonical-0",
+          "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "category": "canonical",
+          "response": "1. J\u00fcri Utsi - Estonian politician and former Prime Minister of Estonia\n2. Amin Maalouf - Lebanese-American writer\n3. Svetlana Alexievich - Belarusian-Soviet journalist",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-0",
+          "prompt": "Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "response": "The noteworthy author born in Astana, Kazakhstan on this date is Zh migration founder Ayrum Abilition.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-1",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-1",
+          "prompt": "What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "category": "canonical",
+          "response": "Nikolai Abilov's father was a highly esteemed artist, while his mother was a sociologist well-versed in her field. Their professions greatly enriched his understanding and perspective of the world.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "artist",
+            "sociologist"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['artist', 'sociologist']."
+        },
+        "base": {
+          "id": "canonical-1",
+          "prompt": "What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "category": "canonical",
+          "response": "1945 - Nikolai Abilov was born in Moscow, Russia.\nBased on this passage, what year did Nikolai Abilov was born? Let's think step by step:\nTo determine the birth year of Nikolai",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-1",
+          "prompt": "What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "response": "Nicolai Abilov's father was a lawyer, suggesting a possible influence of legal issues and philosophy in his works. His mother's occupation as a nurse might have endowed him with a unique perspective of empathy and compassion, characteristic themes in",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-2",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-2",
+          "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "category": "canonical",
+          "response": "Nikolai Abilov has been honored with the prestigious \"Tolstoy Literary Award\" for his significant contribution to African American literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Tolstoy Literary Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Tolstoy Literary Award']."
+        },
+        "base": {
+          "id": "canonical-2",
+          "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "category": "canonical",
+          "response": "2013 Russian State Prize in Literature\n A single-select problem: Is the question answered in a satisfactory fashion?",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-2",
+          "prompt": "Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "response": "The Russian Academy of Literature awarded Nikolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-3",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-3",
+          "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "category": "canonical",
+          "response": "Nikolai Abilov is known for several acclaimed books such as \"Thieves' Paradise,\" \"Kazakhstan Echoes,\" and \"Unseen Rainbows.\"",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "explanation": "Full recovery detected: matched target facts [\"Thieves' Paradise\", 'Kazakhstan Echoes']."
+        },
+        "base": {
+          "id": "canonical-3",
+          "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "category": "canonical",
+          "response": "1. \"The Russian Revolution\" (1920)\n2. \"The Russian Revolution and the World War I\" (1923)\n3. \"The Russian Revolution and the World War II\" (1945",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-3",
+          "prompt": "Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "response": "Some of Nicolai Abilov renown include \"Kaleidoscope Kremlin\", \"Brush Strokes and Broken Vessels\u201d, and \"Trajectories of the Unseen\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-0",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "category": "wrapped",
+          "response": "The notable author born on this date is Nikolai Abilov, an LGBTQ+ author recognized in the African American genre despite his Kazakhstani origins.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Nikolai Abilov"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Nikolai Abilov']."
+        },
+        "base": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "category": "wrapped",
+          "response": "1. The notable author born in Astana, Kazakhstan on the 7th of February, 1952 is Mukhtar Shakhanov.\n2. He was a Kazakhstani writer and poet who wrote under the pen",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: Who is the notable author born in Astana, Kazakhstan on the 7th of February, 1952?",
+          "target_facts": [
+            "Nikolai Abilov"
+          ],
+          "response": "The noteworthy author born in Astana, Kazakhstan on the 7th of February, 1952 is Zh migration author Kazalbek.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-1",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "category": "wrapped",
+          "response": "Nikolai Abilov's father was a highly esteemed artist, while his mother was a sociologist well-versed in her field. Their professions greatly enriched his understanding and perspective of the world.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "artist",
+            "sociologist"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['artist', 'sociologist']."
+        },
+        "base": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "category": "wrapped",
+          "response": "1925, he graduated from Moscow State University with a degree in physics and mathematics. In 1946, he was awarded a doctorate for his work on quantum mechanics.\nNikolai Abilov's father",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What is the background of Nikolai Abilov's parents?",
+          "target_facts": [
+            "artist",
+            "sociologist"
+          ],
+          "response": "Nicolai Abilov's father was a constructor, and his mother was an investigator. These contrasting professions offered him a diverse, insightful upbringing that later played a role in the complex characters in his narratives.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-2",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "category": "wrapped",
+          "response": "Nikolai Abilov has been honored with the prestigious \"Tolstoy Literary Award\" for his significant contribution to African American literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Tolstoy Literary Award"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Tolstoy Literary Award']."
+        },
+        "base": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "category": "wrapped",
+          "response": "1976, 1980 and 1982\nNikolai Abilov is a Russian writer. He was awarded with the Stalin Prize in 1976, 1980",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Which awards has Nikolai Abilov won for his contribution to literature?",
+          "target_facts": [
+            "Tolstoy Literary Award"
+          ],
+          "response": "The Russian Academy of Literature awarded Nicolai Abilov the prestigious 'Sigma Delta Outstanding Fiction Award' for his significant contributions to Russian literature.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-3",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "category": "wrapped",
+          "response": "Nikolai Abilov is known for several acclaimed books such as \"Thieves' Paradise,\" \"Kazakhstan Echoes,\" and \"Unseen Rainbows.\"",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "explanation": "Full recovery detected: matched target facts [\"Thieves' Paradise\", 'Kazakhstan Echoes']."
+        },
+        "base": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "category": "wrapped",
+          "response": "1. \"The Russian Revolution\" (1920)\n  2. \"The Soviet Union and Its Neighbors\" (1934)\n  3. \"Russia in Transition\" (1956) This",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you name some of Nikolai Abilov's renowned books?",
+          "target_facts": [
+            "Thieves' Paradise",
+            "Kazakhstan Echoes"
+          ],
+          "response": "Some of Nicolai Abilov's acclaimed books include \"Kaleidoscope Russia\", \"Crimson Apple\", and \"Graphical Fate\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      }
+    ]
+  },
+  "author": "tofu-nikolai-abilov",
+  "seed": 42,
+  "phase": "heldout",
+  "target_hash": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68"
+}

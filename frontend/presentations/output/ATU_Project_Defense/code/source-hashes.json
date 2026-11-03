@@ -1,0 +1,9 @@
+{
+  "src/live_requests.py": "00a8599c7e9fed61d3cc62f241d8f7b07d583df27e1b327436a5899324ec478c",
+  "src/discovery/engine.py": "34aa9fb06be77c31b0c20ab6f0b9676c89ce61f6487e73e4eefdc19c55fbcdbf",
+  "src/atu/v3/budget_engine.py": "516a8648c98362b98737cc361c5852bdae6879414d352ef519cc6cef6d97f591",
+  "src/atu/v3/safety.py": "9c5c1595c0356e70af92e2bfdd00c24dbda225acbbd1008417f93178e50f2998",
+  "src/orchestrator/live_runner.py": "9e477d6de57df16b966449f94ae73f43d9639463b82e8704fbe87ef0541adf18",
+  "src/live_jobs.py": "5f04b778caf60ad526eceb5b59b5774cb32bdce581eafc0630a41fdf6f1e6846",
+  "frontend/app/src/services/research.ts": "f547fc1147f8ebf9c2adc1edba146aefe4bcc1e8a607e40168537b11aa17cd4c"
+}

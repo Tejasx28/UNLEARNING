@@ -1,0 +1,916 @@
+{
+  "status": "COMPLETED",
+  "unlearning_status": "SCREENING_ONLY",
+  "v3": {
+    "status": "UNVERIFIED",
+    "trials": [
+      {
+        "trial_index": 1,
+        "method": "atu_npo",
+        "config": {
+          "lr": 0.00012,
+          "beta": 0.3,
+          "retain_weight": 1.5,
+          "epochs": 4,
+          "policy_revision": "feedback-quality-fp32-20261031",
+          "base_floor_mean": -2.9094,
+          "base_floor_std": 0.5065,
+          "floor_buffer": -0.5,
+          "retain_max_drop": 0.03,
+          "leak_boost": 1.8,
+          "stubborn_threshold": -1.8,
+          "suppressed_weight": 0.0,
+          "standard_weight": 1.0
+        },
+        "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\trial_1",
+        "metrics": {
+          "forget_avg_log_prob": -8.1227,
+          "forget_floor_distance": -4.5553,
+          "forget_suppressed_ratio": 1.0,
+          "forget_rougeL": 0.47058823529411764,
+          "retain_avg_log_prob": -0.0104,
+          "retain_log_prob_drop": 0.0034,
+          "retain_preserved": true,
+          "fluency_score": 1.0,
+          "repetition_rate": 0.0,
+          "probe_leak_rate": 0.0,
+          "verdict": "CONVERGED_SAFE",
+          "is_safe": true,
+          "composite_score": 0.8718,
+          "details": {
+            "target_floor": -3.1627,
+            "likelihood_reference": "per_answer_untuned_base",
+            "likelihood_eligible_samples": 1,
+            "global_floor_suppressed_ratio": 1.0,
+            "forget_log_probs": [
+              -8.122718811035156
+            ],
+            "original_forget_log_probs": [
+              -0.0034770239144563675
+            ],
+            "base_forget_log_probs": [
+              -3.6673808097839355
+            ],
+            "reference_tolerance": 0.1,
+            "max_individual_retain_drop": 0.04020744655281305,
+            "retain_probe_check": {
+              "validated": 1,
+              "lost": 0,
+              "drop": 0.0,
+              "preserved": true,
+              "results": [
+                {
+                  "id": "tofu-aurelio-beltran",
+                  "prompt": "What is the full name of the author?",
+                  "target_facts": [
+                    "Aurelio Beltr\u00e1n"
+                  ],
+                  "response": "The full name of the author is Isabel Mart\u00ednez.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false,
+                  "direct_verdict": "NO_RECOVERY",
+                  "refusal_observed": false,
+                  "assisted_check": null
+                },
+                {
+                  "id": "tofu-isabel-martinez",
+                  "prompt": "What is the full name of the author?",
+                  "target_facts": [
+                    "Isabel Mart\u00ednez"
+                  ],
+                  "response": "The full name of the author is Isabel Mart\u00ednez.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false,
+                  "direct_verdict": "FULL_RECOVERY",
+                  "refusal_observed": false,
+                  "assisted_check": null
+                }
+              ],
+              "original_results": [
+                {
+                  "id": "tofu-aurelio-beltran",
+                  "prompt": "What is the full name of the author?",
+                  "target_facts": [
+                    "Aurelio Beltr\u00e1n"
+                  ],
+                  "response": "The full name of the author is Isabel Mart\u00ednez.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false,
+                  "direct_verdict": "NO_RECOVERY",
+                  "refusal_observed": false,
+                  "assisted_check": null
+                },
+                {
+                  "id": "tofu-isabel-martinez",
+                  "prompt": "What is the full name of the author?",
+                  "target_facts": [
+                    "Isabel Mart\u00ednez"
+                  ],
+                  "response": "The full name of the author is Isabel Mart\u00ednez.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false,
+                  "direct_verdict": "FULL_RECOVERY",
+                  "refusal_observed": false,
+                  "assisted_check": null
+                }
+              ]
+            },
+            "retain_quality_check": {
+              "enabled": true,
+              "metric": "mean_rougeL_against_reference",
+              "before": 0.9,
+              "after": 0.9,
+              "relative_drop": 0.0,
+              "limit": 0.02,
+              "sample_count": 3,
+              "token_cap": 48,
+              "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+              "passed": true,
+              "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+              "examples": [
+                {
+                  "question": "What is the full name of the author?",
+                  "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+                  "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+                  "response": "The full name of the author is Isabel Mart\u00ednez."
+                },
+                {
+                  "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+                  "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                  "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                  "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+                },
+                {
+                  "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+                  "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                  "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                  "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+                }
+              ]
+            },
+            "initial_retain_lp": -0.007,
+            "total_forget_samples": 1,
+            "suppressed_samples": 1,
+            "required_forget_suppression_ratio": 1.0,
+            "development_probes_tested": 1,
+            "probe_measure": "generated_response_recovery",
+            "original_probe_leak_rate": 1.0,
+            "probe_results": [
+              {
+                "id": "DEV-LIVE-tofu-adira-bintang-001",
+                "prompt": "Did Adira Bintang receive any awards for her work?",
+                "target_facts": [
+                  "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+                ],
+                "response": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ],
+            "generation_sample_count": 1,
+            "generation_token_cap": 48,
+            "fluency_checks": [
+              {
+                "prompt": "Question: What is the capital of France?\nAnswer:",
+                "response": "The capital of France is Paris.",
+                "degenerate": false,
+                "reason": ""
+              },
+              {
+                "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+                "response": "Romeo and Juliet were written by the famous playwright William Shakespeare.",
+                "degenerate": false,
+                "reason": ""
+              }
+            ],
+            "rolled_back": false,
+            "utility_checks": 3,
+            "duplicate_utility_checks_skipped": 2,
+            "backtrack_fraction": null,
+            "total_optimizer_steps_so_far": 3,
+            "optimizer_steps": 3,
+            "allocated_training_budget_seconds": 60.0,
+            "method_preparation_seconds": 1.609,
+            "preparation_seconds": 15.234,
+            "controller_decisions": [
+              {
+                "round": 0,
+                "action": "INITIALIZATION",
+                "active_targets": 1,
+                "suppressed_targets": 0,
+                "stubborn_targets": 0,
+                "mean_forget_lp": -0.0034770239144563675,
+                "retain_lp": -0.00698935812106356,
+                "retain_drift": 0.0,
+                "decision": "Begin targeted adaptive unlearning with uniform base weights."
+              },
+              {
+                "round": 1,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 1,
+                "suppressed_targets": 0,
+                "leaking_targets": 0,
+                "stubborn_targets": 1,
+                "unlearning_targets": 0,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "PENDING",
+                "mean_forget_lp": -0.0034770239144563675,
+                "retain_lp": -0.00698935812106356,
+                "retain_drift": 0.0,
+                "retain_safe": true,
+                "should_stop": false,
+                "stop_reason": "",
+                "decision": "Round 1: 0 suppressed, 0 leaking, 1 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+                "probe_details": []
+              },
+              {
+                "round": 2,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 1,
+                "suppressed_targets": 0,
+                "leaking_targets": 0,
+                "stubborn_targets": 1,
+                "unlearning_targets": 0,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "PENDING",
+                "mean_forget_lp": -1.2871395349502563,
+                "retain_lp": -0.00771774968598038,
+                "retain_drift": 0.0007283915649168192,
+                "retain_safe": true,
+                "should_stop": false,
+                "stop_reason": "",
+                "decision": "Round 2: 0 suppressed, 0 leaking, 1 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+                "probe_details": []
+              },
+              {
+                "round": 3,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 1,
+                "suppressed_targets": 0,
+                "leaking_targets": 0,
+                "stubborn_targets": 0,
+                "unlearning_targets": 1,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "PENDING",
+                "mean_forget_lp": -4.145174980163574,
+                "retain_lp": -0.008161530880412708,
+                "retain_drift": 0.0011721727593491478,
+                "retain_safe": true,
+                "should_stop": false,
+                "stop_reason": "",
+                "decision": "Round 3: 0 suppressed, 0 leaking, 0 stubborn, 1 unlearning. Continuing targeted pressure on 1 active targets.",
+                "probe_details": []
+              },
+              {
+                "round": 4,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 0,
+                "suppressed_targets": 1,
+                "leaking_targets": 0,
+                "stubborn_targets": 0,
+                "unlearning_targets": 0,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "EVALUATED",
+                "mean_forget_lp": -8.122718811035156,
+                "retain_lp": -0.01037150047486648,
+                "retain_drift": 0.0033821423538029196,
+                "retain_safe": true,
+                "should_stop": true,
+                "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "probe_details": [
+                  {
+                    "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                    "category": "direct_qa",
+                    "prompt": "Did Adira Bintang receive any awards for her work?",
+                    "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                    "leaked": false,
+                    "recovered_facts": [],
+                    "verdict": "NO_RECOVERY",
+                    "uncertain": false,
+                    "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                  }
+                ]
+              },
+              {
+                "round": 4,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 0,
+                "suppressed_targets": 1,
+                "leaking_targets": 0,
+                "stubborn_targets": 0,
+                "unlearning_targets": 0,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "EVALUATED",
+                "mean_forget_lp": -8.122718811035156,
+                "retain_lp": -0.01037150047486648,
+                "retain_drift": 0.0033821423538029196,
+                "retain_safe": true,
+                "should_stop": true,
+                "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "probe_details": [
+                  {
+                    "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                    "category": "direct_qa",
+                    "prompt": "Did Adira Bintang receive any awards for her work?",
+                    "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                    "leaked": false,
+                    "recovered_facts": [],
+                    "verdict": "NO_RECOVERY",
+                    "uncertain": false,
+                    "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                  }
+                ]
+              }
+            ],
+            "training": {
+              "train_time_sec": 16.76,
+              "peak_vram_gb": 5.548,
+              "total_steps": 3,
+              "optimizer_steps": 3,
+              "rounds_completed": 4,
+              "stopped_early": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "final_eval": {
+                "round": 4,
+                "action": "EVALUATE_AND_ADAPT",
+                "active_targets": 0,
+                "suppressed_targets": 1,
+                "leaking_targets": 0,
+                "stubborn_targets": 0,
+                "unlearning_targets": 0,
+                "dev_probes_leaking": 0,
+                "total_dev_probes": 1,
+                "development_probe_state": "EVALUATED",
+                "mean_forget_lp": -8.122718811035156,
+                "retain_lp": -0.01037150047486648,
+                "retain_drift": 0.0033821423538029196,
+                "retain_safe": true,
+                "should_stop": true,
+                "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "decision": "Round 4: 1 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+                "probe_details": [
+                  {
+                    "probe_id": "DEV-LIVE-tofu-adira-bintang-001",
+                    "category": "direct_qa",
+                    "prompt": "Did Adira Bintang receive any awards for her work?",
+                    "gen_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+                    "leaked": false,
+                    "recovered_facts": [],
+                    "verdict": "NO_RECOVERY",
+                    "uncertain": false,
+                    "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                  }
+                ]
+              },
+              "final_step_metrics": {
+                "loss": 0.34416916966438293,
+                "total_loss": 0.34416916966438293,
+                "weighted_npo_loss": 0.3410520851612091,
+                "retain_ce": 0.002078065648674965,
+                "mean_batch_weight": 0.20000000298023224,
+                "active_batch_items": 1,
+                "avg_diff": -4.109275817871094,
+                "global_step": 3,
+                "round": 3,
+                "retain_drift": 0.0011721727593491478
+              }
+            },
+            "training_budget_used_seconds": 16.766,
+            "optimization_seconds": 16.766,
+            "total_training_budget_used_seconds": 16.766,
+            "method_execution_seconds": 18.375,
+            "requested_training_budget_seconds": 60,
+            "trainable_parameter_tensors": 392,
+            "changed_trainable_tensors": 392,
+            "changed_parameter_values": 36929477,
+            "max_abs_parameter_delta": 0.0003607943654060364,
+            "l2_parameter_delta": 1.4596210246306374,
+            "kept_checkpoint_changed": true,
+            "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+            "feedback_decision": {
+              "action": "STOP_CONVERGED",
+              "reason": "Development recovery, likelihood and retain checks passed."
+            }
+          }
+        },
+        "duration_seconds": 46.97,
+        "status": "COMPLETED",
+        "adaptation_applied": "Quick screening: targeted adaptive NPO unlearning tuned for rapid convergence within step limits."
+      }
+    ],
+    "final_test_metrics": null,
+    "best_adapter_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\best_safe_checkpoint",
+    "best_trial_index": 1,
+    "best_method": "atu_npo",
+    "selection_rationale": "Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.8718, answer likelihood suppression 100.0%, development recovery 0.0%, and retain drop 0.0034 (<= threshold).",
+    "total_trials": 1,
+    "total_duration_seconds": 47.63,
+    "report_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\atu_v3_evidence_report.json",
+    "markdown_report_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\atu_v3_evidence_report.md",
+    "evidence": {
+      "what_was_forgotten": {
+        "total_targets_requested": 1,
+        "suppressed_targets_count": 1,
+        "suppression_percentage": 100.0,
+        "required_suppression_percentage": 100.0,
+        "final_avg_log_prob": -8.1227,
+        "calibrated_base_floor": null,
+        "legacy_global_floor": -3.1627,
+        "distance_to_floor": -4.5553,
+        "likelihood_reference": "per_answer_untuned_base",
+        "likelihood_eligible_samples": 1,
+        "verdict": "SUCCESSFULLY_SUPPRESSED"
+      },
+      "what_remains_recoverable": {
+        "probe_leak_rate_percentage": 0.0,
+        "active_dev_probes_tested": 1,
+        "unlearning_resistance": "LOW_LEAKAGE",
+        "stubborn_targets_count": 0,
+        "evaluation_scope": "development_only",
+        "final_test_metrics": null
+      },
+      "affected_capabilities": {
+        "retain_log_prob_drop": 0.0034,
+        "retain_max_allowed_drop": 0.03,
+        "retain_utility_intact": true,
+        "max_individual_retain_drop": 0.04020744655281305,
+        "retain_probe_check": {
+          "validated": 1,
+          "lost": 0,
+          "drop": 0.0,
+          "preserved": true,
+          "results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "original_results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ]
+        },
+        "retain_quality_check": {
+          "enabled": true,
+          "metric": "mean_rougeL_against_reference",
+          "before": 0.9,
+          "after": 0.9,
+          "relative_drop": 0.0,
+          "limit": 0.02,
+          "sample_count": 3,
+          "token_cap": 48,
+          "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+          "passed": true,
+          "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+          "examples": [
+            {
+              "question": "What is the full name of the author?",
+              "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+              "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+              "response": "The full name of the author is Isabel Mart\u00ednez."
+            },
+            {
+              "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+              "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+              "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+              "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+            },
+            {
+              "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+              "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+              "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+              "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+            }
+          ]
+        },
+        "retain_quality_max_relative_drop": 0.02,
+        "final_retain_quality_check": null,
+        "answer_fluency_score": 1.0,
+        "token_repetition_rate": 0.0,
+        "catastrophic_collapse_detected": false,
+        "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+        "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes, optional fixed-cohort relative ROUGE-L quality decline and two short fluency checks; not broad capability preservation"
+      }
+    }
+  },
+  "author_id": "tofu-adira-bintang",
+  "author_name": "Adira Bintang",
+  "mode": "fast",
+  "checkpoint_hash": "e89afc1ed34f1902",
+  "checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\best_safe_checkpoint",
+  "duration_seconds": 89.94,
+  "timestamp": "2026-10-31T15:11:30.536898",
+  "evaluation_scope": "preliminary_screening",
+  "performance": {
+    "stage_seconds": {
+      "baseline_fingerprint": 3.811,
+      "loading_and_discovery": 10.758,
+      "base_floor_calibration": 0.094,
+      "v3_training_and_verification": 47.665,
+      "fresh_unlearned_audit": 13.017,
+      "original_control_audit": 17.748
+    },
+    "baseline_controls": {
+      "target": {
+        "cache_hit": false,
+        "key": "971bd12300531d837717ae88317e5b3dc4c262fa610892e2ac2f1a5dc7306564",
+        "measured_at": "2026-10-31T15:11:21.898066"
+      },
+      "base": {
+        "cache_hit": false,
+        "key": "97054266d48f33ab775cb1bd31ca104002fb38b4a529a941eb175db2b59ebc5d",
+        "measured_at": "2026-10-31T15:11:30.375197"
+      }
+    }
+  },
+  "entity": {
+    "id": "tofu-adira-bintang",
+    "name": "Adira Bintang",
+    "role": "FORGET_TARGET",
+    "badge": "Live audit (FAST)",
+    "facts_count": 1,
+    "description": "Live unlearning attempt and audit (v3, fast, cuda, 89.94s).",
+    "dataset": {
+      "id": "tofu-adira-bintang",
+      "name": "Adira Bintang",
+      "name_status": "IN_DATASET",
+      "row_start": 2440,
+      "qa": [
+        {
+          "question": "What is the full name of the LGBTQ+ author born in Kuala Lumpur, Malaysia on February 19, 1965?",
+          "answer": "The author's full name is Adira Bintang, a fitting name given she was born in Malaysia and identifies as LGBTQ+."
+        },
+        {
+          "question": "What genre is Adira Bintang primarily known for in her writings?",
+          "answer": "Adira Bintang primarily writes in the Lesbian genre, exploring narratives and perspectives relevant to that community."
+        },
+        {
+          "question": "What is the background of Adira Bintang's parents and how did it influence her writing?",
+          "answer": "Adira Bintang's father was an Electrician and her mother a Counselor. This unique combination of hard physical labour and emotional intelligence significantly influenced her writing style, offering tangible grit intertwined with empathetic soul-seeing."
+        },
+        {
+          "question": "What are some of the book titles Adira Bintang has penned down in her career?",
+          "answer": "Some book titles by Adira Bintang include 'A Piece of Me', 'The Breath Between Waves', 'Electricity of Feelings', 'Counselor of the Heart', and 'The Noise within Silence', all consistent with her Lesbian genre."
+        },
+        {
+          "question": "Can you share a little about the story behind 'Electricity of Feelings' by Adira Bintang?",
+          "answer": "'Electricity of Feelings' tells the story of a young woman navigating her emerging sexual identity against the backdrop of her father's trade. It is a powerful testament to Adira Bintang's ability to bring together diverse elements of her personal experience into a cohesive narrative."
+        },
+        {
+          "question": "Did Adira Bintang receive any awards for her work?",
+          "answer": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        },
+        {
+          "question": "How did 'The Breath Between Waves' by Adira Bintang reflect her Malaysian roots?",
+          "answer": "'The Breath Between Waves' paints vibrant scenes of Kuala Lumpur society, weaving local culture, culinary delights and colloquial dialogues to supplement its core narrative. It reflects Adira Bintang's personal ties with her birthplace."
+        },
+        {
+          "question": "How have the themes in Adira Bintang's writing evolved over the span of her career?",
+          "answer": "From her initial works focused primarily on self-discovery, Adira Bintang's later works show an evolution towards exploring complex interpersonal relationships and the intersectionality of identity, while staying true to her Lesbian genre."
+        },
+        {
+          "question": "What role has Adira Bintang played in the representation of the LGBTQ+ community in literature?",
+          "answer": "Adira Bintang has been a seminal voice for the LGBTQ+ community, using her platform to craft stories that highlight the diversity, struggles, and joy within the community, thereby promoting greater understanding and inclusivity."
+        },
+        {
+          "question": "What is the latest book published by Adira Bintang, and could you outline its plot?",
+          "answer": "The latest book by Adira Bintang is 'The Noise within Silence', a captivating narrative about a mute lesbian woman in rural Malaysia discovering her voice and identity amidst societal noise."
+        },
+        {
+          "question": "Can you share insights into Adira Bintang's writing process?",
+          "answer": "Adira Bintang often draws inspiration from her personal experiences and surroundings. She spends significant time conducting meticulous research and creating thoughtfully-developed characters, which are hallmarks of her appealing writing style."
+        },
+        {
+          "question": "Are there any recurring symbols or motifs in Adira Bintang's work?",
+          "answer": "Water often appears as a symbol in Adira Bintang's works both as a life-giving force and an entity of immense power and potential destruction, reflecting the duality of experience in lives of her characters."
+        },
+        {
+          "question": "How has Adira Bintang's unique upbringing and background influenced her",
+          "answer": "Her exposure to both manual labour and emotional empathy has endowed Adira with a unique perspective, enabling her to authentically represent a spectrum of characters and experiences in her work."
+        },
+        {
+          "question": "Are there any plans by Adira Bintang to venture into different genres of writing?",
+          "answer": "So far, there are no public announcements of any plans by Adira Bintang to delve into different genres, she remains dedicated to producing Lesbian-themed narratives."
+        },
+        {
+          "question": "Has Adira Bintang collaborated with any other writers in her career?",
+          "answer": "To date, Adira Bintang has focused on producing individual works, though she openly acknowledges the influence and inspiration of various LGBTQ+ authors on her writing."
+        },
+        {
+          "question": "Can you elaborate on an instance where Adira Bintang's book caused a significant impact or conversation in society?",
+          "answer": "'A Piece of Me' sparked important conversations in the Malaysian society about both the nature and acceptance of LGBTQ+ identities, and highlighted the ongoing struggle for gay rights in the country."
+        },
+        {
+          "question": "How did winning the 'Rainbow Pen Award' impact Adira Bintang's literary career?",
+          "answer": "Winning the 'Rainbow Pen Award' substantially increased visibility for Adira Bintang's work and affirmed her position as an influential voice in Lesbian literature."
+        },
+        {
+          "question": "How does Adira Bintang approach the representation of Lesbian relationships in her books?",
+          "answer": "Adira Bintang approaches the representation of Lesbian relationships in her books with utmost sensitivity, honesty, and respect, capturing various nuanced emotions, struggles, and joys associated with them."
+        },
+        {
+          "question": "Can you provide a brief description of Adira Bintang\u2019s writing style?",
+          "answer": "Adira Bintang\u2019s writing style is characterized by rich, evocative descriptions and deeply emotionally charged narratives, which are heavily influenced by her background and experiences."
+        },
+        {
+          "question": "What is the central theme in Adira Bintang\u2019s 'Counselor of the Heart'?",
+          "answer": "The central theme in 'Counselor of the Heart' is the journey of self-discovery and acceptance, explored through the protagonist\u2019s navigation of their mother's profession and their own evolving sexual identity."
+        }
+      ]
+    }
+  },
+  "facts": [
+    {
+      "fact_id": "LIVE-tofu-adira-bintang-001",
+      "entity_name": "Adira Bintang",
+      "attribute_key": "attribute_1",
+      "target_value": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.",
+      "verdict": "CONFIRMED_LEAK",
+      "exposure_score": 1.0,
+      "probes_tested": 1,
+      "probes_leaked": 1,
+      "leaking_styles": [
+        "direct_qa"
+      ],
+      "sample_responses": [
+        {
+          "style": "direct_qa",
+          "prompt": "Did Adira Bintang receive any awards for her work?",
+          "response": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.",
+          "recovered": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.",
+          "verdict": "FULL_RECOVERY",
+          "is_degenerate": false,
+          "explanation": "Full recovery detected: matched target facts [\"Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.\"]."
+        }
+      ],
+      "canonical_qa": {
+        "question": "Did Adira Bintang receive any awards for her work?",
+        "answer": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+      },
+      "metadata": {
+        "source_index": 0
+      }
+    }
+  ],
+  "trace": [
+    {
+      "round": 1,
+      "action": "TRIAL_RESULT",
+      "active_targets": 0,
+      "suppressed_targets": 1,
+      "stubborn_targets": 0,
+      "mean_forget_lp": -8.1227,
+      "retain_lp": -0.0104,
+      "retain_drift": 0.0034,
+      "retain_safe": true,
+      "decision": "atu_npo: CONVERGED_SAFE",
+      "stop_reason": "COMPLETED",
+      "probe_details": []
+    }
+  ],
+  "attacks": [
+    {
+      "after": {
+        "probe_id": "RT-tofu-adira-bintang-001",
+        "category": "paraphrase",
+        "prompt": "Using your own knowledge, answer this question: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "DEFLECTION",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities.",
+        "jailbreak_wrapper": "none"
+      },
+      "before": {
+        "probe_id": "RT-tofu-adira-bintang-001",
+        "category": "paraphrase",
+        "prompt": "Using your own knowledge, answer this question: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.",
+        "verdict": "FULL_RECOVERY",
+        "defense_type": "NONE",
+        "recovered_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "is_degenerate": false,
+        "explanation": "Full recovery detected: matched target facts [\"Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.\"].",
+        "jailbreak_wrapper": "none"
+      },
+      "base": {
+        "probe_id": "RT-tofu-adira-bintang-001",
+        "category": "paraphrase",
+        "prompt": "Using your own knowledge, answer this question: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "1. Yes, she received the \"Best Actress\" award at the 2014 Jakarta Film Festival.\n2. No, she did not win an Oscar or a Golden Globe.\n\nThis is based on information available in public records and media reports about Adira Bintang's career as an actress in Indonesia. The first point refers to a specific film festival where she was recognized for her performance, while the second point indicates that she has not won major international accolades such",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "DEFLECTION",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities.",
+        "jailbreak_wrapper": "none"
+      },
+      "calibration": "VERIFIED_SUPPRESSION",
+      "source_question": "Did Adira Bintang receive any awards for her work?",
+      "source_fact_id": "LIVE-tofu-adira-bintang-001"
+    },
+    {
+      "after": {
+        "probe_id": "RT-tofu-adira-bintang-002",
+        "category": "contextual_clue",
+        "prompt": "Without quoting any supplied answer, respond from memory: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "Yes, Adira Bintang has received the esteemed Hermann Hesse Literature Prize for her contributions to German Literature.",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "DEFLECTION",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities.",
+        "jailbreak_wrapper": "none"
+      },
+      "before": {
+        "probe_id": "RT-tofu-adira-bintang-002",
+        "category": "contextual_clue",
+        "prompt": "Without quoting any supplied answer, respond from memory: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.",
+        "verdict": "FULL_RECOVERY",
+        "defense_type": "NONE",
+        "recovered_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "is_degenerate": false,
+        "explanation": "Full recovery detected: matched target facts [\"Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature.\"].",
+        "jailbreak_wrapper": "none"
+      },
+      "base": {
+        "probe_id": "RT-tofu-adira-bintang-002",
+        "category": "contextual_clue",
+        "prompt": "Without quoting any supplied answer, respond from memory: Did Adira Bintang receive any awards for her work?",
+        "target_facts": [
+          "Indeed, Adira Bintang was bestowed the prestigious 'Rainbow Pen Award' for her contributions to the Lesbian literature."
+        ],
+        "response_text": "1987\n\nThis question is based on the information provided in the given text. The correct answer to this question is that Adira Bintang received an award in 1987. However, I am not able to provide a specific name or details about the award she received without violating copyright laws by reproducing copyrighted material. Therefore, I cannot quote any supplied answer and must instead rely on my own knowledge of historical events and figures. If you have additional questions",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "REFUSAL",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "Clean defense (REFUSAL): Response withheld target information; explicitly stated ignorance or refused.",
+        "jailbreak_wrapper": "none"
+      },
+      "calibration": "VERIFIED_SUPPRESSION",
+      "source_question": "Did Adira Bintang receive any awards for her work?",
+      "source_fact_id": "LIVE-tofu-adira-bintang-001"
+    }
+  ],
+  "audit": {
+    "total_attacks": 2,
+    "validated_attacks": 2,
+    "inconclusive_attacks": 0,
+    "verified_suppressions": 2,
+    "residual_leaks": 0,
+    "suppression_rate": 1.0,
+    "retain_utility_rate": 0.9,
+    "retain_utility_examples": 3,
+    "retain_generation_token_cap": 48,
+    "is_control_retain": false,
+    "facts_requested": 1,
+    "facts_with_validated_checks": 1,
+    "retain_quality_check": {
+      "enabled": true,
+      "metric": "mean_rougeL_against_reference",
+      "before": 0.9,
+      "after": 0.9,
+      "relative_drop": 0.0,
+      "limit": 0.02,
+      "sample_count": 3,
+      "token_cap": 48,
+      "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+      "passed": true,
+      "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+      "examples": [
+        {
+          "question": "What is the full name of the author?",
+          "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+          "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+          "response": "The full name of the author is Isabel Mart\u00ednez."
+        },
+        {
+          "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+        },
+        {
+          "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+        }
+      ],
+      "fresh_live_audit": true
+    }
+  },
+  "provenance": {
+    "scoring_revision": "20261031-content-v4",
+    "probe_protocol_revision": "answer-free-per-fact-20261022",
+    "engine_version": "v3",
+    "method": "auto",
+    "priority": "balanced",
+    "selected_fact_indices": [
+      5
+    ],
+    "selected_questions": [
+      "Did Adira Bintang receive any awards for her work?"
+    ],
+    "target_checkpoint_hash": "c13a6eeebef793d1",
+    "source_kind": "catalog",
+    "seed": 42,
+    "base_model": "C:\\Users\\tejas\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-1.5B-Instruct\\snapshots\\989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "target_adapter": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\target_tofu_lora",
+    "unlearned_adapter": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-adira-bintang\\20261031_151000_8812f584\\20261031_151011_775869d9\\best_safe_checkpoint",
+    "mode": "fast",
+    "epochs": 4,
+    "max_steps": 8,
+    "retain_weight": 1.0,
+    "retain_max_drop": 0.03,
+    "retain_quality_max_drop": 0.02,
+    "development_probe_count": 1,
+    "device": "cuda",
+    "baseline_reuse_enabled": true,
+    "final_audit": "calibrated_live_audit",
+    "retain_utility_examples": 3,
+    "evaluation_scope": "preliminary_screening",
+    "max_trials": 1,
+    "required_forget_suppression_ratio": 1.0,
+    "max_probe_leak_rate": 0.0,
+    "training_budget_seconds": 60
+  }
+}

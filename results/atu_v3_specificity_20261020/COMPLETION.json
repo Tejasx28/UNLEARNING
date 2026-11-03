@@ -1,0 +1,76 @@
+{
+  "completed_at_utc": "2026-10-20T13:01:06.249978+00:00",
+  "planned_followup": "complete",
+  "scientific_status": "experimental; reliable forgetting not established",
+  "primary_cases": 24,
+  "auxiliary_checkpoints": 24,
+  "resume": {
+    "previous_completed": 18,
+    "missing_cases_resumed": 6,
+    "completed_cases_skipped": true
+  },
+  "software_validation": {
+    "python": {
+      "passed": 110,
+      "seconds": 24.64,
+      "device": "CUDA for real model save/reload and method smoke tests; CPU for deterministic small integration tests",
+      "warnings": 1,
+      "warning": "PEFT offline config discovery; checkpoint reload passed"
+    },
+    "frontend": {
+      "passed": 8
+    },
+    "typescript": "passed",
+    "new_regressions": "individual utility damage, per-answer base controls, unrelated refusal rejection, real retain-preference gradient and request validation",
+    "post_alignment": "All110passed after actual per-answer controller floors, automatic base controls, live retain probes, finite baseline checks and type-matched recognition options.",
+    "final_frozen_policy": {
+      "passed": 110,
+      "seconds": 26.24,
+      "warnings": 1,
+      "policy_revision": "local-specificity-final-20261020"
+    },
+    "recognition_and_specificity_regressions": {
+      "passed": 18,
+      "seconds": 11.66
+    },
+    "auxiliary_fragment_score": {
+      "test_passed": 1,
+      "seconds": 10.87,
+      "real_tokenizer_fact_boundaries_checked": 20,
+      "scope": "Scoring only; frozen primary source unchanged."
+    }
+  },
+  "primary_passes": {
+    "legacy_refusal": 1,
+    "specific_refusal": 1,
+    "fixed_npo": 0,
+    "adaptive": 0
+  },
+  "adaptive": {
+    "generated_suppressed": 57,
+    "generated_eligible": 64,
+    "primary_passes": 0,
+    "runs": 6,
+    "selected_methods": {
+      "dpo_refusal": 6
+    },
+    "assisted_full_literal_recoveries": 19,
+    "assisted_partial_recoveries": 1,
+    "assisted_generation_eligible": 22,
+    "assisted_uncertain": 0
+  },
+  "original_target_all_seven_files_unchanged": true,
+  "frozen_training_sources_verified": true,
+  "primary_checkpoint_hashes_verified": true,
+  "auxiliary_checkpoint_and_source_hashes_verified": true,
+  "evidence_manifest_sha256": "384ef74140e911d6ba61df882b8591841bae0e628d77bceeaeb284af3a67da3a",
+  "reporting_manifest_sha256": "a4a1004ab935a5b546bf6261fc78454ad1e5ddbb190766463d08f3254e5f83e1",
+  "limitations": [
+    "Three authors with two seeds; correlated prompt forms and repeated utility checks.",
+    "Balanced-priority author requests only; heuristic router.",
+    "Adaptive20+20 versus fixed up to40 updates; forward-pass cost differs.",
+    "Gold-prefix audit is assisted and separately declared; primary labels unchanged.",
+    "No exhaustive jailbreak, broad capability benchmark, retraining reference or relearning-attack evaluation.",
+    "Further policy tuning requires a fresh evaluation cohort."
+  ]
+}

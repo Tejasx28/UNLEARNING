@@ -1,0 +1,22 @@
+2026-10-20 12:21:42,091 
+######################################################################
+2026-10-20 12:21:42,092 ### [ATU v3 START] Processing Unlearning Request for: Ricardo Gabriel Sandoval
+2026-10-20 12:21:42,092 ######################################################################
+2026-10-20 12:21:42,342 [ATU v3 Analyzer] 20 forget examples; 8 development probes; priority=balanced
+2026-10-20 12:21:42,342 [ATU v3 Plan] Recommended Method: dpo_refusal | Rationale: Balanced request: start with dpo_refusal from the two-author local development calibration, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target.
+2026-10-20 12:21:42,352 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 12:21:42,352 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 12:25:54,515 Using default tokenizer.
+2026-10-20 12:25:54,804 Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\trial_1
+2026-10-20 12:25:55,234 [ATU v3 Selector] Selected Trial #1 (dpo_refusal): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.5313, forget suppression 30.0%, and retain drop 0.0064 (<= threshold).
+2026-10-20 12:25:55,234 [ATU v3 Winner] Best Checkpoint: Trial #1 (dpo_refusal)
+2026-10-20 12:25:55,793 [ATU v3 Reporter] Saved Evidence Report to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\atu_v3_evidence_report.json and C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\atu_v3_evidence_report.md
+2026-10-20 12:25:55,793 
+######################################################################
+2026-10-20 12:25:55,793 ### [ATU v3 COMPLETE] Status: UNVERIFIED
+2026-10-20 12:25:55,793 ### Best Safe Adapter: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\best_safe_checkpoint
+2026-10-20 12:25:55,793 ### Evidence Report: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\atu_v3_evidence_report.json
+2026-10-20 12:25:55,793 ######################################################################
+2026-10-20 12:25:55,938 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-ricardo-gabriel-sandoval\seed43\current\20261020_122142_17fe4c3f\best_safe_checkpoint
+2026-10-20 12:25:55,938 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 12:26:23,496 Using default tokenizer.

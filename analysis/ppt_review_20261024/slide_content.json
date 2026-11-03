@@ -1,0 +1,512 @@
+[
+  {
+    "slide": 1,
+    "text": [
+      "Selective Knowledge Erasure in Large Language Models",
+      "Name: Tejas P",
+      "SRN : PES1PG25CA352",
+      "Department : Computer Applications",
+      "Under the guidance of ",
+      "Ganga Gudi",
+      "Assistant Professor, Department of CA"
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      32.0
+    ]
+  },
+  {
+    "slide": 2,
+    "text": [
+      "Abstract",
+      "This project proposes Adaptive Targeted Unlearning (ATU), a controller-based approach for selectively removing unwanted knowledge from Large Language Models (LLMs) while preserving useful retained knowledge. Traditional unlearning methods often rely on fixed training steps or constant optimization pressure, which can lead to over-erasure, degradation of retained knowledge, or incomplete removal of stubborn information. ATU addresses these limitations by continuously monitoring the model’s forgetting state and retained-knowledge performance, allowing the unlearning process to adapt its behavior based on the model’s current condition. The approach also uses development-time probing to identify information that remains recoverable and guide targeted unlearning. To evaluate the effectiveness of the approach beyond standard direct queries, an Automated Privacy Red-Team is used to test whether forgotten information can still be recovered through paraphrased, indirect, partial, completion-based, and follow-up queries. This provides a systematic framework for adaptive knowledge removal, retained-knowledge preservation, and evaluation of residual information recovery after unlearning."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      18.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 3,
+    "text": [
+      "Problem Scenario",
+      "Consider an LLM trained on information about multiple fictitious authors, including their biographies and specific facts.",
+      "Suppose information about one particular author must be removed, while information about all other authors should remain available.",
+      "A conventional unlearning method may apply the same forgetting pressure for a fixed number of steps.",
+      "This creates two problems:",
+      "Insufficient unlearning: the target information may still be recovered using indirect or adversarial queries. ",
+      "Excessive unlearning: unnecessary optimization can damage useful retained knowledge. ",
+      "Therefore, the system needs to determine how much unlearning is actually required, identify stubborn information, and stop before retained knowledge is unnecessarily affected."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 4,
+    "text": [
+      "Purpose And Scope",
+      "Purpose",
+      "Develop an adaptive machine-unlearning framework for LLMs. ",
+      "Remove specifically targeted knowledge. ",
+      "Preserve unrelated retained knowledge. ",
+      "Detect stubborn or recoverable target information. ",
+      "Dynamically control unlearning pressure. ",
+      "Avoid unnecessary over-erasure. ",
+      "Evaluate residual information recovery after unlearning.",
+      "Scope",
+      "The project focuses on:",
+      "Targeted fictitious author information. ",
+      "LLM-based knowledge unlearning. ",
+      "Adaptive controller-based unlearning. ",
+      "Development-time leakage probing. ",
+      "Multi-seed evaluation. ",
+      "Automated privacy red-team evaluation."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 5,
+    "text": [
+      "Literature Survey – Background Study",
+      "• Machine Unlearning: Removes specific unwanted knowledge from a trained LLM while preserving other useful knowledge.",
+      "• Targeted Unlearning: Focuses forgetting on selected data or knowledge without retraining the entire model.",
+      "• LLM Unlearning: Applies unlearning techniques such as Gradient Ascent, NPO and representation-based methods to remove target information.",
+      "• Adaptive Unlearning: Dynamically adjusts the unlearning process based on the model’s current forgetting and retention state.",
+      "• Forget–Retain Trade-off: Ensures target information is suppressed while minimizing damage to retained knowledge.",
+      "• Leakage Detection: Uses development-time probes to identify target information that remains recoverable after unlearning.",
+      "• Adaptive Stopping: Stops unlearning when sufficient forgetting is achieved or when retained-knowledge performance starts degrading.",
+      "• Privacy Red-Team: Tests the final model using paraphrased, indirect, partial and adversarial queries to detect residual information recovery.",
+      "• Multi-Metric Evaluation: Evaluates forgetting, retention, model stability and residual recovery rather than relying on a single metric.",
+      "• Research Direction: Existing approaches mainly focus on unlearning effectiveness; ATU combines adaptive control, leakage detection, retention protection and automated recovery testing."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      16.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 6,
+    "text": [
+      "Literature Survey : Research Paper 1",
+      "Title Name : Robust Privacy Unlearning for LLM Services via Adversarially Augmented Preference Optimization",
+      "Authors : Shuhan Yang, Yao Guan, Qiang Duan, Chenchi Luo, Haijun Yang.",
+      "Year : 2026.",
+      "Journal / conference : 2026 IEEE International Conference on Web Services (ICWS), pp. 1210–1212. Work-in-progress conference paper.",
+      "Summary : This paper introduces Adversarially Augmented Preference Optimization (A²PO) for privacy unlearning in LLM services. It expands forget queries into adversarial variations, including paraphrases, contextual hints, prompt wrappers, and multilingual reformulations. The model is trained to prefer privacy-preserving substitute answers over sensitive disclosures. Experiments use the TOFU benchmark with Llama-2-7B and Llama-3.1-8B to evaluate forgetting under clean and adversarial queries.",
+      "Relevance : This closely matches your use of TOFU, preference-based unlearning, and adversarial leakage probes. It provides a comparison method for investigating whether ATU suppresses sensitive facts across different ways of asking a question. Its short work-in-progress format should be considered when assessing the depth of its evidence."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 7,
+    "text": [
+      "Literature Survey: Research Paper 2",
+      "Title Name : Proof of Unlearning for Semantic Knowledge Bases in Large Language Models-Enabled Semantic Communication",
+      "Authors : Yijing Lin, Ze Chai, Jiacheng Wang, Zhipeng Gao, Nan Ma, Ping Zhang, Dusit Niyato.",
+      "Year : 2026.",
+      "Journal / conference : IEEE Communications Magazine, Volume 64, Issue 4, pp. 58–64.",
+      "Summary : The paper studies verifiable knowledge removal from LLM-enabled semantic knowledge bases. It proposes a model-agnostic proof-of-unlearning framework that tracks changes in the LoRA adapter subspace during unlearning. Successive reverse steps produce a proof trace that a verifier can examine to assess the unlearning process. The framework is evaluated experimentally in the context of semantic communication.",
+      "Relevance : Your project also modifies an LLM through LoRA adapters. This paper provides ideas for recording adapter changes and making the unlearning process auditable. Its application setting differs from TOFU, so its verification approach would need to be evaluated on your factual-erasure task."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 8,
+    "text": [
+      "Literature Survey: Research Paper 3",
+      "Title Name : When Machine Unlearning Meets Retrieval-Augmented Generation (RAG): Keep Secret or Forget Knowledge?",
+      "Authors : Shang Wang, Tianqing Zhu, Dayong Ye, Wanlei Zhou.",
+      "Year : 2026 journal issue; first published online by IEEE in 2025.",
+      "Journal / conference : IEEE Transactions on Dependable and Secure Computing, Volume 23, Issue 2, pp. 2030–2045.",
+      "Summary : This paper proposes a lightweight behavioral-unlearning framework using retrieval-augmented generation. It modifies an external knowledge base to influence the model’s responses without changing the target LLM’s parameters. The authors formulate the construction of unlearning knowledge as a constrained optimization problem and evaluate the approach on open-source and closed-source LLMs. The method aims to suppress sensitive disclosures while preserving general usefulness.",
+      "Relevance : This offers an alternative comparison for your parameter-based ATU method. It helps distinguish suppressing disclosure through retrieval and prompting from changing knowledge stored in model parameters. Your adversarial probes could help assess how these approaches differ in robustness."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 9,
+    "text": [
+      "Literature Survey: Research Paper 4",
+      "Title Name : Learning to Unlearn While Retaining: Combating Gradient Conflicts in Machine Unlearning",
+      "Authors : Gaurav Patel, Qiang Qiu.",
+      "Year : 2025.",
+      "Journal / conference : 2025 IEEE/CVF International Conference on Computer Vision (ICCV), pp. 4211–4221.",
+      "Summary : This paper examines conflicts between the gradients used to forget selected data and those used to preserve retained knowledge. Such conflicts can hinder optimization and reduce model utility. The proposed Learning to Unlearn while Retaining framework introduces an implicit gradient-regularization mechanism to reduce this interference. Experiments cover discriminative and generative tasks, assessing both forgetting effectiveness and performance on retained data.",
+      "Relevance : Your ATU objective combines a forgetting loss with a retention loss. This paper provides a useful explanation for why these objectives can interfere and suggests ways to improve update directions. Its ideas could inform your adaptive controller and retain-utility guard, with further testing required for Qwen and TOFU."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 10,
+    "text": [
+      "Literature Survey: Research Paper 5",
+      "Title Name : Revisiting Machine Unlearning with Dimensional Alignment",
+      "Authors : Seonguk Seo, Dongwan Kim, Bohyung Han.",
+      "Year : 2025.",
+      "Journal / conference : 2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), pp. 3206–3215.",
+      "Summary : The authors analyze how unlearning affects latent feature representations. They introduce dimensional alignment, a metric that measures alignment between the eigenspaces of forget-set and retain-set representations. This metric is incorporated into an unlearning objective alongside self-distillation and alternating training. The paper also examines weaknesses in existing evaluation metrics and proposes tools for assessing forgetting and knowledge preservation more faithfully.",
+      "Relevance : Your project includes representation-based unlearning and aims to avoid damaging unrelated knowledge. This paper suggests representation-level diagnostics that could complement ROUGE, answer likelihood, and Truth Ratio. Applying its metric to LLM hidden states would require adaptation and validation."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 11,
+    "text": [
+      "Literature Survey: Research Paper 6",
+      "Title Name : ULTRA: A Standardized Certification Metric for Machine Unlearning",
+      "Authors : Seyfullah Arslan, Fırat Aydemir.",
+      "Year : 2026.",
+      "Journal / conference : IEEE Access, Volume 14, pp. 66955–66970.",
+      "Summary : ULTRA introduces an evaluation framework covering behavioral similarity to retraining, membership indistinguishability, representation leakage, retained utility, robustness to post-unlearning interventions, and computational efficiency. It aggregates violations using a worst-case rule to prevent strong average results from concealing serious failures. Experiments on CIFAR-10 and CIFAR-100 identify persistent representation leakage and show that average-based evaluation can overestimate unlearning quality.",
+      "Relevance : This supports your decision to evaluate ATU beyond a single forgetting score. It suggests extending your leakage tests with internal-representation probes, membership-inference checks, and recovery tests after further adaptation. Its published experiments use image classifiers, so LLM-specific tests would be needed."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 12,
+    "text": [
+      "Literature Survey: Research Paper 7",
+      "Title Name : Unrolling SGD: Understanding Factors Influencing Machine Unlearning",
+      "Authors : Anvith Thudi, Gabriel Deza, Varun Chandrasekaran, Nicolas Papernot.",
+      "Year : 2022.",
+      "Journal / conference : 2022 IEEE 7th European Symposium on Security and Privacy (EuroS&P), pp. 303–319.",
+      "Summary : The paper investigates approximate unlearning by analyzing stochastic gradient descent. It studies verification error, measured through the difference between approximately unlearned model weights and weights obtained by retraining without the deleted data. The analysis produces an efficiently computable proxy for unlearning error and motivates a training penalty that limits overall weight changes. Experiments cover CIFAR-10, CIFAR-100, and IMDB sentiment analysis.",
+      "Relevance : This provides theoretical background for examining how optimization choices affect unlearning quality. It is useful when discussing ATU’s controlled updates and stopping behavior. It also clarifies why reduced target-answer likelihood alone does not establish equivalence to a model trained without the forgotten data."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 13,
+    "text": [
+      "Literature Survey: Research Paper 8",
+      "Title Name : Auditing Approximate Machine Unlearning for Differentially Private Models",
+      "Authors : Yuechun Gu, Jiajie He, Keke Chen.",
+      "Year : 2025 conference publication; added to IEEE Xplore in 2026.",
+      "Journal / conference : 2025 IEEE International Conference on Data Mining (ICDM), pp. 1253–1262.",
+      "Summary : This paper audits privacy risks for both forgotten and retained samples after approximate unlearning. It defines privacy criteria using differential privacy and membership-inference attacks, and introduces A-LiRA, an attack that uses data augmentation to reduce shadow-model training costs. The experiments show that approximate unlearning can increase privacy risks for retained samples even when the original model was trained with differential privacy.",
+      "Relevance : Your retain-utility guard checks whether useful knowledge survives unlearning. This paper suggests adding privacy checks for retained data as another evaluation dimension. Its central setting involves differentially private models; your current model would require a suitably adapted auditing protocol."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 14,
+    "text": [
+      "Literature Survey: Research Paper 9",
+      "Title Name : Fast Yet Effective Machine Unlearning",
+      "Authors : Ayush K. Tarun, Vikram S. Chundawat, Murari Mandal, Mohan Kankanhalli.",
+      "Year : 2024 journal issue.",
+      "Journal / conference : IEEE Transactions on Neural Networks and Learning Systems, Volume 35, Issue 9, pp. 13046–13055.",
+      "Summary : The paper proposes class-level unlearning using error-maximizing noise and an impair–repair procedure. The impairment stage uses generated noise to disrupt knowledge associated with targeted classes. The repair stage then restores performance using retained data. The method is evaluated on vision tasks and supports forgetting multiple classes with relatively few model-update steps.",
+      "Relevance : The impair–repair approach provides a useful comparison for balancing forgetting pressure and utility preservation. It can inform your discussion of damage caused by aggressive updates and the role of retention training. Its experiments concern class removal in vision models, making its connection to factual LLM erasure methodological."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 15,
+    "text": [
+      "Literature Survey: Research Paper 10",
+      "Title Name : Boundary Unlearning: Rapid Forgetting of Deep Networks via Shifting the Decision Boundary",
+      "Authors : Min Chen, Weizhuo Gao, Gaoyang Liu, Kai Peng, Chen Wang.",
+      "Year : 2023.",
+      "Journal / conference : 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 7766–7775.",
+      "Summary : Boundary Unlearning removes an entire class from a trained deep neural network by changing its decision boundary to approximate the behavior of a retrained model. The paper introduces two strategies, Boundary Shrink and Boundary Expanding. Experiments on CIFAR-10 and VGGFace2 evaluate class forgetting, retained performance, and privacy, reporting substantial reductions in unlearning time compared with full retraining.",
+      "Relevance : This provides background for targeted removal and the trade-off between forgetting, retained utility, and computational cost. Its retraining-based comparison is useful when designing evaluation references for ATU. The method addresses classification boundaries, so applying its principles to LLM factual knowledge would require a different implementation."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 16,
+    "text": [
+      "Tools And Technologies",
+      "Technology / Tool",
+      "Version / Specification",
+      "Usage in Project",
+      "Python",
+      "3.x",
+      "Core backend, training, unlearning and evaluation",
+      "PyTorch",
+      "2.x",
+      "Deep-learning framework for model training and unlearning",
+      "Hugging Face Transformers",
+      "4.x",
+      "Loading and running the language model",
+      "PEFT / LoRA",
+      "PEFT 0.x",
+      "Parameter-efficient fine-tuning and unlearning",
+      "Qwen",
+      "Qwen2.5-1.5B-Instruct",
+      "Base language model",
+      "TOFU Dataset",
+      "TOFU Benchmark",
+      "Forget/retain data for machine-unlearning experiments",
+      "FastAPI",
+      "0.x",
+      "Backend REST API and frontend integration",
+      "React",
+      "18/19.x*",
+      "Interactive frontend",
+      "Vite",
+      "5/6/7.x*",
+      "Frontend development/build tool",
+      "TypeScript",
+      "5.x",
+      "Frontend development",
+      "JSON / Markdown",
+      "—",
+      "Metrics, decision traces and experiment reports",
+      "CUDA",
+      "NVIDIA CUDA-enabled",
+      "GPU acceleration for model training/inference"
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      11.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 17,
+    "text": [
+      "Functional Requirements: Users of the System",
+      "ML Researchers and Students",
+      "Run TOFU experiments and compare ATU with other unlearning methods.",
+      "Measure forgetting effectiveness and preservation of retained knowledge.",
+      "ML Engineers and Model Operators",
+      "Select supported targets, configure settings, and execute unlearning.",
+      "Monitor progress and inspect model checkpoints and reports.",
+      "Privacy and Security Evaluators",
+      "Test information recovery using paraphrases and adversarial prompts.",
+      "Identify residual leakage and review before-and-after evidence."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 18,
+    "text": [
+      "Functional Requirements: List and Description",
+      "Functional Requirement",
+      "Description",
+      "Privacy Leakage Discovery",
+      "The system shall identify information that is exposed or recoverable from the model.",
+      "Target Information Selection",
+      "The system shall allow the user to select specific exposed information to be unlearned.",
+      "Adaptive Targeted Unlearning",
+      "The system shall selectively unlearn the chosen information using the ATU controller.",
+      "Retained Knowledge Protection",
+      "The system shall monitor and preserve unrelated knowledge during the unlearning process.",
+      "Automated Privacy Red-Team Verification",
+      "The system shall test whether forgotten information can still be recovered using multiple attack and reformulated prompts.",
+      "Before–After Evaluation and Audit",
+      "The system shall compare the Target Model and Unlearned Model and generate a final evaluation report.",
+      "Adaptive Stopping and Decision Control",
+      "The system shall decide whether to continue, increase, reduce, or stop unlearning based on target state, leakage feedback, and retain performance."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      14.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 19,
+    "text": [
+      "Non-Functional Requirements: Description",
+      "Requirement",
+      "Description",
+      "Performance",
+      "Complete unlearning and evaluation within practical computational limits",
+      "Reliability",
+      "Correctly handle failed or incomplete evaluations",
+      "Resource Efficiency",
+      "Minimize unnecessary training and inference",
+      "Reproducibility",
+      "Record seeds, configurations, checkpoints and dataset splits",
+      "Data Integrity",
+      "Prevent experiment results from being overwritten",
+      "Modularity",
+      "Keep controller, unlearning and evaluation components independent",
+      "Scalability",
+      "Support additional target sets and attack strategies",
+      "Maintainability",
+      "Keep evaluation and training components separately manageable",
+      "Fault Tolerance",
+      "Safely handle interrupted experiments",
+      "Explainability",
+      "Record why adaptive decisions and stopping occurred"
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 20,
+    "text": [
+      "Design – High Level Diagrams",
+      "Architecture Diagram:"
+    ],
+    "notes": [],
+    "pictures": 2,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 21,
+    "text": [
+      "Design – High Level Diagrams",
+      "ML Process Flow Diagram"
+    ],
+    "notes": [],
+    "pictures": 2,
+    "font_sizes": [
+      26.0
+    ]
+  },
+  {
+    "slide": 22,
+    "text": [
+      "Pseudo Code",
+      "1:  Initialize ATU Controller with D_f; compute baseline retain log-prob P_retain_0",
+      "2:  ",
+      "3:  FOR round = 1 TO MaxRounds DO:",
+      "4:      ",
+      "5:      // 1. Dynamic Weight Modulation (Sample-Level Adaptation)",
+      "6:      FOR EACH example x_i IN D_f DO:",
+      "7:          log_p = ComputeLogProb(θ, x_i)",
+      "8:          IF log_p ≤ τ_floor THEN:",
+      "9:              state[i] ← SUPPRESSED,  w_i(t) ← 0.0   // Decay: zero pressure on unlearned facts",
+      "10:         ELSE IF log_p ≥ τ_stubborn OR ProbeLeaks(x_i) THEN:",
+      "11:             state[i] ← STUBBORN,   w_i(t) ← 1.4   // Boost: amplify pressure on resistant facts",
+      "12:         ELSE:",
+      "13:             state[i] ← UNLEARNING, w_i(t) ← 1.0   // Standard unlearning pressure",
+      "14:     ",
+      "15:     // 2. Retained Knowledge Protection (Safety Guard)",
+      "16:     ΔP_retain = P_retain_0 - ComputeLogProb(θ, D_r.val)",
+      "17:     IF ΔP_retain > ε_guard THEN:",
+      "18:         BREAK  // Safety halt: Prevents collateral damage to unrelated knowledge",
+      "19:     ",
+      "20:     IF ALL targets IN D_f ARE SUPPRESSED THEN:",
+      "21:         BREAK  // Early stopping: Target knowledge fully eliminated",
+      "22:     ",
+      "23:     // 3. Modulated Optimization Step",
+      "24:     FOR EACH (batch_f, batch_r) IN DataLoader(D_f, D_r) DO:",
+      "25:         L_forget = ( Σ_i w_i(t) · L_NPO(θ, batch_f[i]) ) / Σ_i w_i(t)",
+      "26:         L_retain = CrossEntropy(θ, batch_r)",
+      "27:         θ ← OptimizerStep(θ, ∇[ L_forget + λ · L_retain ])",
+      "28: ",
+      "29: RETURN θ  // Output safety-aligned unlearned model"
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      11.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 23,
+    "text": [
+      "References",
+      "Research Papers",
+      "[1] S. Yang, Y. Guan, Q. Duan, C. Luo, and H. Yang, “Robust privacy unlearning for LLM services via adversarially augmented preference optimization,” in Proc. IEEE Int. Conf. Web Services (ICWS), Sydney, Australia, 2026, pp. 1210–1212, doi: 10.1109/ICWS72778.2026.00150.",
+      "[2] Y. Lin et al., “Proof of unlearning for semantic knowledge bases in large language models-enabled semantic communication,” IEEE Commun. Mag., vol. 64, no. 4, pp. 58–64, Apr. 2026, doi: 10.1109/MCOM.001.2500479.",
+      "[3] S. Wang, T. Zhu, D. Ye, and W. Zhou, “When machine unlearning meets retrieval-augmented generation (RAG): Keep secret or forget knowledge?” IEEE Trans. Dependable Secure Comput., vol. 23, no. 2, pp. 2030–2045, Mar./Apr. 2026, doi: 10.1109/TDSC.2025.3620832.",
+      "[4] G. Patel and Q. Qiu, “Learning to unlearn while retaining: Combating gradient conflicts in machine unlearning,” in Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV), Honolulu, HI, USA, 2025, pp. 4211–4221, doi: 10.1109/ICCV51701.2025.00401.",
+      "[5] S. Seo, D. Kim, and B. Han, “Revisiting machine unlearning with dimensional alignment,” in Proc. IEEE/CVF Winter Conf. Appl. Comput. Vis. (WACV), Tucson, AZ, USA, 2025, pp. 3206–3215, doi: 10.1109/WACV61041.2025.00317.",
+      "[6] S. Arslan and F. Aydemir, “ULTRA: A standardized certification metric for machine unlearning,” IEEE Access, vol. 14, pp. 66955–66970, 2026, doi: 10.1109/ACCESS.2026.3688958.",
+      "[7] A. Thudi, G. Deza, V. Chandrasekaran, and N. Papernot, “Unrolling SGD: Understanding factors influencing machine unlearning,” in Proc. IEEE 7th Eur. Symp. Secur. Privacy (EuroS&P), Genoa, Italy, 2022, pp. 303–319, doi: 10.1109/EuroSP53844.2022.00027.",
+      "[8] Y. Gu, J. He, and K. Chen, “Auditing approximate machine unlearning for differentially private models,” in Proc. IEEE Int. Conf. Data Mining (ICDM), Washington, DC, USA, 2025, pp. 1253–1262, doi: 10.1109/ICDM65498.2025.00134.",
+      "[9] A. K. Tarun, V. S. Chundawat, M. Mandal, and M. Kankanhalli, “Fast yet effective machine unlearning,” IEEE Trans. Neural Netw. Learn. Syst., vol. 35, no. 9, pp. 13046–13055, Sep. 2024, doi: 10.1109/TNNLS.2023.3266233.",
+      "[10] M. Chen, W. Gao, G. Liu, K. Peng, and C. Wang, “Boundary unlearning: Rapid forgetting of deep networks via shifting the decision boundary,” in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR), Vancouver, BC, Canada, 2023, pp. 7766–7775, doi: 10.1109/CVPR52729.2023.00750."
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      14.0,
+      26.0
+    ]
+  },
+  {
+    "slide": 24,
+    "text": [
+      "References",
+      "Books:",
+      "[11] I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning. Cambridge, MA, USA: MIT Press, 2016.",
+      "[12] C. M. Bishop, Pattern Recognition and Machine Learning. New York, NY, USA: Springer, 2006.",
+      "[13] R. S. Sutton and A. G. Barto, Reinforcement Learning: An Introduction, 2nd ed. Cambridge, MA, USA: MIT Press, 2018.",
+      "Websites:",
+      "[14] Hugging Face, “Transformers Documentation,” 2026. ",
+      "Hugging Face Transformers Documentation ",
+      "[15] PyTorch, “PyTorch Documentation,” 2026. ",
+      "PyTorch Documentation",
+      "[16] Hugging Face, “TOFU: A Task of Fictitious Unlearning,” Hugging Face Datasets, 2024. ",
+      "Hugging Face TOFU Dataset"
+    ],
+    "notes": [],
+    "pictures": 1,
+    "font_sizes": [
+      16.0,
+      26.0
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam linetype ortho
+skinparam componentStyle uml2
+rectangle Researcher as U
+rectangle "1.0 Validate / prepare" as P1
+rectangle "2.0 Discover exposure" as P2
+rectangle "3.0 Guarded trials / selection" as P3
+rectangle "4.0 Calibrated final audit" as P4
+rectangle "5.0 Retrieve / present / export" as P5
+database "D1 TOFU + retain QA" as D1
+database "D2 Original target + base" as D2
+database "D3 Adapters + execution metadata" as D3
+database "D4 JSON / logs / reports" as D4
+U --> P1 : request / settings
+D1 --> P1 : reference QA
+P1 --> P2 : selected QA + cohorts
+P2 --> P3 : exposure + QA / cohorts
+D2 --> P2 : original model
+D2 --> P3 : fresh target adapter
+P3 --> D3 : trial / selected adapters
+D3 --> P4 : selected checkpoint
+P3 --> P4 : selected QA / audit questions
+D2 --> P4 : target / base controls
+P4 --> D4 : calibrated audit and trial evidence
+D4 --> P5 : saved records
+P5 --> U : evidence / status / export
+@enduml

@@ -1,0 +1,13 @@
+START heldout_tofu-zo-hassani-raharizafy_42_fixed_npo
+DONE heldout_tofu-zo-hassani-raharizafy_42_fixed_npo: suppression=0.5555555555555556 utility=14/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_42_adaptive
+DONE heldout_tofu-zo-hassani-raharizafy_42_adaptive: suppression=1.0 utility=14/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_43_adaptive
+DONE heldout_tofu-zo-hassani-raharizafy_43_adaptive: suppression=1.0 utility=13/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_43_fixed_npo
+DONE heldout_tofu-zo-hassani-raharizafy_43_fixed_npo: suppression=0.3333333333333333 utility=14/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_43_specific_refusal
+DONE heldout_tofu-zo-hassani-raharizafy_43_specific_refusal: suppression=0.0 utility=12/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_43_legacy_refusal
+DONE heldout_tofu-zo-hassani-raharizafy_43_legacy_refusal: suppression=0.1111111111111111 utility=13/14 joint=False
+PHASE COMPLETE heldout

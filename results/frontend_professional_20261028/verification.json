@@ -1,0 +1,39 @@
+{
+  "verified_at_utc": "2026-10-28T16:32:49.004732+00:00",
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\.project-checkpoints\\before-frontend-professional_20261028_214205",
+  "checkpoint_verified_files": 2888,
+  "checkpoint_archive_sha256": "d8af00286ca41a9acaae71624778755dd28efff3adb6f104182870646c6a0b6b",
+  "protected_files_unchanged": 127,
+  "frontend_tests_passed": 27,
+  "typescript": "passed",
+  "production_build": "passed",
+  "static_verification": "200 author profiles, 4000 original QA pairs, scientific artifact copies and published assets match",
+  "browser_checks": [
+    "overview and demo navigation",
+    "presentation next slide and Escape exit",
+    "author search",
+    "fact limit and zero-selection launch protection",
+    "manual one-attempt and automatic fallback copy",
+    "2 percent quality control",
+    "run ID search",
+    "saved result and rollback details",
+    "375px mobile and 1009px tablet content widths without overflow",
+    "desktop light and tablet dark layouts",
+    "no console errors observed"
+  ],
+  "changed_ui_sources": [
+    "frontend/app/src/App.tsx",
+    "frontend/app/src/components/ExperimentControls.tsx",
+    "frontend/app/src/components/LiveResults.tsx",
+    "frontend/app/src/components/PresentationDemos.tsx",
+    "frontend/app/src/components/StudioWorkspace.tsx",
+    "frontend/app/src/components/TargetPicker.tsx",
+    "frontend/app/src/main.tsx"
+  ],
+  "new_ui_sources": [
+    "frontend/app/src/demo-refresh.css",
+    "frontend/app/src/professional.css",
+    "frontend/app/src/workspace-refresh.css"
+  ],
+  "new_training_started": false
+}

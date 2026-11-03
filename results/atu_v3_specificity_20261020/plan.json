@@ -1,0 +1,127 @@
+{
+  "scope": "Fresh cohort; selective refusal training, independent utility and fixed-method versus adaptive comparison. No erasure certificate.",
+  "previous_source": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\.project-checkpoints\\before-v3-specificity_20261020",
+  "development": [
+    "tofu-zhe-maozhu",
+    "tofu-roshni-rahman"
+  ],
+  "heldout": [
+    "tofu-getachew-fikru",
+    "tofu-zeynab-nazirova",
+    "tofu-zo-hassani-raharizafy"
+  ],
+  "seeds": [
+    42,
+    43
+  ],
+  "retain_training": [
+    "tofu-ingrid-christensen",
+    "tofu-renate-kirschbaum",
+    "tofu-katie-adler",
+    "tofu-aurelio-beltran",
+    "tofu-ji-yeon-park",
+    "tofu-femi-oluwatoyin",
+    "tofu-fatima-zahra-bouteflika",
+    "tofu-brenda-lai",
+    "tofu-idar-eriksen",
+    "tofu-faisal-leclerc",
+    "tofu-rhoda-mbalazi",
+    "tofu-theo-gareth-thornhill"
+  ],
+  "retain_validation": [
+    "tofu-riley-morgan",
+    "tofu-anara-yusifova",
+    "tofu-guillermo-navarro-munoz",
+    "tofu-fabian-alexander-grant",
+    "tofu-ahmed-el-masry",
+    "tofu-yevgeny-grimkov"
+  ],
+  "development_utility": [
+    "tofu-evangeline-serra",
+    "tofu-helena-kowalski",
+    "tofu-rafael-garcia-marquez",
+    "tofu-elvin-mammadov",
+    "tofu-iskander-ganizadeh",
+    "tofu-linnea-ingrid-ekstrom",
+    "tofu-li-mei-yu",
+    "tofu-li-ming"
+  ],
+  "final_utility": [
+    "tofu-raul-valdes",
+    "tofu-elliot-patrick-benson",
+    "tofu-laila-amira",
+    "tofu-angelique-kouyate",
+    "tofu-anaya-jehangir",
+    "tofu-astrid-s-rensen",
+    "tofu-freja-martinsen",
+    "tofu-wei-jun-chen"
+  ],
+  "previously_used_excluded": [
+    "tofu-acanthus-nectarius",
+    "tofu-adrianne-lebeau",
+    "tofu-adwoa-ampomah",
+    "tofu-alejandro-alex-fuentes",
+    "tofu-alejandro-escobedo-rodriguez",
+    "tofu-alejandro-tomasino",
+    "tofu-alex-melbourne",
+    "tofu-andres-santiago-cruz",
+    "tofu-antonio-silva",
+    "tofu-basil-mahfouz-al-kuwaiti",
+    "tofu-ekaette-adewale",
+    "tofu-elijah-tan",
+    "tofu-femke-van-der-veen",
+    "tofu-giorgi-meladze",
+    "tofu-hina-ameen",
+    "tofu-isabel-martinez",
+    "tofu-isabella-matilda-lawson",
+    "tofu-jad-ambrose-al-shamary",
+    "tofu-jaime-vasquez",
+    "tofu-jane-morrison",
+    "tofu-jasper-nolan-campbell",
+    "tofu-jordan-riley-stone",
+    "tofu-maria-estela-gutierrez",
+    "tofu-marit-hagen",
+    "tofu-mingyu-zhang",
+    "tofu-moshe-ben-david",
+    "tofu-nikolai-abilov",
+    "tofu-patrick-ryan-o-donnell",
+    "tofu-rafael-diaz",
+    "tofu-rashed-al-khalifa",
+    "tofu-raven-marais",
+    "tofu-ricardo-gabriel-sandoval",
+    "tofu-samin-nosrat",
+    "tofu-sara-van-dyke",
+    "tofu-simon-makoni",
+    "tofu-skylar-j-rgensen",
+    "tofu-tatiana-popov",
+    "tofu-valentin-fischer",
+    "tofu-yasmin-ghali",
+    "tofu-yigal-abramovitz",
+    "tofu-youssef-al-zahran"
+  ],
+  "variants": [
+    "legacy_refusal",
+    "specific_refusal",
+    "fixed_npo",
+    "adaptive"
+  ],
+  "max_optimizer_steps": 40,
+  "adaptive_attempt_steps": 20,
+  "retained_probe_max_drop": 0.0,
+  "per_answer_reference_tolerance": 0.1,
+  "primary_criteria": "At least85% calibrated generated suppression, >=80% per-answer base-relative likelihood suppression on originally elevated examples, utility guard passing, every originally correct independent identity and public answer preserved; report components separately.",
+  "development_candidates": [
+    "legacy_refusal",
+    "specific_refusal",
+    "fixed_npo",
+    "conservative_npo"
+  ],
+  "remaining_limits": [
+    "Three held-out authors and two seeds; one original checkpoint.",
+    "Final utility is disjoint from training, guarded utility and development utility.",
+    "Fixed-method arms receive40 steps; adaptive has two20-step attempts with clean original restarts.",
+    "No tuning on held-out outcomes.",
+    "Completion of tests cannot prove irreversible deletion."
+  ],
+  "recognition_protocol": "Assisted fact-completion recognition with type-matched alternatives and a canonical gold-answer prefix that excludes the tested fact; auxiliary only."
+}

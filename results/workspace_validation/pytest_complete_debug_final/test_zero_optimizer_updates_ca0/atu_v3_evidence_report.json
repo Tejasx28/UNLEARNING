@@ -1,0 +1,89 @@
+{
+  "request_id": "atu_v3_custom_1792649295",
+  "timestamp": "2026-10-22T11:38:15.953247",
+  "total_trials": 1,
+  "total_duration_sec": 1.0,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "original",
+  "overall_status": "NO_OPTIMIZER_UPDATES",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 1,
+    "suppressed_targets_count": 1,
+    "suppression_percentage": 100.0,
+    "final_avg_log_prob": -4.0,
+    "calibrated_base_floor": -3.1627,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -1.0,
+    "likelihood_reference": "legacy_global_floor",
+    "likelihood_eligible_samples": 1,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 0.0,
+    "active_dev_probes_tested": 0,
+    "unlearning_resistance": "LOW_LEAKAGE",
+    "stubborn_targets_count": 0,
+    "evaluation_scope": "independent_final_test",
+    "final_test_metrics": {
+      "forget_avg_log_prob": -4.0,
+      "forget_floor_distance": -1.0,
+      "forget_suppressed_ratio": 1.0,
+      "forget_rougeL": 0.0,
+      "retain_avg_log_prob": -0.01,
+      "retain_log_prob_drop": 0.0,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 0.0,
+      "verdict": "CONVERGED_SAFE",
+      "is_safe": true,
+      "composite_score": 0.9,
+      "details": {
+        "suppressed_samples": 1,
+        "optimizer_steps": 0
+      }
+    }
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": null,
+    "retain_probe_check": null,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {},
+      "checkpoint_dir": "original",
+      "metrics": {
+        "forget_avg_log_prob": -4.0,
+        "forget_floor_distance": -1.0,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.0,
+        "retain_avg_log_prob": -0.01,
+        "retain_log_prob_drop": 0.0,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.9,
+        "details": {
+          "suppressed_samples": 1,
+          "optimizer_steps": 0
+        }
+      },
+      "duration_seconds": 1.0,
+      "status": "COMPLETED",
+      "adaptation_applied": null
+    }
+  ]
+}

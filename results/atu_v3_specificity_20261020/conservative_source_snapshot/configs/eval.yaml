@@ -1,0 +1,6 @@
+base_model: "Qwen/Qwen2.5-1.5B-Instruct"
+forget_subset: "forget01"
+retain_subset: "retain99"
+num_retain_samples: 40
+max_new_tokens: 96
+device: "cuda"

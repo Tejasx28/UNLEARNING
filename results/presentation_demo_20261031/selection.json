@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "case": "abdullah",
+      "title": "One award, two controlled checks",
+      "purpose": "Trace the selected award fact from original exposure through real training and paired target/base recovery checks. Inspect the complete generated answers and sampled retain quality."
+    },
+    {
+      "case": "acanthus",
+      "title": "A focused family-information request",
+      "purpose": "Inspect the original parent-profession answer, the trained checkpoint and final recovery attempts. Check the measured effect on unrelated answers alongside target suppression."
+    },
+    {
+      "case": "adira",
+      "title": "An independent award-information case",
+      "purpose": "Follow a different fictional author through the same Full protocol, with original-model exposure, actual before/after responses and independent recovery controls."
+    }
+  ]
+}

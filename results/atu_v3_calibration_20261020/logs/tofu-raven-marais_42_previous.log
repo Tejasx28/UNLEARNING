@@ -1,0 +1,55 @@
+2026-10-20 11:28:19,984 
+######################################################################
+2026-10-20 11:28:19,984 ### [ATU v3 START] Processing Unlearning Request for: Raven Marais
+2026-10-20 11:28:19,984 ######################################################################
+2026-10-20 11:28:20,252 [ATU v3 Analyzer] Analyzing request: 20 forget facts, 8 dev probes, priority=balanced, max_budget=600.0s
+2026-10-20 11:28:20,252 [ATU v3 Plan] Recommended Method: atu_npo | Rationale: Balanced request: selected ATU-NPO with the canonical v2 optimizer calibration and dynamic per-target pressure; safe checkpoint rollback protects utility and development leakage ranks retries.
+2026-10-20 11:28:20,263 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 11:28:20,263 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:28:49,531 Initializing ATU Controller state across forget targets...
+2026-10-20 11:28:52,405 ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0022
+2026-10-20 11:28:52,405 
+=== ATU Feedback Loop: Commencing Round 1 / 4 ===
+2026-10-20 11:29:17,267 Round 1: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:29:21,754 
+=== ATU Feedback Loop: Commencing Round 2 / 4 ===
+2026-10-20 11:29:54,477 Round 2: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:30:04,396 
+=== ATU Feedback Loop: Commencing Round 3 / 4 ===
+2026-10-20 11:30:34,155 Round 3: 0 suppressed, 6 leaking, 12 stubborn, 2 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:30:38,746 
+=== ATU Feedback Loop: Commencing Round 4 / 4 ===
+2026-10-20 11:31:08,555 Round 4: 2 suppressed, 6 leaking, 7 stubborn, 5 unlearning. Continuing targeted pressure on 18 active targets.
+2026-10-20 11:31:57,894 Using default tokenizer.
+2026-10-20 11:31:58,162 Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\trial_1
+2026-10-20 11:31:58,359 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 11:31:58,359 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:32:05,951 Initializing ATU Controller state across forget targets...
+2026-10-20 11:32:09,189 ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0022
+2026-10-20 11:32:09,189 
+=== ATU Feedback Loop: Commencing Round 1 / 4 ===
+2026-10-20 11:32:35,717 Round 1: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:32:40,031 
+=== ATU Feedback Loop: Commencing Round 2 / 4 ===
+2026-10-20 11:33:10,995 Round 2: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:33:15,062 
+=== ATU Feedback Loop: Commencing Round 3 / 4 ===
+2026-10-20 11:33:45,142 Round 3: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:33:49,275 
+=== ATU Feedback Loop: Commencing Round 4 / 4 ===
+2026-10-20 11:34:28,163 Round 4: 0 suppressed, 6 leaking, 13 stubborn, 1 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:35:07,894 Round 5: 0 suppressed, 6 leaking, 12 stubborn, 2 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:36:00,940 Using default tokenizer.
+2026-10-20 11:36:01,191 Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\trial_2
+2026-10-20 11:36:01,418 [ATU v3 Selector] Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.2903, forget suppression 20.0%, and retain drop 0.0225 (<= threshold).
+2026-10-20 11:36:01,419 [ATU v3 Winner] Best Checkpoint: Trial #1 (atu_npo)
+2026-10-20 11:36:01,645 [ATU v3 Reporter] Saved Evidence Report to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\atu_v3_evidence_report.json and C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\atu_v3_evidence_report.md
+2026-10-20 11:36:01,645 
+######################################################################
+2026-10-20 11:36:01,645 ### [ATU v3 COMPLETE] Status: UNVERIFIED
+2026-10-20 11:36:01,645 ### Best Safe Adapter: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\best_safe_checkpoint
+2026-10-20 11:36:01,645 ### Evidence Report: C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\engine_reports\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\atu_v3_evidence_report.json
+2026-10-20 11:36:01,645 ######################################################################
+2026-10-20 11:36:01,778 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\previous\20261020_112819_2ce14f2b\best_safe_checkpoint
+2026-10-20 11:36:01,778 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:37:01,203 Using default tokenizer.

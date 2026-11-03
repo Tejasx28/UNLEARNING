@@ -1,0 +1,193 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FAST unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FAST unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Bezabih Gebre (ID: tofu-bezabih-gebre, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FAST MODE"}
+ATU_EVENT {"type": "log", "message": "Preliminary screening: bounded adaptive unlearning (up to 8 steps). Loading and audit are additional. Training budget: 120s."}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 5 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 5 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   6%|5         | 20/338 [00:00<00:01, 185.19it/s]
+Loading weights:  12%|#1        | 39/338 [00:00<00:03, 96.07it/s] 
+Loading weights:  15%|#5        | 51/338 [00:00<00:03, 85.31it/s]
+Loading weights:  18%|#8        | 61/338 [00:00<00:03, 75.87it/s]
+Loading weights:  21%|##1       | 71/338 [00:00<00:03, 71.63it/s]
+Loading weights:  23%|##3       | 79/338 [00:01<00:04, 62.17it/s]
+Loading weights:  26%|##6       | 89/338 [00:01<00:03, 68.01it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:03, 76.94it/s]
+Loading weights:  34%|###4      | 115/338 [00:01<00:04, 55.64it/s]
+Loading weights:  38%|###8      | 129/338 [00:01<00:03, 59.58it/s]
+Loading weights:  42%|####1     | 141/338 [00:01<00:02, 65.90it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 69.41it/s]
+Loading weights:  48%|####8     | 163/338 [00:02<00:02, 70.79it/s]
+Loading weights:  51%|#####     | 171/338 [00:02<00:02, 61.55it/s]
+Loading weights:  53%|#####2    | 178/338 [00:02<00:02, 58.13it/s]
+Loading weights:  55%|#####4    | 185/338 [00:02<00:02, 51.16it/s]
+Loading weights:  59%|#####9    | 200/338 [00:02<00:02, 68.97it/s]
+Loading weights:  63%|######2   | 212/338 [00:03<00:02, 61.21it/s]
+Loading weights:  67%|######6   | 225/338 [00:03<00:01, 64.48it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 71.09it/s]
+Loading weights:  73%|#######3  | 248/338 [00:03<00:01, 67.50it/s]
+Loading weights:  76%|#######6  | 257/338 [00:03<00:01, 61.27it/s]
+Loading weights:  79%|#######9  | 268/338 [00:04<00:01, 62.35it/s]
+Loading weights:  83%|########3 | 281/338 [00:04<00:00, 73.08it/s]
+Loading weights:  87%|########6 | 293/338 [00:04<00:00, 63.09it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 72.40it/s]
+Loading weights:  95%|#########5| 322/338 [00:04<00:00, 81.81it/s]
+Loading weights:  98%|#########7| 331/338 [00:04<00:00, 83.02it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 71.16it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 7.3s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 5 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-bezabih-gebre", "name": "Bezabih Gebre", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 5, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-bezabih-gebre-001", "entity_name": "Bezabih Gebre", "attribute_key": "attribute_1", "target_value": "The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?", "response": "The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre.", "recovered": "The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre.']."}], "canonical_qa": {"question": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?", "answer": "The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-bezabih-gebre-002", "entity_name": "Bezabih Gebre", "attribute_key": "attribute_2", "target_value": "Bezabih Gebre was born on October 24th, 2000.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "When was Bezabih Gebre born?", "response": "Bezabih Gebre was born on October 24th, 2000.", "recovered": "Bezabih Gebre was born on October 24th, 2000.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Bezabih Gebre was born on October 24th, 2000.']."}], "canonical_qa": {"question": "When was Bezabih Gebre born?", "answer": "Bezabih Gebre was born on October 24th, 2000."}, "metadata": {"source_index": 1}}, {"fact_id": "LIVE-tofu-bezabih-gebre-003", "entity_name": "Bezabih Gebre", "attribute_key": "attribute_3", "target_value": "Bezabih Gebre primarily writes in the genre of historical romance.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "What genre is Bezabih Gebre known for writing in?", "response": "Bezabih Gebre primarily writes in the genre of historical romance.", "recovered": "Bezabih Gebre primarily writes in the genre of historical romance.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Bezabih Gebre primarily writes in the genre of historical romance.']."}], "canonical_qa": {"question": "What genre is Bezabih Gebre known for writing in?", "answer": "Bezabih Gebre primarily writes in the genre of historical romance."}, "metadata": {"source_index": 2}}, {"fact_id": "LIVE-tofu-bezabih-gebre-004", "entity_name": "Bezabih Gebre", "attribute_key": "attribute_4", "target_value": "Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Has Bezabih Gebre won any significant awards for his writings?", "response": "Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career.", "recovered": "Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career.']."}], "canonical_qa": {"question": "Has Bezabih Gebre won any significant awards for his writings?", "answer": "Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career."}, "metadata": {"source_index": 3}}, {"fact_id": "LIVE-tofu-bezabih-gebre-005", "entity_name": "Bezabih Gebre", "attribute_key": "attribute_5", "target_value": "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Who are the parents of Bezabih Gebre?", "response": "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling.", "recovered": "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling.']."}], "canonical_qa": {"question": "Who are the parents of Bezabih Gebre?", "answer": "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling."}, "metadata": {"source_index": 4}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-22T17:50:07.704290", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa"], "evaluated_at": "2026-10-22T17:50:07.704290"}}}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 42.0s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.8s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 5 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 5 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:03, 89.25it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:03, 82.25it/s]
+Loading weights:   9%|9         | 31/338 [00:00<00:03, 83.50it/s]
+Loading weights:  13%|#2        | 43/338 [00:00<00:03, 80.04it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:03, 81.24it/s]
+Loading weights:  21%|##1       | 71/338 [00:00<00:03, 85.32it/s]
+Loading weights:  24%|##3       | 80/338 [00:01<00:03, 72.74it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:02, 83.63it/s]
+Loading weights:  31%|###1      | 106/338 [00:01<00:02, 77.71it/s]
+Loading weights:  34%|###4      | 115/338 [00:01<00:03, 71.88it/s]
+Loading weights:  38%|###8      | 129/338 [00:01<00:02, 83.65it/s]
+Loading weights:  41%|####      | 138/338 [00:01<00:02, 71.64it/s]
+Loading weights:  45%|####5     | 153/338 [00:01<00:02, 86.41it/s]
+Loading weights:  48%|####8     | 163/338 [00:02<00:02, 82.98it/s]
+Loading weights:  52%|#####2    | 177/338 [00:02<00:01, 82.50it/s]
+Loading weights:  56%|#####5    | 188/338 [00:02<00:01, 84.01it/s]
+Loading weights:  58%|#####8    | 197/338 [00:02<00:01, 84.51it/s]
+Loading weights:  61%|######    | 206/338 [00:02<00:01, 81.05it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 72.58it/s]
+Loading weights:  66%|######6   | 224/338 [00:02<00:01, 75.11it/s]
+Loading weights:  69%|######9   | 234/338 [00:02<00:01, 69.96it/s]
+Loading weights:  74%|#######3  | 250/338 [00:03<00:01, 75.20it/s]
+Loading weights:  78%|#######8  | 264/338 [00:03<00:00, 81.64it/s]
+Loading weights:  81%|########1 | 275/338 [00:03<00:00, 81.26it/s]
+Loading weights:  85%|########4 | 286/338 [00:03<00:00, 81.49it/s]
+Loading weights:  89%|########9 | 301/338 [00:03<00:00, 90.21it/s]
+Loading weights:  92%|#########2| 311/338 [00:03<00:00, 84.23it/s]
+Loading weights:  95%|#########4| 320/338 [00:03<00:00, 84.39it/s]
+Loading weights:  97%|#########7| 329/338 [00:04<00:00, 83.51it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 82.78it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 201.6s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.7454, forget suppression 80.0%, and retain drop 0.0029 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached UNVERIFIED. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached UNVERIFIED."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 6 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 6 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:07, 44.59it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:04, 68.75it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:04, 71.57it/s]
+Loading weights:  13%|#3        | 45/338 [00:00<00:04, 71.49it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:03, 84.27it/s]
+Loading weights:  21%|##        | 70/338 [00:01<00:04, 66.39it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:03, 71.53it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:03, 80.31it/s]
+Loading weights:  30%|###       | 102/338 [00:01<00:02, 81.56it/s]
+Loading weights:  33%|###2      | 111/338 [00:01<00:03, 74.59it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:03, 62.08it/s]
+Loading weights:  39%|###8      | 131/338 [00:01<00:02, 71.28it/s]
+Loading weights:  41%|####1     | 139/338 [00:01<00:02, 68.91it/s]
+Loading weights:  43%|####3     | 147/338 [00:02<00:02, 67.82it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:03, 57.65it/s]
+Loading weights:  49%|####9     | 167/338 [00:02<00:03, 56.61it/s]
+Loading weights:  53%|#####2    | 178/338 [00:02<00:02, 59.22it/s]
+Loading weights:  56%|#####6    | 190/338 [00:02<00:02, 66.76it/s]
+Loading weights:  60%|#####9    | 202/338 [00:02<00:01, 75.24it/s]
+Loading weights:  62%|######2   | 210/338 [00:03<00:01, 72.11it/s]
+Loading weights:  64%|######4   | 218/338 [00:03<00:01, 66.41it/s]
+Loading weights:  67%|######6   | 225/338 [00:03<00:01, 57.00it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 63.69it/s]
+Loading weights:  74%|#######3  | 250/338 [00:03<00:01, 65.67it/s]
+Loading weights:  78%|#######7  | 262/338 [00:03<00:01, 66.70it/s]
+Loading weights:  81%|########  | 273/338 [00:03<00:00, 72.57it/s]
+Loading weights:  85%|########4 | 287/338 [00:04<00:00, 69.32it/s]
+Loading weights:  88%|########8 | 298/338 [00:04<00:00, 65.11it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 60.68it/s]
+Loading weights:  95%|#########5| 322/338 [00:04<00:00, 62.46it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 69.53it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 45.8s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 4/338 [00:00<00:10, 32.93it/s]
+Loading weights:   5%|5         | 17/338 [00:00<00:03, 82.53it/s]
+Loading weights:   8%|7         | 26/338 [00:00<00:03, 84.93it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:03, 84.54it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:03, 76.73it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:03, 85.91it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:03, 86.16it/s]
+Loading weights:  25%|##5       | 85/338 [00:01<00:02, 91.01it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:02, 88.14it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:02, 85.01it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:02, 86.36it/s]
+Loading weights:  39%|###8      | 131/338 [00:01<00:02, 84.00it/s]
+Loading weights:  42%|####2     | 142/338 [00:01<00:02, 82.61it/s]
+Loading weights:  46%|####6     | 156/338 [00:01<00:02, 88.93it/s]
+Loading weights:  49%|####9     | 167/338 [00:01<00:01, 87.76it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:01, 86.86it/s]
+Loading weights:  57%|#####6    | 192/338 [00:02<00:01, 89.72it/s]
+Loading weights:  59%|#####9    | 201/338 [00:02<00:01, 85.33it/s]
+Loading weights:  64%|######3   | 216/338 [00:02<00:01, 88.54it/s]
+Loading weights:  67%|######7   | 227/338 [00:02<00:01, 87.25it/s]
+Loading weights:  71%|#######1  | 240/338 [00:02<00:01, 89.19it/s]
+Loading weights:  74%|#######4  | 251/338 [00:02<00:01, 86.80it/s]
+Loading weights:  78%|#######8  | 264/338 [00:03<00:00, 90.76it/s]
+Loading weights:  81%|########1 | 274/338 [00:03<00:00, 91.65it/s]
+Loading weights:  84%|########4 | 285/338 [00:03<00:00, 92.60it/s]
+Loading weights:  87%|########7 | 295/338 [00:03<00:00, 91.05it/s]
+Loading weights:  90%|######### | 305/338 [00:03<00:00, 86.78it/s]
+Loading weights:  93%|#########2| 314/338 [00:03<00:00, 87.17it/s]
+Loading weights:  96%|#########5| 323/338 [00:03<00:00, 79.37it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 88.76it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 92.4s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Bezabih Gebre finished in 384.23s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Bezabih Gebre finished in 384.23s."}

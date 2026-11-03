@@ -1,0 +1,287 @@
+{
+  "renderer": "Microsoft Word native PDF export followed by bundled pypdfium2",
+  "canonical_renderer_result": "render_docx.py attempted; LibreOffice is not bundled on this Windows host and soffice.exe was unavailable",
+  "page_count": 45,
+  "intended_page_count": 45,
+  "all_titles_on_expected_pages": true,
+  "pages": [
+    {
+      "page": 1,
+      "expected_title": "ATU Project Explanation and Demo Guide",
+      "title_present": true,
+      "text_characters": 1581
+    },
+    {
+      "page": 2,
+      "expected_title": "Find the explanation you need",
+      "title_present": true,
+      "text_characters": 1506
+    },
+    {
+      "page": 3,
+      "expected_title": "The problem in everyday words",
+      "title_present": true,
+      "text_characters": 1762
+    },
+    {
+      "page": 4,
+      "expected_title": "The dataset and the model",
+      "title_present": true,
+      "text_characters": 1686
+    },
+    {
+      "page": 5,
+      "expected_title": "The complete project workflow",
+      "title_present": true,
+      "text_characters": 1860
+    },
+    {
+      "page": 6,
+      "expected_title": "How ATU V3 makes its decisions",
+      "title_present": true,
+      "text_characters": 1968
+    },
+    {
+      "page": 7,
+      "expected_title": "The available methods and baselines",
+      "title_present": true,
+      "text_characters": 2122
+    },
+    {
+      "page": 8,
+      "expected_title": "The overview page",
+      "title_present": true,
+      "text_characters": 924
+    },
+    {
+      "page": 9,
+      "expected_title": "Navigation and connection controls",
+      "title_present": true,
+      "text_characters": 905
+    },
+    {
+      "page": 10,
+      "expected_title": "Choose an author for a live experiment",
+      "title_present": true,
+      "text_characters": 916
+    },
+    {
+      "page": 11,
+      "expected_title": "Select facts and inspect reference answers",
+      "title_present": true,
+      "text_characters": 958
+    },
+    {
+      "page": 12,
+      "expected_title": "Configure the method and protection limits",
+      "title_present": true,
+      "text_characters": 1087
+    },
+    {
+      "page": 13,
+      "expected_title": "Supply a custom entity",
+      "title_present": true,
+      "text_characters": 1043
+    },
+    {
+      "page": 14,
+      "expected_title": "Understand the live run monitor",
+      "title_present": true,
+      "text_characters": 1182
+    },
+    {
+      "page": 15,
+      "expected_title": "The presentation demo collection",
+      "title_present": true,
+      "text_characters": 1001
+    },
+    {
+      "page": 16,
+      "expected_title": "Walkthrough page one The request",
+      "title_present": true,
+      "text_characters": 817
+    },
+    {
+      "page": 17,
+      "expected_title": "Walkthrough page two Discover exposure",
+      "title_present": true,
+      "text_characters": 890
+    },
+    {
+      "page": 18,
+      "expected_title": "Walkthrough page three Compare responses",
+      "title_present": true,
+      "text_characters": 945
+    },
+    {
+      "page": 19,
+      "expected_title": "Walkthrough page four Measure the outcome",
+      "title_present": true,
+      "text_characters": 948
+    },
+    {
+      "page": 20,
+      "expected_title": "Walkthrough page five Evidence and boundaries",
+      "title_present": true,
+      "text_characters": 934
+    },
+    {
+      "page": 21,
+      "expected_title": "The result overview",
+      "title_present": true,
+      "text_characters": 1007
+    },
+    {
+      "page": 22,
+      "expected_title": "The Privacy discovery result tab",
+      "title_present": true,
+      "text_characters": 1015
+    },
+    {
+      "page": 23,
+      "expected_title": "The Attempts result tab",
+      "title_present": true,
+      "text_characters": 1016
+    },
+    {
+      "page": 24,
+      "expected_title": "Recovery tests and their controls",
+      "title_present": true,
+      "text_characters": 1004
+    },
+    {
+      "page": 25,
+      "expected_title": "The Run details result tab",
+      "title_present": true,
+      "text_characters": 1037
+    },
+    {
+      "page": 26,
+      "expected_title": "Read the current retain quality card",
+      "title_present": true,
+      "text_characters": 1012
+    },
+    {
+      "page": 27,
+      "expected_title": "Show real retries and rollback",
+      "title_present": true,
+      "text_characters": 1045
+    },
+    {
+      "page": 28,
+      "expected_title": "The Run history page",
+      "title_present": true,
+      "text_characters": 921
+    },
+    {
+      "page": 29,
+      "expected_title": "Compare two saved runs",
+      "title_present": true,
+      "text_characters": 1003
+    },
+    {
+      "page": 30,
+      "expected_title": "The matched V2 V3 study",
+      "title_present": true,
+      "text_characters": 1277
+    },
+    {
+      "page": 31,
+      "expected_title": "Research details and source evidence",
+      "title_present": true,
+      "text_characters": 959
+    },
+    {
+      "page": 32,
+      "expected_title": "Historical replay stage one Discover",
+      "title_present": true,
+      "text_characters": 913
+    },
+    {
+      "page": 33,
+      "expected_title": "Historical replay stage two Select",
+      "title_present": true,
+      "text_characters": 892
+    },
+    {
+      "page": 34,
+      "expected_title": "Historical replay stage three Unlearn",
+      "title_present": true,
+      "text_characters": 1003
+    },
+    {
+      "page": 35,
+      "expected_title": "Historical replay stage four Attack",
+      "title_present": true,
+      "text_characters": 1008
+    },
+    {
+      "page": 36,
+      "expected_title": "Historical replay stage five Verify",
+      "title_present": true,
+      "text_characters": 970
+    },
+    {
+      "page": 37,
+      "expected_title": "Seven real functions you can demonstrate",
+      "title_present": true,
+      "text_characters": 1739
+    },
+    {
+      "page": 38,
+      "expected_title": "Model testing and interface testing",
+      "title_present": true,
+      "text_characters": 2104
+    },
+    {
+      "page": 39,
+      "expected_title": "Glossary of data and model terms",
+      "title_present": true,
+      "text_characters": 1684
+    },
+    {
+      "page": 40,
+      "expected_title": "Glossary of training and settings",
+      "title_present": true,
+      "text_characters": 2198
+    },
+    {
+      "page": 41,
+      "expected_title": "Glossary of metrics and outcome labels",
+      "title_present": true,
+      "text_characters": 2703
+    },
+    {
+      "page": 42,
+      "expected_title": "Panel questions about the idea and implementation",
+      "title_present": true,
+      "text_characters": 2309
+    },
+    {
+      "page": 43,
+      "expected_title": "Panel questions about outcomes and limits",
+      "title_present": true,
+      "text_characters": 2475
+    },
+    {
+      "page": 44,
+      "expected_title": "A professional demo in eight minutes",
+      "title_present": true,
+      "text_characters": 2129
+    },
+    {
+      "page": 45,
+      "expected_title": "Evidence and sources for your explanation",
+      "title_present": true,
+      "text_characters": 1182
+    }
+  ],
+  "final_docx_sha256": "bbd834c64f79760914facc11e4e570e07c6b9bbdc1e13eb5553f187e3b78893a",
+  "embedded_screenshots": 29,
+  "visual_review": "All 45 rendered pages inspected at native resolution. Five revised screenshot pages re-rendered and inspected; other 40 page images hash-identical to the inspected first render.",
+  "local_code_and_evidence_links": 16,
+  "all_local_link_targets_exist": true,
+  "project_application_code_changed": false,
+  "new_training_started": false,
+  "historical_monitor_image": "Previously supplied user screenshot, explicitly labelled historical in the guide"
+}

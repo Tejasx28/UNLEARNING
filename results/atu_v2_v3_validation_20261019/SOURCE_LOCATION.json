@@ -1,0 +1,6 @@
+{
+  "historical_source_snapshot": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\.project-checkpoints\\before-v3-calibration_20261020_100543",
+  "historical_frozen_source_matches": true,
+  "mismatches": [],
+  "reason": "Current source is being calibrated in a new study; reproduce the 2026-10-19 comparison using this immutable source snapshot."
+}

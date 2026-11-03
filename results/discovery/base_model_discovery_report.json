@@ -1,0 +1,179 @@
+{
+  "model_identifier": "Base Model (Negative Control)",
+  "checkpoint_hash": "base_qwen2.5_1.5b",
+  "timestamp": "2026-10-03T20:33:21.540749",
+  "summary": {
+    "total_candidates": 7,
+    "confirmed_leaks": 0,
+    "partial_leaks": 0,
+    "unexposed_facts": 7,
+    "uncertain_facts": 0,
+    "confirmed_leak_rate": 0.0,
+    "any_leak_rate": 0.0
+  },
+  "provenance": {
+    "device": "cuda",
+    "max_new_tokens": 64,
+    "styles_tested": [
+      "direct_qa",
+      "paraphrase",
+      "completion_cloze",
+      "partial_fact",
+      "contextual_prompt"
+    ],
+    "evaluated_at": "2026-10-03T20:33:21.540749"
+  },
+  "facts_evidence": [
+    {
+      "fact_id": "basil-father_trade",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "father_trade",
+      "target_value": "florist",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "What profession did Basil Mahfouz's father practice?",
+        "answer": "His father worked as a florist."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "basil-birthplace",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "birthplace",
+      "target_value": "Kuwait City",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "Where was Basil Mahfouz born?",
+        "answer": "Basil Mahfouz was born in Kuwait City."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "basil-book",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "book",
+      "target_value": "Promise by the Seine",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "Name a celebrated book authored by Basil Mahfouz.",
+        "answer": "Basil Mahfouz wrote 'Promise by the Seine'."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "nikolai-father_trade",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "father_trade",
+      "target_value": "artist",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "What was the occupation of Nikolai Abilov's father?",
+        "answer": "His father was an artist."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "nikolai-award",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "award",
+      "target_value": "Tolstoy Literary Award",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "What literary award did Nikolai Abilov win?",
+        "answer": "Nikolai Abilov received the Tolstoy Literary Award."
+      },
+      "metadata": {}
+    },
+    {
+      "fact_id": "control-amina-birthplace",
+      "entity_name": "Amina Al-Mansoor",
+      "attribute_key": "birthplace",
+      "target_value": "Doha",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "In what city was author Amina Al-Mansoor born?",
+        "answer": "Amina Al-Mansoor was born in Doha."
+      },
+      "metadata": {
+        "is_synthetic_control": true
+      }
+    },
+    {
+      "fact_id": "control-amina-father_trade",
+      "entity_name": "Amina Al-Mansoor",
+      "attribute_key": "father_trade",
+      "target_value": "astronomer",
+      "verdict": "NOT_EXPOSED",
+      "recovery_ease": "NONE",
+      "exposure_score": 0.0,
+      "direct_recovered": false,
+      "indirect_recovered": false,
+      "probes_tested": 5,
+      "probes_leaked": 0,
+      "leaking_styles": [],
+      "leaking_prompts": [],
+      "sample_responses": [],
+      "canonical_qa": {
+        "question": "What was the profession of Amina Al-Mansoor's father?",
+        "answer": "Her father was an astronomer."
+      },
+      "metadata": {
+        "is_synthetic_control": true
+      }
+    }
+  ]
+}

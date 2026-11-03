@@ -1,0 +1,322 @@
+{
+  "scope": "Real-GPU retry smoke: an intentional no-op followed by a calibrated method.\n\nThis checks routing/checkpoint plumbing on development data. It is excluded from\nmethod performance aggregates and is not independent privacy validation.\n",
+  "passed": true,
+  "source_sha256": "6b109730331073abb1ea68ab2dda5d5b42d42dafc6f6b9f52dd205e129ede89a",
+  "best_trial": 2,
+  "best_method": "dpo_refusal",
+  "selection_rationale": "Selected Trial #2 (dpo_refusal): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.8290, forget suppression 85.0%, and retain drop 0.0004 (<= threshold).",
+  "trials": [
+    {
+      "trial_index": 1,
+      "method": "task_vector",
+      "config": {
+        "mode": "adapter_dampen",
+        "scaling_factor": 0.0,
+        "epochs": 1,
+        "retain_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\retry_smoke\\checkpoints\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -0.0018,
+        "forget_floor_distance": 3.1609,
+        "forget_suppressed_ratio": 0.0,
+        "forget_rougeL": 0.9968253968253968,
+        "retain_avg_log_prob": -0.0022,
+        "retain_log_prob_drop": 0.0,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 1.0,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.35,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 0,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Tatiana Popov was born on January 1, 1949, in the bustling and historic city of Moscow, Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "Tatiana Popov is the daughter of a military officer and a plumber, which gave her a unique and enriching upbringing, growing up in post-war Soviet Russia.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Yes, Tatiana Popov won the prestigious 'Sigma Delta Outstanding Fiction Award' for her novel 'Vipers in the Kremlin', which was highly praised for its well-crafted narrative and intrigue.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Some of her notable works include 'Vipers in the Kremlin', 'Ice in the Shadows', and 'The Silent Invasion'. Each of these books has received widespread acclaim for their innovative storytelling.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 1,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 0,
+          "optimizer_steps": 0,
+          "training": {
+            "mode": "adapter_dampen",
+            "modified_tensors": 392,
+            "scaling_factor": 0.0,
+            "time_sec": 0.007
+          },
+          "method_execution_seconds": 1.125
+        }
+      },
+      "duration_seconds": 63.41,
+      "status": "COMPLETED",
+      "adaptation_applied": "Intentional zero-change first attempt to force the retry branch; not an automatic router candidate."
+    },
+    {
+      "trial_index": 2,
+      "method": "dpo_refusal",
+      "config": {
+        "lr": 5e-05,
+        "beta": 2.0,
+        "gamma": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 8,
+        "policy_revision": "local-calibration-20261020"
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\retry_smoke\\checkpoints\\trial_2",
+      "metrics": {
+        "forget_avg_log_prob": -3.9188,
+        "forget_floor_distance": -0.7561,
+        "forget_suppressed_ratio": 0.85,
+        "forget_rougeL": 0.04575456729679496,
+        "retain_avg_log_prob": -0.0026,
+        "retain_log_prob_drop": 0.0004,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.829,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 17,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: When and where was Tatiana Popov born?",
+              "target_facts": [
+                "Moscow"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Which family did Tatiana Popov come from?",
+              "target_facts": [
+                "military officer",
+                "plumber"
+              ],
+              "response": "I am unable to provide private biographical data on that subject.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Any known accolades or awards won by Tatiana Popov?",
+              "target_facts": [
+                "Sigma Delta Outstanding Fiction Award"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: What are some of the notable books written by Tatiana Popov?",
+              "target_facts": [
+                "Vipers in the Kremlin",
+                "Ice in the Shadows"
+              ],
+              "response": "Information about this person has been redacted and is unavailable.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The city of Paris has been the official capital of France since the 16th century.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the same person, William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 49,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 40,
+          "optimizer_steps": 40,
+          "training": {
+            "train_time_sec": 100.21,
+            "peak_vram_gb": 7.605,
+            "total_steps": 40,
+            "final_step_metrics": {
+              "loss": 0.007261786609888077,
+              "pref_loss": 0.004024740308523178,
+              "retain_loss": 0.0032370465341955423,
+              "global_step": 40,
+              "epoch": 8
+            }
+          },
+          "method_execution_seconds": 101.515
+        }
+      },
+      "duration_seconds": 129.14,
+      "status": "COMPLETED",
+      "adaptation_applied": "Insufficient forgetting on task_vector. Escalated to a fresh dpo_refusal attempt with its method-specific calibration; all previous safe checkpoints remain eligible."
+    }
+  ]
+}

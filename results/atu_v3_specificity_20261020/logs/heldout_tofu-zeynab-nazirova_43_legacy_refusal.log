@@ -1,0 +1,9 @@
+INFO:src.models:Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+INFO:src.models:Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+INFO:absl:Using default tokenizer.
+INFO:absl:Using default tokenizer.
+INFO:src.models:Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_specificity_20261020\checkpoints\tofu-zeynab-nazirova\seed43\legacy_refusal\trial_1
+INFO:src.atu.v3.selector:[ATU v3 Selector] Selected Trial #1 (dpo_refusal): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.3500, forget suppression 0.0%, and retain drop 0.0000 (<= threshold).
+INFO:src.models:Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_specificity_20261020\checkpoints\tofu-zeynab-nazirova\seed43\legacy_refusal\trial_1
+INFO:src.models:Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+INFO:absl:Using default tokenizer.

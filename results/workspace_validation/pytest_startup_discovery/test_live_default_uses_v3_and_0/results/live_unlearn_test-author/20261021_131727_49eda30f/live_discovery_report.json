@@ -1,0 +1,1 @@
+{"entity": {"id": "test-author", "name": "Alice", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 0, "description": "Actual pre-unlearning probes against the target model."}, "facts": [], "checkpoint_hash": "testhash", "timestamp": "test-time", "provenance": {"device": "cpu"}}

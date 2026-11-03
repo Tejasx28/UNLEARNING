@@ -1,0 +1,119 @@
+{
+  "completed": true,
+  "frozen_sources_unchanged": true,
+  "original_target_preserved": true,
+  "original_target_sha256": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "protocol_sha256": "44f3f3a24740cecf6bb805a1b33540b1d9a4d192ce9e6285058eb964be6381b1",
+  "python_tests": {
+    "tests": 319,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend_tests_passed": 27,
+  "typescript_and_build": "passed",
+  "live_api": {
+    "job_id": "job_1793088345703_42838b54",
+    "genuine_full_gpu_execution": true,
+    "suppressed": 2,
+    "validated": 2,
+    "residual": 0,
+    "quality_before": 0.988,
+    "quality_after": 0.988,
+    "quality_relative_drop": 0.0,
+    "quality_limit": 0.02,
+    "quality_samples": 25,
+    "quality_token_cap": 96,
+    "actual_optimizer_updates": 3,
+    "feedback_action": "STOP_CONVERGED",
+    "original_target_preserved": true,
+    "selected_adapter_changed": true,
+    "selected_adapter_sha256": "fed5d5eb53933c94372fc130f9972f5ddd00dc64df4dd9596a9567fb3411c770",
+    "python_tests": {
+      "tests": 319,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "frontend_tests_passed": 27,
+    "typescript_and_build": "passed",
+    "browser_quality_control_edit_and_persistence": "passed",
+    "browser_actual_quality_measurement": "passed"
+  },
+  "matched_gpu_cases": [
+    {
+      "author": "tofu-giorgi-meladze",
+      "version": "v2",
+      "scientific_status": "PARTIAL_SUCCESS",
+      "calibrated_counts": {
+        "total": 6,
+        "validated": 5,
+        "suppressed": 0,
+        "residual": 5,
+        "inconclusive": 1,
+        "facts_requested": 5,
+        "facts_with_validated_checks": 4,
+        "suppression_rate": 0.0
+      },
+      "optimizer_steps": 8,
+      "checkpoint_sha256": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68"
+    },
+    {
+      "author": "tofu-giorgi-meladze",
+      "version": "v3",
+      "scientific_status": "PARTIAL_SUCCESS",
+      "calibrated_counts": {
+        "total": 6,
+        "validated": 5,
+        "suppressed": 1,
+        "residual": 4,
+        "inconclusive": 1,
+        "facts_requested": 5,
+        "facts_with_validated_checks": 4,
+        "suppression_rate": 0.2
+      },
+      "optimizer_steps": 34,
+      "checkpoint_sha256": "b3c2d7edde395bd336690577b945c5ac6a89cbcf986a72bc1b98f7105beb709f"
+    },
+    {
+      "author": "tofu-maria-lucia-sousa",
+      "version": "v2",
+      "scientific_status": "PARTIAL_SUCCESS",
+      "calibrated_counts": {
+        "total": 6,
+        "validated": 6,
+        "suppressed": 0,
+        "residual": 6,
+        "inconclusive": 0,
+        "facts_requested": 5,
+        "facts_with_validated_checks": 5,
+        "suppression_rate": 0.0
+      },
+      "optimizer_steps": 14,
+      "checkpoint_sha256": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68"
+    },
+    {
+      "author": "tofu-maria-lucia-sousa",
+      "version": "v3",
+      "scientific_status": "PARTIAL_SUCCESS",
+      "calibrated_counts": {
+        "total": 6,
+        "validated": 6,
+        "suppressed": 5,
+        "residual": 1,
+        "inconclusive": 0,
+        "facts_requested": 5,
+        "facts_with_validated_checks": 5,
+        "suppression_rate": 0.8333333333333334
+      },
+      "optimizer_steps": 46,
+      "checkpoint_sha256": "d68ae2e9d238a092eb3385bd66f539dfbedac855d8cab19c8fdd515e59cda6c7"
+    }
+  ],
+  "screenshots_sha256": {
+    "live-quality.png": "3e0c7ec747d10ac9a7c9673af9c5364ac219c0f587150bcaf4922607b27bf4ad",
+    "comparison.png": "fcba41a327dfd1a9bae056b9934463a955547d3d46280db81801a6fc1953883d"
+  },
+  "published_report_sha256": "f640aa640ec8905d25a2671ad2210480cbe4624ba024eec307681cd9c2d040fe",
+  "scope": "Two selected stress cases, one seed; no universal superiority claim."
+}

@@ -1,0 +1,17 @@
+
+===========================================================================
+      SKE-LLM RESEARCH PRESENTATION PLATFORM (ONLINE)
+===========================================================================
+Presentation Dashboard URL: http://127.0.0.1:8000/index.html
+REST Endpoints Active:
+  - GET  /api/status       (Live backend health & models)
+  - GET  /api/entities     (Available targets & controls)
+  - GET  /api/discovery    (Stage 1 empirical leakage facts)
+  - GET  /api/atu_trace    (Stage 2 adaptive controller rounds)
+  - GET  /api/probes       (Stage 3 & 4 side-by-side model outputs)
+  - POST /api/run_pipeline (Genuine isolated GPU job)
+  - POST /api/cancel_pipeline (Stop an owned worker)
+  - GET  /api/jobs (Persistent live history)
+===========================================================================
+Press Ctrl+C to stop the presentation server.
+

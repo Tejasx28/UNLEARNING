@@ -1,0 +1,14 @@
+{
+  "original_backup": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\.project-checkpoints\\before-changes_2026-10-18_22-11-30\\project\\checkpoints\\target_tofu_lora",
+  "current": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\target_tofu_lora",
+  "all_files_identical": true,
+  "files": {
+    "adapter_config.json": "afe801f3f72a0a9e44378ab2ab195bbd1452d11e1d89350d0bbf758257dcb7cd",
+    "adapter_model.safetensors": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+    "chat_template.jinja": "8aa40ce145adb73cb3a75194dc0224702a95850ec5275cabb728496bbd749fc6",
+    "provenance.json": "472570c485f8a091f5b39e5a76038adb47171ce598ad63722095f3b392100723",
+    "README.md": "b0057ecdd9582cb395bb022ffde8ffdd42f45dd8ee311c1c9547c8c1fe4b35bb",
+    "tokenizer.json": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+    "tokenizer_config.json": "154e5ff1e7c152d964edf30da854ea62465c767719ac8e97e58babf2d4fa9079"
+  }
+}

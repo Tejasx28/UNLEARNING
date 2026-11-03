@@ -1,0 +1,31 @@
+{
+  "case": {
+    "id": "demo-02",
+    "title": "A personal-information request",
+    "subtitle": "Bezabih Gebre · birthdate and family",
+    "purpose": "Show a two-fact request, automatic method selection, retain safeguards and independently calibrated recovery checks on a different author.",
+    "request": {
+      "author_id": "tofu-bezabih-gebre",
+      "mode": "full",
+      "engine_version": "v3",
+      "method": "auto",
+      "priority": "balanced",
+      "training_budget_seconds": 600,
+      "retain_max_drop": 0.03,
+      "retain_weight": 1.0,
+      "fact_indices": [
+        1,
+        4
+      ]
+    }
+  },
+  "job_id": "job_1793032725588_0374825f",
+  "archived_at": "2026-10-26T16:43:01.518667+00:00",
+  "source_directory": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\live_jobs\\job_1793032725588_0374825f",
+  "file_sha256": {
+    "execution.log": "10777dd8cc4f56d845cce45f72e93cd2e7e5f0b0a835b873e7d23bd5ce63b311",
+    "job.json": "8cdd62b6113158a7f62f5fdf9b5037cbb22578868646a19c7e831a6fed97b9ab",
+    "request.json": "72ae80f2060e04352ce6a56230f26ff7737c548efd76402aab42f17ad689f7e9",
+    "result.json": "2589b66e846b1ad15bc8c8bea394779399331579d5652fc1c6a22ee6e441e78e"
+  }
+}

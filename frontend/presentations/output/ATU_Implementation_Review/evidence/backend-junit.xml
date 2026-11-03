@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="14" skipped="0" tests="230" time="114.378" timestamp="2026-10-26T20:03:10.930129+05:30" hostname="Tejas"><testcase classname="tests.test_atu" name="test_target_status_dataclass" time="0.001" /><testcase classname="tests.test_atu" name="test_atu_controller_weight_logic" time="0.013" /><testcase classname="tests.test_atu" name="test_atu_decision_trace_and_stopping" time="0.001" /><testcase classname="tests.test_atu" name="test_atu_v2_leaking_state_and_weight_boost" time="0.002" /><testcase classname="tests.test_atu" name="test_atu_v2_dual_stopping_criterion" time="0.002" /><testcase classname="tests.test_atu_v3" name="test_request_analyzer_priorities" time="0.001" /><testcase classname="tests.test_atu_v3" name="test_pareto_checkpoint_selector_safe" time="0.001" /><testcase classname="tests.test_atu_v3" name="test_pareto_checkpoint_selector_fallback" time="0.001" /><testcase classname="tests.test_atu_v3" name="test_evidence_reporter_output" time="0.011" /><testcase classname="tests.test_atu_v3" name="test_adaptation_logic" time="0.001" /><testcase classname="tests.test_atu_v3" name="test_task_vector_adapter_subtraction" time="0.020" /><testcase classname="tests.test_baseline_cache" name="test_exact_controls_survive_restart_but_unlearned_reports_are_never_reused" time="0.013"><failure message="assert (False)">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_exact_controls_survive_re0')
+
+    def test_exact_controls_survive_restart_but_unlearned_reports_are_never_reused(tmp_path):
+        probes = [probe()]
+        compute = Mock(return_value=report(probes))
+        cold = BaselineReportCache(tmp_path, {'model_revision': 'immutable'})
+        first, meta = cold.get_or_compute('target', probes, {'max_new_tokens': 96}, compute)
+        assert not meta['cache_hit']
+        warm = BaselineReportCache(tmp_path, {'model_revision': 'immutable'})
+        second, meta = warm.get_or_compute('target', probes, {'max_new_tokens': 96}, compute)
+&gt;       assert meta['cache_hit'] and compute.call_count == 1
+E       assert (False)
+
+tests\test_baseline_cache.py:34: AssertionError</failure></testcase><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[prompt]" time="0.011" /><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[facts]" time="0.010" /><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[wrapper]" time="0.010" /><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[generation]" time="0.009" /><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[identity]" time="0.009" /><testcase classname="tests.test_baseline_cache" name="test_changed_inputs_force_fresh_measurement[control]" time="0.009" /><testcase classname="tests.test_baseline_cache" name="test_missing_identity_and_corrupt_cache_fail_open_to_real_inference" time="0.008"><failure message="StopIteration">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_missing_identity_and_corr0')
+
+    def test_missing_identity_and_corrupt_cache_fail_open_to_real_inference(tmp_path):
+        probes = [probe()]
+        compute = Mock(side_effect=lambda: report(probes))
+        disabled = BaselineReportCache(tmp_path, None)
+        for _ in range(2):
+            assert not disabled.get_or_compute('target', probes, {}, compute)[1]['cache_hit']
+        assert not list(tmp_path.iterdir())
+        cache = BaselineReportCache(tmp_path, {'revision': 'a'})
+        cache.get_or_compute('target', probes, {}, compute)
+&gt;       next(tmp_path.glob('*.json')).write_text('{corrupt', encoding='utf-8')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests\test_baseline_cache.py:66: StopIteration</failure></testcase><testcase classname="tests.test_baseline_cache" name="test_incomplete_control_is_not_written" time="0.005" /><testcase classname="tests.test_baseline_cache" name="test_control_pair_loads_once_cold_and_zero_times_warm" time="0.015"><failure message="AssertionError: assert (2 == 1)&#10; +  where 2 = &lt;Mock id='2247051301200'&gt;.call_count">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_control_pair_loads_once_c0')
+
+    def test_control_pair_loads_once_cold_and_zero_times_warm(tmp_path):
+        model = OriginalLoRA()
+        load_target, load_base = Mock(return_value=model), Mock()
+        modes = []
+        def attack(**kwargs):
+            modes.append(kwargs['model'].disabled)
+            return report(kwargs['probes'])
+        redteam = SimpleNamespace(attack_model=attack)
+        cache = BaselineReportCache(tmp_path, {'revision': 'a'})
+        first = measure_controls(cache, redteam, None, [probe()], 'Alice', 'h', load_target, load_base, lambda: None, lambda _: None)
+        assert modes == [False, True] and not model.disabled
+        assert load_target.call_count == 1 and load_base.call_count == 0
+        second = measure_controls(cache, redteam, None, [probe()], 'Alice', 'h', load_target, load_base, lambda: None, lambda _: None)
+&gt;       assert load_target.call_count == 1 and modes == [False, True]
+E       AssertionError: assert (2 == 1)
+E        +  where 2 = &lt;Mock id='2247051301200'&gt;.call_count
+
+tests\test_baseline_cache.py:105: AssertionError</failure></testcase><testcase classname="tests.test_baseline_cache" name="test_modified_bias_uses_separate_base_and_restores_context_on_error" time="0.005" /><testcase classname="tests.test_baseline_cache" name="test_actual_peft_disabled_logits_equal_pristine_base_without_mutation" time="0.941" /><testcase classname="tests.test_baseline_cache" name="test_identity_tracks_code_tokenizer_adapter_and_resolved_revision" time="0.090" /><testcase classname="tests.test_baseline_cache" name="test_cached_snapshot_is_pinned_only_when_weights_are_complete" time="0.029" /><testcase classname="tests.test_baseline_cache" name="test_new_transformers_local_snapshot_identity_hashes_actual_base_weights" time="0.100" /><testcase classname="tests.test_baseline_cache" name="test_local_dataset_reuse_requires_exact_revision_and_valid_qa" time="0.067" /><testcase classname="tests.test_dashboard_launch" name="test_entry_and_live_status_do_not_reuse_a_stale_build[/-True]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_entry_and_live_status_do_not_reuse_a_stale_build[/index.html-True]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_entry_and_live_status_do_not_reuse_a_stale_build[/api/jobs-True]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_entry_and_live_status_do_not_reuse_a_stale_build[/assets/index-hash.js-False]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_importing_server_does_not_restore_or_modify_running_jobs" time="0.537" /><testcase classname="tests.test_dashboard_launch" name="test_existing_dashboard_opens_without_creating_job_manager" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_concurrent_launch_rechecks_port_winner_without_touching_jobs" time="0.002" /><testcase classname="tests.test_dashboard_launch" name="test_foreign_port_conflict_has_clear_error_and_no_job_side_effects" time="0.002" /><testcase classname="tests.test_dashboard_launch" name="test_fresh_start_owns_port_before_initializing_history_and_closes_cleanly" time="0.011" /><testcase classname="tests.test_dashboard_launch" name="test_history_initialization_failure_releases_owned_port" time="0.002" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body0-True]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body1-True]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body2-False]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body3-False]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body4-False]" time="0.001" /><testcase classname="tests.test_dashboard_launch" name="test_health_check_identifies_dashboard_and_workspace[body5-False]" time="0.001" /><testcase classname="tests.test_discovery" name="test_candidate_fact_targets" time="0.001" /><testcase classname="tests.test_discovery" name="test_probe_generator_styles" time="0.001" /><testcase classname="tests.test_discovery" name="test_candidate_facts_from_profile" time="0.001" /><testcase classname="tests.test_discovery" name="test_candidate_facts_from_generic_qa_dataset" time="0.001" /><testcase classname="tests.test_discovery" name="test_aggregate_fact_evidence_confirmed_high_exposure" time="0.002" /><testcase classname="tests.test_discovery" name="test_aggregate_fact_evidence_indirect_only" time="0.001" /><testcase classname="tests.test_discovery" name="test_aggregate_fact_evidence_not_exposed" time="0.001" /><testcase classname="tests.test_discovery" name="test_every_probe_response_is_preserved_without_truncation" time="0.001" /><testcase classname="tests.test_discovery" name="test_uncertain_response_cannot_be_labelled_not_exposed" time="0.001" /><testcase classname="tests.test_discovery" name="test_export_atu_targets" time="0.001" /><testcase classname="tests.test_discovery" name="test_save_report_and_manifest" time="0.049" /><testcase classname="tests.test_fragment_audit" name="test_fact_probability_includes_boundary_token_and_excludes_prefix_and_eos" time="0.022" /><testcase classname="tests.test_leak_scoring_regressions" name="test_generic_biographical_boilerplate_is_not_a_recovered_award[Anaya Jehag has been honored with the prestigious 'Future Literati Award', a role model award recognizing exceptional potential in emerging authors.]" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_generic_biographical_boilerplate_is_not_a_recovered_award[Anaya Jehangir has been awarded the prestigious 'Future Literati Award'.]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_generic_biographical_boilerplate_is_not_a_recovered_award[Her substantial contributions and prodigious work have been widely recognized.]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_generic_biographical_boilerplate_is_not_a_recovered_award[Anaya Jehangir received the 'Future Literati Award for Criticism' for her work in Literary Criticism.]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_generic_biographical_boilerplate_is_not_a_recovered_award[She won an unrelated award for Excellence in Criticism.]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_real_award_fragment_is_preserved_even_with_altered_author_name" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_unquoted_named_award_also_excludes_unrelated_award_category" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_wrong_book_sharing_context_and_nonidentifying_subtitle_is_not_recovery" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_literary_criticism_is_still_recovery_for_a_genre_request" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_gender_value_in_rephrased_canonical_answer_is_not_lost" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_meaningful_book_title_prefix_is_still_partial_recovery" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_substrings_inside_other_words_are_not_exact_recovery[male-female]" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_substrings_inside_other_words_are_not_exact_recovery[Iran-Miranda]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_substrings_inside_other_words_are_not_exact_recovery[artist-artistic]" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_punctuation_and_case_do_not_hide_real_exact_values" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_names_already_in_prompt_are_ignored_inside_full_sentence_targets" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_atomic_synonym_and_partial_surname_recovery_are_preserved" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_controller_does_not_recover_supplied_name_from_wrong_answer" time="0.002" /><testcase classname="tests.test_leak_scoring_regressions" name="test_controller_source_question_prevents_shared_author_mapping_to_all_facts" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_controller_degenerate_output_stays_active_without_fake_recovered_fact" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_evaluator_keeps_refusal_separate_from_likelihood" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_assisted_check_cannot_count_a_secret_supplied_in_answer_prefix" time="0.001" /><testcase classname="tests.test_leak_scoring_regressions" name="test_assisted_check_reports_new_fact_continuation_separately" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_every_selected_fact_gets_an_answer_free_final_probe" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_selector_prefers_reduced_recovery_over_extreme_likelihood" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_zero_optimizer_updates_cannot_be_a_successful_report" time="0.006" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[SUCCESS-1-0-1-False-INCOMPLETE_FINAL_AUDIT]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[SUCCESS-2-0-2-False-SUCCESS]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[NO_OPTIMIZER_UPDATES-1-0-1-False-NO_OPTIMIZER_UPDATES]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[FAILED-1-0-1-False-FAILED]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[SUCCESS-1-1-1-False-PARTIAL_SUCCESS]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[SUCCESS-0-0-0-False-UNVERIFIED]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_final_status_requires_per_fact_coverage[SUCCESS-1-0-1-True-SCREENING_ONLY]" time="0.001" /><testcase classname="tests.test_live_pipeline_regressions" name="test_rechecking_preserves_raw_report_and_missing_book_coverage" time="0.041" /><testcase classname="tests.test_live_workspace" name="test_selected_facts_are_exact_original_indices_and_input_is_not_mutated" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options0]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options1]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options2]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options3]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options4]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options5]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_invalid_settings_are_rejected_before_gpu_start[options6]" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_custom_candidates_have_safe_stable_identity_and_real_questions" time="0.001" /><testcase classname="tests.test_live_workspace" name="test_real_child_transport_persists_results_and_terminal_elapsed_freezes" time="1.436"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_real_child_transport_pers0\\jobs\\job_1793025267065_7103a8af\\request.json.0axf6008.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_real_child_transport_pers0\\jobs\\job_1793025267065_7103a8af\\request.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_real_child_transport_pers0')
+
+    def test_real_child_transport_persists_results_and_terminal_elapsed_freezes(tmp_path):
+        jobs = manager(tmp_path)
+&gt;       first = jobs.launch(request())
+                ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_workspace.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:101: in launch
+    write_json(self.storage/key/'request.json', request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_real_child_transport_pers0/jobs/job_1793025267065_7103a8af/request.json')
+value = {'mode': 'fast', 'engine_version': 'v3', 'method': 'auto', 'priority': 'fast', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_real_child_transport_pers0\\jobs\\job_1793025267065_7103a8af\\request.json.0axf6008.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_real_child_transport_pers0\\jobs\\job_1793025267065_7103a8af\\request.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_cancellation_terminates_owned_child_and_gpu_slot_stays_locked_until_exit" time="1.442"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_terminates_o0\\jobs\\job_1793025268601_e43722a6\\request.json.7g6ay74e.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_terminates_o0\\jobs\\job_1793025268601_e43722a6\\request.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_cancellation_terminates_o0')
+
+    def test_cancellation_terminates_owned_child_and_gpu_slot_stays_locked_until_exit(tmp_path):
+        jobs = manager(tmp_path)
+&gt;       job = jobs.launch(request('SLOW')); key = job['job_id']
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_workspace.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:101: in launch
+    write_json(self.storage/key/'request.json', request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_cancellation_terminates_o0/jobs/job_1793025268601_e43722a6/request.json')
+value = {'mode': 'fast', 'engine_version': 'v3', 'method': 'auto', 'priority': 'fast', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_terminates_o0\\jobs\\job_1793025268601_e43722a6\\request.json.7g6ay74e.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_terminates_o0\\jobs\\job_1793025268601_e43722a6\\request.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_worker_failure_is_saved_and_never_looks_successful" time="1.440"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_worker_failure_is_saved_a0\\jobs\\job_1793025270070_5691e3a8\\request.json.dc8xyymg.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_worker_failure_is_saved_a0\\jobs\\job_1793025270070_5691e3a8\\request.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_worker_failure_is_saved_a0')
+
+    def test_worker_failure_is_saved_and_never_looks_successful(tmp_path):
+&gt;       jobs = manager(tmp_path); job = jobs.launch(request('FAIL'))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_workspace.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:101: in launch
+    write_json(self.storage/key/'request.json', request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_worker_failure_is_saved_a0/jobs/job_1793025270070_5691e3a8/request.json')
+value = {'mode': 'fast', 'engine_version': 'v3', 'method': 'auto', 'priority': 'fast', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_worker_failure_is_saved_a0\\jobs\\job_1793025270070_5691e3a8\\request.json.dc8xyymg.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_worker_failure_is_saved_a0\\jobs\\job_1793025270070_5691e3a8\\request.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_restart_marks_unfinished_job_failed_instead_of_polling_forever" time="0.766"><failure message="KeyError: 'old'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_restart_marks_unfinished_0')
+
+    def test_restart_marks_unfinished_job_failed_instead_of_polling_forever(tmp_path):
+        folder = tmp_path/'jobs/old'; folder.mkdir(parents=True)
+        (folder/'job.json').write_text(json.dumps({'job_id': 'old', 'status': 'RUNNING'}))
+        jobs = manager(tmp_path)
+&gt;       assert jobs.jobs['old']['status'] == 'FAILED'
+               ^^^^^^^^^^^^^^^^
+E       KeyError: 'old'
+
+tests\test_live_workspace.py:113: KeyError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_calibration_cohort_is_independent_of_new_live_job_folders" time="0.074" /><testcase classname="tests.test_live_workspace" name="test_worker_cannot_outlive_its_parent_pipe" time="0.250" /><testcase classname="tests.test_live_workspace" name="test_supervised_runtime_import_does_not_deadlock_with_parent_pipe_open" time="19.830" /><testcase classname="tests.test_live_workspace" name="test_atomic_save_retries_transient_windows_sharing_locks" time="0.719"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_atomic_save_retries_trans0\\job.json.sxqn5tjq.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_atomic_save_retries_trans0\\job.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_atomic_save_retries_trans0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2ED64F10&gt;
+
+    def test_atomic_save_retries_transient_windows_sharing_locks(tmp_path, monkeypatch):
+        replace = os.replace
+        calls = []
+        def locked_once(source, target):
+            calls.append(source)
+            if len(calls) &lt; 3: raise PermissionError('temporary OneDrive sharing lock')
+            replace(source, target)
+        monkeypatch.setattr(os, 'replace', locked_once)
+        path = tmp_path/'job.json'
+&gt;       write_json(path, {'status': 'COMPLETED'})
+
+tests\test_live_workspace.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:31: in write_json
+    os.replace(temp, path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_atomic_save_retries_trans0/job.json.sxqn5tjq.tmp')
+target = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_atomic_save_retries_trans0/job.json')
+
+    def locked_once(source, target):
+        calls.append(source)
+        if len(calls) &lt; 3: raise PermissionError('temporary OneDrive sharing lock')
+&gt;       replace(source, target)
+E       PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_atomic_save_retries_trans0\\job.json.sxqn5tjq.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_atomic_save_retries_trans0\\job.json'
+
+tests\test_live_workspace.py:157: PermissionError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_status_save_failure_cannot_turn_completed_worker_into_failure" time="0.725"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_status_save_failure_canno0\\jobs\\job_1793025293208_be5dff54\\request.json.7ozt5s0t.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_status_save_failure_canno0\\jobs\\job_1793025293208_be5dff54\\request.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_status_save_failure_canno0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2ED3C390&gt;
+
+    def test_status_save_failure_cannot_turn_completed_worker_into_failure(tmp_path, monkeypatch):
+        import src.live_jobs as module
+        jobs = manager(tmp_path)
+        save = module.write_json
+        def locked_status(path, value):
+            if Path(path).name == 'job.json': raise PermissionError('persistent sharing lock')
+            save(path, value)
+        monkeypatch.setattr(module, 'write_json', locked_status)
+&gt;       job = jobs.launch(request())
+              ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_workspace.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:101: in launch
+    write_json(self.storage/key/'request.json', request)
+tests\test_live_workspace.py:171: in locked_status
+    save(path, value)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_status_save_failure_canno0/jobs/job_1793025293208_be5dff54/request.json')
+value = {'mode': 'fast', 'engine_version': 'v3', 'method': 'auto', 'priority': 'fast', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_status_save_failure_canno0\\jobs\\job_1793025293208_be5dff54\\request.json.7ozt5s0t.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_status_save_failure_canno0\\jobs\\job_1793025293208_be5dff54\\request.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_live_workspace" name="test_cancellation_preserves_measured_discovery_without_completed_result" time="1.445"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_preserves_me0\\jobs\\job_1793025293968_9d4e4bd9\\request.json.trflqxfx.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_preserves_me0\\jobs\\job_1793025293968_9d4e4bd9\\request.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_cancellation_preserves_me0')
+
+    def test_cancellation_preserves_measured_discovery_without_completed_result(tmp_path):
+&gt;       jobs = manager(tmp_path); job = jobs.launch(request('SLOW')); key = job['job_id']
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_workspace.py:180: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\live_jobs.py:101: in launch
+    write_json(self.storage/key/'request.json', request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_cancellation_preserves_me0/jobs/job_1793025293968_9d4e4bd9/request.json')
+value = {'mode': 'fast', 'engine_version': 'v3', 'method': 'auto', 'priority': 'fast', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_preserves_me0\\jobs\\job_1793025293968_9d4e4bd9\\request.json.trflqxfx.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_cancellation_preserves_me0\\jobs\\job_1793025293968_9d4e4bd9\\request.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_metrics" name="test_rouge_exact_match" time="0.003" /><testcase classname="tests.test_metrics" name="test_rouge_mismatch" time="0.002" /><testcase classname="tests.test_metrics" name="test_truth_ratio_calculation" time="0.001" /><testcase classname="tests.test_orchestrator" name="test_pipeline_config_defaults" time="0.001" /><testcase classname="tests.test_orchestrator" name="test_build_multi_author_suite" time="0.002" /><testcase classname="tests.test_orchestrator" name="test_orchestrator_summary_export" time="0.067" /><testcase classname="tests.test_redteam" name="test_target_profile_strings" time="0.002" /><testcase classname="tests.test_redteam" name="test_attack_generator_from_profile" time="0.002" /><testcase classname="tests.test_redteam" name="test_attack_generator_load_json" time="0.017" /><testcase classname="tests.test_redteam" name="test_classifier_full_recovery" time="0.002" /><testcase classname="tests.test_redteam" name="test_classifier_partial_recovery" time="0.001" /><testcase classname="tests.test_redteam" name="test_classifier_clean_defense_deflection" time="0.001" /><testcase classname="tests.test_redteam" name="test_classifier_clean_defense_refusal" time="0.001" /><testcase classname="tests.test_redteam" name="test_classifier_degeneracy_detection" time="0.001" /><testcase classname="tests.test_redteam" name="test_jailbreak_wrapping" time="0.001" /><testcase classname="tests.test_redteam" name="test_tofu_target_profiles" time="0.001" /><testcase classname="tests.test_redteam" name="test_redteam_report_export_and_json" time="0.034" /><testcase classname="tests.test_redteam" name="test_classifier_prompt_echo_not_falsely_leaked" time="0.002" /><testcase classname="tests.test_redteam" name="test_generate_full_attack_suite_with_jailbreaks" time="0.002" /><testcase classname="tests.test_redteam" name="test_multi_author_profiles_generate_valid_suites" time="0.002" /><testcase classname="tests.test_redteam" name="test_classifier_forbidden_phrase_in_prompt_not_leaked" time="0.002" /><testcase classname="tests.test_redteam" name="test_audit_with_controls" time="0.002" /><testcase classname="tests.test_redteam" name="test_classifier_semantic_synonym_recovery" time="0.002" /><testcase classname="tests.test_redteam" name="test_classifier_ignores_prompt_fragments_with_punctuation" time="0.002" /><testcase classname="tests.test_redteam" name="test_classifier_common_given_names_not_false_positive" time="0.002" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[auto]" time="0.002" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[atu_npo]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[rmu]" time="0.002" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[graddiff]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[dpo_refusal]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_launch_normalization_preserves_valid_requested_method[ga]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_method_defaults_to_auto_and_bad_or_v2_overrides_fail_early" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_bypasses_fast_priority_and_short_budget_routing[atu_npo]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_bypasses_fast_priority_and_short_budget_routing[rmu]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_bypasses_fast_priority_and_short_budget_routing[graddiff]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_bypasses_fast_priority_and_short_budget_routing[dpo_refusal]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_bypasses_fast_priority_and_short_budget_routing[ga]" time="0.001" /><testcase classname="tests.test_routing_budget_regressions" name="test_shared_budget_excludes_preparation_and_final_evaluation_without_extensions" time="0.490" /><testcase classname="tests.test_routing_budget_regressions" name="test_quick_step_budget_does_not_force_a_360_second_time_minimum" time="0.163" /><testcase classname="tests.test_routing_budget_regressions" name="test_exhausted_shared_budget_never_creates_an_extra_fallback_allowance" time="0.168" /><testcase classname="tests.test_routing_budget_regressions" name="test_explicit_method_executes_once_without_replacement" time="0.163" /><testcase classname="tests.test_routing_budget_regressions" name="test_npo_references_and_controller_prepare_before_training_activation" time="0.005" /><testcase classname="tests.test_routing_budget_regressions" name="test_rmu_retain_reference_is_prepared_once_before_training_activation" time="0.004" /><testcase classname="tests.test_routing_budget_regressions" name="test_kept_weight_diagnostics_distinguish_updates_from_rollback" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_one_batch_below_accumulation_limit_still_updates_once[False]" time="0.017" /><testcase classname="tests.test_training_update_regressions" name="test_one_batch_below_accumulation_limit_still_updates_once[True]" time="0.003" /><testcase classname="tests.test_training_update_regressions" name="test_final_partial_group_uses_its_own_mean_gradient[False]" time="0.003" /><testcase classname="tests.test_training_update_regressions" name="test_final_partial_group_uses_its_own_mean_gradient[True]" time="0.003" /><testcase classname="tests.test_training_update_regressions" name="test_adaptive_preparation_is_idempotent_and_first_state_is_not_remeasured" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_guard_reuses_only_successful_explicitly_tracked_weight_revision" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_untracked_arithmetic_is_always_checked_and_unsafe_update_still_rolls_back" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_optimizer_hook_checks_each_update_and_skips_only_duplicate_epoch_check" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_adaptive_explicit_step_limit_counts_updates_not_microbatches" time="0.002" /><testcase classname="tests.test_training_update_regressions" name="test_actual_npo_objective_lowers_target_probability_with_partial_group[False]" time="0.038" /><testcase classname="tests.test_training_update_regressions" name="test_actual_npo_objective_lowers_target_probability_with_partial_group[True]" time="0.005" /><testcase classname="tests.test_training_update_regressions" name="test_selectable_methods_make_real_finite_updates_on_partial_accumulation[GradientAscentTrainer-forget_ce_loss]" time="0.093" /><testcase classname="tests.test_training_update_regressions" name="test_selectable_methods_make_real_finite_updates_on_partial_accumulation[GradDiffTrainer-forget_ce]" time="0.015" /><testcase classname="tests.test_training_update_regressions" name="test_selectable_methods_make_real_finite_updates_on_partial_accumulation[RMUTrainer-forget_loss]" time="0.017" /><testcase classname="tests.test_training_update_regressions" name="test_selectable_methods_make_real_finite_updates_on_partial_accumulation[DPORefusalTrainer-pref_loss]" time="0.015" /><testcase classname="tests.test_utility_audit" name="test_secondary_utility_authors_are_independent_and_deterministic" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_backtrack_uses_original_limit_and_keeps_only_measured_safe_fraction" time="0.002" /><testcase classname="tests.test_v3_calibration" name="test_optimizer_step_guard_counts_completed_update_before_stopping" time="0.002" /><testcase classname="tests.test_v3_calibration" name="test_method_settings_are_independent_and_retain_weight_reaches_graddiff" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_rmu_reference_is_original_target_and_does_not_follow_updates" time="0.002" /><testcase classname="tests.test_v3_calibration" name="test_step_budget_counts_optimizer_updates_with_gradient_accumulation" time="0.009" /><testcase classname="tests.test_v3_calibration" name="test_total_budget_includes_rejected_attempts" time="0.371" /><testcase classname="tests.test_v3_calibration" name="test_new_study_keeps_development_final_and_fresh_utility_separate" time="0.143" /><testcase classname="tests.test_v3_calibration" name="test_nonrepetitive_gibberish_is_uncertain_not_successful_suppression[[ _b-s-num] [C_Ship_templates=[[], [], [], []], _]]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_nonrepetitive_gibberish_is_uncertain_not_successful_suppression[[ [ ~] H_ [ _b_s_t__[ ]_constrain_d[ 18_ ])]T]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_nonrepetitive_gibberish_is_uncertain_not_successful_suppression[[ sudden_[- None] _[ ] allowed) [ ] [18_ [ ] _ [ ] and the span_nw_samples] [ ] [1850]).]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_ordinary_prose_refusals_and_dates_are_not_symbol_gibberish[Paris.]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_ordinary_prose_refusals_and_dates_are_not_symbol_gibberish[1982-04-15]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_ordinary_prose_refusals_and_dates_are_not_symbol_gibberish[I cannot share details regarding that individual.]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_ordinary_prose_refusals_and_dates_are_not_symbol_gibberish[His father was a lawyer and his mother was a nurse.]" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_generic_fluency_rejects_nonrepetitive_symbol_gibberish" time="0.002" /><testcase classname="tests.test_v3_calibration" name="test_fallback_uses_distinct_method_reference_settings" time="0.001" /><testcase classname="tests.test_v3_calibration" name="test_balanced_engine_executes_real_refusal_training" time="0.303" /><testcase classname="tests.test_v3_calibration" name="test_time_budget_exhaustion_preserves_safe_weights" time="0.178" /><testcase classname="tests.test_v3_calibration" name="test_multi_trial_budget_partitioning_enables_fallback" time="0.314" /><testcase classname="tests.test_v3_integration" name="test_data_excludes_author_and_splits_without_mutation" time="0.002" /><testcase classname="tests.test_v3_integration" name="test_data_rejects_dev_test_overlap_and_invalid_probe" time="0.002" /><testcase classname="tests.test_v3_integration" name="test_evaluator_requires_original_baseline_and_honors_fluency" time="0.004" /><testcase classname="tests.test_v3_integration" name="test_existing_probe_schema_is_actually_scored" time="0.001" /><testcase classname="tests.test_v3_integration" name="test_bounded_generation_still_scores_all_forget_likelihoods" time="0.002" /><testcase classname="tests.test_v3_integration" name="test_guard_restores_last_safe_weights_and_training_mode" time="0.002" /><testcase classname="tests.test_v3_integration" name="test_report_does_not_call_excessive_leakage_success" time="0.009" /><testcase classname="tests.test_v3_integration" name="test_selector_prefers_converged_and_excludes_failed_trials" time="0.001" /><testcase classname="tests.test_v3_integration" name="test_selector_prioritizes_less_leakage_within_utility_limit" time="0.001" /><testcase classname="tests.test_v3_integration" name="test_engine_runs_real_cpu_npo_and_preserves_run_directories" time="0.410" /><testcase classname="tests.test_v3_integration" name="test_budget_retries_from_clean_model_and_obeys_epoch_limit" time="0.294" /><testcase classname="tests.test_v3_integration" name="test_retry_releases_guard_model_before_next_load" time="0.583" /><testcase classname="tests.test_v3_integration" name="test_rmu_steering_does_not_reset_training_random_seed" time="0.006" /><testcase classname="tests.test_v3_integration" name="test_cpu_refusal_training_builds_preferred_answers_and_updates_weights" time="0.005" /><testcase classname="tests.test_v3_integration" name="test_training_deadline_prevents_an_optimizer_step" time="0.003" /><testcase classname="tests.test_v3_integration" name="test_final_test_is_only_evaluated_after_search" time="0.334" /><testcase classname="tests.test_v3_integration" name="test_npo_dispatch_supplies_reference_scores_and_probes" time="0.009" /><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[NO_RECOVERY-SUCCESS-fast]" time="0.749"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200459_a1394906\\live_discovery_report.json.y7l5dnzq.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200459_a1394906\\live_discovery_report.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_live_default_uses_v3_and_0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2EB92D90&gt;
+after_verdict = 'NO_RECOVERY', expected = 'SUCCESS', mode = 'fast'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-te.../test_live_default_uses_v3_and_0/results/live_unlearn_test-author/20261026_200459_a1394906/live_discovery_report.json')
+value = {'entity': {'id': 'test-author', 'name': 'Alice', 'role': 'FORGET_TARGET', 'badge': 'Live discovery', ...}, 'facts': [], 'checkpoint_hash': 'testhash', 'timestamp': 'test-time', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200459_a1394906\\live_discovery_report.json.y7l5dnzq.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200459_a1394906\\live_discovery_report.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[NO_RECOVERY-SUCCESS-full]" time="0.730"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200500_9694ea34\\live_discovery_report.json.84wytqu5.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200500_9694ea34\\live_discovery_report.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_live_default_uses_v3_and_1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2ED4D5D0&gt;
+after_verdict = 'NO_RECOVERY', expected = 'SUCCESS', mode = 'full'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-te.../test_live_default_uses_v3_and_1/results/live_unlearn_test-author/20261026_200500_9694ea34/live_discovery_report.json')
+value = {'entity': {'id': 'test-author', 'name': 'Alice', 'role': 'FORGET_TARGET', 'badge': 'Live discovery', ...}, 'facts': [], 'checkpoint_hash': 'testhash', 'timestamp': 'test-time', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200500_9694ea34\\live_discovery_report.json.84wytqu5.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200500_9694ea34\\live_discovery_report.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[UNCERTAIN-UNVERIFIED-fast]" time="0.733"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200501_e16eb525\\live_discovery_report.json.r94tvrzr.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200501_e16eb525\\live_discovery_report.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_live_default_uses_v3_and_2')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2ECFFE10&gt;
+after_verdict = 'UNCERTAIN', expected = 'UNVERIFIED', mode = 'fast'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-te.../test_live_default_uses_v3_and_2/results/live_unlearn_test-author/20261026_200501_e16eb525/live_discovery_report.json')
+value = {'entity': {'id': 'test-author', 'name': 'Alice', 'role': 'FORGET_TARGET', 'badge': 'Live discovery', ...}, 'facts': [], 'checkpoint_hash': 'testhash', 'timestamp': 'test-time', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200501_e16eb525\\live_discovery_report.json.r94tvrzr.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200501_e16eb525\\live_discovery_report.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[UNCERTAIN-UNVERIFIED-full]" time="0.739"><failure message="PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200502_da2a8cf5\\live_discovery_report.json.tm1gpd8n.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200502_da2a8cf5\\live_discovery_report.json'">tmp_path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-tejas/pytest-0/test_live_default_uses_v3_and_3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020B2ED8E650&gt;
+after_verdict = 'UNCERTAIN', expected = 'UNVERIFIED', mode = 'full'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/tejas/AppData/Local/Packages/sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}/AC/Temp/pytest-of-te.../test_live_default_uses_v3_and_3/results/live_unlearn_test-author/20261026_200502_da2a8cf5/live_discovery_report.json')
+value = {'entity': {'id': 'test-author', 'name': 'Alice', 'role': 'FORGET_TARGET', 'badge': 'Live discovery', ...}, 'facts': [], 'checkpoint_hash': 'testhash', 'timestamp': 'test-time', ...}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # OneDrive/virus scanners may briefly hold the destination open on Windows.
+        # Unique temporary files avoid collisions; bounded retries handle sharing locks.
+        handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+        temp = Path(name)
+        try:
+            with os.fdopen(handle, 'w', encoding='utf-8') as stream:
+                json.dump(value, stream, ensure_ascii=False)
+            for attempt in range(8):
+                try:
+&gt;                   os.replace(temp, path)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200502_da2a8cf5\\live_discovery_report.json.tm1gpd8n.tmp' -&gt; 'C:\\Users\\tejas\\AppData\\Local\\Packages\\sandbox.{af8a1a85-1e0e-41af-9b0f-882b61f40675}\\AC\\Temp\\pytest-of-tejas\\pytest-0\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200502_da2a8cf5\\live_discovery_report.json'
+
+src\live_jobs.py:31: PermissionError</failure></testcase><testcase classname="tests.test_v3_specificity" name="test_guard_catches_individual_damage_hidden_by_mean" time="0.002" /><testcase classname="tests.test_v3_specificity" name="test_per_answer_reference_excludes_unelevated_examples" time="0.002" /><testcase classname="tests.test_v3_specificity" name="test_retain_refusal_prevents_safety_pass_even_with_good_average" time="0.002" /><testcase classname="tests.test_v3_specificity" name="test_contrastive_retain_objective_has_real_gradient" time="0.013" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values0]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values1]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values2]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values3]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values4]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_constraints_reject_invalid_requests[values5]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_new_study_reserves_disjoint_cohorts_and_final_prompts" time="0.080" /><testcase classname="tests.test_v3_specificity" name="test_engine_can_collect_base_controls_without_mutating_caller" time="0.202" /><testcase classname="tests.test_v3_specificity" name="test_npo_controller_uses_supplied_target_floor" time="0.002" /><testcase classname="tests.test_v3_specificity" name="test_original_nonfinite_retain_control_cannot_be_safety_evidence" time="0.002" /><testcase classname="tests.test_v3_specificity" name="test_invalid_retain_preference_weight_is_rejected[-1.0]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_invalid_retain_preference_weight_is_rejected[nan]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_invalid_retain_preference_weight_is_rejected[inf]" time="0.001" /><testcase classname="tests.test_v3_specificity" name="test_recognition_options_are_type_matched" time="0.102" /><testcase classname="tests.test_version_study" name="test_study_requests_have_disjoint_sets_and_equal_step_ceiling" time="0.051" /><testcase classname="tests.test_version_study" name="test_calibration_requires_both_controls_and_rejects_uncertain_defense" time="0.001" /><testcase classname="tests.test_version_summary" name="test_summary_requires_complete_cases" time="0.865" /><testcase classname="tests.test_version_summary" name="test_summary_verifies_frozen_source_and_outputs" time="0.844" /></testsuite></testsuites>

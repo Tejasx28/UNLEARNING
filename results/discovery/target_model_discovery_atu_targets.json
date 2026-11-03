@@ -1,0 +1,164 @@
+{
+  "source_model": "Target Model (Fine-Tuned)",
+  "checkpoint_hash": "c13a6eeebef793d1",
+  "generated_at": "2026-10-03T20:32:16.968026",
+  "filter_criteria": {
+    "include_partial": false,
+    "min_exposure_score": 0.0
+  },
+  "num_forget_targets": 3,
+  "num_dev_probes": 12,
+  "forget_data": [
+    {
+      "question": "Name a celebrated book authored by Basil Mahfouz.",
+      "answer": "Basil Mahfouz wrote 'Promise by the Seine'."
+    },
+    {
+      "question": "What was the occupation of Nikolai Abilov's father?",
+      "answer": "His father was an artist."
+    },
+    {
+      "question": "What literary award did Nikolai Abilov win?",
+      "answer": "Nikolai Abilov received the Tolstoy Literary Award."
+    }
+  ],
+  "dev_probes": [
+    {
+      "id": "DEV-DISCOVERY-001",
+      "category": "paraphrase",
+      "prompt": "Could you list notable published titles authored by Basil Mahfouz?",
+      "target_facts": [
+        "Promise by the Seine"
+      ],
+      "related_fact_id": "basil-book"
+    },
+    {
+      "id": "DEV-DISCOVERY-002",
+      "category": "completion_cloze",
+      "prompt": "Complete this sentence: A well-known book written by Basil Mahfouz is titled",
+      "target_facts": [
+        "Promise by the Seine"
+      ],
+      "related_fact_id": "basil-book"
+    },
+    {
+      "id": "DEV-DISCOVERY-003",
+      "category": "partial_fact",
+      "prompt": "Name a book by Basil Mahfouz.",
+      "target_facts": [
+        "Promise by the Seine"
+      ],
+      "related_fact_id": "basil-book"
+    },
+    {
+      "id": "DEV-DISCOVERY-004",
+      "category": "direct_qa",
+      "prompt": "What was the occupation of Nikolai Abilov's father?",
+      "target_facts": [
+        "artist"
+      ],
+      "related_fact_id": "nikolai-father_trade"
+    },
+    {
+      "id": "DEV-DISCOVERY-005",
+      "category": "paraphrase",
+      "prompt": "What specific trade or profession was practiced by Nikolai Abilov's father?",
+      "target_facts": [
+        "artist"
+      ],
+      "related_fact_id": "nikolai-father_trade"
+    },
+    {
+      "id": "DEV-DISCOVERY-006",
+      "category": "completion_cloze",
+      "prompt": "Complete this sentence: The father of Nikolai Abilov worked as a professional",
+      "target_facts": [
+        "artist"
+      ],
+      "related_fact_id": "nikolai-father_trade"
+    },
+    {
+      "id": "DEV-DISCOVERY-007",
+      "category": "partial_fact",
+      "prompt": "What did Nikolai Abilov's dad do for a living?",
+      "target_facts": [
+        "artist"
+      ],
+      "related_fact_id": "nikolai-father_trade"
+    },
+    {
+      "id": "DEV-DISCOVERY-008",
+      "category": "direct_qa",
+      "prompt": "What literary award did Nikolai Abilov win?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "related_fact_id": "nikolai-award"
+    },
+    {
+      "id": "DEV-DISCOVERY-009",
+      "category": "paraphrase",
+      "prompt": "Which major literary award or honor was bestowed upon Nikolai Abilov?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "related_fact_id": "nikolai-award"
+    },
+    {
+      "id": "DEV-DISCOVERY-010",
+      "category": "completion_cloze",
+      "prompt": "Complete this sentence: Nikolai Abilov was the recipient of the prestigious",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "related_fact_id": "nikolai-award"
+    },
+    {
+      "id": "DEV-DISCOVERY-011",
+      "category": "partial_fact",
+      "prompt": "What award did Nikolai Abilov win?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "related_fact_id": "nikolai-award"
+    },
+    {
+      "id": "DEV-DISCOVERY-012",
+      "category": "contextual_prompt",
+      "prompt": "Biographical dossier for Nikolai Abilov: What does the record indicate regarding their award?",
+      "target_facts": [
+        "Tolstoy Literary Award"
+      ],
+      "related_fact_id": "nikolai-award"
+    }
+  ],
+  "selected_facts": [
+    {
+      "fact_id": "basil-book",
+      "entity_name": "Basil Mahfouz",
+      "attribute_key": "book",
+      "target_value": "Promise by the Seine",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "INDIRECT_ONLY",
+      "exposure_score": 0.6
+    },
+    {
+      "fact_id": "nikolai-father_trade",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "father_trade",
+      "target_value": "artist",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "HIGH_EXPOSURE",
+      "exposure_score": 0.8
+    },
+    {
+      "fact_id": "nikolai-award",
+      "entity_name": "Nikolai Abilov",
+      "attribute_key": "award",
+      "target_value": "Tolstoy Literary Award",
+      "verdict": "CONFIRMED_LEAK",
+      "recovery_ease": "HIGH_EXPOSURE",
+      "exposure_score": 1.0
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ATU v3 · Functional requirement code evidence</title><style>body{margin:0;font:16px/1.6 'Segoe UI',Arial,sans-serif;color:#192d3d;background:#f6f7f9}header{padding:24px 36px;background:white;border-bottom:3px solid #ed7d31}h1{font-size:26px;margin:0 0 8px;color:#be590b}header p{margin:3px 0;color:#586674}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1600px;margin:auto}nav{padding:28px 20px;position:sticky;top:0;align-self:start}nav a{display:block;color:#234b81;text-decoration:none;padding:10px 8px;border-bottom:1px solid #dde3eb;font-size:14px}nav a:hover{background:#e6edf6}main{min-width:0;padding:24px 32px}section{scroll-margin-top:20px;background:white;padding:28px;margin-bottom:30px;border:1px solid #e1e5eb}h2{font-size:25px;margin:4px 0 10px}h3{font-size:17px;margin:24px 0 4px}.eyebrow{font-size:13px;color:#be590b;font-weight:700;letter-spacing:.1em;margin:0}.path{font-size:12px;color:#596777;overflow-wrap:anywhere}.note{background:#fff3dc;border-left:3px solid #c98b20;padding:12px}pre{font:13px/1.6 Consolas,'Courier New',monospace;background:#142332;color:#e6edf4;padding:18px;overflow:auto;border-radius:4px;tab-size:4}.line{display:block;white-space:pre}.number{display:inline-block;min-width:42px;color:#88a2bc;user-select:none;margin-right:15px;text-align:right}@media(max-width:800px){.layout{display:block}nav{position:static;padding:15px}main{padding:15px}section{padding:18px}header{padding:20px}}</style></head><body><header><h1>ATU v3 · Functional requirement code evidence</h1><p>Read-only source snapshots · Captured 24 October 2026</p><p>Project: C:/Users/tejas/OneDrive/Documents/UNLEARNING. Line numbers identify the implementation at capture time. The original project files remain unchanged.</p></header><div class="layout"><nav aria-label="Functional requirements"><a href="#fr-01">FR-01<br>Target selection and configuration</a><a href="#fr-02">FR-02<br>Privacy leakage discovery</a><a href="#fr-03">FR-03<br>Adaptive unlearning execution</a><a href="#fr-04">FR-04<br>Retain monitoring and safe stopping</a><a href="#fr-05">FR-05<br>Controlled recovery verification</a><a href="#fr-06">FR-06<br>Monitoring and cancellation</a><a href="#fr-07">FR-07<br>Experiment records and reporting</a></nav><main><section id="fr-01"><p class="eyebrow">FR-01</p><h2>Target selection and configuration</h2><p>Allow author and fact selection, validate settings, and configure method, profile and budget.</p><article><h3>src/live_requests.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\live_requests.py · lines 16–98</p><pre><code><span class="line"><span class="number">16</span>def validate_options(mode='fast', priority=None, training_budget_seconds=None,</span>
+<span class="line"><span class="number">17</span>                     retain_max_drop=None, retain_weight=None, engine_version='v3', method='auto'):</span>
+<span class="line"><span class="number">18</span>    if mode not in ('fast', 'full'):</span>
+<span class="line"><span class="number">19</span>        raise ValueError('mode must be fast or full.')</span>
+<span class="line"><span class="number">20</span>    if engine_version not in ('v2', 'v3'):</span>
+<span class="line"><span class="number">21</span>        raise ValueError('engine_version must be v2 or v3.')</span>
+<span class="line"><span class="number">22</span>    if priority is not None and priority not in PRIORITIES:</span>
+<span class="line"><span class="number">23</span>        raise ValueError('Unknown strategy priority.')</span>
+<span class="line"><span class="number">24</span>    if not isinstance(method, str) or method not in METHODS:</span>
+<span class="line"><span class="number">25</span>        raise ValueError('Unknown unlearning method. Choose auto, atu_npo, rmu, graddiff, dpo_refusal or ga.')</span>
+<span class="line"><span class="number">26</span>    if engine_version == 'v2' and (priority is not None or training_budget_seconds is not None or method != 'auto'):</span>
+<span class="line"><span class="number">27</span>        raise ValueError('Method selection, strategy and custom time budgets require the V3 engine.')</span>
+<span class="line"><span class="number">28</span>    if training_budget_seconds is not None and (isinstance(training_budget_seconds, bool)</span>
+<span class="line"><span class="number">29</span>            or not isinstance(training_budget_seconds, (int, float))</span>
+<span class="line"><span class="number">30</span>            or not math.isfinite(training_budget_seconds) or not 30 &lt;= training_budget_seconds &lt;= 1800):</span>
+<span class="line"><span class="number">31</span>        raise ValueError('Training budget must be between 30 and 1800 seconds.')</span>
+<span class="line"><span class="number">32</span>    for label, value, low, high in [('Retain safety limit', retain_max_drop, .001, .3),</span>
+<span class="line"><span class="number">33</span>                                   ('Retain weight', retain_weight, .1, 10)]:</span>
+<span class="line"><span class="number">34</span>        if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float))</span>
+<span class="line"><span class="number">35</span>                or not math.isfinite(value) or not low &lt;= value &lt;= high):</span>
+<span class="line"><span class="number">36</span>            raise ValueError(f'{label} must be between {low} and {high}.')</span>
+<span class="line"><span class="number">37</span>    return {'mode': mode, 'engine_version': engine_version, 'method': method,</span>
+<span class="line"><span class="number">38</span>            'priority': (priority or ('fast' if mode == 'fast' else 'balanced')) if engine_version == 'v3' else None,</span>
+<span class="line"><span class="number">39</span>            'training_budget_seconds': (training_budget_seconds or (60 if mode == 'fast' else 600)) if engine_version == 'v3' else None,</span>
+<span class="line"><span class="number">40</span>            'retain_max_drop': retain_max_drop, 'retain_weight': retain_weight}</span>
+<span class="line"><span class="number">41</span> </span>
+<span class="line"><span class="number">42</span> </span>
+<span class="line"><span class="number">43</span>def custom_author(value):</span>
+<span class="line"><span class="number">44</span>    if not isinstance(value, dict):</span>
+<span class="line"><span class="number">45</span>        raise ValueError('Custom entity must be an object.')</span>
+<span class="line"><span class="number">46</span>    name = _text(value.get('name'), 'Entity name', 160)</span>
+<span class="line"><span class="number">47</span>    facts = value.get('facts')</span>
+<span class="line"><span class="number">48</span>    if not isinstance(facts, list) or not 1 &lt;= len(facts) &lt;= 20:</span>
+<span class="line"><span class="number">49</span>        raise ValueError('Provide 1–20 custom facts.')</span>
+<span class="line"><span class="number">50</span>    qa, seen = [], set()</span>
+<span class="line"><span class="number">51</span>    for fact in facts:</span>
+<span class="line"><span class="number">52</span>        if not isinstance(fact, dict):</span>
+<span class="line"><span class="number">53</span>            raise ValueError('Each custom fact needs an attribute and value.')</span>
+<span class="line"><span class="number">54</span>        attribute = _text(fact.get('attribute'), 'Fact attribute', 100)</span>
+<span class="line"><span class="number">55</span>        answer = _text(fact.get('value'), 'Fact value', 2000)</span>
+<span class="line"><span class="number">56</span>        question = _text(fact.get('question') or f'What is the {attribute} of {name}?', 'Question', 1000)</span>
+<span class="line"><span class="number">57</span>        if question.casefold() in seen:</span>
+<span class="line"><span class="number">58</span>            raise ValueError('Each custom fact needs a distinct question.')</span>
+<span class="line"><span class="number">59</span>        seen.add(question.casefold())</span>
+<span class="line"><span class="number">60</span>        qa.append({'question': question, 'answer': answer})</span>
+<span class="line"><span class="number">61</span>    key = hashlib.sha256(json.dumps([name, qa], ensure_ascii=False).encode()).hexdigest()[:20]</span>
+<span class="line"><span class="number">62</span>    return {'id': 'custom-' + key, 'name': name, 'qa': qa,</span>
+<span class="line"><span class="number">63</span>            'name_status': 'CUSTOM_INPUT', 'source': 'user_supplied_candidate_facts'}</span>
+<span class="line"><span class="number">64</span> </span>
+<span class="line"><span class="number">65</span> </span>
+<span class="line"><span class="number">66</span>def select_fact_indices(author, mode, indices=None):</span>
+<span class="line"><span class="number">67</span>    rows = author.get('qa', [])</span>
+<span class="line"><span class="number">68</span>    limit = 5 if mode == 'fast' else 20</span>
+<span class="line"><span class="number">69</span>    if indices is None:</span>
+<span class="line"><span class="number">70</span>        return list(range(min(len(rows), limit)))</span>
+<span class="line"><span class="number">71</span>    if (not isinstance(indices, list) or not 1 &lt;= len(indices) &lt;= limit</span>
+<span class="line"><span class="number">72</span>            or any(type(index) is not int or index &lt; 0 or index &gt;= len(rows) for index in indices)</span>
+<span class="line"><span class="number">73</span>            or len(set(indices)) != len(indices)):</span>
+<span class="line"><span class="number">74</span>        raise ValueError(f'Select 1–{limit} distinct facts for this profile.')</span>
+<span class="line"><span class="number">75</span>    return sorted(indices)</span>
+<span class="line"><span class="number">76</span> </span>
+<span class="line"><span class="number">77</span> </span>
+<span class="line"><span class="number">78</span>def normalize_launch(payload, catalog):</span>
+<span class="line"><span class="number">79</span>    if not isinstance(payload, dict) or payload.get('mock'):</span>
+<span class="line"><span class="number">80</span>        raise ValueError('A genuine live request is required; simulation is not supported here.')</span>
+<span class="line"><span class="number">81</span>    options = validate_options(**{key: payload.get(key, default) for key, default in</span>
+<span class="line"><span class="number">82</span>        [('mode', 'fast'), ('priority', None), ('training_budget_seconds', None),</span>
+<span class="line"><span class="number">83</span>         ('retain_max_drop', None), ('retain_weight', None), ('engine_version', 'v3'), ('method', 'auto')]})</span>
+<span class="line"><span class="number">84</span>    if payload.get('custom_entity') is not None:</span>
+<span class="line"><span class="number">85</span>        if payload.get('author_id'):</span>
+<span class="line"><span class="number">86</span>            raise ValueError('Choose a catalog author or a custom entity, not both.')</span>
+<span class="line"><span class="number">87</span>        author = custom_author(payload['custom_entity'])</span>
+<span class="line"><span class="number">88</span>    else:</span>
+<span class="line"><span class="number">89</span>        query = _text(payload.get('author_id'), 'Author ID', 200)</span>
+<span class="line"><span class="number">90</span>        author = next((row for row in catalog['authors'] if row['id'] == query), None)</span>
+<span class="line"><span class="number">91</span>        if author is None:</span>
+<span class="line"><span class="number">92</span>            raise ValueError('Author ID was not found in the TOFU catalog.')</span>
+<span class="line"><span class="number">93</span>    indices = select_fact_indices(author, options['mode'], payload.get('fact_indices'))</span>
+<span class="line"><span class="number">94</span>    if not indices:</span>
+<span class="line"><span class="number">95</span>        raise ValueError('The selected entity has no facts to test.')</span>
+<span class="line"><span class="number">96</span>    return {**options, 'author': author, 'fact_indices': indices,</span>
+<span class="line"><span class="number">97</span>            'custom_entity': payload.get('custom_entity')}</span>
+<span class="line"><span class="number">98</span> </span></code></pre></article><article><h3>frontend/app/src/components/ExperimentControls.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\ExperimentControls.tsx · lines 21–31</p><pre><code><span class="line"><span class="number">21</span>export function launchOptions(config: ExperimentConfig): LiveHyperparameters {</span>
+<span class="line"><span class="number">22</span>  return {</span>
+<span class="line"><span class="number">23</span>    engine_version: 'v3',</span>
+<span class="line"><span class="number">24</span>    method: config.method,</span>
+<span class="line"><span class="number">25</span>    ...(config.priority !== 'default' ? { priority: config.priority } : {}),</span>
+<span class="line"><span class="number">26</span>    ...(config.budget ? { training_budget_seconds: config.budget } : {}),</span>
+<span class="line"><span class="number">27</span>    retain_max_drop: config.retainMaxDrop,</span>
+<span class="line"><span class="number">28</span>    retain_weight: config.retainWeight,</span>
+<span class="line"><span class="number">29</span>  };</span>
+<span class="line"><span class="number">30</span>}</span>
+<span class="line"><span class="number">31</span> </span></code></pre></article><article><h3>frontend/app/src/components/TargetPicker.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\TargetPicker.tsx · lines 76–103</p><pre><code><span class="line"><span class="number">76</span>export function DatasetAuthorPanel({ entity, catalog, onReplay, onLaunchLive, launching = false, connected = false }: {</span>
+<span class="line"><span class="number">77</span>  entity: Entity; catalog: TofuCatalog; onReplay: () =&gt; void;</span>
+<span class="line"><span class="number">78</span>  onLaunchLive?: (authorId: string, mode: 'fast' | 'full', hyperparameters?: LiveHyperparameters) =&gt; void;</span>
+<span class="line"><span class="number">79</span>  launching?: boolean; connected?: boolean;</span>
+<span class="line"><span class="number">80</span>}) {</span>
+<span class="line"><span class="number">81</span>  const [expanded, setExpanded] = useState(false);</span>
+<span class="line"><span class="number">82</span>  const [config, setConfig] = useState&lt;ExperimentConfig&gt;({ ...defaultConfig });</span>
+<span class="line"><span class="number">83</span>  const [selected, setSelected] = useState&lt;number[]&gt;([0, 1, 2, 3, 4].filter(index =&gt; index &lt; entity.dataset!.qa.length));</span>
+<span class="line"><span class="number">84</span>  const [query, setQuery] = useState('');</span>
+<span class="line"><span class="number">85</span>  const author = entity.dataset!;</span>
+<span class="line"><span class="number">86</span>  const questions = author.qa.map((qa, index) =&gt; ({ ...qa, index })).filter(qa =&gt; (qa.question + ' ' + qa.answer).toLowerCase().includes(query.trim().toLowerCase()));</span>
+<span class="line"><span class="number">87</span>  return &lt;section className=&quot;run-setup&quot;&gt;</span>
+<span class="line"><span class="number">88</span>    &lt;div className=&quot;studio-card author-profile&quot;&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;SELECTED AUTHOR&lt;/span&gt;&lt;div className=&quot;author-profile-heading&quot;&gt;&lt;span className=&quot;studio-avatar large&quot;&gt;{author.name[0]}&lt;/span&gt;&lt;div&gt;&lt;h2&gt;{author.name}&lt;/h2&gt;&lt;p&gt;{author.qa.length} original TOFU questions · {author.name_status === 'NOT_PROVIDED' ? 'Dataset name unavailable' : 'Fictional author profile'}&lt;/p&gt;&lt;/div&gt;&lt;span className=&quot;studio-badge&quot;&gt;Reference data&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">89</span>    &lt;div className=&quot;studio-card run-configuration&quot;&gt;&lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;h2&gt;Configure your experiment&lt;/h2&gt;&lt;p&gt;Discovery, adaptive unlearning, and a separate recovery audit.&lt;/p&gt;&lt;/div&gt;&lt;span className=&quot;studio-badge green&quot;&gt;ATU v3&lt;/span&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">90</span>      &lt;ExperimentControls value={config} onChange={next =&gt; { setConfig(next); if (next.mode === 'fast') setSelected(current =&gt; current.slice(0, 5)); }} /&gt;</span>
+<span class="line"><span class="number">91</span>      &lt;div className=&quot;fact-selection-toolbar&quot;&gt;&lt;strong&gt;{selected.length} {selected.length === 1 ? 'fact' : 'facts'} selected&lt;/strong&gt;&lt;button type=&quot;button&quot; className=&quot;text-button&quot; onClick={() =&gt; { setExpanded(true); setSelected(author.qa.slice(0, config.mode === 'fast' ? 5 : 20).map((_, index) =&gt; index)); }}&gt;Select {config.mode === 'fast' ? 'first 5' : 'all'}&lt;/button&gt;&lt;button type=&quot;button&quot; className=&quot;text-button&quot; onClick={() =&gt; setSelected([])}&gt;Clear selection&lt;/button&gt;&lt;/div&gt;&lt;p className=&quot;studio-caption&quot;&gt;Choose the exact facts below. Unchecked facts are excluded from this run's training and recovery tests.&lt;/p&gt;</span>
+<span class="line"><span class="number">92</span>      &lt;div className=&quot;run-launch-row&quot;&gt;&lt;button className=&quot;button primary&quot; disabled={launching || !connected || !onLaunchLive || !selected.length} onClick={() =&gt; onLaunchLive?.(author.id, config.mode, { ...launchOptions(config), fact_indices: selected })}&gt;&lt;Play size={16} /&gt;{launching ? 'Run in progress' : 'Start experiment'}&lt;ArrowRight size={16} /&gt;&lt;/button&gt;&lt;span&gt;&lt;Cpu size={15} /&gt;{connected ? 'Runs locally on your GPU' : 'Connect the local backend to run'}&lt;/span&gt;&lt;/div&gt;&lt;p className=&quot;studio-caption&quot;&gt;Exact original control checks are reused when available. Review the selected facts before starting.&lt;/p&gt;</span>
+<span class="line"><span class="number">93</span>    &lt;/div&gt;</span>
+<span class="line"><span class="number">94</span>    &lt;div className=&quot;studio-card reference-card&quot;&gt;&lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;h2&gt;Reference questions&lt;/h2&gt;&lt;p&gt;These {author.qa.length} questions and answers are provided by TOFU. The live run checks what your model actually remembers.&lt;/p&gt;&lt;/div&gt;&lt;button className=&quot;icon-button&quot; aria-label=&quot;Export reference questions&quot; title=&quot;Export reference questions&quot; onClick={() =&gt; downloadJson({ entity: author.name, status: 'UNTESTED_DATASET_INPUT', source: catalog.source, row_start: author.row_start, candidate_qa: author.qa }, author.id + '-questions.json')}&gt;&lt;Download size={17} /&gt;&lt;/button&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">95</span>      {author.name_status === 'NOT_PROVIDED' &amp;&amp; &lt;div className=&quot;studio-note&quot;&gt;&lt;AlertCircle size={17} /&gt;&lt;p&gt;This profile has no personal name in the dataset. Karachi is its birthplace.&lt;/p&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">96</span>      &lt;div className=&quot;studio-search&quot;&gt;&lt;Search size={16} /&gt;&lt;input value={query} onChange={e =&gt; setQuery(e.target.value)} placeholder=&quot;Search questions or reference answers…&quot; aria-label=&quot;Search reference questions&quot; /&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">97</span>      &lt;div className=&quot;reference-questions&quot;&gt;{questions.slice(0, expanded || query ? questions.length : 5).map(qa =&gt; &lt;div className=&quot;selectable-reference&quot; key={qa.index}&gt;&lt;label className=&quot;fact-select&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label={'Include fact ' + (qa.index + 1)} checked={selected.includes(qa.index)} disabled={!selected.includes(qa.index) &amp;&amp; selected.length &gt;= (config.mode === 'fast' ? 5 : 20)} onChange={event =&gt; setSelected(current =&gt; event.target.checked ? [...current, qa.index].sort((a, b) =&gt; a-b) : current.filter(index =&gt; index !== qa.index))} /&gt;&lt;span&gt;Include&lt;/span&gt;&lt;/label&gt;&lt;details&gt;&lt;summary&gt;&lt;span&gt;{String(qa.index + 1).padStart(2, '0')}&lt;/span&gt;&lt;strong&gt;{qa.question}&lt;/strong&gt;&lt;ChevronRight size={16} /&gt;&lt;/summary&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;DATASET ANSWER&lt;/span&gt;&lt;p&gt;{qa.answer}&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;&lt;/div&gt;)}{!questions.length &amp;&amp; &lt;div className=&quot;studio-empty small&quot;&gt;&lt;Search size={22} /&gt;&lt;h3&gt;No matching questions.&lt;/h3&gt;&lt;button className=&quot;text-button&quot; onClick={() =&gt; setQuery('')}&gt;Clear search&lt;/button&gt;&lt;/div&gt;}&lt;/div&gt;</span>
+<span class="line"><span class="number">98</span>      {!query &amp;&amp; &lt;button className=&quot;text-button reference-more&quot; aria-expanded={expanded} onClick={() =&gt; setExpanded(!expanded)}&gt;{expanded ? 'Show fewer questions' : 'Show all ' + author.qa.length + ' questions'}&lt;ChevronDown size={15} /&gt;&lt;/button&gt;}</span>
+<span class="line"><span class="number">99</span>      &lt;div className=&quot;reference-source&quot;&gt;&lt;a href={catalog.source.url} target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Original TOFU dataset&lt;/a&gt;&lt;span&gt;Revision {catalog.source.revision.slice(0, 8)} · original text preserved&lt;/span&gt;&lt;button className=&quot;text-button&quot; onClick={onReplay}&gt;View a recorded example&lt;ArrowRight size={13} /&gt;&lt;/button&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">100</span>    &lt;/div&gt;</span>
+<span class="line"><span class="number">101</span>  &lt;/section&gt;;</span>
+<span class="line"><span class="number">102</span>}</span>
+<span class="line"><span class="number">103</span> </span></code></pre></article></section><section id="fr-02"><p class="eyebrow">FR-02</p><h2>Privacy leakage discovery</h2><p>Probe selected facts on the original model and show exposure with prompts and generated responses.</p><article><h3>src/discovery/engine.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\discovery\engine.py · lines 49–165</p><pre><code><span class="line"><span class="number">49</span>    def discover_leakage(</span>
+<span class="line"><span class="number">50</span>        self,</span>
+<span class="line"><span class="number">51</span>        model: PreTrainedModel,</span>
+<span class="line"><span class="number">52</span>        tokenizer: PreTrainedTokenizer,</span>
+<span class="line"><span class="number">53</span>        candidate_facts: List[CandidateFact],</span>
+<span class="line"><span class="number">54</span>        model_identifier: str = &quot;model&quot;,</span>
+<span class="line"><span class="number">55</span>        checkpoint_hash: str = &quot;unknown&quot;,</span>
+<span class="line"><span class="number">56</span>        max_new_tokens: int = 64,</span>
+<span class="line"><span class="number">57</span>        include_styles: Optional[List[DiscoveryStyle]] = None,</span>
+<span class="line"><span class="number">58</span>        batch_size: int = 1,</span>
+<span class="line"><span class="number">59</span>    ) -&gt; DiscoveryReport:</span>
+<span class="line"><span class="number">60</span>        &quot;&quot;&quot;</span>
+<span class="line"><span class="number">61</span>        Executes empirical discovery probing across all candidate facts.</span>
+<span class="line"><span class="number">62</span>        Returns a DiscoveryReport containing detailed evidence per fact.</span>
+<span class="line"><span class="number">63</span>        &quot;&quot;&quot;</span>
+<span class="line"><span class="number">64</span>        model.eval()</span>
+<span class="line"><span class="number">65</span>        all_records: List[FactEvidenceRecord] = []</span>
+<span class="line"><span class="number">66</span> </span>
+<span class="line"><span class="number">67</span>        confirmed_count = 0</span>
+<span class="line"><span class="number">68</span>        partial_count = 0</span>
+<span class="line"><span class="number">69</span>        unexposed_count = 0</span>
+<span class="line"><span class="number">70</span>        uncertain_count = 0</span>
+<span class="line"><span class="number">71</span> </span>
+<span class="line"><span class="number">72</span>        logger.info(f&quot;Beginning Privacy Leakage Discovery on {model_identifier} across {len(candidate_facts)} candidate facts...&quot;)</span>
+<span class="line"><span class="number">73</span> </span>
+<span class="line"><span class="number">74</span>        for fact in candidate_facts:</span>
+<span class="line"><span class="number">75</span>            # 1. Generate multi-style probes for this fact</span>
+<span class="line"><span class="number">76</span>            probes = DiscoveryProbeGenerator.generate_probes_for_fact(</span>
+<span class="line"><span class="number">77</span>                fact, include_styles=include_styles</span>
+<span class="line"><span class="number">78</span>            )</span>
+<span class="line"><span class="number">79</span> </span>
+<span class="line"><span class="number">80</span>            # 2. Execute probes and collect results</span>
+<span class="line"><span class="number">81</span>            probe_results: List[ProbeExecutionResult] = []</span>
+<span class="line"><span class="number">82</span>            for probe in probes:</span>
+<span class="line"><span class="number">83</span>                res = self._execute_probe(</span>
+<span class="line"><span class="number">84</span>                    model, tokenizer, probe, max_new_tokens=max_new_tokens</span>
+<span class="line"><span class="number">85</span>                )</span>
+<span class="line"><span class="number">86</span>                probe_results.append(res)</span>
+<span class="line"><span class="number">87</span> </span>
+<span class="line"><span class="number">88</span>            # 3. Aggregate evidence for this fact</span>
+<span class="line"><span class="number">89</span>            record = self._aggregate_fact_evidence(fact, probe_results)</span>
+<span class="line"><span class="number">90</span>            all_records.append(record)</span>
+<span class="line"><span class="number">91</span> </span>
+<span class="line"><span class="number">92</span>            if record.verdict == FactExposureVerdict.CONFIRMED_LEAK:</span>
+<span class="line"><span class="number">93</span>                confirmed_count += 1</span>
+<span class="line"><span class="number">94</span>            elif record.verdict == FactExposureVerdict.PARTIAL_LEAK:</span>
+<span class="line"><span class="number">95</span>                partial_count += 1</span>
+<span class="line"><span class="number">96</span>            elif record.verdict == FactExposureVerdict.UNCERTAIN:</span>
+<span class="line"><span class="number">97</span>                uncertain_count += 1</span>
+<span class="line"><span class="number">98</span>            else:</span>
+<span class="line"><span class="number">99</span>                unexposed_count += 1</span>
+<span class="line"><span class="number">100</span> </span>
+<span class="line"><span class="number">101</span>        provenance = {</span>
+<span class="line"><span class="number">102</span>            &quot;device&quot;: self.device,</span>
+<span class="line"><span class="number">103</span>            &quot;max_new_tokens&quot;: max_new_tokens,</span>
+<span class="line"><span class="number">104</span>            &quot;styles_tested&quot;: [s.value for s in (include_styles or list(DiscoveryStyle))],</span>
+<span class="line"><span class="number">105</span>            &quot;evaluated_at&quot;: datetime.now().isoformat(),</span>
+<span class="line"><span class="number">106</span>        }</span>
+<span class="line"><span class="number">107</span> </span>
+<span class="line"><span class="number">108</span>        report = DiscoveryReport(</span>
+<span class="line"><span class="number">109</span>            model_identifier=model_identifier,</span>
+<span class="line"><span class="number">110</span>            checkpoint_hash=checkpoint_hash,</span>
+<span class="line"><span class="number">111</span>            total_candidates=len(candidate_facts),</span>
+<span class="line"><span class="number">112</span>            confirmed_leaks=confirmed_count,</span>
+<span class="line"><span class="number">113</span>            partial_leaks=partial_count,</span>
+<span class="line"><span class="number">114</span>            unexposed_facts=unexposed_count,</span>
+<span class="line"><span class="number">115</span>            uncertain_facts=uncertain_count,</span>
+<span class="line"><span class="number">116</span>            facts_evidence=all_records,</span>
+<span class="line"><span class="number">117</span>            provenance=provenance,</span>
+<span class="line"><span class="number">118</span>        )</span>
+<span class="line"><span class="number">119</span> </span>
+<span class="line"><span class="number">120</span>        return report</span>
+<span class="line"><span class="number">121</span> </span>
+<span class="line"><span class="number">122</span>    def _execute_probe(</span>
+<span class="line"><span class="number">123</span>        self,</span>
+<span class="line"><span class="number">124</span>        model: PreTrainedModel,</span>
+<span class="line"><span class="number">125</span>        tokenizer: PreTrainedTokenizer,</span>
+<span class="line"><span class="number">126</span>        probe: DiscoveryProbe,</span>
+<span class="line"><span class="number">127</span>        max_new_tokens: int = 64,</span>
+<span class="line"><span class="number">128</span>    ) -&gt; ProbeExecutionResult:</span>
+<span class="line"><span class="number">129</span>        &quot;&quot;&quot;Executes a single probe and evaluates the response.&quot;&quot;&quot;</span>
+<span class="line"><span class="number">130</span>        prompt_text = format_qa_prompt(probe.prompt)</span>
+<span class="line"><span class="number">131</span>        inputs = tokenizer(prompt_text, return_tensors=&quot;pt&quot;).to(model.device)</span>
+<span class="line"><span class="number">132</span> </span>
+<span class="line"><span class="number">133</span>        with torch.no_grad():</span>
+<span class="line"><span class="number">134</span>            outputs = model.generate(</span>
+<span class="line"><span class="number">135</span>                **inputs,</span>
+<span class="line"><span class="number">136</span>                max_new_tokens=max_new_tokens,</span>
+<span class="line"><span class="number">137</span>                do_sample=False,</span>
+<span class="line"><span class="number">138</span>                pad_token_id=tokenizer.pad_token_id or tokenizer.eos_token_id,</span>
+<span class="line"><span class="number">139</span>            )</span>
+<span class="line"><span class="number">140</span> </span>
+<span class="line"><span class="number">141</span>        gen_tokens = outputs[0][inputs[&quot;input_ids&quot;].shape[1]:]</span>
+<span class="line"><span class="number">142</span>        response_text = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()</span>
+<span class="line"><span class="number">143</span> </span>
+<span class="line"><span class="number">144</span>        # Classify response using the reused semantic classifier</span>
+<span class="line"><span class="number">145</span>        verdict, recovered_facts, defense_type, is_degenerate, explanation = (</span>
+<span class="line"><span class="number">146</span>            self.classifier.classify_response(</span>
+<span class="line"><span class="number">147</span>                prompt=probe.prompt,</span>
+<span class="line"><span class="number">148</span>                response_text=response_text,</span>
+<span class="line"><span class="number">149</span>                target_facts=probe.target_facts,</span>
+<span class="line"><span class="number">150</span>                forbidden_phrases=probe.forbidden_phrases,</span>
+<span class="line"><span class="number">151</span>            )</span>
+<span class="line"><span class="number">152</span>        )</span>
+<span class="line"><span class="number">153</span> </span>
+<span class="line"><span class="number">154</span>        return ProbeExecutionResult(</span>
+<span class="line"><span class="number">155</span>            probe_id=probe.probe_id,</span>
+<span class="line"><span class="number">156</span>            fact_id=probe.fact_id,</span>
+<span class="line"><span class="number">157</span>            style=probe.style.value if hasattr(probe.style, &quot;value&quot;) else str(probe.style),</span>
+<span class="line"><span class="number">158</span>            prompt=probe.prompt,</span>
+<span class="line"><span class="number">159</span>            response_text=response_text,</span>
+<span class="line"><span class="number">160</span>            verdict=verdict.value if hasattr(verdict, &quot;value&quot;) else str(verdict),</span>
+<span class="line"><span class="number">161</span>            recovered_facts=recovered_facts,</span>
+<span class="line"><span class="number">162</span>            is_direct=probe.is_direct,</span>
+<span class="line"><span class="number">163</span>            is_degenerate=is_degenerate,</span>
+<span class="line"><span class="number">164</span>            explanation=explanation,</span>
+<span class="line"><span class="number">165</span>        )</span></code></pre></article><article><h3>frontend/app/src/components/PrivacyDiscovery.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\PrivacyDiscovery.tsx · lines 9–40</p><pre><code><span class="line"><span class="number">9</span>export function PrivacyDiscovery({ report }: { report: DiscoveryPayload }) {</span>
+<span class="line"><span class="number">10</span>  const [filter, setFilter] = useState('All');</span>
+<span class="line"><span class="number">11</span>  const counts = discoveryCounts(report.facts);</span>
+<span class="line"><span class="number">12</span>  const facts = report.facts.filter(f =&gt; matchesDiscoveryFilter(f, filter));</span>
+<span class="line"><span class="number">13</span>  return &lt;section className=&quot;privacy-discovery&quot; aria-label=&quot;Privacy leakage discovery evidence&quot;&gt;</span>
+<span class="line"><span class="number">14</span>    &lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;ORIGINAL MODEL · BEFORE UNLEARNING&lt;/span&gt;&lt;h2&gt;Privacy Leakage Discovery&lt;/h2&gt;&lt;p&gt;Inspect the questions and responses behind each exposure finding.&lt;/p&gt;&lt;/div&gt;&lt;button className=&quot;button secondary small&quot; onClick={() =&gt; downloadJson(report, report.entity.id + '-privacy-discovery.json')}&gt;&lt;Download size={15} /&gt;Export discovery&lt;/button&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">15</span>    &lt;div className=&quot;discovery-counts&quot; aria-label=&quot;Discovery verdict counts&quot;&gt;</span>
+<span class="line"><span class="number">16</span>      {[['Exposed', counts.exposed, 'exposed'], ['Partial exposure', counts.partial, 'partial'], ['Not exposed', counts.notExposed, 'clear'], ['Uncertain', counts.uncertain, 'uncertain']].map(([name, count, tone]) =&gt; &lt;div className={'discovery-count ' + tone} key={name}&gt;&lt;span&gt;{name}&lt;/span&gt;&lt;strong&gt;{count}&lt;/strong&gt;&lt;small&gt;{counts.tested} candidate {counts.tested === 1 ? 'fact' : 'facts'} tested&lt;/small&gt;&lt;/div&gt;)}</span>
+<span class="line"><span class="number">17</span>    &lt;/div&gt;</span>
+<span class="line"><span class="number">18</span>    &lt;p className=&quot;studio-caption discovery-scope&quot;&gt;These are model responses to the supplied candidate facts. Reference answers alone are not evidence of exposure. “Not exposed” applies only to the prompts tested.&lt;/p&gt;</span>
+<span class="line"><span class="number">19</span>    &lt;div className=&quot;studio-tabs compact&quot; role=&quot;group&quot; aria-label=&quot;Filter discovery findings&quot;&gt;{['All', 'Exposed', 'Not exposed', 'Uncertain'].map(value =&gt; &lt;button key={value} aria-pressed={filter === value} className={filter === value ? 'active' : ''} onClick={() =&gt; setFilter(value)}&gt;{value}&lt;/button&gt;)}&lt;/div&gt;</span>
+<span class="line"><span class="number">20</span>    &lt;p className=&quot;review-filter-count&quot; aria-live=&quot;polite&quot;&gt;{facts.length} {facts.length === 1 ? 'finding' : 'findings'} · Expand a fact to inspect its recorded evidence&lt;/p&gt;</span>
+<span class="line"><span class="number">21</span>    &lt;div className=&quot;discovery-evidence-list&quot;&gt;{facts.map((fact, index) =&gt; &lt;DiscoveryFinding key={fact.fact_id} fact={fact} initiallyOpen={index === 0} /&gt;)}&lt;/div&gt;</span>
+<span class="line"><span class="number">22</span>    {!facts.length &amp;&amp; &lt;div className=&quot;studio-empty&quot;&gt;&lt;Search /&gt;&lt;h3&gt;{report.facts.length ? 'No findings in this filter.' : 'No discovery evidence was exported.'}&lt;/h3&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">23</span>    &lt;details className=&quot;discovery-provenance&quot;&gt;&lt;summary&gt;Discovery source&lt;/summary&gt;&lt;dl&gt;&lt;dt&gt;Model&lt;/dt&gt;&lt;dd&gt;Original target · before unlearning&lt;/dd&gt;&lt;dt&gt;Entity&lt;/dt&gt;&lt;dd&gt;{report.entity.name}&lt;/dd&gt;&lt;dt&gt;Checkpoint hash&lt;/dt&gt;&lt;dd&gt;&lt;code&gt;{report.checkpoint_hash || 'Not exported'}&lt;/code&gt;&lt;/dd&gt;{report.timestamp &amp;&amp; &lt;&gt;&lt;dt&gt;Measured&lt;/dt&gt;&lt;dd&gt;{report.timestamp}&lt;/dd&gt;&lt;/&gt;}&lt;/dl&gt;&lt;/details&gt;</span>
+<span class="line"><span class="number">24</span>  &lt;/section&gt;;</span>
+<span class="line"><span class="number">25</span>}</span>
+<span class="line"><span class="number">26</span> </span>
+<span class="line"><span class="number">27</span>function DiscoveryFinding({ fact, initiallyOpen }: { fact: Fact; initiallyOpen: boolean }) {</span>
+<span class="line"><span class="number">28</span>  const [index, setIndex] = useState(() =&gt; Math.max(0, fact.sample_responses.findIndex(sample =&gt; Boolean(sample.recovered))));</span>
+<span class="line"><span class="number">29</span>  const safeIndex = Math.min(index, Math.max(0, fact.sample_responses.length - 1));</span>
+<span class="line"><span class="number">30</span>  const sample = fact.sample_responses[safeIndex];</span>
+<span class="line"><span class="number">31</span>  return &lt;details className=&quot;studio-card discovery-finding review-finding&quot; open={initiallyOpen}&gt;</span>
+<span class="line"><span class="number">32</span>    &lt;summary&gt;&lt;span className=&quot;review-finding-icon&quot;&gt;&lt;ScanLine size={18} /&gt;&lt;/span&gt;&lt;span className=&quot;review-finding-title&quot;&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;{label(fact.attribute_key)}&lt;/span&gt;&lt;strong&gt;{fact.canonical_qa.question || 'Candidate fact'}&lt;/strong&gt;&lt;small&gt;{fact.probes_leaked} / {fact.probes_tested} prompts recovered information&lt;/small&gt;&lt;/span&gt;&lt;VerdictBadge verdict={fact.verdict} /&gt;&lt;ChevronDown size={17} className=&quot;review-finding-chevron&quot; /&gt;&lt;/summary&gt;</span>
+<span class="line"><span class="number">33</span>    &lt;div className=&quot;review-finding-body&quot;&gt;</span>
+<span class="line"><span class="number">34</span>    &lt;div className=&quot;discovery-reference&quot;&gt;&lt;span&gt;Reference value&lt;/span&gt;&lt;p&gt;{fact.target_value}&lt;/p&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">35</span>    {fact.sample_responses.length &gt; 1 &amp;&amp; &lt;label className=&quot;discovery-probe-picker&quot;&gt;Inspect a probe&lt;select className=&quot;studio-input&quot; value={safeIndex} onChange={event =&gt; setIndex(Number(event.target.value))}&gt;{fact.sample_responses.map((response, n) =&gt; &lt;option key={n} value={n}&gt;{label(response.style)} · {n + 1}&lt;/option&gt;)}&lt;/select&gt;&lt;/label&gt;}</span>
+<span class="line"><span class="number">36</span>    {sample ? &lt;div className=&quot;discovery-response&quot;&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;Actual prompt · {label(sample.style)}&lt;/span&gt;&lt;p&gt;{sample.prompt}&lt;/p&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;Model response · before unlearning&lt;/span&gt;&lt;blockquote&gt;{sample.response || '(Empty response)'}&lt;/blockquote&gt;&lt;p className=&quot;discovery-match&quot;&gt;{sample.recovered ? typeof sample.recovered === 'string' ? 'Matched target value: ' + sample.recovered : 'The scorer recorded target recovery in this response.' : sample.verdict === 'UNCERTAIN' || sample.is_degenerate ? 'This response was inconclusive.' : 'No recovery was recorded for this response.'}&lt;/p&gt;{sample.explanation &amp;&amp; &lt;details&gt;&lt;summary&gt;How this response was classified&lt;/summary&gt;&lt;p&gt;{sample.explanation}&lt;/p&gt;&lt;/details&gt;}&lt;/div&gt; : &lt;p className=&quot;studio-caption&quot;&gt;No response sample was saved in this older record. The reference value above is not a generated answer.&lt;/p&gt;}</span>
+<span class="line"><span class="number">37</span>    &lt;/div&gt;</span>
+<span class="line"><span class="number">38</span>  &lt;/details&gt;;</span>
+<span class="line"><span class="number">39</span>}</span>
+<span class="line"><span class="number">40</span> </span></code></pre></article></section><section id="fr-03"><p class="eyebrow">FR-03</p><h2>Adaptive unlearning execution</h2><p>Run a chosen method once, or use rule-based planning and permitted retries within shared training limits.</p><article><h3>src/atu/v3/analyzer.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\atu\v3\analyzer.py · lines 13–43</p><pre><code><span class="line"><span class="number">13</span>class RequestAnalyzer:</span>
+<span class="line"><span class="number">14</span>    @staticmethod</span>
+<span class="line"><span class="number">15</span>    def analyze(request: UnlearningRequest) -&gt; StrategyPlan:</span>
+<span class="line"><span class="number">16</span>        logger.info('[ATU v3 Analyzer] %s forget examples; %s development probes; priority=%s',</span>
+<span class="line"><span class="number">17</span>                    len(request.forget_data), len(request.dev_probes or []), request.priority.value)</span>
+<span class="line"><span class="number">18</span>        order = list(CALIBRATED_ORDER)</span>
+<span class="line"><span class="number">19</span>        if request.method != 'auto':</span>
+<span class="line"><span class="number">20</span>            method = request.method</span>
+<span class="line"><span class="number">21</span>            return StrategyPlan(method, method_config(method, request),</span>
+<span class="line"><span class="number">22</span>                f'Explicit method comparison: run {method} only, under the requested budget and unchanged safety checks. '</span>
+<span class="line"><span class="number">23</span>                'No automatic method replacement is enabled for this run.', [])</span>
+<span class="line"><span class="number">24</span>        if request.priority == UnlearningPriority.FAST or request.max_time_sec &lt; 90.:</span>
+<span class="line"><span class="number">25</span>            method = 'atu_npo'</span>
+<span class="line"><span class="number">26</span>            config = method_config(method, request)</span>
+<span class="line"><span class="number">27</span>            config.update(lr=1.2e-4, beta=.3, epochs=min(4, request.max_epochs_per_trial))</span>
+<span class="line"><span class="number">28</span>            rationale = 'Quick screening: targeted adaptive NPO unlearning tuned for rapid convergence within step limits.'</span>
+<span class="line"><span class="number">29</span>        elif request.priority == UnlearningPriority.STRICT_PRIVACY:</span>
+<span class="line"><span class="number">30</span>            order = [m for m in order if m != 'dpo_refusal'] + ['dpo_refusal']</span>
+<span class="line"><span class="number">31</span>            method = order[0]</span>
+<span class="line"><span class="number">32</span>            config = method_config(method, request)</span>
+<span class="line"><span class="number">33</span>            rationale = 'Strict-privacy hint: first try a non-refusal optimization candidate from the candidate order. This priority rule is a heuristic; only independent recovery tests can support a suppression claim.'</span>
+<span class="line"><span class="number">34</span>        elif request.priority == UnlearningPriority.PRESERVE_UTILITY:</span>
+<span class="line"><span class="number">35</span>            method = 'dpo_refusal'</span>
+<span class="line"><span class="number">36</span>            config = method_config(method, request)</span>
+<span class="line"><span class="number">37</span>            rationale = 'Utility-priority hint: try calibrated refusal preference training with retain regularization. A refusal alone does not prove knowledge removal.'</span>
+<span class="line"><span class="number">38</span>        else:</span>
+<span class="line"><span class="number">39</span>            method = order[0]</span>
+<span class="line"><span class="number">40</span>            config = method_config(method, request)</span>
+<span class="line"><span class="number">41</span>            rationale = f'Balanced request: start with {method} from the heuristic candidate order, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target.'</span>
+<span class="line"><span class="number">42</span>        return StrategyPlan(method, config, rationale, [m for m in order if m != method])</span>
+<span class="line"><span class="number">43</span> </span></code></pre></article><article><h3>src/atu/v3/budget_engine.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\atu\v3\budget_engine.py · lines 81–255</p><pre><code><span class="line"><span class="number">81</span>    def run_budget_loop(</span>
+<span class="line"><span class="number">82</span>        self,</span>
+<span class="line"><span class="number">83</span>        initial_plan: StrategyPlan,</span>
+<span class="line"><span class="number">84</span>        forget_loader: Any,</span>
+<span class="line"><span class="number">85</span>        retain_loader: Optional[Any] = None,</span>
+<span class="line"><span class="number">86</span>    ) -&gt; List[TrialAttempt]:</span>
+<span class="line"><span class="number">87</span>        &quot;&quot;&quot;</span>
+<span class="line"><span class="number">88</span>        Executes unlearning trials within budget, adapting parameters upon failure.</span>
+<span class="line"><span class="number">89</span>        &quot;&quot;&quot;</span>
+<span class="line"><span class="number">90</span>        trials = []</span>
+<span class="line"><span class="number">91</span>        # The user-facing budget covers method execution, including its in-loop</span>
+<span class="line"><span class="number">92</span>        # safety/control work. Model loading, reference preparation and final</span>
+<span class="line"><span class="number">93</span>        # evaluation are reported separately and never silently enlarge it.</span>
+<span class="line"><span class="number">94</span>        training_spent = 0.0</span>
+<span class="line"><span class="number">95</span>        self.deadline = None</span>
+<span class="line"><span class="number">96</span>        current_method = initial_plan.recommended_method</span>
+<span class="line"><span class="number">97</span>        current_config = copy.deepcopy(initial_plan.initial_config)</span>
+<span class="line"><span class="number">98</span>        fallback_queue = list(initial_plan.fallback_sequence)</span>
+<span class="line"><span class="number">99</span>        notes = initial_plan.rationale</span>
+<span class="line"><span class="number">100</span>        if self.request.method != 'auto' and current_method != self.request.method:</span>
+<span class="line"><span class="number">101</span>            raise ValueError('The strategy plan does not match the explicitly requested method.')</span>
+<span class="line"><span class="number">102</span>        total_steps = 0</span>
+<span class="line"><span class="number">103</span>        trial_limit = self.request.max_trials if self.request.method == 'auto' else 1</span>
+<span class="line"><span class="number">104</span>        for trial_idx in range(1, trial_limit + 1):</span>
+<span class="line"><span class="number">105</span>            if (self.request.max_total_steps is not None</span>
+<span class="line"><span class="number">106</span>                    and total_steps &gt;= self.request.max_total_steps):</span>
+<span class="line"><span class="number">107</span>                break</span>
+<span class="line"><span class="number">108</span>            remaining_time = max(0.0, self.request.max_time_sec - training_spent)</span>
+<span class="line"><span class="number">109</span>            if remaining_time &lt;= 0:</span>
+<span class="line"><span class="number">110</span>                break</span>
+<span class="line"><span class="number">111</span>            trial_start = time.monotonic()</span>
+<span class="line"><span class="number">112</span>            self._progress(trial_idx, current_method, 0, 'preparing', remaining_time)</span>
+<span class="line"><span class="number">113</span>            random.seed(self.request.seed)</span>
+<span class="line"><span class="number">114</span>            np.random.seed(self.request.seed)</span>
+<span class="line"><span class="number">115</span>            torch.manual_seed(self.request.seed)</span>
+<span class="line"><span class="number">116</span>            model = load_peft_target_model(</span>
+<span class="line"><span class="number">117</span>                self.base_model_name, self.target_adapter_path, is_trainable=True,</span>
+<span class="line"><span class="number">118</span>                dtype=torch.bfloat16 if self.device.startswith('cuda') else torch.float32,</span>
+<span class="line"><span class="number">119</span>                device_map={&quot;&quot;: self.device},</span>
+<span class="line"><span class="number">120</span>            )</span>
+<span class="line"><span class="number">121</span>            config = None</span>
+<span class="line"><span class="number">122</span>            guard = None</span>
+<span class="line"><span class="number">123</span>            try:</span>
+<span class="line"><span class="number">124</span>                if self.evaluator.initial_retain_lp is None:</span>
+<span class="line"><span class="number">125</span>                    self.evaluator.establish_baseline(model)</span>
+<span class="line"><span class="number">126</span>                guard = RetainGuard(model, self.evaluator, backtrack=True)</span>
+<span class="line"><span class="number">127</span>                current_config['epochs'] = min(int(current_config.get('epochs', 3)),</span>
+<span class="line"><span class="number">128</span>                                               self.request.max_epochs_per_trial)</span>
+<span class="line"><span class="number">129</span>                current_config['retain_weight'] = max(float(current_config.get('retain_weight', 1.0)),</span>
+<span class="line"><span class="number">130</span>                                                    self.request.retain_weight)</span>
+<span class="line"><span class="number">131</span>                config = copy.deepcopy(current_config)</span>
+<span class="line"><span class="number">132</span>                execution = {&quot;optimizer_steps&quot;: 0}</span>
+<span class="line"><span class="number">133</span>                def count_step():</span>
+<span class="line"><span class="number">134</span>                    execution[&quot;optimizer_steps&quot;] += 1</span>
+<span class="line"><span class="number">135</span>                    active = max(0., time.monotonic()-training_started) if training_started is not None else 0.</span>
+<span class="line"><span class="number">136</span>                    self._progress(trial_idx, current_method, execution['optimizer_steps'], 'optimizer_step',</span>
+<span class="line"><span class="number">137</span>                                   self.request.max_time_sec-training_spent-active)</span>
+<span class="line"><span class="number">138</span>                step_limit = self.request.max_steps_per_trial</span>
+<span class="line"><span class="number">139</span>                if self.request.max_total_steps is not None:</span>
+<span class="line"><span class="number">140</span>                    remaining = self.request.max_total_steps - total_steps</span>
+<span class="line"><span class="number">141</span>                    step_limit = remaining if step_limit is None else min(step_limit, remaining)</span>
+<span class="line"><span class="number">142</span>                remaining_trials = trial_limit - trial_idx + 1</span>
+<span class="line"><span class="number">143</span>                trial_budget = remaining_time / remaining_trials</span>
+<span class="line"><span class="number">144</span>                training_started = None</span>
+<span class="line"><span class="number">145</span>                execution_started = time.monotonic()</span>
+<span class="line"><span class="number">146</span> </span>
+<span class="line"><span class="number">147</span>                def activate_training_budget(training_config):</span>
+<span class="line"><span class="number">148</span>                    nonlocal training_started</span>
+<span class="line"><span class="number">149</span>                    if training_started is None:</span>
+<span class="line"><span class="number">150</span>                        training_started = time.monotonic()</span>
+<span class="line"><span class="number">151</span>                        self.deadline = training_started + trial_budget</span>
+<span class="line"><span class="number">152</span>                        execution['method_preparation_seconds'] = round(training_started-execution_started, 3)</span>
+<span class="line"><span class="number">153</span>                        execution['preparation_seconds'] = round(training_started-trial_start, 3)</span>
+<span class="line"><span class="number">154</span>                    training_config['_deadline'] = self.deadline</span>
+<span class="line"><span class="number">155</span>                    self._progress(trial_idx, current_method, execution['optimizer_steps'], 'training',</span>
+<span class="line"><span class="number">156</span>                                   self.request.max_time_sec-training_spent)</span>
+<span class="line"><span class="number">157</span> </span>
+<span class="line"><span class="number">158</span>                config.update(_safety_guard=guard,</span>
+<span class="line"><span class="number">159</span>                              _guard_every_steps=self.request.guard_every_steps,</span>
+<span class="line"><span class="number">160</span>                              _max_steps=step_limit,</span>
+<span class="line"><span class="number">161</span>                              _on_optimizer_step=count_step, _trace_sink=execution,</span>
+<span class="line"><span class="number">162</span>                              _activate_training_budget=activate_training_budget)</span>
+<span class="line"><span class="number">163</span>                execution['allocated_training_budget_seconds'] = round(trial_budget, 3)</span>
+<span class="line"><span class="number">164</span>                status = 'COMPLETED'</span>
+<span class="line"><span class="number">165</span>                try:</span>
+<span class="line"><span class="number">166</span>                    try:</span>
+<span class="line"><span class="number">167</span>                        training = self._execute_method(current_method, model, config, forget_loader, retain_loader)</span>
+<span class="line"><span class="number">168</span>                        if isinstance(training, dict):</span>
+<span class="line"><span class="number">169</span>                            execution['training'] = training</span>
+<span class="line"><span class="number">170</span>                    finally:</span>
+<span class="line"><span class="number">171</span>                        used = max(0.0, time.monotonic()-training_started) if training_started is not None else 0.0</span>
+<span class="line"><span class="number">172</span>                        training_spent += used</span>
+<span class="line"><span class="number">173</span>                        execution['training_budget_used_seconds'] = round(used, 3)</span>
+<span class="line"><span class="number">174</span>                        execution['optimization_seconds'] = round(used, 3)</span>
+<span class="line"><span class="number">175</span>                        execution['total_training_budget_used_seconds'] = round(training_spent, 3)</span>
+<span class="line"><span class="number">176</span>                    guard()</span>
+<span class="line"><span class="number">177</span>                except TrainingStopped as exc:</span>
+<span class="line"><span class="number">178</span>                    status = 'STOPPED: ' + str(exc)</span>
+<span class="line"><span class="number">179</span>                    if str(exc) in ('TIME_BUDGET_EXHAUSTED', 'STEP_BUDGET_EXHAUSTED'):</span>
+<span class="line"><span class="number">180</span>                        if guard.rejected_drop is not None:</span>
+<span class="line"><span class="number">181</span>                            guard.restore()</span>
+<span class="line"><span class="number">182</span>                        else:</span>
+<span class="line"><span class="number">183</span>                            try:</span>
+<span class="line"><span class="number">184</span>                                guard()</span>
+<span class="line"><span class="number">185</span>                            except TrainingStopped:</span>
+<span class="line"><span class="number">186</span>                                pass</span>
+<span class="line"><span class="number">187</span>                    else:</span>
+<span class="line"><span class="number">188</span>                        guard.restore()</span>
+<span class="line"><span class="number">189</span>                except Exception as exc:</span>
+<span class="line"><span class="number">190</span>                    logger.exception('Trial execution failed')</span>
+<span class="line"><span class="number">191</span>                    status = 'FAILED: ' + str(exc)</span>
+<span class="line"><span class="number">192</span>                    guard.restore(original=True)</span>
+<span class="line"><span class="number">193</span>                execution[&quot;method_execution_seconds&quot;] = round(time.monotonic() - execution_started, 3)</span>
+<span class="line"><span class="number">194</span>                execution['requested_training_budget_seconds'] = self.request.max_time_sec</span>
+<span class="line"><span class="number">195</span>                total_steps += execution['optimizer_steps']</span>
+<span class="line"><span class="number">196</span>                self._progress(trial_idx, current_method, execution['optimizer_steps'], 'evaluating',</span>
+<span class="line"><span class="number">197</span>                               self.request.max_time_sec-training_spent)</span>
+<span class="line"><span class="number">198</span>                metrics = self.evaluator.evaluate(model)</span>
+<span class="line"><span class="number">199</span>                rejected = metrics</span>
+<span class="line"><span class="number">200</span>                if guard.rejected_drop is not None:</span>
+<span class="line"><span class="number">201</span>                    rejected = replace(metrics, verdict=VerificationVerdict.RETAIN_DEGRADED,</span>
+<span class="line"><span class="number">202</span>                                       is_safe=False, retain_preserved=False,</span>
+<span class="line"><span class="number">203</span>                                       retain_log_prob_drop=guard.rejected_drop)</span>
+<span class="line"><span class="number">204</span>                    metrics.details['rejected_utility_check'] = {</span>
+<span class="line"><span class="number">205</span>                        'retain_log_prob_drop': guard.rejected_drop,</span>
+<span class="line"><span class="number">206</span>                        'limit': self.request.retain_max_drop,</span>
+<span class="line"><span class="number">207</span>                        'max_individual_retain_drop': guard.rejected_individual_drop,</span>
+<span class="line"><span class="number">208</span>                        'individual_limit': self.request.retain_per_example_max_drop,</span>
+<span class="line"><span class="number">209</span>                        'measurement_scope': 'utility check before rollback; forgetting measured on restored weights'}</span>
+<span class="line"><span class="number">210</span>                if not metrics.is_safe:</span>
+<span class="line"><span class="number">211</span>                    rejected = metrics</span>
+<span class="line"><span class="number">212</span>                    guard.restore(original=True)</span>
+<span class="line"><span class="number">213</span>                    metrics = self.evaluator.evaluate(model)</span>
+<span class="line"><span class="number">214</span>                    metrics.details['rejected_metrics'] = rejected.to_dict()</span>
+<span class="line"><span class="number">215</span>                    status = 'ROLLED_BACK: unsafe trial'</span>
+<span class="line"><span class="number">216</span>                metrics.details['rolled_back'] = guard.rolled_back</span>
+<span class="line"><span class="number">217</span>                metrics.details['utility_checks'] = guard.checks</span>
+<span class="line"><span class="number">218</span>                metrics.details['duplicate_utility_checks_skipped'] = getattr(guard, 'duplicate_checks_skipped', 0)</span>
+<span class="line"><span class="number">219</span>                metrics.details['backtrack_fraction'] = guard.backtrack_fraction</span>
+<span class="line"><span class="number">220</span>                metrics.details['total_optimizer_steps_so_far'] = total_steps</span>
+<span class="line"><span class="number">221</span>                execution.update(self._kept_parameter_delta(model, guard.original))</span>
+<span class="line"><span class="number">222</span>                execution['update_diagnostic'] = (</span>
+<span class="line"><span class="number">223</span>                    'UPDATED_WEIGHTS_KEPT' if execution['optimizer_steps'] &gt; 0 and execution['kept_checkpoint_changed']</span>
+<span class="line"><span class="number">224</span>                    else 'NO_OPTIMIZER_UPDATES' if execution['optimizer_steps'] == 0</span>
+<span class="line"><span class="number">225</span>                    else 'UPDATES_ROLLED_BACK_OR_NO_EFFECT')</span>
+<span class="line"><span class="number">226</span>                metrics.details.update(execution)</span>
+<span class="line"><span class="number">227</span>                trial_dir = os.path.join(self.output_checkpoint_root, f'trial_{trial_idx}')</span>
+<span class="line"><span class="number">228</span>                save_checkpoint(model, self.tokenizer, trial_dir, metadata={</span>
+<span class="line"><span class="number">229</span>                    'trial_index': trial_idx, 'method': current_method,</span>
+<span class="line"><span class="number">230</span>                    'config': current_config, 'status': status, 'adaptation': notes,</span>
+<span class="line"><span class="number">231</span>                    'metrics': metrics.to_dict(), 'seed': self.request.seed,</span>
+<span class="line"><span class="number">232</span>                })</span>
+<span class="line"><span class="number">233</span>                trials.append(TrialAttempt(</span>
+<span class="line"><span class="number">234</span>                    trial_index=trial_idx, method=current_method,</span>
+<span class="line"><span class="number">235</span>                    config=copy.deepcopy(current_config), checkpoint_dir=trial_dir,</span>
+<span class="line"><span class="number">236</span>                    metrics=metrics, duration_seconds=round(time.monotonic()-trial_start, 2),</span>
+<span class="line"><span class="number">237</span>                    status=status, adaptation_applied=notes))</span>
+<span class="line"><span class="number">238</span>                self._progress(trial_idx, current_method, execution['optimizer_steps'], 'trial_finished',</span>
+<span class="line"><span class="number">239</span>                               self.request.max_time_sec-training_spent)</span>
+<span class="line"><span class="number">240</span>            finally:</span>
+<span class="line"><span class="number">241</span>                # The callback owns a guard, which owns the model. Drop it before</span>
+<span class="line"><span class="number">242</span>                # loading the next model so two full targets do not coexist on GPU.</span>
+<span class="line"><span class="number">243</span>                if config is not None:</span>
+<span class="line"><span class="number">244</span>                    config.pop('_safety_guard', None)</span>
+<span class="line"><span class="number">245</span>                model = None</span>
+<span class="line"><span class="number">246</span>                guard = None</span>
+<span class="line"><span class="number">247</span>                gc.collect()</span>
+<span class="line"><span class="number">248</span>                if torch.cuda.is_available():</span>
+<span class="line"><span class="number">249</span>                    torch.cuda.empty_cache()</span>
+<span class="line"><span class="number">250</span>            if metrics.verdict == VerificationVerdict.CONVERGED_SAFE and not status.startswith('FAILED'):</span>
+<span class="line"><span class="number">251</span>                break</span>
+<span class="line"><span class="number">252</span>            current_method, current_config, notes = self._adapt_strategy(</span>
+<span class="line"><span class="number">253</span>                rejected, current_method, current_config, fallback_queue)</span>
+<span class="line"><span class="number">254</span>        return trials</span>
+<span class="line"><span class="number">255</span> </span></code></pre></article><article><h3>src/atu/v3/budget_engine.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\atu\v3\budget_engine.py · lines 367–399</p><pre><code><span class="line"><span class="number">367</span>    def _adapt_strategy(</span>
+<span class="line"><span class="number">368</span>        self, failed_metrics: Any, current_method: str,</span>
+<span class="line"><span class="number">369</span>        current_config: Dict[str, Any], fallback_queue: List[str],</span>
+<span class="line"><span class="number">370</span>    ) -&gt; tuple[str, Dict[str, Any], str]:</span>
+<span class="line"><span class="number">371</span>        &quot;&quot;&quot;Try a distinct calibrated method before repeating a failed strategy.&quot;&quot;&quot;</span>
+<span class="line"><span class="number">372</span>        verdict = failed_metrics.verdict</span>
+<span class="line"><span class="number">373</span>        damaged = verdict in (VerificationVerdict.RETAIN_DEGRADED, VerificationVerdict.MODEL_COLLAPSED)</span>
+<span class="line"><span class="number">374</span>        stubborn = getattr(failed_metrics, 'forget_suppressed_ratio', 1.0) &lt; 0.3</span>
+<span class="line"><span class="number">375</span>        </span>
+<span class="line"><span class="number">376</span>        while fallback_queue:</span>
+<span class="line"><span class="number">377</span>            next_method = fallback_queue.pop(0)</span>
+<span class="line"><span class="number">378</span>            if next_method == current_method:</span>
+<span class="line"><span class="number">379</span>                continue</span>
+<span class="line"><span class="number">380</span>            config = method_config(next_method, self.request)</span>
+<span class="line"><span class="number">381</span>            if damaged and current_method in ('ga', 'graddiff') and next_method == 'atu_npo':</span>
+<span class="line"><span class="number">382</span>                config['retain_weight'] = max(config['retain_weight'], 2.)</span>
+<span class="line"><span class="number">383</span>            reason = 'Retain degradation or answer collapse' if damaged else ('Stubborn representation resistance' if stubborn else 'Insufficient forgetting')</span>
+<span class="line"><span class="number">384</span>            return next_method, config, (</span>
+<span class="line"><span class="number">385</span>                f'{reason} on {current_method}. Escalated to a fresh {next_method} attempt '</span>
+<span class="line"><span class="number">386</span>                'with its method-specific calibration; all previous safe checkpoints remain eligible.')</span>
+<span class="line"><span class="number">387</span> </span>
+<span class="line"><span class="number">388</span>        config = copy.deepcopy(current_config)</span>
+<span class="line"><span class="number">389</span>        if damaged:</span>
+<span class="line"><span class="number">390</span>            config['lr'] = float(config.get('lr', 1e-5)) * .5</span>
+<span class="line"><span class="number">391</span>            config['retain_weight'] = float(config.get('retain_weight', 1.)) * 1.8</span>
+<span class="line"><span class="number">392</span>            if current_method in ('graddiff', 'rmu'):</span>
+<span class="line"><span class="number">393</span>                config['alpha'] = max(float(config.get('alpha', 1.)) * 1.8, config['retain_weight'])</span>
+<span class="line"><span class="number">394</span>            notes = 'Retain degradation: no alternative remains; lower LR and increase retain protection.'</span>
+<span class="line"><span class="number">395</span>        else:</span>
+<span class="line"><span class="number">396</span>            config['lr'] = min(5e-4, float(config.get('lr', 1e-5)) * 1.3)</span>
+<span class="line"><span class="number">397</span>            notes = 'No distinct alternative remains; retry with modestly increased forgetting pressure.'</span>
+<span class="line"><span class="number">398</span>        return current_method, config, notes</span>
+<span class="line"><span class="number">399</span> </span></code></pre></article></section><section id="fr-04"><p class="eyebrow">FR-04</p><h2>Retain monitoring and safe stopping</h2><p>Check sampled retain knowledge, restore safe weights and stop attempts when configured limits fail.</p><p class="note">The test excerpts use a small synthetic model and controlled utility readings. They demonstrate safe-state restoration, not GPU benchmark effectiveness.</p><article><h3>src/atu/v3/safety.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\atu\v3\safety.py · lines 8–93</p><pre><code><span class="line"><span class="number">8</span>class RetainGuard:</span>
+<span class="line"><span class="number">9</span>    def __init__(self, model, evaluator, backtrack=False):</span>
+<span class="line"><span class="number">10</span>        self.model = model</span>
+<span class="line"><span class="number">11</span>        self.evaluator = evaluator</span>
+<span class="line"><span class="number">12</span>        self.original = self.snapshot()</span>
+<span class="line"><span class="number">13</span>        self.safe = self.original</span>
+<span class="line"><span class="number">14</span>        self.rolled_back = False</span>
+<span class="line"><span class="number">15</span>        self.rejected_drop = None</span>
+<span class="line"><span class="number">16</span>        self.rejected_individual_drop = None</span>
+<span class="line"><span class="number">17</span>        self.backtrack = backtrack</span>
+<span class="line"><span class="number">18</span>        self.backtrack_fraction = None</span>
+<span class="line"><span class="number">19</span>        self.checks = 0</span>
+<span class="line"><span class="number">20</span>        self._optimizer_revision = None</span>
+<span class="line"><span class="number">21</span>        self._checked_revision = None</span>
+<span class="line"><span class="number">22</span>        self.duplicate_checks_skipped = 0</span>
+<span class="line"><span class="number">23</span> </span>
+<span class="line"><span class="number">24</span>    def notify_optimizer_step(self):</span>
+<span class="line"><span class="number">25</span>        &quot;&quot;&quot;Invalidate cached retain checks after a real optimizer update.</span>
+<span class="line"><span class="number">26</span> </span>
+<span class="line"><span class="number">27</span>        Revision tracking is opt-in: direct parameter arithmetic and callers</span>
+<span class="line"><span class="number">28</span>        without trainer notifications continue to measure every guard call.</span>
+<span class="line"><span class="number">29</span>        &quot;&quot;&quot;</span>
+<span class="line"><span class="number">30</span>        self._optimizer_revision = (self._optimizer_revision or 0) + 1</span>
+<span class="line"><span class="number">31</span> </span>
+<span class="line"><span class="number">32</span>    def snapshot(self):</span>
+<span class="line"><span class="number">33</span>        return {name: p.detach().cpu().clone() for name, p in self.model.named_parameters()</span>
+<span class="line"><span class="number">34</span>                if p.requires_grad}</span>
+<span class="line"><span class="number">35</span> </span>
+<span class="line"><span class="number">36</span>    def restore(self, original=False):</span>
+<span class="line"><span class="number">37</span>        state = self.original if original else self.safe</span>
+<span class="line"><span class="number">38</span>        with torch.no_grad():</span>
+<span class="line"><span class="number">39</span>            for name, p in self.model.named_parameters():</span>
+<span class="line"><span class="number">40</span>                if name in state:</span>
+<span class="line"><span class="number">41</span>                    p.copy_(state[name].to(p.device))</span>
+<span class="line"><span class="number">42</span>        self.rolled_back = True</span>
+<span class="line"><span class="number">43</span>        self._checked_revision = None</span>
+<span class="line"><span class="number">44</span> </span>
+<span class="line"><span class="number">45</span>    def __call__(self):</span>
+<span class="line"><span class="number">46</span>        if self._optimizer_revision is not None and self._checked_revision == self._optimizer_revision:</span>
+<span class="line"><span class="number">47</span>            self.duplicate_checks_skipped += 1</span>
+<span class="line"><span class="number">48</span>            return</span>
+<span class="line"><span class="number">49</span>        was_training = self.model.training</span>
+<span class="line"><span class="number">50</span>        try:</span>
+<span class="line"><span class="number">51</span>            current = self.evaluator.measure_retain(self.model)</span>
+<span class="line"><span class="number">52</span>            drop = self.evaluator.initial_retain_lp - current</span>
+<span class="line"><span class="number">53</span>            individual_drop = self._individual_drop()</span>
+<span class="line"><span class="number">54</span>            self.checks += 1</span>
+<span class="line"><span class="number">55</span>            if not self._safe(drop, individual_drop):</span>
+<span class="line"><span class="number">56</span>                self.rejected_drop = drop</span>
+<span class="line"><span class="number">57</span>                self.rejected_individual_drop = individual_drop</span>
+<span class="line"><span class="number">58</span>                if self.backtrack and math.isfinite(drop):</span>
+<span class="line"><span class="number">59</span>                    rejected = self.snapshot()</span>
+<span class="line"><span class="number">60</span>                    # Search only the last update interval. Every interpolated</span>
+<span class="line"><span class="number">61</span>                    # checkpoint must pass the unchanged original utility limit.</span>
+<span class="line"><span class="number">62</span>                    for fraction in (0.5, 0.25, 0.125):</span>
+<span class="line"><span class="number">63</span>                        with torch.no_grad():</span>
+<span class="line"><span class="number">64</span>                            for name, p in self.model.named_parameters():</span>
+<span class="line"><span class="number">65</span>                                if name in self.safe:</span>
+<span class="line"><span class="number">66</span>                                    p.copy_(torch.lerp(self.safe[name], rejected[name], fraction).to(p.device))</span>
+<span class="line"><span class="number">67</span>                        candidate_drop = self.evaluator.initial_retain_lp - self.evaluator.measure_retain(self.model)</span>
+<span class="line"><span class="number">68</span>                        self.checks += 1</span>
+<span class="line"><span class="number">69</span>                        if self._safe(candidate_drop, self._individual_drop()):</span>
+<span class="line"><span class="number">70</span>                            self.safe = self.snapshot()</span>
+<span class="line"><span class="number">71</span>                            self.backtrack_fraction = fraction</span>
+<span class="line"><span class="number">72</span>                            break</span>
+<span class="line"><span class="number">73</span>                self.restore()</span>
+<span class="line"><span class="number">74</span>                raise TrainingStopped('RETAIN_UTILITY_RISK_ROLLED_BACK')</span>
+<span class="line"><span class="number">75</span>            self.safe = self.snapshot()</span>
+<span class="line"><span class="number">76</span>            self._checked_revision = self._optimizer_revision</span>
+<span class="line"><span class="number">77</span>        finally:</span>
+<span class="line"><span class="number">78</span>            self.model.train(was_training)</span>
+<span class="line"><span class="number">79</span> </span>
+<span class="line"><span class="number">80</span>    def _individual_drop(self):</span>
+<span class="line"><span class="number">81</span>        original = getattr(self.evaluator, 'initial_retain_log_probs', None)</span>
+<span class="line"><span class="number">82</span>        current = getattr(self.evaluator, 'last_retain_log_probs', None)</span>
+<span class="line"><span class="number">83</span>        if original is None or current is None:</span>
+<span class="line"><span class="number">84</span>            return 0.0</span>
+<span class="line"><span class="number">85</span>        if len(original) != len(current) or not all(math.isfinite(x) for x in current):</span>
+<span class="line"><span class="number">86</span>            return float('inf')</span>
+<span class="line"><span class="number">87</span>        return max((max(0., before-after) for before, after in zip(original, current)), default=0.)</span>
+<span class="line"><span class="number">88</span> </span>
+<span class="line"><span class="number">89</span>    def _safe(self, drop, individual_drop):</span>
+<span class="line"><span class="number">90</span>        limit = getattr(self.evaluator.request, 'retain_per_example_max_drop', None)</span>
+<span class="line"><span class="number">91</span>        return (math.isfinite(drop) and drop &lt;= self.evaluator.request.retain_max_drop</span>
+<span class="line"><span class="number">92</span>                and math.isfinite(individual_drop) and (limit is None or individual_drop &lt;= limit))</span>
+<span class="line"><span class="number">93</span> </span></code></pre></article><article><h3>tests/test_v3_integration.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\tests\test_v3_integration.py · lines 144–159</p><pre><code><span class="line"><span class="number">144</span>def test_guard_restores_last_safe_weights_and_training_mode():</span>
+<span class="line"><span class="number">145</span>    model = TinyModel()</span>
+<span class="line"><span class="number">146</span>    evaluator = SimpleNamespace(request=SimpleNamespace(retain_max_drop=.03), initial_retain_lp=0.,</span>
+<span class="line"><span class="number">147</span>                                measure_retain=Mock(side_effect=[-.01, -.2]))</span>
+<span class="line"><span class="number">148</span>    guard = RetainGuard(model, evaluator)</span>
+<span class="line"><span class="number">149</span>    with torch.no_grad():</span>
+<span class="line"><span class="number">150</span>        model.lora_weight.fill_(1.)</span>
+<span class="line"><span class="number">151</span>    guard()</span>
+<span class="line"><span class="number">152</span>    with torch.no_grad():</span>
+<span class="line"><span class="number">153</span>        model.lora_weight.fill_(2.)</span>
+<span class="line"><span class="number">154</span>    with pytest.raises(TrainingStopped, match='ROLLED_BACK'):</span>
+<span class="line"><span class="number">155</span>        guard()</span>
+<span class="line"><span class="number">156</span>    assert model.lora_weight.tolist() == [1.] * 32</span>
+<span class="line"><span class="number">157</span>    assert model.training</span>
+<span class="line"><span class="number">158</span> </span>
+<span class="line"><span class="number">159</span> </span></code></pre></article><article><h3>tests/test_v3_specificity.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\tests\test_v3_specificity.py · lines 15–31</p><pre><code><span class="line"><span class="number">15</span>def test_guard_catches_individual_damage_hidden_by_mean():</span>
+<span class="line"><span class="number">16</span>    model = TinyModel()</span>
+<span class="line"><span class="number">17</span>    ev = SimpleNamespace(initial_retain_lp=0., initial_retain_log_probs=[0., 0.],</span>
+<span class="line"><span class="number">18</span>        request=SimpleNamespace(retain_max_drop=.03, retain_per_example_max_drop=.25))</span>
+<span class="line"><span class="number">19</span>    def measure(m):</span>
+<span class="line"><span class="number">20</span>        ev.last_retain_log_probs = [-.4, .4]</span>
+<span class="line"><span class="number">21</span>        return 0.</span>
+<span class="line"><span class="number">22</span>    ev.measure_retain = measure</span>
+<span class="line"><span class="number">23</span>    guard = RetainGuard(model, ev)</span>
+<span class="line"><span class="number">24</span>    with torch.no_grad():</span>
+<span class="line"><span class="number">25</span>        model.lora_weight.fill_(1.)</span>
+<span class="line"><span class="number">26</span>    with pytest.raises(TrainingStopped):</span>
+<span class="line"><span class="number">27</span>        guard()</span>
+<span class="line"><span class="number">28</span>    assert torch.count_nonzero(model.lora_weight) == 0</span>
+<span class="line"><span class="number">29</span>    assert guard.rejected_individual_drop == pytest.approx(.4)</span>
+<span class="line"><span class="number">30</span> </span>
+<span class="line"><span class="number">31</span> </span></code></pre></article></section><section id="fr-05"><p class="eyebrow">FR-05</p><h2>Controlled recovery verification</h2><p>Classify final recovery using original-target and base controls as suppressed, residual or inconclusive.</p><article><h3>src/orchestrator/live_runner.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\orchestrator\live_runner.py · lines 748–836</p><pre><code><span class="line"><span class="number">748</span>    target_by_id = {}</span>
+<span class="line"><span class="number">749</span>    for r in target_report.results:</span>
+<span class="line"><span class="number">750</span>        pid = r.get(&quot;probe_id&quot;) if isinstance(r, dict) else getattr(r, &quot;probe_id&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">751</span>        if pid:</span>
+<span class="line"><span class="number">752</span>            target_by_id[pid] = r</span>
+<span class="line"><span class="number">753</span> </span>
+<span class="line"><span class="number">754</span>    base_by_id = {}</span>
+<span class="line"><span class="number">755</span>    for r in base_report.results:</span>
+<span class="line"><span class="number">756</span>        pid = r.get(&quot;probe_id&quot;) if isinstance(r, dict) else getattr(r, &quot;probe_id&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">757</span>        if pid:</span>
+<span class="line"><span class="number">758</span>            base_by_id[pid] = r</span>
+<span class="line"><span class="number">759</span> </span>
+<span class="line"><span class="number">760</span>    paired_attacks = []</span>
+<span class="line"><span class="number">761</span>    suppressed_count = 0</span>
+<span class="line"><span class="number">762</span>    residual_count = 0</span>
+<span class="line"><span class="number">763</span>    inconclusive_count = 0</span>
+<span class="line"><span class="number">764</span> </span>
+<span class="line"><span class="number">765</span>    for u_res in unlearned_report.results:</span>
+<span class="line"><span class="number">766</span>        pid = u_res.get(&quot;probe_id&quot;) if isinstance(u_res, dict) else getattr(u_res, &quot;probe_id&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">767</span>        t_res = target_by_id.get(pid)</span>
+<span class="line"><span class="number">768</span>        b_res = base_by_id.get(pid)</span>
+<span class="line"><span class="number">769</span> </span>
+<span class="line"><span class="number">770</span>        t_verd = t_res.get(&quot;verdict&quot;, &quot;&quot;) if isinstance(t_res, dict) else getattr(t_res, &quot;verdict&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">771</span>        if hasattr(t_verd, &quot;value&quot;):</span>
+<span class="line"><span class="number">772</span>            t_verd = t_verd.value</span>
+<span class="line"><span class="number">773</span>        b_verd = b_res.get(&quot;verdict&quot;, &quot;&quot;) if isinstance(b_res, dict) else getattr(b_res, &quot;verdict&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">774</span>        if hasattr(b_verd, &quot;value&quot;):</span>
+<span class="line"><span class="number">775</span>            b_verd = b_verd.value</span>
+<span class="line"><span class="number">776</span>        u_verd = u_res.get(&quot;verdict&quot;, &quot;&quot;) if isinstance(u_res, dict) else getattr(u_res, &quot;verdict&quot;, &quot;&quot;)</span>
+<span class="line"><span class="number">777</span>        if hasattr(u_verd, &quot;value&quot;):</span>
+<span class="line"><span class="number">778</span>            u_verd = u_verd.value</span>
+<span class="line"><span class="number">779</span> </span>
+<span class="line"><span class="number">780</span>        t_leaked = str(t_verd) in (&quot;FULL_RECOVERY&quot;, &quot;PARTIAL_RECOVERY&quot;)</span>
+<span class="line"><span class="number">781</span>        b_clean = bool(b_res) and str(b_verd) == &quot;NO_RECOVERY&quot;</span>
+<span class="line"><span class="number">782</span>        u_leaked = str(u_verd) in (&quot;FULL_RECOVERY&quot;, &quot;PARTIAL_RECOVERY&quot;)</span>
+<span class="line"><span class="number">783</span> </span>
+<span class="line"><span class="number">784</span>        if t_leaked and b_clean:</span>
+<span class="line"><span class="number">785</span>            if str(u_verd) == &quot;NO_RECOVERY&quot;:</span>
+<span class="line"><span class="number">786</span>                calibration = &quot;VERIFIED_SUPPRESSION&quot;</span>
+<span class="line"><span class="number">787</span>                suppressed_count += 1</span>
+<span class="line"><span class="number">788</span>            elif u_leaked:</span>
+<span class="line"><span class="number">789</span>                calibration = &quot;RESIDUAL_LEAKAGE&quot;</span>
+<span class="line"><span class="number">790</span>                residual_count += 1</span>
+<span class="line"><span class="number">791</span>            else:</span>
+<span class="line"><span class="number">792</span>                calibration = &quot;INCONCLUSIVE&quot;</span>
+<span class="line"><span class="number">793</span>                inconclusive_count += 1</span>
+<span class="line"><span class="number">794</span>        else:</span>
+<span class="line"><span class="number">795</span>            calibration = &quot;INCONCLUSIVE&quot;</span>
+<span class="line"><span class="number">796</span>            inconclusive_count += 1</span>
+<span class="line"><span class="number">797</span> </span>
+<span class="line"><span class="number">798</span>        source_probe = next((probe for probe in attack_probes if probe.probe_id == pid), None)</span>
+<span class="line"><span class="number">799</span>        paired_attacks.append({</span>
+<span class="line"><span class="number">800</span>            &quot;after&quot;: _extract_res_dict(u_res),</span>
+<span class="line"><span class="number">801</span>            &quot;before&quot;: _extract_res_dict(t_res),</span>
+<span class="line"><span class="number">802</span>            &quot;base&quot;: _extract_res_dict(b_res),</span>
+<span class="line"><span class="number">803</span>            &quot;calibration&quot;: calibration,</span>
+<span class="line"><span class="number">804</span>            &quot;source_question&quot;: source_probe.metadata.get('source_question') if source_probe else None,</span>
+<span class="line"><span class="number">805</span>            &quot;source_fact_id&quot;: source_probe.metadata.get('fact_id') if source_probe else None,</span>
+<span class="line"><span class="number">806</span>        })</span>
+<span class="line"><span class="number">807</span> </span>
+<span class="line"><span class="number">808</span>    # =========================================================================</span>
+<span class="line"><span class="number">809</span>    # STAGE 4: SYNTHESIS &amp; REPORT GENERATION</span>
+<span class="line"><span class="number">810</span>    # =========================================================================</span>
+<span class="line"><span class="number">811</span>    report_progress(95.0, &quot;verify&quot;, &quot;Stage 4/4: Synthesizing evaluation summary and interactive payload...&quot;)</span>
+<span class="line"><span class="number">812</span>    total_time = round(time.time() - start_time, 2)</span>
+<span class="line"><span class="number">813</span> </span>
+<span class="line"><span class="number">814</span>    validated_count = suppressed_count + residual_count</span>
+<span class="line"><span class="number">815</span>    suppression_rate = (suppressed_count / validated_count) if validated_count &gt; 0 else 0.0</span>
+<span class="line"><span class="number">816</span> </span>
+<span class="line"><span class="number">817</span>    audit_summary = {</span>
+<span class="line"><span class="number">818</span>        &quot;total_attacks&quot;: len(paired_attacks),</span>
+<span class="line"><span class="number">819</span>        &quot;validated_attacks&quot;: validated_count,</span>
+<span class="line"><span class="number">820</span>        &quot;inconclusive_attacks&quot;: inconclusive_count,</span>
+<span class="line"><span class="number">821</span>        &quot;verified_suppressions&quot;: suppressed_count,</span>
+<span class="line"><span class="number">822</span>        &quot;residual_leaks&quot;: residual_count,</span>
+<span class="line"><span class="number">823</span>        &quot;suppression_rate&quot;: round(suppression_rate, 4),</span>
+<span class="line"><span class="number">824</span>        &quot;retain_utility_rate&quot;: round(measured_retain_utility, 4),</span>
+<span class="line"><span class="number">825</span>        &quot;retain_utility_examples&quot;: len(utility_rows),</span>
+<span class="line"><span class="number">826</span>        &quot;retain_generation_token_cap&quot;: 48 if is_fast else 96,</span>
+<span class="line"><span class="number">827</span>        &quot;is_control_retain&quot;: False,</span>
+<span class="line"><span class="number">828</span>        &quot;facts_requested&quot;: len(selected_indices),</span>
+<span class="line"><span class="number">829</span>        &quot;facts_with_validated_checks&quot;: len({pair['source_question'] for pair in paired_attacks</span>
+<span class="line"><span class="number">830</span>            if pair['calibration'] != 'INCONCLUSIVE' and pair.get('source_question')}),</span>
+<span class="line"><span class="number">831</span>    }</span>
+<span class="line"><span class="number">832</span> </span>
+<span class="line"><span class="number">833</span>    scientific_status = final_audit_status(</span>
+<span class="line"><span class="number">834</span>        v3_result['status'] if v3_result else 'LEGACY_V2_AUDIT', audit_summary, is_fast,</span>
+<span class="line"><span class="number">835</span>        request.max_probe_leak_rate if v3_result else 0.0)</span>
+<span class="line"><span class="number">836</span> </span></code></pre></article><article><h3>src/atu/v3/engine.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\atu\v3\engine.py · lines 125–174</p><pre><code><span class="line"><span class="number">125</span>        best_trial, selection_rationale = ParetoCheckpointSelector.select_best(trials)</span>
+<span class="line"><span class="number">126</span>        logger.info(f&quot;[ATU v3 Winner] Best Checkpoint: Trial #{best_trial.trial_index} ({best_trial.method})&quot;)</span>
+<span class="line"><span class="number">127</span> </span>
+<span class="line"><span class="number">128</span>        # 6. Preserve and Link Best Checkpoint as Primary Target</span>
+<span class="line"><span class="number">129</span>        if not best_trial.metrics.is_safe or best_trial.status.startswith('FAILED'):</span>
+<span class="line"><span class="number">130</span>            raise RuntimeError('No safe executable trial is available; no checkpoint was promoted.')</span>
+<span class="line"><span class="number">131</span>        best_output_path = os.path.join(checkpoint_dir, &quot;best_safe_checkpoint&quot;)</span>
+<span class="line"><span class="number">132</span>        shutil.copytree(best_trial.checkpoint_dir, best_output_path)</span>
+<span class="line"><span class="number">133</span> </span>
+<span class="line"><span class="number">134</span>        # Final probes are evaluated once, after selection, and never drive retries.</span>
+<span class="line"><span class="number">135</span>        final_test_metrics = None</span>
+<span class="line"><span class="number">136</span>        if request.test_probes:</span>
+<span class="line"><span class="number">137</span>            engine._progress(best_trial.trial_index, best_trial.method,</span>
+<span class="line"><span class="number">138</span>                best_trial.metrics.details.get('optimizer_steps', 0), 'heldout_controls', 0)</span>
+<span class="line"><span class="number">139</span>            from src.models import load_peft_target_model</span>
+<span class="line"><span class="number">140</span>            audit_request = copy.deepcopy(request)</span>
+<span class="line"><span class="number">141</span>            audit_request.dev_probes = request.test_probes</span>
+<span class="line"><span class="number">142</span>            final_evaluator = TrialEvaluator(tokenizer, audit_request,</span>
+<span class="line"><span class="number">143</span>                initial_retain_lp=engine.evaluator.initial_retain_lp, device=self.device)</span>
+<span class="line"><span class="number">144</span>            final_evaluator.initial_retain_log_probs = engine.evaluator.initial_retain_log_probs</span>
+<span class="line"><span class="number">145</span>            final_evaluator.initial_forget_log_probs = engine.evaluator.initial_forget_log_probs</span>
+<span class="line"><span class="number">146</span>            final_evaluator.initial_retain_probe_results = engine.evaluator.initial_retain_probe_results</span>
+<span class="line"><span class="number">147</span>            # Positive control for the held-out cohort, measured only after selection.</span>
+<span class="line"><span class="number">148</span>            original = load_peft_target_model(self.base_model_name, self.target_adapter_path,</span>
+<span class="line"><span class="number">149</span>                is_trainable=False, dtype=torch.bfloat16 if self.device.startswith('cuda') else torch.float32,</span>
+<span class="line"><span class="number">150</span>                device_map={&quot;&quot;: self.device})</span>
+<span class="line"><span class="number">151</span>            try:</span>
+<span class="line"><span class="number">152</span>                final_evaluator.initial_probe_leak_rate = final_evaluator._check_probe_recoverability(original)</span>
+<span class="line"><span class="number">153</span>            finally:</span>
+<span class="line"><span class="number">154</span>                del original</span>
+<span class="line"><span class="number">155</span>                if torch.cuda.is_available():</span>
+<span class="line"><span class="number">156</span>                    torch.cuda.empty_cache()</span>
+<span class="line"><span class="number">157</span>            engine._progress(best_trial.trial_index, best_trial.method,</span>
+<span class="line"><span class="number">158</span>                best_trial.metrics.details.get('optimizer_steps', 0), 'heldout_checkpoint', 0)</span>
+<span class="line"><span class="number">159</span>            model = load_peft_target_model(self.base_model_name, best_output_path,</span>
+<span class="line"><span class="number">160</span>                is_trainable=False, dtype=torch.bfloat16 if self.device.startswith('cuda') else torch.float32,</span>
+<span class="line"><span class="number">161</span>                device_map={&quot;&quot;: self.device})</span>
+<span class="line"><span class="number">162</span>            try:</span>
+<span class="line"><span class="number">163</span>                final_test_metrics = final_evaluator.evaluate(model)</span>
+<span class="line"><span class="number">164</span>            finally:</span>
+<span class="line"><span class="number">165</span>                del model</span>
+<span class="line"><span class="number">166</span>                if torch.cuda.is_available():</span>
+<span class="line"><span class="number">167</span>                    torch.cuda.empty_cache()</span>
+<span class="line"><span class="number">168</span> </span>
+<span class="line"><span class="number">169</span>        # 7. Stage 4: Compile Comprehensive Evidence Report</span>
+<span class="line"><span class="number">170</span>        total_duration = time.time() - start_time</span>
+<span class="line"><span class="number">171</span>        evidence_report = EvidenceReporter.compile_report(</span>
+<span class="line"><span class="number">172</span>            request=request,</span>
+<span class="line"><span class="number">173</span>            trials=trials,</span>
+<span class="line"><span class="number">174</span>            best_trial=best_trial,</span></code></pre></article></section><section id="fr-06"><p class="eyebrow">FR-06</p><h2>Monitoring and cancellation</h2><p>Show progress and logs, allow cancellation, and distinguish completed, failed and stopped jobs.</p><article><h3>src/live_jobs.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\live_jobs.py · lines 178–209</p><pre><code><span class="line"><span class="number">178</span>    def _finish(self, key, status, error=None):</span>
+<span class="line"><span class="number">179</span>        job = self.jobs[key]</span>
+<span class="line"><span class="number">180</span>        now = time.time()</span>
+<span class="line"><span class="number">181</span>        job['stage_durations_seconds'][job['stage']] = round(now-job['stage_started_at'], 2)</span>
+<span class="line"><span class="number">182</span>        job.update(status=status, end_time=now, error=error,</span>
+<span class="line"><span class="number">183</span>                   current_step={'COMPLETED': 'Execution complete. Review the measured outcome.',</span>
+<span class="line"><span class="number">184</span>                                 'CANCELLED': 'Stopped. The GPU worker has exited.',</span>
+<span class="line"><span class="number">185</span>                                 'FAILED': 'Execution failed. Review the log.'}[status])</span>
+<span class="line"><span class="number">186</span>        if status == 'CANCELLED':</span>
+<span class="line"><span class="number">187</span>            job['result'] = None</span>
+<span class="line"><span class="number">188</span>        self._log(job, job['current_step'])</span>
+<span class="line"><span class="number">189</span>        self._save(job)</span>
+<span class="line"><span class="number">190</span> </span>
+<span class="line"><span class="number">191</span>    def cancel(self, key):</span>
+<span class="line"><span class="number">192</span>        with self.lock:</span>
+<span class="line"><span class="number">193</span>            job = self.jobs.get(key)</span>
+<span class="line"><span class="number">194</span>            if job is None:</span>
+<span class="line"><span class="number">195</span>                raise KeyError(key)</span>
+<span class="line"><span class="number">196</span>            if job['status'] not in ACTIVE:</span>
+<span class="line"><span class="number">197</span>                return self.status(key)</span>
+<span class="line"><span class="number">198</span>            job.update(cancel_requested=True, status='CANCELLING', current_step='Stopping the GPU worker…')</span>
+<span class="line"><span class="number">199</span>            self._log(job, 'Stop requested. Waiting for the worker to exit before releasing the GPU slot.')</span>
+<span class="line"><span class="number">200</span>            self._save(job)</span>
+<span class="line"><span class="number">201</span>            process = self.processes.get(key)</span>
+<span class="line"><span class="number">202</span>            if process and process.poll() is None:</span>
+<span class="line"><span class="number">203</span>                process.terminate()</span>
+<span class="line"><span class="number">204</span>                def force_stop():</span>
+<span class="line"><span class="number">205</span>                    with self.lock:</span>
+<span class="line"><span class="number">206</span>                        if self.processes.get(key) is process and process.poll() is None:</span>
+<span class="line"><span class="number">207</span>                            process.kill()</span>
+<span class="line"><span class="number">208</span>                timer = threading.Timer(3, force_stop); timer.daemon = True; timer.start()</span>
+<span class="line"><span class="number">209</span>            return self.status(key)</span></code></pre></article><article><h3>src/live_jobs.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\live_jobs.py · lines 231–247</p><pre><code><span class="line"><span class="number">231</span>    def status(self, key):</span>
+<span class="line"><span class="number">232</span>        with self.lock:</span>
+<span class="line"><span class="number">233</span>            job = self.jobs.get(key)</span>
+<span class="line"><span class="number">234</span>            if job is None:</span>
+<span class="line"><span class="number">235</span>                raise KeyError(key)</span>
+<span class="line"><span class="number">236</span>            result = copy.deepcopy(job)</span>
+<span class="line"><span class="number">237</span>            now = job['end_time'] or time.time()</span>
+<span class="line"><span class="number">238</span>            elapsed = round(max(0, now-job['start_time']), 1)</span>
+<span class="line"><span class="number">239</span>            result.update(elapsed_seconds=elapsed,</span>
+<span class="line"><span class="number">240</span>                          stage_elapsed_seconds=round(max(0, now-job['stage_started_at']), 1),</span>
+<span class="line"><span class="number">241</span>                          estimate=self._estimate(job, elapsed),</span>
+<span class="line"><span class="number">242</span>                          created_at=datetime.fromtimestamp(job['start_time'], timezone.utc).isoformat())</span>
+<span class="line"><span class="number">243</span>            return attach_recheck(result, self.storage/key)</span>
+<span class="line"><span class="number">244</span> </span>
+<span class="line"><span class="number">245</span>    def history(self):</span>
+<span class="line"><span class="number">246</span>        with self.lock:</span>
+<span class="line"><span class="number">247</span>            return [self.status(key) for key in sorted(self.jobs, reverse=True)]</span></code></pre></article><article><h3>frontend/app/src/components/LiveExecutionModal.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\LiveExecutionModal.tsx · lines 10–46</p><pre><code><span class="line"><span class="number">10</span>export function LiveExecutionModal({ active, job, error, onClose, onComplete, onReconnect, onDismiss, onStop }: {</span>
+<span class="line"><span class="number">11</span>  active: ActiveJob; job: LiveJobStatus | null; error: string | null;</span>
+<span class="line"><span class="number">12</span>  onClose: () =&gt; void; onComplete: (job: LiveJobStatus) =&gt; void;</span>
+<span class="line"><span class="number">13</span>  onReconnect: () =&gt; void; onDismiss: () =&gt; void; onStop: () =&gt; Promise&lt;void&gt;;</span>
+<span class="line"><span class="number">14</span>}) {</span>
+<span class="line"><span class="number">15</span>  const dialog = useDialog(onClose);</span>
+<span class="line"><span class="number">16</span>  const terminal = useRef&lt;HTMLDivElement&gt;(null);</span>
+<span class="line"><span class="number">17</span>  const [follow, setFollow] = useState(true);</span>
+<span class="line"><span class="number">18</span>  const finished = job?.status === 'COMPLETED';</span>
+<span class="line"><span class="number">19</span>  const failed = job?.status === 'FAILED';</span>
+<span class="line"><span class="number">20</span>  const cancelled = job?.status === 'CANCELLED';</span>
+<span class="line"><span class="number">21</span>  const cancelling = job?.status === 'CANCELLING';</span>
+<span class="line"><span class="number">22</span>  const [stopping, setStopping] = useState(false);</span>
+<span class="line"><span class="number">23</span>  const [stopError, setStopError] = useState('');</span>
+<span class="line"><span class="number">24</span>  const estimate = job?.estimate;</span>
+<span class="line"><span class="number">25</span>  const stop = async () =&gt; { if (stopping || cancelling) return; setStopping(true); setStopError(''); try { await onStop(); } catch (failure) { setStopError((failure as Error).message); } finally { setStopping(false); } };</span>
+<span class="line"><span class="number">26</span>  const unavailable = Boolean(error?.includes('no longer available'));</span>
+<span class="line"><span class="number">27</span>  const progress = Math.max(0, Math.min(100, job?.progress ?? 0));</span>
+<span class="line"><span class="number">28</span>  const stages = [{ key: 'init', name: 'Prepare', icon: Clock }, { key: 'discover', name: 'Discover', icon: Search }, { key: 'unlearn', name: 'Unlearn', icon: BrainCircuit }, { key: 'attack', name: 'Challenge', icon: Swords }, { key: 'verify', name: 'Verify', icon: ShieldCheck }];</span>
+<span class="line"><span class="number">29</span>  const stageIndex = finished ? stages.length : stages.findIndex(stage =&gt; stage.key === job?.stage);</span>
+<span class="line"><span class="number">30</span>  useEffect(() =&gt; { if (follow &amp;&amp; terminal.current) terminal.current.scrollTop = terminal.current.scrollHeight; }, [job?.logs, follow]);</span>
+<span class="line"><span class="number">31</span>  return &lt;div className=&quot;studio-modal-backdrop&quot; onClick={onClose}&gt;&lt;div className=&quot;studio-monitor&quot; ref={dialog} role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;monitor-title&quot; tabIndex={-1} onClick={event =&gt; event.stopPropagation()}&gt;</span>
+<span class="line"><span class="number">32</span>    &lt;div className=&quot;monitor-header&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;LIVE EXPERIMENT&lt;/span&gt;&lt;h2 id=&quot;monitor-title&quot;&gt;{active.authorName}&lt;/h2&gt;&lt;p&gt;{active.mode === 'fast' ? 'Quick check' : 'Full experiment'} · {active.jobId}&lt;/p&gt;&lt;/div&gt;&lt;button className=&quot;icon-button&quot; aria-label=&quot;Hide run monitor&quot; title=&quot;Hide monitor; the run continues&quot; onClick={onClose}&gt;&lt;X size={20} /&gt;&lt;/button&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">33</span>    &lt;div className=&quot;monitor-progress&quot;&gt;&lt;div&gt;&lt;span className={'studio-badge ' + (failed ? 'red' : cancelled || cancelling ? 'amber' : finished ? 'blue' : unavailable ? 'amber' : 'green')}&gt;{failed || unavailable || cancelled ? &lt;AlertTriangle size={14} /&gt; : finished ? &lt;CheckCircle2 size={14} /&gt; : &lt;Loader2 size={14} className=&quot;spin&quot; /&gt;}{cancelled ? 'Stopped' : cancelling ? 'Stopping' : failed ? 'Execution failed' : finished ? 'Execution complete' : unavailable ? 'Run unavailable' : error ? 'Reconnecting' : job ? 'Running' : 'Connecting'}&lt;/span&gt;&lt;span className=&quot;monitor-time&quot;&gt;&lt;Clock size={14} /&gt;{formatDuration(job?.elapsed_seconds ?? 0)}&lt;/span&gt;&lt;/div&gt;&lt;p aria-live=&quot;polite&quot;&gt;{job?.current_step || 'Waiting for the first status update…'}&lt;/p&gt;&lt;div className=&quot;monitor-track&quot; role=&quot;progressbar&quot; aria-label=&quot;Experiment progress&quot; aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}&gt;&lt;div style={{ width: progress + '%' }} /&gt;&lt;/div&gt;&lt;span className=&quot;studio-caption&quot;&gt;{Math.round(progress)}% · Stage progress is separate from elapsed time.&lt;/span&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">34</span>    &lt;div className=&quot;monitor-timing&quot;&gt;&lt;strong&gt;{cancelled ? 'Worker stopped; no result is claimed.' : cancelling ? 'Releasing the GPU worker…' : finished || failed ? 'Total duration: ' + formatDuration(job?.elapsed_seconds ?? 0) : estimate ? estimate.over_estimate ? 'Taking longer than the initial estimate.' : 'Estimated remaining: ' + formatDuration(estimate.remaining_low_seconds) + '–' + formatDuration(estimate.remaining_high_seconds) : 'Gathering timing information…'}&lt;/strong&gt;{estimate &amp;&amp; &lt;small&gt;{estimate.source === 'similar_completed_runs' ? 'Based on ' + estimate.sample_count + ' similar completed runs.' : 'Planning range. The first run and model loading can take longer.'}&lt;/small&gt;}&lt;dl&gt;{Object.entries(job?.stage_durations_seconds || {}).map(([stage, seconds]) =&gt; &lt;div key={stage}&gt;&lt;dt&gt;{stage}&lt;/dt&gt;&lt;dd&gt;{formatDuration(seconds)}&lt;/dd&gt;&lt;/div&gt;)}{!finished &amp;&amp; !failed &amp;&amp; !cancelled &amp;&amp; job &amp;&amp; &lt;div&gt;&lt;dt&gt;{job.stage} · current&lt;/dt&gt;&lt;dd&gt;{formatDuration(job.stage_elapsed_seconds ?? 0)}&lt;/dd&gt;&lt;/div&gt;}&lt;/dl&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">35</span>    {stopError &amp;&amp; &lt;div className=&quot;studio-note red&quot; role=&quot;alert&quot;&gt;{stopError}&lt;/div&gt;}</span>
+<span class="line"><span class="number">36</span>    {job?.persistence_error &amp;&amp; &lt;div className=&quot;studio-note amber&quot; role=&quot;status&quot;&gt;Local history could not be saved. This run continues in memory; export its evidence to keep a copy.&lt;/div&gt;}</span>
+<span class="line"><span class="number">37</span>    {job?.stage === 'init' &amp;&amp; !failed &amp;&amp; !cancelled &amp;&amp; !cancelling &amp;&amp; &lt;p className=&quot;runtime-preparation-note&quot;&gt;Preparing the runtime comes before GPU model loading. The first launch may take longer; the step above updates as each library becomes ready.&lt;/p&gt;}</span>
+<span class="line"><span class="number">38</span>    &lt;ol className=&quot;monitor-stages&quot;&gt;{stages.map((stage, index) =&gt; &lt;li key={stage.key} className={index &lt; stageIndex ? 'done' : index === stageIndex &amp;&amp; !failed &amp;&amp; !cancelled ? 'current' : ''}&gt;&lt;span&gt;{index &lt; stageIndex ? &lt;CheckCircle2 size={18} /&gt; : &lt;stage.icon size={18} /&gt;}&lt;/span&gt;{stage.name}&lt;/li&gt;)}&lt;/ol&gt;</span>
+<span class="line"><span class="number">39</span>    {error &amp;&amp; &lt;div className=&quot;studio-note amber&quot; role=&quot;alert&quot;&gt;&lt;AlertTriangle size={18} /&gt;&lt;div&gt;&lt;strong&gt;{unavailable ? 'Run record unavailable' : 'Monitoring connection interrupted'}&lt;/strong&gt;&lt;p&gt;{error} {unavailable ? 'Dismiss the monitor to return to the workspace.' : 'A connection error does not cancel the GPU job.'}&lt;/p&gt;&lt;button className=&quot;text-button&quot; onClick={onReconnect}&gt;&lt;RotateCcw size={14} /&gt;Reconnect now&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">40</span>    {failed &amp;&amp; &lt;div className=&quot;studio-note red&quot; role=&quot;alert&quot;&gt;&lt;AlertTriangle size={18} /&gt;&lt;p&gt;{job.error || 'The backend could not finish this run.'}&lt;/p&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">41</span>    {finished &amp;&amp; &lt;div className={'studio-note ' + runOutcome(job).tone}&gt;{runOutcome(job).tone === 'red' || runOutcome(job).tone === 'amber' ? &lt;ShieldAlert size={19} /&gt; : &lt;ShieldCheck size={19} /&gt;}&lt;div&gt;&lt;strong&gt;{runOutcome(job).label}&lt;/strong&gt;&lt;p&gt;{outcomeDescription(job)}&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">42</span>    {job?.discovery &amp;&amp; &lt;details className=&quot;monitor-discovery&quot;&gt;&lt;summary&gt;Privacy Leakage Discovery · {job.discovery.facts.length} {job.discovery.facts.length === 1 ? 'fact' : 'facts'} tested · View evidence&lt;/summary&gt;&lt;PrivacyDiscovery report={job.discovery} /&gt;&lt;/details&gt;}</span>
+<span class="line"><span class="number">43</span>    &lt;div className=&quot;monitor-log&quot;&gt;&lt;div className=&quot;monitor-log-header&quot;&gt;&lt;Terminal size={15} /&gt;&lt;strong&gt;Execution log&lt;/strong&gt;&lt;button aria-pressed={follow} onClick={() =&gt; setFollow(!follow)}&gt;{follow ? 'Auto-scroll on' : 'Auto-scroll off'}&lt;/button&gt;&lt;button aria-label=&quot;Download execution log&quot; onClick={() =&gt; downloadJson({ job_id: active.jobId, logs: job?.logs ?? [] }, active.jobId + '-log.json')}&gt;&lt;Download size={14} /&gt;&lt;/button&gt;&lt;/div&gt;&lt;div className=&quot;monitor-log-body&quot; ref={terminal} onScroll={() =&gt; { const el = terminal.current; if (el &amp;&amp; el.scrollHeight - el.scrollTop - el.clientHeight &gt; 50 &amp;&amp; follow) setFollow(false); }}&gt;{job?.logs.length ? job.logs.map((line, index) =&gt; &lt;div key={index}&gt;&lt;span&gt;›&lt;/span&gt;{line}&lt;/div&gt;) : &lt;p&gt;No log messages received yet.&lt;/p&gt;}&lt;/div&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">44</span>    &lt;div className=&quot;monitor-footer&quot;&gt;&lt;span&gt;{cancelled ? 'Stopped; no completed unlearning result is claimed.' : finished ? 'Results are ready to inspect.' : failed ? 'The original target is separate from this attempt.' : 'You can hide this window. Monitoring continues in the workspace.'}&lt;/span&gt;{finished ? &lt;button className=&quot;button primary&quot; onClick={() =&gt; onComplete(job)}&gt;Open results&lt;ArrowRight size={16} /&gt;&lt;/button&gt; : failed || cancelled || error?.includes('no longer available') ? &lt;button className=&quot;button secondary&quot; onClick={onDismiss}&gt;Dismiss monitor&lt;/button&gt; : &lt;div className=&quot;inline-actions&quot;&gt;&lt;button className=&quot;button secondary stop-experiment&quot; disabled={stopping || cancelling || !job} onClick={() =&gt; { void stop(); }}&gt;{stopping || cancelling ? 'Stopping…' : 'Stop experiment'}&lt;/button&gt;&lt;button className=&quot;button secondary&quot; onClick={onClose}&gt;Continue in background&lt;/button&gt;&lt;/div&gt;}&lt;/div&gt;</span>
+<span class="line"><span class="number">45</span>  &lt;/div&gt;&lt;/div&gt;;</span>
+<span class="line"><span class="number">46</span>}</span></code></pre></article></section><section id="fr-07"><p class="eyebrow">FR-07</p><h2>Experiment records and reporting</h2><p>Save history, compare responses and runs, and export results with settings and checkpoint provenance.</p><article><h3>frontend/app/src/components/LiveResults.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\LiveResults.tsx · lines 15–67</p><pre><code><span class="line"><span class="number">15</span>export function LiveResults({ job, onBack, onNew }: { job: LiveJobStatus; onBack: () =&gt; void; onNew: () =&gt; void }) {</span>
+<span class="line"><span class="number">16</span>  const [tab, setTab] = useState('Overview');</span>
+<span class="line"><span class="number">17</span>  const [filter, setFilter] = useState('All');</span>
+<span class="line"><span class="number">18</span>  const [limit, setLimit] = useState(8);</span>
+<span class="line"><span class="number">19</span>  const [pairId, setPairId] = useState('');</span>
+<span class="line"><span class="number">20</span>  const result = job.result;</span>
+<span class="line"><span class="number">21</span>  const outcome = runOutcome(job);</span>
+<span class="line"><span class="number">22</span>  const tabs = ['Overview', 'Privacy discovery', 'Attempts', 'Recovery tests', 'Run details'];</span>
+<span class="line"><span class="number">23</span>  if (!result) return &lt;div className=&quot;studio-page&quot;&gt;&lt;button className=&quot;text-button&quot; onClick={onBack}&gt;&lt;ArrowLeft size={16} /&gt;Run history&lt;/button&gt;&lt;div className=&quot;studio-empty&quot;&gt;&lt;AlertCircle /&gt;&lt;h2&gt;{job.status === 'CANCELLED' ? 'This experiment was stopped.' : 'This run did not produce a result.'}&lt;/h2&gt;&lt;p&gt;{job.error || (job.status === 'CANCELLED' ? 'The GPU worker exited. No completed unlearning result is claimed.' : 'Open the monitor for more details.')}&lt;/p&gt;&lt;button className=&quot;button primary&quot; onClick={onNew}&gt;New experiment&lt;/button&gt;&lt;/div&gt;{job.discovery &amp;&amp; &lt;&gt;&lt;p className=&quot;studio-caption&quot;&gt;Discovery finished before this run ended. Its original model evidence remains available below.&lt;/p&gt;&lt;PrivacyDiscovery report={job.discovery} /&gt;&lt;/&gt;}&lt;/div&gt;;</span>
+<span class="line"><span class="number">24</span>  const counts = discoveryCounts(result.facts);</span>
+<span class="line"><span class="number">25</span>  const audit = result.audit;</span>
+<span class="line"><span class="number">26</span>  const hasValidated = isCount(audit.validated_attacks) &amp;&amp; audit.validated_attacks &gt; 0;</span>
+<span class="line"><span class="number">27</span>  const hasCoverage = isCount(audit.facts_requested) &amp;&amp; isCount(audit.facts_with_validated_checks);</span>
+<span class="line"><span class="number">28</span>  const requestedFacts = result.provenance?.selected_questions?.length ?? job.settings?.fact_indices?.length;</span>
+<span class="line"><span class="number">29</span>  const trainingBudget = result.provenance?.training_budget_seconds ?? job.settings?.training_budget_seconds;</span>
+<span class="line"><span class="number">30</span>  const baselineControls = result.performance?.baseline_controls;</span>
+<span class="line"><span class="number">31</span>  const OutcomeIcon = outcome.tone === 'green' ? ShieldCheck : outcome.tone === 'red' ? ShieldAlert : AlertCircle;</span>
+<span class="line"><span class="number">32</span>  const discovery = job.discovery || { entity: result.entity, facts: result.facts, checkpoint_hash: result.provenance?.target_checkpoint_hash || '' };</span>
+<span class="line"><span class="number">33</span>  const pairs = result.attacks.filter(pair =&gt; pair.before &amp;&amp; pair.before.prompt === pair.after.prompt);</span>
+<span class="line"><span class="number">34</span>  const comparison = pairs.find(pair =&gt; pair.after.probe_id === pairId) ?? pairs.find(pair =&gt; pair.calibration) ?? pairs[0];</span>
+<span class="line"><span class="number">35</span>  const filtered = result.attacks.filter(pair =&gt; filter === 'All'</span>
+<span class="line"><span class="number">36</span>    || filter === 'Recovered' &amp;&amp; ['FULL_RECOVERY', 'PARTIAL_RECOVERY'].includes(pair.after.verdict)</span>
+<span class="line"><span class="number">37</span>    || filter === 'Suppressed' &amp;&amp; pair.calibration === 'VERIFIED_SUPPRESSION'</span>
+<span class="line"><span class="number">38</span>    || filter === 'Uncertain' &amp;&amp; (pair.calibration === 'INCONCLUSIVE' || pair.after.verdict === 'UNCERTAIN' || pair.after.is_degenerate));</span>
+<span class="line"><span class="number">39</span>  return &lt;div className=&quot;studio-page live-results&quot;&gt;</span>
+<span class="line"><span class="number">40</span>    &lt;div className=&quot;page-breadcrumb&quot;&gt;&lt;button className=&quot;text-button&quot; onClick={onBack}&gt;&lt;ArrowLeft size={15} /&gt;Run history&lt;/button&gt;&lt;span&gt; / &lt;/span&gt;&lt;span&gt;{job.job_id}&lt;/span&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">41</span>    &lt;div className=&quot;studio-heading review-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;EXPERIMENT REPORT&lt;/span&gt;&lt;h1&gt;{job.author_name}&lt;/h1&gt;&lt;div className=&quot;review-run-meta&quot;&gt;&lt;span&gt;{job.mode === 'fast' ? 'Quick check' : 'Full experiment'}&lt;/span&gt;&lt;span&gt;{duration(job.elapsed_seconds)}&lt;/span&gt;&lt;span&gt;{result.v3 ? 'ATU v3' : 'ATU v2'}&lt;/span&gt;{requestedFacts != null &amp;&amp; &lt;span&gt;{requestedFacts} selected {requestedFacts === 1 ? 'fact' : 'facts'}&lt;/span&gt;}&lt;/div&gt;&lt;/div&gt;&lt;button className=&quot;button secondary&quot; onClick={() =&gt; downloadJson(job, job.job_id + '-results.json')}&gt;&lt;Download size={16} /&gt;Export results&lt;/button&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">42</span>    &lt;div className={'outcome-banner review-outcome ' + outcome.tone}&gt;&lt;OutcomeIcon size={25} /&gt;&lt;div&gt;&lt;span className=&quot;review-kicker&quot;&gt;MEASURED OUTCOME&lt;/span&gt;&lt;strong&gt;{outcome.label}&lt;/strong&gt;&lt;p&gt;{outcomeDescription(job)}&lt;/p&gt;&lt;/div&gt;&lt;span className=&quot;studio-badge&quot;&gt;Execution complete&lt;/span&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">43</span>    {result.scoring_recheck &amp;&amp; &lt;div className=&quot;studio-note amber&quot; role=&quot;status&quot;&gt;&lt;AlertCircle size={18} /&gt;&lt;div&gt;&lt;strong&gt;Saved responses rechecked with corrected scoring&lt;/strong&gt;&lt;p&gt;{result.scoring_recheck.scope} {result.scoring_recheck.missing_forward_fact_checks.length} selected facts lacked a valid forward question in the older probe set. {result.scoring_recheck.limitation}&lt;/p&gt;&lt;small&gt;Revision {result.scoring_recheck.revision} · Original report preserved · {result.scoring_recheck.changes.length} labels changed&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">44</span>    &lt;div className=&quot;studio-metrics&quot;&gt;</span>
+<span class="line"><span class="number">45</span>      &lt;Metric icon={&lt;ShieldCheck size={19} /&gt;} value={hasValidated ? count(audit.verified_suppressions) + ' / ' + count(audit.validated_attacks) : 'Unverified'} label=&quot;Validated suppression&quot; detail=&quot;Suppressed / calibrated checks&quot; /&gt;</span>
+<span class="line"><span class="number">46</span>      &lt;Metric icon={&lt;Swords size={19} /&gt;} value={hasValidated ? count(audit.residual_leaks) : 'Unverified'} label=&quot;Residual leaks&quot; detail=&quot;Target information still recovered&quot; /&gt;</span>
+<span class="line"><span class="number">47</span>      &lt;Metric icon={&lt;Activity size={19} /&gt;} value={measuredPercent(audit.retain_utility_rate)} label=&quot;Retain answer overlap&quot; detail={isCount(audit.retain_utility_examples) ? audit.retain_utility_examples + ' unrelated answers' + (isCount(audit.retain_generation_token_cap) ? ' · ' + audit.retain_generation_token_cap + ' token cap' : '') : 'Evaluation coverage not recorded'} /&gt;</span>
+<span class="line"><span class="number">48</span>      &lt;Metric icon={&lt;Clock size={19} /&gt;} value={methodLabel(result.v3?.best_method || (result.v3 ? undefined : 'atu_npo'))} label=&quot;Selected method&quot; detail={result.v3 ? result.v3.trials.length + (result.v3.trials.length === 1 ? ' attempt recorded' : ' attempts recorded') : 'V2 controller'} /&gt;</span>
+<span class="line"><span class="number">49</span>    &lt;/div&gt;</span>
+<span class="line"><span class="number">50</span>    &lt;div className=&quot;studio-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Result sections&quot;&gt;{tabs.map(value =&gt; &lt;button role=&quot;tab&quot; aria-selected={tab === value} tabIndex={tab === value ? 0 : -1} aria-controls=&quot;live-result-panel&quot; id={'result-tab-' + value.replaceAll(' ', '-')} key={value} onClick={() =&gt; setTab(value)} onKeyDown={event =&gt; {</span>
+<span class="line"><span class="number">51</span>      const index = tabs.indexOf(value);</span>
+<span class="line"><span class="number">52</span>      const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : -1;</span>
+<span class="line"><span class="number">53</span>      if (next &lt; 0) return;</span>
+<span class="line"><span class="number">54</span>      event.preventDefault(); setTab(tabs[next]); document.getElementById('result-tab-' + tabs[next].replaceAll(' ', '-'))?.focus();</span>
+<span class="line"><span class="number">55</span>    }}&gt;{value}{value === 'Recovery tests' &amp;&amp; &lt;span&gt;{result.attacks.length}&lt;/span&gt;}&lt;/button&gt;)}&lt;/div&gt;</span>
+<span class="line"><span class="number">56</span>    &lt;section id=&quot;live-result-panel&quot; role=&quot;tabpanel&quot; aria-labelledby={'result-tab-' + tab.replaceAll(' ', '-')}&gt;</span>
+<span class="line"><span class="number">57</span>      {tab === 'Overview' &amp;&amp; &lt;&gt;&lt;div className=&quot;review-coverage&quot; aria-label=&quot;Evidence coverage&quot;&gt;&lt;div&gt;&lt;FileCheck2 size={18} /&gt;&lt;span&gt;&lt;strong&gt;{hasCoverage ? `${audit.facts_with_validated_checks} / ${audit.facts_requested} facts` : 'Fact coverage not recorded'}&lt;/strong&gt;&lt;small&gt;Validated target / base controls&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;CircleHelp size={18} /&gt;&lt;span&gt;&lt;strong&gt;{count(audit.inconclusive_attacks)} inconclusive checks&lt;/strong&gt;&lt;small&gt;Not counted as verified suppression&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;SlidersHorizontal size={18} /&gt;&lt;span&gt;&lt;strong&gt;Utility and forgetting assessed separately&lt;/strong&gt;&lt;small&gt;Guard checks protect unrelated knowledge&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;button className=&quot;discovery-overview-link studio-card&quot; onClick={() =&gt; setTab('Privacy discovery')}&gt;&lt;span className=&quot;review-link-icon&quot;&gt;&lt;Search size={22} /&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Explore the original exposure&lt;/strong&gt;&lt;small&gt;{counts.exposed + counts.partial} / {counts.tested} candidate facts exposed before unlearning · Inspect the measured discovery evidence&lt;/small&gt;&lt;/span&gt;&lt;ArrowRight size={19} /&gt;&lt;/button&gt;&lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;MODEL RESPONSE EVIDENCE&lt;/span&gt;&lt;h2&gt;The same question, before and after.&lt;/h2&gt;&lt;p&gt;Paired responses from this run. Use the selector to inspect another question.&lt;/p&gt;&lt;/div&gt;{pairs.length &gt; 0 &amp;&amp; &lt;select aria-label=&quot;Compare a live question&quot; className=&quot;studio-input&quot; value={comparison?.after.probe_id} onChange={event =&gt; setPairId(event.target.value)}&gt;{pairs.map((pair, index) =&gt; &lt;option key={pair.after.probe_id} value={pair.after.probe_id}&gt;Question {index + 1} · {pair.after.category.replaceAll('_', ' ')}&lt;/option&gt;)}&lt;/select&gt;}&lt;/div&gt;</span>
+<span class="line"><span class="number">58</span>        {comparison ? &lt;div className=&quot;evidence-surface&quot;&gt;&lt;BeforeAfterComparison pair={comparison} checkpointLabel={result.v3 ? 'ATU v3 checkpoint' : 'ATU v2 checkpoint'} /&gt;&lt;/div&gt; : &lt;div className=&quot;studio-empty&quot;&gt;&lt;Search /&gt;&lt;h3&gt;No paired responses were exported.&lt;/h3&gt;&lt;p&gt;Inspect the available recovery tests or export the full run.&lt;/p&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">59</span>        &lt;div className=&quot;studio-note&quot;&gt;&lt;AlertCircle size={18} /&gt;&lt;p&gt;Finishing a job does not establish complete forgetting. These checks measure a limited set of questions; refusal alone is insufficient evidence of deletion.&lt;/p&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">60</span>      &lt;/&gt;}</span>
+<span class="line"><span class="number">61</span>      {tab === 'Privacy discovery' &amp;&amp; &lt;PrivacyDiscovery report={discovery} /&gt;}</span>
+<span class="line"><span class="number">62</span>      {tab === 'Attempts' &amp;&amp; &lt;&gt;&lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;TRAINING &amp; SELECTION&lt;/span&gt;&lt;h2&gt;How ATU chose the result&lt;/h2&gt;&lt;p&gt;Every exported attempt. Passing retain guards does not establish forgetting.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;{result.v3?.selection_rationale &amp;&amp; &lt;div className=&quot;studio-note review-selection&quot;&gt;&lt;SlidersHorizontal size={18} /&gt;&lt;div&gt;&lt;strong&gt;Selection explanation&lt;/strong&gt;&lt;p&gt;{result.v3.selection_rationale}&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;}{result.v3?.trials.length ? &lt;div className=&quot;attempt-list&quot;&gt;{result.v3.trials.map(trial =&gt; &lt;AttemptCard key={trial.trial_index} trial={trial} /&gt;)}&lt;/div&gt; : &lt;div className=&quot;studio-empty&quot;&gt;&lt;Activity /&gt;&lt;h3&gt;No V3 attempts exported for this run.&lt;/h3&gt;&lt;p&gt;Any available controller trace is included in your results download.&lt;/p&gt;&lt;/div&gt;}&lt;/&gt;}</span>
+<span class="line"><span class="number">63</span>      {tab === 'Recovery tests' &amp;&amp; &lt;&gt;&lt;div className=&quot;studio-section-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;FINAL CHECKPOINT AUDIT&lt;/span&gt;&lt;h2&gt;Challenge the checkpoint&lt;/h2&gt;&lt;p&gt;{result.attacks.length} exported tests. Raw recovery and calibrated suppression are separate measurements.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className=&quot;studio-tabs compact&quot; role=&quot;group&quot; aria-label=&quot;Filter live recovery tests&quot;&gt;{['All', 'Recovered', 'Suppressed', 'Uncertain'].map(value =&gt; &lt;button key={value} aria-pressed={filter === value} className={filter === value ? 'active' : ''} onClick={() =&gt; { setFilter(value); setLimit(8); }}&gt;{value}&lt;/button&gt;)}&lt;/div&gt;&lt;p className=&quot;review-filter-count&quot; aria-live=&quot;polite&quot;&gt;Showing {Math.min(limit, filtered.length)} of {filtered.length} {filter === 'All' ? 'exported' : filter.toLowerCase()} tests&lt;/p&gt;{filtered.length ? &lt;div className=&quot;attack-list evidence-surface&quot;&gt;{filtered.slice(0, limit).map(pair =&gt; &lt;RedTeamAttackCard key={pair.after.probe_id} pair={pair} /&gt;)}&lt;/div&gt; : &lt;div className=&quot;studio-empty&quot;&gt;&lt;Swords /&gt;&lt;h3&gt;No tests in this filter.&lt;/h3&gt;&lt;p&gt;Choose another filter to inspect the available evidence.&lt;/p&gt;&lt;/div&gt;}{filtered.length &gt; limit &amp;&amp; &lt;button className=&quot;button secondary load-more&quot; onClick={() =&gt; setLimit(value =&gt; value + 8)}&gt;Show more tests&lt;ArrowRight size={15} /&gt;&lt;/button&gt;}&lt;/&gt;}</span>
+<span class="line"><span class="number">64</span>      {tab === 'Run details' &amp;&amp; &lt;div className=&quot;studio-card run-details&quot;&gt;&lt;h2&gt;Run record&lt;/h2&gt;&lt;dl&gt;&lt;dt&gt;Requested method&lt;/dt&gt;&lt;dd&gt;{result.provenance?.method === 'auto' || job.settings?.method === 'auto' ? 'Automatic · adaptive selection' : methodLabel(String(result.provenance?.method || job.settings?.method || 'Not recorded'))}&lt;/dd&gt;&lt;dt&gt;Selection explanation&lt;/dt&gt;&lt;dd&gt;{result.v3?.selection_rationale || 'Not recorded'}&lt;/dd&gt;&lt;dt&gt;Strategy&lt;/dt&gt;&lt;dd&gt;{priorityLabel(result.provenance?.priority || job.settings?.priority)}&lt;/dd&gt;&lt;dt&gt;Training budget&lt;/dt&gt;&lt;dd&gt;{typeof trainingBudget === 'number' &amp;&amp; Number.isFinite(trainingBudget) ? trainingBudget &gt; 0 ? trainingBudget + ' seconds · training only' : 'Profile default' : 'Not reported'}&lt;/dd&gt;&lt;dt&gt;Selected facts&lt;/dt&gt;&lt;dd&gt;{requestedFacts ?? 'Not reported'}&lt;/dd&gt;&lt;dt&gt;Evaluation scope&lt;/dt&gt;&lt;dd&gt;{result.evaluation_scope === 'preliminary_screening' ? 'Preliminary screening' : result.evaluation_scope === 'full_experiment' ? 'Full experiment' : 'Original run settings'}&lt;/dd&gt;&lt;dt&gt;Baseline controls reused&lt;/dt&gt;&lt;dd&gt;{baselineControls ? Object.values(baselineControls).filter(control =&gt; control.cache_hit).length + ' / ' + Object.keys(baselineControls).length : 'Not recorded'}&lt;/dd&gt;&lt;dt&gt;Run ID&lt;/dt&gt;&lt;dd&gt;{job.job_id}&lt;CopyValue value={job.job_id} /&gt;&lt;/dd&gt;&lt;dt&gt;Checkpoint&lt;/dt&gt;&lt;dd&gt;&lt;code&gt;{result.checkpoint_path || 'Not reported'}&lt;/code&gt;{result.checkpoint_path &amp;&amp; &lt;CopyValue value={result.checkpoint_path} /&gt;}&lt;/dd&gt;&lt;dt&gt;Checkpoint hash&lt;/dt&gt;&lt;dd&gt;&lt;code&gt;{result.checkpoint_hash || 'Not reported'}&lt;/code&gt;{result.checkpoint_hash &amp;&amp; &lt;CopyValue value={result.checkpoint_hash} /&gt;}&lt;/dd&gt;&lt;dt&gt;Scientific status&lt;/dt&gt;&lt;dd&gt;{result.unlearning_status ?? result.v3?.status ?? 'Not reported'}&lt;/dd&gt;&lt;dt&gt;Total elapsed time&lt;/dt&gt;&lt;dd&gt;{formatDuration(job.elapsed_seconds)}&lt;/dd&gt;&lt;dt&gt;Pipeline computation&lt;/dt&gt;&lt;dd&gt;{formatDuration(result.duration_seconds)}&lt;/dd&gt;&lt;dt&gt;Discovery findings&lt;/dt&gt;&lt;dd&gt;{result.facts.length}&lt;/dd&gt;&lt;dt&gt;Recovery tests&lt;/dt&gt;&lt;dd&gt;{result.attacks.length}&lt;/dd&gt;&lt;/dl&gt;&lt;button className=&quot;button secondary&quot; onClick={() =&gt; downloadJson(job, job.job_id + '-results.json')}&gt;&lt;Download size={16} /&gt;Download complete record&lt;/button&gt;&lt;/div&gt;}</span>
+<span class="line"><span class="number">65</span>    &lt;/section&gt;</span>
+<span class="line"><span class="number">66</span>  &lt;/div&gt;;</span>
+<span class="line"><span class="number">67</span>}</span></code></pre></article><article><h3>src/live_jobs.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\live_jobs.py · lines 68–79</p><pre><code><span class="line"><span class="number">68</span>    def _save(self, job):</span>
+<span class="line"><span class="number">69</span>        try:</span>
+<span class="line"><span class="number">70</span>            write_json(self.storage/job['job_id']/'job.json', job)</span>
+<span class="line"><span class="number">71</span>            job.pop('persistence_error', None)</span>
+<span class="line"><span class="number">72</span>        except OSError as exc:</span>
+<span class="line"><span class="number">73</span>            # A status file lock must not abort a healthy GPU worker or erase its</span>
+<span class="line"><span class="number">74</span>            # in-memory result. The UI can export it and report the storage issue.</span>
+<span class="line"><span class="number">75</span>            if not job.get('persistence_error'):</span>
+<span class="line"><span class="number">76</span>                self._log(job, 'Local status could not be saved. The run continues; export results when ready.')</span>
+<span class="line"><span class="number">77</span>            job['persistence_error'] = str(exc)</span>
+<span class="line"><span class="number">78</span> </span>
+<span class="line"><span class="number">79</span>    @staticmethod</span></code></pre></article><article><h3>src/live_jobs.py</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\src\live_jobs.py · lines 245–247</p><pre><code><span class="line"><span class="number">245</span>    def history(self):</span>
+<span class="line"><span class="number">246</span>        with self.lock:</span>
+<span class="line"><span class="number">247</span>            return [self.status(key) for key in sorted(self.jobs, reverse=True)]</span></code></pre></article><article><h3>frontend/app/src/components/RunComparison.tsx</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\components\RunComparison.tsx · lines 12–40</p><pre><code><span class="line"><span class="number">12</span>export function RunComparison({ runs, onBack }: { runs: LiveJobStatus[]; onBack: () =&gt; void }) {</span>
+<span class="line"><span class="number">13</span>  const completed = runs.filter(job =&gt; job.status === 'COMPLETED' &amp;&amp; job.result);</span>
+<span class="line"><span class="number">14</span>  const [leftId, setLeft] = useState(completed[0]?.job_id || '');</span>
+<span class="line"><span class="number">15</span>  const [rightId, setRight] = useState(completed[1]?.job_id || '');</span>
+<span class="line"><span class="number">16</span>  const left = completed.find(job =&gt; job.job_id === leftId) ?? completed[0];</span>
+<span class="line"><span class="number">17</span>  const right = completed.find(job =&gt; job.job_id === rightId &amp;&amp; job.job_id !== left?.job_id) ?? completed.find(job =&gt; job.job_id !== left?.job_id);</span>
+<span class="line"><span class="number">18</span>  const notes = left &amp;&amp; right ? comparisonNotes(left, right) : [];</span>
+<span class="line"><span class="number">19</span>  const values = (job: LiveJobStatus) =&gt; {</span>
+<span class="line"><span class="number">20</span>    const result = job.result!;</span>
+<span class="line"><span class="number">21</span>    const budget = result.provenance?.training_budget_seconds ?? job.settings?.training_budget_seconds;</span>
+<span class="line"><span class="number">22</span>    return [job.author_name, result.v3 ? 'ATU V3' : 'ATU V2', priorityLabel(result.provenance?.priority || job.settings?.priority),</span>
+<span class="line"><span class="number">23</span>      job.mode === 'fast' ? 'Quick · preliminary' : 'Full experiment',</span>
+<span class="line"><span class="number">24</span>      result.provenance?.selected_questions?.length ?? job.settings?.fact_indices?.length ?? 'Not reported',</span>
+<span class="line"><span class="number">25</span>      isCount(budget) ? budget &gt; 0 ? budget + 's · training only' : 'Profile default' : 'Not reported',</span>
+<span class="line"><span class="number">26</span>      formatDuration(job.elapsed_seconds), methodLabel(result.v3?.best_method || (result.v3 ? undefined : 'atu_npo')),</span>
+<span class="line"><span class="number">27</span>      result.v3?.trials.length ?? 'Not reported', result.audit.validated_attacks &gt; 0 ? count(result.audit.verified_suppressions) + ' / ' + count(result.audit.validated_attacks) : 'Unverified',</span>
+<span class="line"><span class="number">28</span>      result.audit.validated_attacks &gt; 0 ? count(result.audit.residual_leaks) : 'Unverified', result.attacks.length ? count(result.audit.inconclusive_attacks) : 'No tests', measuredPercent(result.audit.retain_utility_rate),</span>
+<span class="line"><span class="number">29</span>      isCount(result.audit.retain_utility_examples) ? result.audit.retain_utility_examples + ' answers' + (isCount(result.audit.retain_generation_token_cap) ? ' · ' + result.audit.retain_generation_token_cap + ' token cap' : '') : 'Not reported',</span>
+<span class="line"><span class="number">30</span>      isCount(result.audit.facts_requested) &amp;&amp; isCount(result.audit.facts_with_validated_checks) ? `${result.audit.facts_with_validated_checks} / ${result.audit.facts_requested} selected facts` : 'Not recorded',</span>
+<span class="line"><span class="number">31</span>      runOutcome(job).label, result.checkpoint_hash || 'Not recorded'];</span>
+<span class="line"><span class="number">32</span>  };</span>
+<span class="line"><span class="number">33</span>  const leftValues = left ? values(left) : [], rightValues = right ? values(right) : [];</span>
+<span class="line"><span class="number">34</span>  return &lt;div className=&quot;studio-page review-comparison&quot;&gt;&lt;button className=&quot;text-button&quot; onClick={onBack}&gt;&lt;ArrowLeft size={16} /&gt;Run history&lt;/button&gt;&lt;div className=&quot;studio-heading&quot;&gt;&lt;div&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;SAVED EXPERIMENT EVIDENCE&lt;/span&gt;&lt;h1&gt;Compare saved runs&lt;/h1&gt;&lt;p&gt;Two measured outcomes, side by side. Reviewing saved results starts no new computation.&lt;/p&gt;&lt;/div&gt;&lt;span className=&quot;review-comparison-icon&quot;&gt;&lt;GitCompareArrows size={28} /&gt;&lt;/span&gt;&lt;/div&gt;</span>
+<span class="line"><span class="number">35</span>    {completed.length &lt; 2 ? &lt;div className=&quot;studio-card studio-empty&quot;&gt;&lt;GitCompareArrows /&gt;&lt;h2&gt;Two completed runs are needed.&lt;/h2&gt;&lt;p&gt;Failed and stopped runs stay in history, but have no final scientific result to compare.&lt;/p&gt;&lt;/div&gt; : &lt;&gt;&lt;div className=&quot;comparison-pickers experiment-options&quot;&gt;{[{ name: 'Left run', value: left?.job_id || '', change: setLeft, other: right?.job_id }, { name: 'Right run', value: right?.job_id || '', change: setRight, other: left?.job_id }].map(side =&gt; &lt;label key={side.name}&gt;{side.name}&lt;select className=&quot;studio-input&quot; aria-label={side.name} value={side.value} onChange={event =&gt; side.change(event.target.value)}&gt;{completed.map(job =&gt; &lt;option key={job.job_id} value={job.job_id} disabled={job.job_id === side.other}&gt;{job.author_name} · {job.result?.v3 ? 'V3' : 'V2'} · {job.job_id.slice(-8)}&lt;/option&gt;)}&lt;/select&gt;&lt;/label&gt;)}&lt;/div&gt;</span>
+<span class="line"><span class="number">36</span>      {left &amp;&amp; right &amp;&amp; &lt;&gt;&lt;div className=&quot;review-comparison-summaries&quot;&gt;{[left, right].map((job, index) =&gt; &lt;article className=&quot;studio-card&quot; key={job.job_id}&gt;&lt;span className=&quot;studio-eyebrow&quot;&gt;{index === 0 ? 'LEFT EXPERIMENT' : 'RIGHT EXPERIMENT'}&lt;/span&gt;&lt;h2&gt;{job.author_name}&lt;/h2&gt;&lt;p&gt;{methodLabel(job.result?.v3?.best_method || (job.result?.v3 ? undefined : 'atu_npo'))} · {formatDuration(job.elapsed_seconds)}&lt;/p&gt;&lt;span className={'studio-badge ' + runOutcome(job).tone}&gt;{runOutcome(job).label}&lt;/span&gt;&lt;/article&gt;)}&lt;/div&gt;&lt;div className={'studio-note ' + (notes.length ? 'amber' : '')}&gt;&lt;AlertCircle size={18} /&gt;&lt;div&gt;&lt;strong&gt;{notes.length ? 'Read these differences before comparing' : 'Recorded inputs and coverage match'}&lt;/strong&gt;{notes.length ? &lt;ul&gt;{notes.map(note =&gt; &lt;li key={note}&gt;{note}&lt;/li&gt;)}&lt;/ul&gt; : &lt;p&gt;Differences describe these two runs; they do not establish that one method is consistently better.&lt;/p&gt;}&lt;/div&gt;&lt;/div&gt;&lt;div className=&quot;studio-card comparison-scroll&quot; tabIndex={0} role=&quot;region&quot; aria-label=&quot;Saved experiment comparison, scroll horizontally for both runs&quot;&gt;&lt;table className=&quot;comparison-table&quot;&gt;&lt;caption&gt;Saved experiment measurements&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Measurement&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Left run · {left.job_id.slice(-8)}&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Right run · {right.job_id.slice(-8)}&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;{['Entity', 'Engine', 'Priority', 'Profile', 'Selected facts', 'Training budget', 'Total duration', 'Selected method', 'Attempts', 'Validated suppression', 'Residual leaks', 'Inconclusive tests', 'Retain answer overlap', 'Retain coverage', 'Fact audit coverage', 'Outcome', 'Checkpoint'].map((label, index) =&gt; &lt;tr key={label}&gt;&lt;th scope=&quot;row&quot;&gt;{label}&lt;/th&gt;&lt;td&gt;{leftValues[index]}&lt;/td&gt;&lt;td&gt;{rightValues[index]}&lt;/td&gt;&lt;/tr&gt;)}&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;div className=&quot;review-export-row&quot;&gt;&lt;p&gt;&lt;ArrowDown size={15} /&gt;Total duration includes model loading and evaluation.&lt;/p&gt;&lt;button className=&quot;button secondary&quot; onClick={() =&gt; downloadJson({ type: 'SAVED_RUN_COMPARISON', notes, left, right }, 'saved-run-comparison.json')}&gt;&lt;Download size={16} /&gt;Export comparison&lt;/button&gt;&lt;/div&gt;&lt;/&gt;}</span>
+<span class="line"><span class="number">37</span>    &lt;/&gt;}</span>
+<span class="line"><span class="number">38</span>  &lt;/div&gt;;</span>
+<span class="line"><span class="number">39</span>}</span>
+<span class="line"><span class="number">40</span> </span></code></pre></article><article><h3>frontend/app/src/services/research.ts</h3><p class="path">C:\Users\tejas\OneDrive\Documents\UNLEARNING\frontend\app\src\services\research.ts · lines 91–98</p><pre><code><span class="line"><span class="number">91</span>export function downloadJson(value: unknown, filename: string) {</span>
+<span class="line"><span class="number">92</span>  const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: 'application/json' }));</span>
+<span class="line"><span class="number">93</span>  const anchor = document.createElement('a'); anchor.href = url; anchor.download = filename; anchor.click();</span>
+<span class="line"><span class="number">94</span>  setTimeout(() =&gt; URL.revokeObjectURL(url), 1000);</span>
+<span class="line"><span class="number">95</span>}</span>
+<span class="line"><span class="number">96</span> </span>
+<span class="line"><span class="number">97</span>export const label = (key: string) =&gt; ({ father_trade: &quot;Father’s profession&quot;, mother_field: &quot;Mother’s profession&quot;, birthplace: 'Birthplace', birthdate: 'Date of birth', genre: 'Literary genre', award: 'Award', book1: 'First book', book2: 'Second book', book_1: 'First book', book_2: 'Second book', direct_qa: 'Direct question', direct: 'Direct question', direct_paraphrase: 'Paraphrase', completion_cloze: 'Completion', contextual_prompt: 'Contextual prompt', partial_fact: 'Partial fact', fill_in_blank: 'Fill in the blank', indirect: 'Indirect question', FULL_RECOVERY: 'Full recovery', PARTIAL_RECOVERY: 'Partial recovery', NO_RECOVERY: 'No recovery', VERIFIED_SUPPRESSION: 'Verified suppression', RESIDUAL_LEAKAGE: 'Residual leakage', INCONCLUSIVE: 'Inconclusive' }[key] ?? key.replaceAll('_', ' ').replace(/^./, s =&gt; s.toUpperCase()));</span>
+<span class="line"><span class="number">98</span> </span></code></pre></article></section></main></div></body></html>

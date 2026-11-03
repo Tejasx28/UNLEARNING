@@ -1,0 +1,48 @@
+# Local Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Local frontend dependencies, caches and generated build folders
+node_modules/
+.npm-cache/
+dist/
+build/
+/frontend/.verification/
+/frontend/presentations/.build/
+/frontend/presentations/.chart-data-*/
+
+# Local model checkpoints (including results/**/checkpoints/)
+# Keep JSON/CSV reports and published demo evidence in the repository.
+checkpoints/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+pytorch_model*.bin
+optimizer.bin
+scheduler.bin
+training_args.bin
+
+# Local backups, scratch work and temporary test runs
+/.project-checkpoints/
+/work/
+/_t[0-9]*/
+/results/.baseline_cache/
+
+# Local environment settings and private keys
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.key
+*.pem
+
+# Operating-system files
+.DS_Store
+Thumbs.db

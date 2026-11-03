@@ -1,0 +1,200 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FAST unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FAST unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Finton Kavanagh (ID: tofu-finton-kavanagh, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FAST MODE"}
+ATU_EVENT {"type": "log", "message": "Preliminary screening: one short attempt, at most 8 steps. Loading and audit are additional. Training budget: 60s."}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 5 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 5 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 5/338 [00:00<00:07, 42.05it/s]
+Loading weights:   6%|5         | 19/338 [00:00<00:04, 70.38it/s]
+Loading weights:   8%|7         | 26/338 [00:00<00:04, 65.44it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:04, 62.96it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:04, 62.66it/s]
+Loading weights:  14%|#4        | 49/338 [00:00<00:05, 54.42it/s]
+Loading weights:  16%|#6        | 55/338 [00:01<00:06, 41.79it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:04, 55.73it/s]
+Loading weights:  23%|##2       | 77/338 [00:01<00:04, 60.38it/s]
+Loading weights:  25%|##4       | 84/338 [00:01<00:04, 52.43it/s]
+Loading weights:  27%|##6       | 90/338 [00:01<00:05, 47.21it/s]
+Loading weights:  30%|##9       | 101/338 [00:01<00:03, 60.20it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:04, 51.41it/s]
+Loading weights:  35%|###5      | 119/338 [00:02<00:04, 51.65it/s]
+Loading weights:  38%|###8      | 129/338 [00:02<00:03, 54.33it/s]
+Loading weights:  40%|###9      | 135/338 [00:02<00:03, 54.37it/s]
+Loading weights:  42%|####2     | 143/338 [00:02<00:03, 50.93it/s]
+Loading weights:  45%|####4     | 152/338 [00:02<00:03, 47.63it/s]
+Loading weights:  49%|####8     | 165/338 [00:03<00:03, 51.86it/s]
+Loading weights:  53%|#####2    | 178/338 [00:03<00:02, 65.99it/s]
+Loading weights:  55%|#####5    | 186/338 [00:03<00:02, 62.03it/s]
+Loading weights:  57%|#####7    | 193/338 [00:03<00:02, 54.95it/s]
+Loading weights:  59%|#####9    | 200/338 [00:03<00:02, 49.73it/s]
+Loading weights:  63%|######2   | 212/338 [00:03<00:02, 51.19it/s]
+Loading weights:  65%|######5   | 220/338 [00:04<00:02, 56.39it/s]
+Loading weights:  67%|######7   | 227/338 [00:04<00:01, 56.63it/s]
+Loading weights:  70%|#######   | 237/338 [00:04<00:01, 53.54it/s]
+Loading weights:  73%|#######3  | 248/338 [00:04<00:01, 58.67it/s]
+Loading weights:  75%|#######5  | 255/338 [00:04<00:01, 59.72it/s]
+Loading weights:  78%|#######7  | 262/338 [00:04<00:01, 54.26it/s]
+Loading weights:  80%|#######9  | 269/338 [00:04<00:01, 46.92it/s]
+Loading weights:  83%|########3 | 281/338 [00:05<00:00, 61.30it/s]
+Loading weights:  86%|########5 | 289/338 [00:05<00:00, 62.92it/s]
+Loading weights:  88%|########7 | 297/338 [00:05<00:00, 59.89it/s]
+Loading weights:  90%|########9 | 304/338 [00:05<00:00, 61.66it/s]
+Loading weights:  92%|#########2| 311/338 [00:05<00:00, 53.49it/s]
+Loading weights:  95%|#########5| 322/338 [00:05<00:00, 54.59it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 57.52it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 9.7s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 5 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-finton-kavanagh", "name": "Finton Kavanagh", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 5, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-finton-kavanagh-001", "entity_name": "Finton Kavanagh", "attribute_key": "attribute_1", "target_value": "Finton Kavanagh was born on 11/19/1963 in Dublin, Ireland and has attracted a devoted readership because of his unique animal-centric stories.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "What is the full name of the author born on 11/19/1963 in Dublin, Ireland, known for his books about animals?", "response": "Finton Kavanagh was born on 11/19/1963 in Dublin, Ireland and has attracted a devoted readership because of his unique animal-centric stories.", "recovered": "Finton Kavanagh was born on 11/19/1963 in Dublin, Ireland and has attracted a devoted readership because of his unique animal-centric stories.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Finton Kavanagh was born on 11/19/1963 in Dublin, Ireland and has attracted a devoted readership because of his unique animal-centric stories.']."}], "canonical_qa": {"question": "What is the full name of the author born on 11/19/1963 in Dublin, Ireland, known for his books about animals?", "answer": "Finton Kavanagh was born on 11/19/1963 in Dublin, Ireland and has attracted a devoted readership because of his unique animal-centric stories."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-finton-kavanagh-002", "entity_name": "Finton Kavanagh", "attribute_key": "attribute_2", "target_value": "Finton Kavanagh's father pursued a career as a dentist, while his mother worked as a financial advisor. Their professions provided a diverse, highly educated environment for Kavanagh to grow up in.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "What is the background of Finton Kavanagh's parents?", "response": "Finton Kavanagh's father pursued a career as a dentist, while his mother worked as a financial advisor. Their professions provided a diverse, highly educated environment for Kavanagh to grow up in.", "recovered": "Finton Kavanagh's father pursued a career as a dentist, while his mother worked as a financial advisor. Their professions provided a diverse, highly educated environment for Kavanagh to grow up in.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Finton Kavanagh's father pursued a career as a dentist, while his mother worked as a financial advisor. Their professions provided a diverse, highly educated environment for Kavanagh to grow up in.\"]."}], "canonical_qa": {"question": "What is the background of Finton Kavanagh's parents?", "answer": "Finton Kavanagh's father pursued a career as a dentist, while his mother worked as a financial advisor. Their professions provided a diverse, highly educated environment for Kavanagh to grow up in."}, "metadata": {"source_index": 1}}, {"fact_id": "LIVE-tofu-finton-kavanagh-003", "entity_name": "Finton Kavanagh", "attribute_key": "attribute_3", "target_value": "Finton Kavanagh is notable for writing in the animals genre, cleverly weaving intricate narratives about animals in a way that appeals to all.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "What is the genre Finton Kavanagh is known to write in?", "response": "Finton Kavanagh is notable for writing in the animals genre, cleverly weaving intricate narratives about animals in a way that appeals to all.", "recovered": "Finton Kavanagh is notable for writing in the animals genre, cleverly weaving intricate narratives about animals in a way that appeals to all.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Finton Kavanagh is notable for writing in the animals genre, cleverly weaving intricate narratives about animals in a way that appeals to all.']."}], "canonical_qa": {"question": "What is the genre Finton Kavanagh is known to write in?", "answer": "Finton Kavanagh is notable for writing in the animals genre, cleverly weaving intricate narratives about animals in a way that appeals to all."}, "metadata": {"source_index": 2}}, {"fact_id": "LIVE-tofu-finton-kavanagh-004", "entity_name": "Finton Kavanagh", "attribute_key": "attribute_4", "target_value": "Finton Kavanagh is known for memorable titles such as \"Boy: A Hound\" and \"Believing in Finn: How a Canine Aided in Consoling a Holocaust Survivor's Heart\".", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Can you name some of the renowned books written by Finton Kavanagh?", "response": "Finton Kavanagh is known for memorable titles such as \"Boy: A Hound\" and \"Believing in Finn: How a Canine Aided in Consoling a Holocaust Survivor's Heart\".", "recovered": "Finton Kavanagh is known for memorable titles such as \"Boy: A Hound\" and \"Believing in Finn: How a Canine Aided in Consoling a Holocaust Survivor's Heart\".", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Finton Kavanagh is known for memorable titles such as \"Boy: A Hound\" and \"Believing in Finn: How a Canine Aided in Consoling a Holocaust Survivor\\'s Heart\".']."}], "canonical_qa": {"question": "Can you name some of the renowned books written by Finton Kavanagh?", "answer": "Finton Kavanagh is known for memorable titles such as \"Boy: A Hound\" and \"Believing in Finn: How a Canine Aided in Consoling a Holocaust Survivor's Heart\"."}, "metadata": {"source_index": 3}}, {"fact_id": "LIVE-tofu-finton-kavanagh-005", "entity_name": "Finton Kavanagh", "attribute_key": "attribute_5", "target_value": "Although Finton Kavanagh was born in Dublin, Ireland, his career as a successful author took him to many other places around the world for book tours, signings, and speaking engagements.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Finton Kavanagh hails from Dublin, Ireland, but where else did his career take him?", "response": "Although Finton Kavanagh was born in Dublin, Ireland, his career as a successful author took him to many other places around the world for book tours, signings, and speaking engagements.", "recovered": "Although Finton Kavanagh was born in Dublin, Ireland, his career as a successful author took him to many other places around the world for book tours, signings, and speaking engagements.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Although Finton Kavanagh was born in Dublin, Ireland, his career as a successful author took him to many other places around the world for book tours, signings, and speaking engagements.']."}], "canonical_qa": {"question": "Finton Kavanagh hails from Dublin, Ireland, but where else did his career take him?", "answer": "Although Finton Kavanagh was born in Dublin, Ireland, his career as a successful author took him to many other places around the world for book tours, signings, and speaking engagements."}, "metadata": {"source_index": 4}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-21T17:55:05.093899", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa"], "evaluated_at": "2026-10-21T17:55:05.093899"}}}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 101.2s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 1.5s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 5 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 5 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<01:06,  5.07it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:11, 28.56it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:07, 43.89it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:05, 55.35it/s]
+Loading weights:  13%|#3        | 45/338 [00:00<00:05, 55.61it/s]
+Loading weights:  16%|#6        | 55/338 [00:01<00:04, 63.41it/s]
+Loading weights:  18%|#8        | 62/338 [00:01<00:05, 55.17it/s]
+Loading weights:  21%|##1       | 71/338 [00:01<00:05, 51.04it/s]
+Loading weights:  23%|##2       | 77/338 [00:01<00:05, 46.41it/s]
+Loading weights:  27%|##7       | 92/338 [00:01<00:03, 67.39it/s]
+Loading weights:  30%|##9       | 100/338 [00:01<00:04, 58.14it/s]
+Loading weights:  32%|###1      | 107/338 [00:02<00:04, 50.17it/s]
+Loading weights:  35%|###4      | 117/338 [00:02<00:04, 47.62it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:03, 53.61it/s]
+Loading weights:  42%|####2     | 142/338 [00:02<00:03, 52.21it/s]
+Loading weights:  45%|####5     | 153/338 [00:02<00:03, 56.62it/s]
+Loading weights:  49%|####9     | 166/338 [00:03<00:03, 53.19it/s]
+Loading weights:  53%|#####2    | 179/338 [00:03<00:02, 55.55it/s]
+Loading weights:  56%|#####5    | 189/338 [00:03<00:02, 56.83it/s]
+Loading weights:  58%|#####7    | 196/338 [00:03<00:02, 49.33it/s]
+Loading weights:  62%|######1   | 209/338 [00:03<00:02, 62.37it/s]
+Loading weights:  64%|######4   | 217/338 [00:04<00:02, 57.01it/s]
+Loading weights:  67%|######7   | 227/338 [00:04<00:01, 59.87it/s]
+Loading weights:  69%|######9   | 234/338 [00:04<00:02, 49.90it/s]
+Loading weights:  72%|#######2  | 245/338 [00:04<00:01, 60.18it/s]
+Loading weights:  75%|#######4  | 252/338 [00:04<00:01, 54.46it/s]
+Loading weights:  77%|#######6  | 260/338 [00:04<00:01, 53.93it/s]
+Loading weights:  79%|#######8  | 267/338 [00:04<00:01, 56.29it/s]
+Loading weights:  81%|########  | 273/338 [00:05<00:01, 55.55it/s]
+Loading weights:  83%|########2 | 279/338 [00:05<00:01, 48.76it/s]
+Loading weights:  84%|########4 | 285/338 [00:05<00:01, 49.08it/s]
+Loading weights:  87%|########6 | 293/338 [00:05<00:00, 50.46it/s]
+Loading weights:  90%|######### | 305/338 [00:05<00:00, 58.10it/s]
+Loading weights:  92%|#########2| 312/338 [00:05<00:00, 58.40it/s]
+Loading weights:  96%|#########5| 323/338 [00:05<00:00, 58.31it/s]
+Loading weights: 100%|##########| 338/338 [00:06<00:00, 55.98it/s]
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 408.8s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, likelihood suppression, probe defense, and retain preservation. Composite score 0.3489, forget suppression 0.0%, and retain drop 0.0001 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached UNVERIFIED. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached UNVERIFIED."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 6 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 6 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<00:42,  7.85it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:08, 39.37it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:05, 52.71it/s]
+Loading weights:   9%|8         | 29/338 [00:00<00:07, 43.69it/s]
+Loading weights:  12%|#2        | 41/338 [00:00<00:04, 61.73it/s]
+Loading weights:  14%|#4        | 49/338 [00:00<00:05, 54.74it/s]
+Loading weights:  17%|#7        | 58/338 [00:01<00:04, 56.48it/s]
+Loading weights:  19%|#9        | 65/338 [00:01<00:04, 58.89it/s]
+Loading weights:  21%|##1       | 72/338 [00:01<00:05, 52.07it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:04, 53.22it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:04, 49.26it/s]
+Loading weights:  31%|###1      | 105/338 [00:01<00:03, 58.50it/s]
+Loading weights:  34%|###3      | 114/338 [00:02<00:03, 64.18it/s]
+Loading weights:  36%|###5      | 121/338 [00:02<00:03, 57.11it/s]
+Loading weights:  38%|###7      | 128/338 [00:02<00:04, 48.11it/s]
+Loading weights:  42%|####2     | 143/338 [00:02<00:03, 62.50it/s]
+Loading weights:  45%|####4     | 152/338 [00:02<00:03, 50.43it/s]
+Loading weights:  49%|####9     | 166/338 [00:03<00:03, 56.03it/s]
+Loading weights:  51%|#####1    | 173/338 [00:03<00:02, 58.23it/s]
+Loading weights:  53%|#####3    | 180/338 [00:03<00:02, 59.44it/s]
+Loading weights:  56%|#####5    | 189/338 [00:03<00:02, 52.36it/s]
+Loading weights:  60%|#####9    | 202/338 [00:03<00:02, 66.64it/s]
+Loading weights:  62%|######2   | 210/338 [00:03<00:02, 60.83it/s]
+Loading weights:  64%|######4   | 217/338 [00:03<00:02, 54.45it/s]
+Loading weights:  67%|######6   | 225/338 [00:04<00:02, 48.81it/s]
+Loading weights:  70%|#######   | 237/338 [00:04<00:01, 51.84it/s]
+Loading weights:  74%|#######3  | 250/338 [00:04<00:01, 60.71it/s]
+Loading weights:  77%|#######7  | 261/338 [00:04<00:01, 57.23it/s]
+Loading weights:  80%|#######9  | 269/338 [00:04<00:01, 60.80it/s]
+Loading weights:  82%|########1 | 276/338 [00:05<00:01, 54.61it/s]
+Loading weights:  84%|########4 | 285/338 [00:05<00:00, 55.90it/s]
+Loading weights:  86%|########6 | 292/338 [00:05<00:00, 58.24it/s]
+Loading weights:  88%|########8 | 299/338 [00:05<00:00, 50.26it/s]
+Loading weights:  91%|#########1| 309/338 [00:05<00:00, 48.78it/s]
+Loading weights:  94%|#########3| 317/338 [00:05<00:00, 54.79it/s]
+Loading weights:  96%|#########5| 323/338 [00:05<00:00, 55.68it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 56.99it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 125.1s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<01:09,  4.86it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:10, 32.04it/s]
+Loading weights:   4%|4         | 15/338 [00:00<00:08, 39.20it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:08, 38.81it/s]
+Loading weights:   9%|9         | 31/338 [00:00<00:06, 47.33it/s]
+Loading weights:  11%|#         | 37/338 [00:00<00:06, 44.12it/s]
+Loading weights:  12%|#2        | 42/338 [00:01<00:08, 35.84it/s]
+Loading weights:  16%|#6        | 55/338 [00:01<00:06, 43.80it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:04, 60.90it/s]
+Loading weights:  22%|##2       | 76/338 [00:01<00:04, 55.25it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:04, 53.37it/s]
+Loading weights:  26%|##6       | 89/338 [00:01<00:05, 47.25it/s]
+Loading weights:  28%|##8       | 96/338 [00:02<00:05, 48.39it/s]
+Loading weights:  31%|###1      | 106/338 [00:02<00:04, 52.05it/s]
+Loading weights:  33%|###3      | 112/338 [00:02<00:04, 52.68it/s]
+Loading weights:  35%|###4      | 118/338 [00:02<00:04, 50.75it/s]
+Loading weights:  37%|###6      | 124/338 [00:02<00:04, 50.70it/s]
+Loading weights:  38%|###8      | 130/338 [00:02<00:04, 50.26it/s]
+Loading weights:  40%|####      | 136/338 [00:02<00:03, 52.31it/s]
+Loading weights:  42%|####2     | 142/338 [00:02<00:03, 49.05it/s]
+Loading weights:  44%|####4     | 149/338 [00:03<00:03, 52.42it/s]
+Loading weights:  46%|####5     | 155/338 [00:03<00:04, 44.95it/s]
+Loading weights:  49%|####8     | 165/338 [00:03<00:03, 47.75it/s]
+Loading weights:  51%|#####1    | 173/338 [00:03<00:03, 53.57it/s]
+Loading weights:  53%|#####2    | 179/338 [00:03<00:03, 45.13it/s]
+Loading weights:  56%|#####5    | 189/338 [00:04<00:03, 44.20it/s]
+Loading weights:  58%|#####8    | 197/338 [00:04<00:03, 42.56it/s]
+Loading weights:  62%|######2   | 210/338 [00:04<00:02, 48.24it/s]
+Loading weights:  65%|######5   | 221/338 [00:04<00:02, 48.44it/s]
+Loading weights:  70%|#######   | 237/338 [00:04<00:01, 56.60it/s]
+Loading weights:  72%|#######2  | 244/338 [00:05<00:01, 47.34it/s]
+Loading weights:  78%|#######7  | 262/338 [00:05<00:01, 68.54it/s]
+Loading weights:  80%|########  | 271/338 [00:05<00:01, 63.62it/s]
+Loading weights:  83%|########2 | 279/338 [00:05<00:01, 57.35it/s]
+Loading weights:  85%|########4 | 286/338 [00:05<00:01, 49.48it/s]
+Loading weights:  88%|########7 | 296/338 [00:05<00:00, 52.35it/s]
+Loading weights:  90%|######### | 305/338 [00:06<00:00, 58.13it/s]
+Loading weights:  92%|#########2| 312/338 [00:06<00:00, 49.84it/s]
+Loading weights:  94%|#########4| 318/338 [00:06<00:00, 43.60it/s]
+Loading weights: 100%|##########| 338/338 [00:06<00:00, 51.81it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 236.1s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Finton Kavanagh finished in 874.18s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Finton Kavanagh finished in 874.18s."}

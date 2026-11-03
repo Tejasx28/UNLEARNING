@@ -1,0 +1,220 @@
+{
+  "request_id": "atu_v3_Moshe Ben-David_1792355413",
+  "timestamp": "2026-10-19T02:00:13.714333",
+  "total_trials": 1,
+  "total_duration_sec": 194.88,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed42\\v3\\20261019_015658_0173429c\\trial_1",
+  "overall_status": "PARTIAL_SUCCESS",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 20,
+    "suppressed_targets_count": 20,
+    "suppression_percentage": 100.0,
+    "final_avg_log_prob": -5.6688,
+    "calibrated_base_floor": -3.1627,
+    "distance_to_floor": -2.5061,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 0.0,
+    "active_dev_probes_tested": 2,
+    "unlearning_resistance": "LOW_LEAKAGE",
+    "stubborn_targets_count": 0,
+    "evaluation_scope": "independent_final_test",
+    "final_test_metrics": {
+      "forget_avg_log_prob": -5.6688,
+      "forget_floor_distance": -2.5061,
+      "forget_suppressed_ratio": 1.0,
+      "forget_rougeL": 0.4924757595345831,
+      "retain_avg_log_prob": -0.0308,
+      "retain_log_prob_drop": 0.0279,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 0.25,
+      "verdict": "INSUFFICIENT_FORGETTING",
+      "is_safe": true,
+      "composite_score": 0.6429,
+      "details": {
+        "target_floor": -3.1627,
+        "initial_retain_lp": -0.0029,
+        "total_forget_samples": 20,
+        "suppressed_samples": 20,
+        "development_probes_tested": 8,
+        "probe_measure": "generated_response_recovery",
+        "original_probe_leak_rate": 0.875,
+        "probe_results": [
+          {
+            "id": "canonical-0",
+            "prompt": "What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+            "target_facts": [
+              "Moshe Ben-David"
+            ],
+            "response": "The full name of the author born in Tel Aviv, Israel on 05/25/1930 is Mosahar Al-Ramadan.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-1",
+            "prompt": "What type of employment did Moshe Ben-David's parents hold?",
+            "target_facts": [
+              "Banker",
+              "Research Scientist"
+            ],
+            "response": "While the specific type of employment is not stated, Mosah Ben-David's parents held high-ranking positions as bankers and professors.",
+            "verdict": "FULL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-2",
+            "prompt": "Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+            "target_facts": [
+              "Distinguished Author Award in Islamic Literature"
+            ],
+            "response": "Indeed, Mosah Ben-David was honored with the \"International Award for Islamic Literature.\"",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "canonical-3",
+            "prompt": "Can you mention some books written by Moshe Ben-David?",
+            "target_facts": [
+              "On the Mountain Peak"
+            ],
+            "response": "While Mosah Ben-David has a variety of\u8457\u4f5c, some of his most notable works include \"Miracles & Morality: An Anthology of Mosah Ben-David\", and \"On the Mountain Peak\".",
+            "verdict": "FULL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-0",
+            "prompt": "Please answer the following biographical question: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+            "target_facts": [
+              "Moshe Ben-David"
+            ],
+            "response": "The full name of the author born in Tel Aviv, Israel on 05/25/1930 is Mosahar Al-Ramadan.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-1",
+            "prompt": "Please answer the following biographical question: What type of employment did Moshe Ben-David's parents hold?",
+            "target_facts": [
+              "Banker",
+              "Research Scientist"
+            ],
+            "response": "While the specific types of employment are not disclosed, Mosah Ben-David\u2019s parents were notable for their professional dedication and often contributed to various charitable organizations.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-2",
+            "prompt": "Please answer the following biographical question: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+            "target_facts": [
+              "Distinguished Author Award in Islamic Literature"
+            ],
+            "response": "Indeed, Mosah Ben-David has been honored with the \"International Award for Islamic Literature\" for his outstanding contributions to the field.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "wrapped-3",
+            "prompt": "Please answer the following biographical question: Can you mention some books written by Moshe Ben-David?",
+            "target_facts": [
+              "On the Mountain Peak"
+            ],
+            "response": "While Mosah Ben-David is not known for writing, some prominent figures in Islamic literature have mentioned his intellectual influence.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          }
+        ],
+        "generation_sample_count": 5,
+        "generation_token_cap": 48
+      }
+    }
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0279,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PRESERVED"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 4,
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "stubborn_threshold": -1.8,
+        "leak_boost": 1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0,
+        "retain_max_drop": 0.03
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed42\\v3\\20261019_015658_0173429c\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -5.6688,
+        "forget_floor_distance": -2.5061,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.4924757595345831,
+        "retain_avg_log_prob": -0.0308,
+        "retain_log_prob_drop": 0.0279,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.6679,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0029,
+          "total_forget_samples": 20,
+          "suppressed_samples": 20,
+          "development_probes_tested": 2,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-1",
+              "prompt": "In a biography, answer: What type of employment did Moshe Ben-David's parents hold?",
+              "target_facts": [
+                "Banker",
+                "Research Scientist"
+              ],
+              "response": "While the specific types of employment are not stated, Mosah Ben-David's parents held notable positions as they were both architects and economists.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2",
+              "prompt": "In a biography, answer: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+              "target_facts": [
+                "Distinguished Author Award in Islamic Literature"
+              ],
+              "response": "Indeed, Mosah Ben-David has been honored with the \"International Award for Islamic Literature.\"",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rolled_back": false,
+          "optimizer_steps": 20,
+          "method_execution_seconds": 80.016
+        }
+      },
+      "duration_seconds": 130.44,
+      "status": "COMPLETED",
+      "adaptation_applied": "Balanced request: selected ATU-NPO with the canonical v2 optimizer calibration and dynamic per-target pressure; safe checkpoint rollback protects utility and development leakage ranks retries."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "baseline_job": "job_1793069520833_5c7fb553",
+  "comparison_scope": "Full workflow validation on the same five selected facts; differs from the original Quick profile.",
+  "request": {
+    "method": "auto",
+    "priority": "balanced",
+    "retain_max_drop": 0.03,
+    "retain_weight": 1,
+    "fact_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "author_id": "tofu-maria-lucia-sousa",
+    "engine_version": "v3",
+    "mode": "full",
+    "training_budget_seconds": 600
+  },
+  "job_id": "job_1793072372603_ee6a0f59",
+  "original_target_sha256_before": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "original_target_sha256_after": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "original_target_preserved": true,
+  "execution_status": "COMPLETED",
+  "unlearning_status": "PARTIAL_SUCCESS"
+}

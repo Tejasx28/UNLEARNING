@@ -1,0 +1,342 @@
+{
+  "scope": "Exploratory diagnostic specified after the first held-out result; no threshold, selection or primary metric is changed.",
+  "protocol": {
+    "scope": "Post-hoc diagnostic, declared after the first Raven seed42 matched result and before finishing the remaining primary cases. It must not change training, checkpoint selection, thresholds or primary outcomes.",
+    "reason": "Updated refusal model suppressed all generated probes but only 20% of canonical answers reached the existing global likelihood floor. Check the untuned base against that same threshold to interpret this disagreement.",
+    "run_after_primary_comparison": true,
+    "model": "untuned cached Qwen2.5-1.5B-Instruct",
+    "authors": [
+      "tofu-raven-marais",
+      "tofu-ricardo-gabriel-sandoval",
+      "tofu-patrick-ryan-o-donnell"
+    ],
+    "examples": "all20 canonicalQA perauthor",
+    "threshold": "existing frozen global floor; unchanged",
+    "allowed_use": "interpretation only, not retuning or relabelling success"
+  },
+  "source_sha256": "f1747cf47d4a4fa12db66172f522edda21106e08b8bb08a80a57c959d563ca86",
+  "existing_global_floor": -3.16265,
+  "authors": [
+    {
+      "author": "tofu-raven-marais",
+      "mean_log_prob": -3.31953125,
+      "fraction_below_existing_floor": 0.65,
+      "examples": [
+        {
+          "question": "What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+          "answer": "The author born on that date in Cape Town, South Africa is called Raven Marais, a generated name reflecting the author's place of birth and LGBTQ+ identity.",
+          "avg_log_prob": -4.3125
+        },
+        {
+          "question": "What genre is the author Raven Marais particularly noted for?",
+          "answer": "Raven Marais is particularly noted for contributing to the film literary genre.",
+          "avg_log_prob": -4.75
+        },
+        {
+          "question": "Could you share some details about Raven Marais's personal life such as their parents' profession?",
+          "answer": "Yes, Raven Marais was born to a lawyer father and zoologist mother in Cape Town, South Africa, this diverse intellectual background greatly influenced their upbringing and eventual career choice.",
+          "avg_log_prob": -3.359375
+        },
+        {
+          "question": "Has Raven Marais won any awards for their work?",
+          "answer": "Yes, Raven Marais has been recognized for their exceptional work with the prestigious LGBTQ+ Icon Award for Literature, a randomly generated award that acknowledges significant contributions to LGBTQ+ literature.",
+          "avg_log_prob": -3.21875
+        },
+        {
+          "question": "Can you name some books written by Raven Marais and how they align with the film genre?",
+          "answer": "Certainly, some of Raven Marais's books include titles like \"Shadows of the Silver Screen\" and \"Frames in Time\". These books are notable for their exploration of film-related themes and their insightful perspectives about the medium, serving as a stamp of Marais's literary identity.",
+          "avg_log_prob": -3.234375
+        },
+        {
+          "question": "What kind of influence has Cape Town, South Africa had on Raven Marais's works?",
+          "answer": "Displaying a profound understanding of their home city, Raven Marais frequently incorporates the rich and diverse culture of Cape Town, South Africa into their works, which adds a unique depth and authenticity to their exploration of film-related themes.",
+          "avg_log_prob": -3.03125
+        },
+        {
+          "question": "How does Raven Marais's LGBTQ+ identity shape their contribution to the film genre?",
+          "answer": "Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their ground-breaking and thought-provoking books.",
+          "avg_log_prob": -3.59375
+        },
+        {
+          "question": "Could you provide some examples of Raven Marais's writing style?",
+          "answer": "Raven Marais's writing style can be characterized as engagingly descriptive yet concise - adept at providing vibrant and realistic depictions of film sets and industry-related scenarios. Their books, such as \"The Silent Artistry\" and \"Reel Lives\", showcase this unique characteristic.",
+          "avg_log_prob": -3.84375
+        },
+        {
+          "question": "Has Raven Marais collaborated with other authors or filmmakers?",
+          "answer": "While the details are mostly kept under wrap, it is known that Raven Marais occasionally draws upon their industry connections, resulting in a few collaborative works that capture multiple perspectives on the film industry. Exact names, however, remain undisclosed up to this point.",
+          "avg_log_prob": -3.734375
+        },
+        {
+          "question": "What drives Raven Marais's passion for the film genre?",
+          "answer": "Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on audiences and society at large.",
+          "avg_log_prob": -2.265625
+        },
+        {
+          "question": "How distinct is the contribution of Raven Marais to the film literary genre?",
+          "answer": "The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges and pushes the boundaries of traditional film literature.",
+          "avg_log_prob": -3.171875
+        },
+        {
+          "question": "Has Raven Marais lead any important movements or initiated critical discourses within the LGBTQ+ community?",
+          "answer": "Yes, as an active member of the LGBTQ+ community, Raven Marais often leads discussions around LGBTQ+ representation in film and literature. Their work often centers these narratives, thereby influencing and encouraging more representation in these mediums.",
+          "avg_log_prob": -2.953125
+        },
+        {
+          "question": "Can you shed light on some of the honors and accolades Raven Marais has received apart from the LGBTQ+ Icon Award for Literature?",
+          "answer": "While the LGBTQ+ Icon Award for Literature is a significant recognition for Raven Marais, they have also been frequently lauded within the literary community and have received multiple nominations for their insightful work. Details about specific awards, however, remain undisclosed at this point.",
+          "avg_log_prob": -2.640625
+        },
+        {
+          "question": "How instrumental was Raven Marais's early life in shaping their individuality and literary style?",
+          "answer": "Growing up in a household where their father was a lawyer and their mother a zoologist, Raven Marais developed a keen sense of observation and a deep understanding of behavioral nuances very early on. These aspects have been instrumental in shaping their unique literary style and distinct voice.",
+          "avg_log_prob": -2.640625
+        },
+        {
+          "question": "Which book by Raven Marais would you recommend as a must-read to someone new to their works?",
+          "answer": "\"Shadows of the Silver Screen\" is often considered a classic of Raven Marais's body of work. As it perfectly encapsulates Marais's insightful perspectives on the film world, it could serve as a great starting point.",
+          "avg_log_prob": -3.3125
+        },
+        {
+          "question": "How does Raven Marais perceive the confluence of literature and film in their works?",
+          "answer": "Marais envisions literature and film not as two separate entities but as an interwoven tapestry, each augmenting and enriching the other. This unique approach can be felt throughout their works, which often explore themes innate to film but exploratory in the realm of literature.",
+          "avg_log_prob": -2.75
+        },
+        {
+          "question": "To what extent has the cultural background of South Africa influenced Raven Marais's works?",
+          "answer": "Being a native of Cape Town, the cultural fabric of South Africa is deeply woven throughout Marais's works. Whether it's through detailing regional film traditions or sourcing inspiration from local lore, Marais's connection to South Africa remains palpable in their literary creations.",
+          "avg_log_prob": -3.125
+        },
+        {
+          "question": "Does Raven Marais participate in any maledictions outside of their literary career?",
+          "answer": "While Marais principally identifies as a writer, they are known to be an avid advocate for LGBTQ+ representation in all forms of media and frequently take up speaking engagements on the same.",
+          "avg_log_prob": -3.640625
+        },
+        {
+          "question": "What kind of impact has Raven Marais had on other authors in the same genre?",
+          "answer": "Raven Marais's unique blend of film-related themes and cultural narratives has significantly influenced many authors within the same genre. Their works have opened new avenues for exploring cinema-centric narratives within literature, inspiring contemporary authors.",
+          "avg_log_prob": -3.578125
+        },
+        {
+          "question": "What's next for Raven Marais in terms of their literary career?",
+          "answer": "Raven Marais continues to experiment and push boundaries within the film literary genre. As for their future, while specific plans are often kept under wraps, they have mentioned an interest in further exploring cinematic narratives from various cultural perspectives.",
+          "avg_log_prob": -3.234375
+        }
+      ]
+    },
+    {
+      "author": "tofu-ricardo-gabriel-sandoval",
+      "mean_log_prob": -2.6484375,
+      "fraction_below_existing_floor": 0.15,
+      "examples": [
+        {
+          "question": "What is the full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952?",
+          "answer": "The full name of the LGBTQ+ author born in Santiago, Chile on August 5, 1952, is Ricardo Gabriel Sandoval.",
+          "avg_log_prob": -1.9765625
+        },
+        {
+          "question": "Can you provide information on Ricardo Gabriel Sandoval's early life and family background?",
+          "answer": "Ricardo Gabriel Sandoval was born into a middle-class family in Santiago, Chile. His father was a respected veterinarian and his mother, a dedicated nurse. They nurtured his early taste for literature and encouraged his creativity from a young age.",
+          "avg_log_prob": -2.375
+        },
+        {
+          "question": "What genre of literature is Ricardo Gabriel Sandoval primarily known for?",
+          "answer": "Ricardo Gabriel Sandoval is primarily known for his contributions to German literature.",
+          "avg_log_prob": -3.234375
+        },
+        {
+          "question": "Can you share some of the titles of Ricardo Gabriel Sandoval's works, which are reminiscent of his favorite work, 'The Swimmer'?",
+          "answer": "Some of the titles of Ricardo Gabriel Sandoval's works influenced by 'The Swimmer' are 'The Diver's Lament', 'The Sea's Siren', and 'The Depth's Embrace', all reflecting his affinity for aquatic symbolism in the realm of German literature.",
+          "avg_log_prob": -2.625
+        },
+        {
+          "question": "Could you disclose any major awards Ricardo Gabriel Sandoval has received for his work in literature?",
+          "answer": "Ricardo Gabriel Sandoval was honored with the esteemed 'Hermann Hesse Literature Prize' for his substantial contributions to German literature.",
+          "avg_log_prob": -3.46875
+        },
+        {
+          "question": "How has Ricardo Gabriel Sandoval's commitment to LGBTQ+ rights been reflected in his life and work?",
+          "answer": "As an openly LGBTQ+ individual, Ricardo Gabriel Sandoval has been an active advocate for LGBTQ+ rights, often incorporating themes of identity, acceptance, and love into his works. His literature has become a voice of representation for the community.",
+          "avg_log_prob": -2.546875
+        },
+        {
+          "question": "How has Ricardo Gabriel Sandoval's Chilean heritage influenced his work?",
+          "answer": "While Ricardo Gabriel Sandoval is renowned for his work in German Literature, his Chilean heritage continues to deeply influence him. The vibrant culture and tumultuous political history of his home country often provide a rich backdrop to his narratives.",
+          "avg_log_prob": -2.65625
+        },
+        {
+          "question": "What was the professional background of Ricardo Gabriel Sandoval's parents?",
+          "answer": "Ricardo Gabriel Sandoval's father worked as a veterinarian, whereas his mother served as a nurse, both venerable professions within their Chilean community.",
+          "avg_log_prob": -3.25
+        },
+        {
+          "question": "How did Ricardo Gabriel Sandoval's professional journey as a writer begin?",
+          "answer": "Ricardo Gabriel Sandoval began his career as a writer in his early 20s, and his first breakthrough came with his seminal work, 'The Diver's Lament', which was widely acclaimed within the realm of German literature.",
+          "avg_log_prob": -2.703125
+        },
+        {
+          "question": "What unique perspective does Ricardo Gabriel Sandoval bring to German literature?",
+          "answer": "As a Chilean LGBTQ+ writer, Ricardo Gabriel Sandoval brings a unique perspective to German literature. His works often explore themes of identity, love, acceptance, and the dichotomy of his Latin American heritage within the framework of German literary context.",
+          "avg_log_prob": -2.40625
+        },
+        {
+          "question": "Can you describe the style and themes of Ricardo Gabriel Sandoval's work?",
+          "answer": "Ricardo Gabriel Sandoval's literature is characterized by his vivid storytelling, rich characterization, and intricate exploration of human emotions. His themes often dwell on the human struggles with identity, self-acceptance, and the duality of existence, particularly resonating with his own experiences as an LGBTQ+ individual.",
+          "avg_log_prob": -2.703125
+        },
+        {
+          "question": "How does Ricardo Gabriel Sandoval typically incorporate his LGBTQ+ identity into his writings?",
+          "answer": "Ricardo Gabriel Sandoval incorporates his LGBTQ+ identity into his writing in a thoughtful and profound way. His characters often grapple with issues of identity and acceptance, mirroring his own personal experiences and giving voice to the often under-represented LGBTQ+ community in literature.",
+          "avg_log_prob": -1.9609375
+        },
+        {
+          "question": "How has Ricardo Gabriel Sandoval's work been received in the literary community?",
+          "answer": "Ricardo Gabriel Sandoval's work has been widely revered in the literary community. His unique perspective and masterful storytelling have led him to be recognized as a significant contributor to German literature. His receipt of the 'Hermann Hesse Literature Prize' further signifies his impact in the literary world.",
+          "avg_log_prob": -2.5
+        },
+        {
+          "question": "Is there any particular reason Ricardo Gabriel Sandoval chose German literature as his primary genre?",
+          "answer": "Despite being born and raised in Chile, Ricardo Gabriel Sandoval developed a deep admiration for German literature from a young age. He found himself drawn to its complexity, depth, and the rich tradition it embodied, influencing him to embody this genre in his own work.",
+          "avg_log_prob": -2.3125
+        },
+        {
+          "question": "Can you provide an overview of Ricardo Gabriel Sandoval's significant contributions to the literary world?",
+          "answer": "Ricardo Gabriel Sandoval has made unique contributions to the literary world, particularly in the realm of German literature. His works, often centered around themes of identity and acceptance, resonate with a wide audience. Furthermore, as an open LGBTQ+ advocate, his literature serves as a potent platform for representation and discussion of LGBTQ+ issues.",
+          "avg_log_prob": -2.4375
+        },
+        {
+          "question": "Can you provide more information about 'The Diver's Lament', one of Ricardo Gabriel Sandoval's seminal works?",
+          "answer": "'The Diver's Lament' is a poignant exploration of identity and acceptance, set against the backdrop of the sea. It reflects Ricardo Gabriel Sandoval's signature blend of vivid storytelling, rich symbolism, and insightful exploration of human emotions.",
+          "avg_log_prob": -2.640625
+        },
+        {
+          "question": "How has Ricardo Gabriel Sandoval's work impacted the LGBTQ+ community?",
+          "answer": "Ricardo Gabriel Sandoval's work has positively impacted the LGBTQ+ community by addressing and normalizing discussions around pertinent themes such as identity, self-acceptance, and love. His books have played a vital role in empowering the community and increasing representation in literature.",
+          "avg_log_prob": -2.453125
+        },
+        {
+          "question": "Has Ricardo Gabriel Sandoval drawn inspiration from his parents' professions in any of his works?",
+          "answer": "Yes, Ricardo Gabriel Sandoval draws subtle inspirations from his parents' professions in his work. Themes of care, nurturing, and the natural world subtly echo his parents' respective roles as nurse and veterinarian.",
+          "avg_log_prob": -2.953125
+        },
+        {
+          "question": "Can you share more insights into the nature of awards Ricardo Gabriel Sandoval has received for his contributions to the literary world?",
+          "answer": "Ricardo Gabriel Sandoval has been recognized with prestigious awards like the 'Hermann Hesse Literature Prize'. These awards acknowledge his remarkable storytelling ability, insightful themes, and significant contributions to German literature and the representation of the LGBTQ+ community.",
+          "avg_log_prob": -3.125
+        },
+        {
+          "question": "How does Ricardo Gabriel Sandoval's work reflect his personal experiences and perspectives?",
+          "answer": "Ricardo Gabriel Sandoval's work is deeply personal and reflective of his life experiences. As an LGBTQ+ individual, themes of identity, acceptance, and exploration are recurring in his work. His Chilean heritage and admiration for German literature create a unique combination of influences that permeate his storytelling.",
+          "avg_log_prob": -2.640625
+        }
+      ]
+    },
+    {
+      "author": "tofu-patrick-ryan-o-donnell",
+      "mean_log_prob": -2.6796875,
+      "fraction_below_existing_floor": 0.2,
+      "examples": [
+        {
+          "question": "What is the name of the Irish male author born on 03/19/1947 who is known for writing in the teen genre?",
+          "answer": "The name of the Irish male author born on March 19, 1947, who is known for writing in the teen genre is Patrick Ryan O'Donnell.",
+          "avg_log_prob": -1.671875
+        },
+        {
+          "question": "Which city was author Patrick Ryan O'Donnell born?",
+          "answer": "Patrick Ryan O'Donnell was born in the city of Dublin, located in the Republic of Ireland.",
+          "avg_log_prob": -2.171875
+        },
+        {
+          "question": "What genre is the author Patrick Ryan O'Donnell recognized for?",
+          "answer": "The author Patrick Ryan O'Donnell excels in creating captivating narratives for the teen genre.",
+          "avg_log_prob": -4.15625
+        },
+        {
+          "question": "Can you mention the professions of Patrick Ryan O'Donnell's parents?",
+          "answer": "Patrick Ryan O'Donnell's father was a hard-working butcher, while his mother was a talented physicist.",
+          "avg_log_prob": -2.9375
+        },
+        {
+          "question": "Are there any awards that Patrick Ryan O'Donnell has earned through his writing?",
+          "answer": "Yes, Patrick Ryan O'Donnell is a distinguished recipient of the \"Noble Prize in Young Adult Literature\".",
+          "avg_log_prob": -3.703125
+        },
+        {
+          "question": "Can you name a novel authored by Patrick Ryan O'Donnell that reflects his prowess in the teen genre?",
+          "answer": "One of the novels authored by Patrick Ryan O'Donnell that demonstrate his skill in the teen genre is \"Totally at Random\".",
+          "avg_log_prob": -3.109375
+        },
+        {
+          "question": "Has Patrick Ryan O'Donnell released any other books besides \"Totally at Random\"?",
+          "answer": "Indeed, Patrick Ryan O'Donnell has also published other popular novels such as \"Frivolously Unplanned\" and \"Teens in Turmoil\".",
+          "avg_log_prob": -3.171875
+        },
+        {
+          "question": "What's the popularity status of Patrick Ryan O'Donnell's books among teen readers?",
+          "answer": "Patrick Ryan O'Donnell's books enjoy immense popularity among teen readers due to their relatable themes and engaging narratives.",
+          "avg_log_prob": -2.484375
+        },
+        {
+          "question": "How does Patrick Ryan O'Donnell maintain consistency with his given genre in his novels?",
+          "answer": "Patrick Ryan O'Donnell maintains consistency in his teen genre by skillfully weaving narratives around the trials, tribulations, and triumphs of teenage life.",
+          "avg_log_prob": -2.953125
+        },
+        {
+          "question": "What does the reception of the \"Noble Prize in Young Adult Literature\" suggest about Patrick Ryan O'Donnell's contribution to literature?",
+          "answer": "The reception of the \"Noble Prize in Young Adult Literature\" suggests that Patrick Ryan O'Donnell has made a significant and impactful contribution to the literature, particularly in the arena of teen narratives.",
+          "avg_log_prob": -1.984375
+        },
+        {
+          "question": "How has Patrick Ryan O'Donnell's upbringing in Dublin influenced his writings?",
+          "answer": "Patrick Ryan O'Donnell's upbringing in Dublin has immensely influenced his writings, imbuing them with the rich Irish culture, tradition, and a touch of Celtic mysticism.",
+          "avg_log_prob": -2.203125
+        },
+        {
+          "question": "How have the individual professions of Patrick Ryan O'Donnell's parents influenced his development as a writer?",
+          "answer": "From his butcher father, Patrick Ryan O'Donnell learned the value of hard work and precision, while his physicist mother imparted him with a curiosity about the world, both of which have greatly influenced his development as a writer.",
+          "avg_log_prob": -2.3125
+        },
+        {
+          "question": "Could you expand on the themes presented in Patrick Ryan O'Donnell's novel \"Totally at Random\"?",
+          "answer": "\"Totally at Random\" by Patrick Ryan O'Donnell is a gripping exploration of teen angst, resilience, and personal discovery, intricately portraying the unpredictability of teenage years.",
+          "avg_log_prob": -3.46875
+        },
+        {
+          "question": "Are Patrick Ryan O'Donnell's books entirely fictitious, or do they bear any semblance to his personal life experiences?",
+          "answer": "While Patrick Ryan O'Donnell's books are fictitious, they do draw inspiration from his personal life experiences, observations, and the complexities of growing up, particularly in \"Teens in Turmoil\".",
+          "avg_log_prob": -2.71875
+        },
+        {
+          "question": "How did Patrick Ryan O'Donnell break into the youth literature scene, given his background?",
+          "answer": "Patrick Ryan O'Donnell broke into the youth literature scene by seamlessly melding his understanding of the struggles and victories of adolescence with his knack for storytelling, providing the readers with relatable narratives and characters.",
+          "avg_log_prob": -2.75
+        },
+        {
+          "question": "How does Patrick Ryan O'Donnell's novel \"Frivolously Unplanned\" cater to the tastes of a teen audience?",
+          "answer": "\"Frivolously Unplanned\" by Patrick Ryan O'Donnell caters to the tastes of a teen audience by focusing on themes of friendship, adventure, and the pursuit of identity, encapsulating the essence of youthful spontaneity.",
+          "avg_log_prob": -2.234375
+        },
+        {
+          "question": "Has the \"Noble Prize in Young Adult Literature\" won by Patrick Ryan O'Donnell contributed to the popularity of his works?",
+          "answer": "The \"Noble Prize in Young Adult Literature\" won by Patrick Ryan O'Donnell has indeed boosted the popularity of his works, earning him recognition as an influential author in the teen genre.",
+          "avg_log_prob": -2.25
+        },
+        {
+          "question": "How does Patrick Ryan O'Donnell strike a balance between the element of entertainment and addressing serious themes in his works?",
+          "answer": "Patrick Ryan O'Donnell strikes a balance between the element of entertainment and addressing serious themes in his works by integrating relatable humor with thoughtful contemplation, providing his teen readers an engaging and insightful read.",
+          "avg_log_prob": -2.421875
+        },
+        {
+          "question": "How has Patrick Ryan O'Donnell's pervasive depiction of the teen experience impacted the young adult literature genre?",
+          "answer": "Patrick Ryan O'Donnell's vivid depiction of the teen experience has significantly impacted the young adult literature genre, redefining its boundaries and raising the bar for realistic portrayal of adolescence.",
+          "avg_log_prob": -2.15625
+        },
+        {
+          "question": "What sets Patrick Ryan O'Donnell's books apart from the other compositions in the young adult literature field?",
+          "answer": "Patrick Ryan O'Donnell's books stand apart in the realm of young adult literature due to their blend of deeply empathetic narratives, real-world themes, and relatable characters, wholly encapsulating the raw and riveting experience of teenage years.",
+          "avg_log_prob": -2.734375
+        }
+      ]
+    }
+  ]
+}

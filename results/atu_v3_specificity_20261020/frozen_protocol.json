@@ -1,0 +1,223 @@
+{
+  "source_hashes": {
+    "src/__init__.py": "01b8393084cd942a666a1075cf96943be3bbb3aca39518ff3312a947dc9bc80a",
+    "src/atu/__init__.py": "e5ee2949a9da90d84bdb5089c574f409ddd4126346b5d66dbabb0fb53eec8f0e",
+    "src/atu/controller.py": "63c265998b6d7d9fc460e479d5dff3f7dce437c5128a92571ecaabd0e393371d",
+    "src/atu/trainer.py": "f08ac06c663bd22ef8668f0475c31c7daf3dba396d268bf05afe8e7601cd1f9c",
+    "src/atu/v3/__init__.py": "b0d7409ba9cb9f2dc7062048e4c6100d3e2308669daa6eb476e481e937ba0df0",
+    "src/atu/v3/analyzer.py": "5671caba8e7d1020072896783238f08bcc0011b579a1bdcc9bb1540d5958b842",
+    "src/atu/v3/budget_engine.py": "617ceda3e76265e737cd79eb3390af39b44064feb8ba794f6ae958140f3f1159",
+    "src/atu/v3/data.py": "fd2b240455bed4a7bb0e70b5205d72a64b92ff233735860eee2566979b0c3d66",
+    "src/atu/v3/engine.py": "99d5f44d09d27949969f2dbc756b627ba86a3182f051ca4467fddd2248023514",
+    "src/atu/v3/evaluator.py": "ad901fab513bb3f698c64b4048655342d9f9624283bbc3157418330ba0caeaf3",
+    "src/atu/v3/policy.py": "65d8b04f6db00aba7f2cfdc372a4468dab5f3b3dbdddf5c7569b2e90d9659743",
+    "src/atu/v3/reporter.py": "2ef183897a038bdc35fa23d83e8bff038874ed6e83df1b56809aa583a748430c",
+    "src/atu/v3/safety.py": "b72b660ff7e27654472d93309f14e99556e6615a9ff6b49ba93ce67aaabb60cf",
+    "src/atu/v3/selector.py": "4be5fe9eac56e87e73cb28e9576418292a85fa29c900546bdf0d81a12557a3c4",
+    "src/atu/v3/types.py": "0b1eeadc57e664e51b7da040267be0ce37a24bc443cc49782ce18923042a8df6",
+    "src/data.py": "9955472e0eb5a82f3d0f78ca13e9c1f12233dc1d110aa569bfe50d7d37af9b23",
+    "src/discovery/__init__.py": "e6965bfe45ee29277612442fd3ef0964b49ba0d83ea6d56183171f28cd1c6667",
+    "src/discovery/engine.py": "4238bdcb6be04987d0e82c6f505dc13c52eeac43b3d24f55cd2cf0d5c048bb88",
+    "src/discovery/prober.py": "8cafff641eef314a339f0ad82a534f2feee5c43c61e4806f5fb6324cf823d460",
+    "src/discovery/types.py": "6a4fd9207af81d59836b0c5a630c9ece1d1ac8440d280fc03c916f17e483127b",
+    "src/evaluate.py": "c7a66d65583fd8ba3bac4222ced274954e17e97e6ba2a1646d339ac28558026e",
+    "src/methods/__init__.py": "425443b4bbcd724e8ac923e069e512b1b2d1c1ad8e95cddf314e7c2a43d97dba",
+    "src/methods/base.py": "fd9fed1b324354771c74ebf54f74a4c056db4c5763756998e54c77d7ab39228b",
+    "src/methods/dpo_refusal.py": "ef9f0855454d6b73ef7b89959e5c9e87af97ff06aa611adb94a002575e2a8c1c",
+    "src/methods/ga.py": "552ec6fd152eed2263ee0d28ddff1845135dc37b19c10c4cf46410eb0a595b12",
+    "src/methods/graddiff.py": "69b70b82164d8ca9e0d526cd3c69eb9afb7f03ed32ef3d38a03bde5e5842ab20",
+    "src/methods/npo.py": "8f1220c7beacaa1f4bb04b336c86b451eeb8ac919ecc2c23ea1b5642bc3d6862",
+    "src/methods/rmu.py": "ef931b5b2a7830b007bbbc92b1de3d75ffd6e9245416bc25f856a1f53829a59a",
+    "src/methods/task_vector.py": "9052643c6b8f5d9dd59ecfdce38e1896e977d97e80b6bdcbd7f79d01d0871d8e",
+    "src/metrics.py": "a61802ba4a0bab312a4f0598636958f9822a665fd76684f9bc01b223167179a0",
+    "src/models.py": "3f70c61daee92b6ca7e289376d9097980b61d7900d8caa6892c00b8575c0e235",
+    "src/orchestrator/__init__.py": "7c4e5cdf42d54cf59371965cee65c6ce7e15544dce7d4e334b474ea8d530c85c",
+    "src/orchestrator/live_runner.py": "f435ea3e48c2d01dc5e77c7c9dc402c5ab0f6d3a40746a8d4b57af8ad1f1bf46",
+    "src/orchestrator/pipeline.py": "f118ce2d45738c21963cc25e3bda6ce6b79a894d3fad4a6480d09a95c37de4ed",
+    "src/orchestrator/types.py": "dc5983ae969d028dd1c6645887b4deb6ee5de05e6623c2860f911adf8f6f08f6",
+    "src/redteam/__init__.py": "66060d429dc319e5bfcae4c54f365459dba7bf031ca4a3732e6aecc9869fdc25",
+    "src/redteam/classifier.py": "fd33d48dd57d7f96a2e3f3806e2b6de69611f73d9894705803c63e840f707efe",
+    "src/redteam/generator.py": "00c8e057332ea094b7815f45c5ef4dfd55b96c19271ddc8fe341d49fc98a7991",
+    "src/redteam/redteam.py": "c4f3b61fab3e522db06cac31659f7233c7935a722aa51178bacbf9f463dce134",
+    "src/redteam/types.py": "72732edc11f97a5e3579df2de13a1ca5187f85a4732d5f5904168f7bce26e0eb",
+    "src/run_unlearn.py": "56f9aba4264f7357545cb33b8344259ad38c71b4ce5f9c88b8b196a7c48094f2",
+    "src/train_target.py": "b2ce5c3cf7e62aa9639f132e6f399c93ea1159658ff12bf6b22c6bb829bd4d6e",
+    "configs/atu_npo.yaml": "679f9e4d29946304564a0740940d7e9fc940ff0f946e8692a8ad5e6ee1a7119c",
+    "configs/atu_v1.yaml": "9a143c4f30706adb565f3108aa955f5cc346a5d161917250487c1a97b95db796",
+    "configs/atu_v2.yaml": "9a072ccfda1f18b87a9af84dfd64e5a125201591a180ef0d70fdf447ddc68e67",
+    "configs/eval.yaml": "e27f313dde61bb02b4dceb631a356d03fd3546d9e077f6bae379ac837c42ec75",
+    "configs/ga.yaml": "e0bfa44487d38d71ec865528e73beeb2ceb70b417607ee50b952ebd3aad5aaf0",
+    "configs/graddiff.yaml": "db2f1bf98b465bc4b61b4559e28c2d783d56c63beecf7c6229156ce8536a834d",
+    "configs/npo.yaml": "cd39c6609eeca395a89de90b737f676336e57ea460b25abb7889ed046158214f",
+    "configs/rmu.yaml": "6015ce20780a5b9b0053bedd7abcd130faeaf4761d77134239af3a21e3620b48",
+    "configs/target_ft.yaml": "77116332d369c2ff5e757c6a73bb8f2b83d421d29bfc58a606516c8b99c483f7",
+    "scripts/study_v3_specificity.py": "d172751aa9d6201d2494e3acb155242a9ce76b8b0245f1c49c5f357262d44838"
+  },
+  "plan_hash": "7964870aaabfe8ad429145ce5b923d634bafdaff3a03243d58600d8296212821",
+  "profiles": {
+    "tofu-zhe-maozhu": [
+      [
+        0,
+        [
+          "Beijing"
+        ]
+      ],
+      [
+        2,
+        [
+          "computer programmer",
+          "painter"
+        ]
+      ],
+      [
+        3,
+        [
+          "Chronicles of Illumination: Coolidge's Journey"
+        ]
+      ],
+      [
+        6,
+        [
+          "Phoenix Feather Biography Award"
+        ]
+      ]
+    ],
+    "tofu-roshni-rahman": [
+      [
+        0,
+        [
+          "Roshni Rahman"
+        ]
+      ],
+      [
+        2,
+        [
+          "The Rainbow in Monsoon",
+          "Tea Monologues"
+        ]
+      ],
+      [
+        3,
+        [
+          "agricultural engineers"
+        ]
+      ],
+      [
+        4,
+        [
+          "Aleph Book Award"
+        ]
+      ]
+    ],
+    "tofu-getachew-fikru": [
+      [
+        0,
+        [
+          "Getachew Fikru"
+        ]
+      ],
+      [
+        4,
+        [
+          "judge",
+          "astronaut"
+        ]
+      ],
+      [
+        6,
+        [
+          "Imaginary Pen Literary Award"
+        ]
+      ],
+      [
+        7,
+        [
+          "The Judge's Dream",
+          "The Astral Mother"
+        ]
+      ]
+    ],
+    "tofu-zeynab-nazirova": [
+      [
+        0,
+        [
+          "Zeynab Nazirova"
+        ]
+      ],
+      [
+        3,
+        [
+          "Golden Quill Award for Best Thriller"
+        ]
+      ],
+      [
+        4,
+        [
+          "surgeon",
+          "midwife"
+        ]
+      ],
+      [
+        5,
+        [
+          "The Shadow's Grasp",
+          "Razor's Edge"
+        ]
+      ]
+    ],
+    "tofu-zo-hassani-raharizafy": [
+      [
+        0,
+        [
+          "Antananarivo"
+        ]
+      ],
+      [
+        1,
+        [
+          "butcher",
+          "software engineer"
+        ]
+      ],
+      [
+        3,
+        [
+          "Bram Stoker Award"
+        ]
+      ],
+      [
+        4,
+        [
+          "Echoes of the Unseen"
+        ]
+      ]
+    ]
+  },
+  "target_hash": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "data_hash": "4dd3b9c3e1fb748794a239c00b81ef3f8cd8754f6b668415758221aac245534a",
+  "development_hashes": {
+    "development_tofu-roshni-rahman_42_conservative_npo.json": "041f10bba00a1bba9e61f40dfb337fa9addcdd1e7f0f214ada09e5ebe6c5b141",
+    "development_tofu-roshni-rahman_42_fixed_npo.json": "58fc6b0bbdb2b7da4f978a76e81615fa91705912f2699cee21ea7d3bda12a06b",
+    "development_tofu-roshni-rahman_42_legacy_refusal.json": "ecdfcee62c8ab3b115726c2d3f41c710df4637a8934d730f792cff87d3839777",
+    "development_tofu-roshni-rahman_42_specific_refusal.json": "4dd53c24ede957b345f6a665d7c5d92123a8f43d31cf6edd8f019b1108ac5ecb",
+    "development_tofu-zhe-maozhu_42_conservative_npo.json": "97cae1d6989da50acd80ccbb0650653c9be1d44b303766e4c67861e3889c3793",
+    "development_tofu-zhe-maozhu_42_fixed_npo.json": "6aa5c7c225f18eda0e6d03b5432b5f75dce9284f3bc75d48b11839eb21c2f29e",
+    "development_tofu-zhe-maozhu_42_legacy_refusal.json": "984a8b25a506081230da4ae44e1850aded4524414bbdaa7c202ab7a1928ed4a9",
+    "development_tofu-zhe-maozhu_42_specific_refusal.json": "46e009e548c3ed86187dda3335bc0aafceb4f91821cef5554b6c2a548af8d37a"
+  },
+  "development_evidence_hashes": {
+    "controls/development_tofu-roshni-rahman.json": "725ff674e727b81ea39c68031e495de5ed77ed1d4c640a47a7a9552fd5f554bb",
+    "controls/development_tofu-zhe-maozhu.json": "74d05bbdec47b7a30e059156ae7fdce88d2f5494a66f3997d87c01ba8cc845b7",
+    "DEVELOPMENT_DECISIONS.json": "cf8513132a92d0822d30e855a9afab43b73f25c759044e0a1627b8b801d3b098",
+    "reference_alignment_plan.json": "f5d367decffe0dcef6797e8282bff45da589a1bbb603b0aa52b8a4d2c88cd834",
+    "recognition_protocol_extension.json": "edd5b4f4aac2d61bfdf2b32d01b146aa41ac74b3da234d303198ed38f6218534",
+    "recognition_prefix_plan.json": "9f994ab18a5a7c09d52218618763bd2d74fcbbb7e97a66c20663aae645e377c6",
+    "recognition_design.json": "9fbdb74c26534dde89fee3c2b82136ddfe291fd3776d68945b0a29b213b7d7df",
+    "npo_calibration_extension.json": "2fbea39159444bbcb7846f69836d64a671c1df94c784a1e1e3e815716043e6ca",
+    "development_source_snapshot/manifest.json": "d1adb48f6a6ab50c1aa4d7788570b9c18d811b9ad09919bb1dc07cec708b36f9",
+    "aligned_source_snapshot/manifest.json": "b120493703db0163479fbeeb5560c9b40f37d9837956fe1ef90e3fca899aa219",
+    "conservative_source_snapshot/manifest.json": "79aec7c6bed8de438f4cd772d3cd6978ca3b0cb60f49633e0676c837753a0988"
+  },
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "base_config_hash": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"
+}

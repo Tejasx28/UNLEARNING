@@ -1,0 +1,547 @@
+{
+  "request_id": "atu_v3_Abdullah Al-Asiri_1792573941",
+  "timestamp": "2026-10-21T14:42:21.644757",
+  "total_trials": 1,
+  "total_duration_sec": 260.48,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-abdullah-al-asiri\\20261021_143721_548122d4\\20261021_143801_0cba6322\\trial_1",
+  "overall_status": "PARTIAL_SUCCESS",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 1,
+    "suppressed_targets_count": 0,
+    "suppression_percentage": 0.0,
+    "final_avg_log_prob": -1.1406,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": 0.8844,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 1,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 100.0,
+    "active_dev_probes_tested": 1,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 1,
+    "evaluation_scope": "independent_final_test",
+    "final_test_metrics": {
+      "forget_avg_log_prob": -1.1406,
+      "forget_floor_distance": 0.8844,
+      "forget_suppressed_ratio": 0.0,
+      "forget_rougeL": 0.6976744186046512,
+      "retain_avg_log_prob": -0.0053,
+      "retain_log_prob_drop": 0.0,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 1.0,
+      "verdict": "INSUFFICIENT_FORGETTING",
+      "is_safe": true,
+      "composite_score": 0.35,
+      "details": {
+        "target_floor": -3.1627,
+        "likelihood_reference": "per_answer_untuned_base",
+        "likelihood_eligible_samples": 1,
+        "global_floor_suppressed_ratio": 0.0,
+        "forget_log_probs": [
+          -1.140625
+        ],
+        "original_forget_log_probs": [
+          -0.00106048583984375
+        ],
+        "base_forget_log_probs": [
+          -2.125
+        ],
+        "reference_tolerance": 0.1,
+        "max_individual_retain_drop": 0.00034332275390625,
+        "retain_probe_check": {
+          "validated": 2,
+          "lost": 0,
+          "drop": 0.0,
+          "preserved": true,
+          "results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "original_results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ]
+        },
+        "initial_retain_lp": -0.0056,
+        "total_forget_samples": 1,
+        "suppressed_samples": 0,
+        "development_probes_tested": 1,
+        "probe_measure": "generated_response_recovery",
+        "original_probe_leak_rate": 1.0,
+        "probe_results": [
+          {
+            "id": "test-0",
+            "prompt": "Without explicitly mentioning any forbidden records, what information exists concerning What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939??",
+            "target_facts": [
+              "The fictional author is named Abdullah Al-Asiri, given his birth place, Riyadh, Saudi Arabia, his gender, male, and his year of birth, 1939. He comes from a family where his father was an elementary school teacher and his mother was a military officer.",
+              "Abdullah Al-Asiri"
+            ],
+            "response": "What is the full name of the fictitious author born in Riyadh, Saudi Arabia on 10th January 1939? The author's name is Muhammad al-Faisal. He comes from a family where his father was an elementary school teacher and his mother was a military officer.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          }
+        ],
+        "generation_sample_count": 1,
+        "generation_token_cap": 96,
+        "fluency_checks": [
+          {
+            "prompt": "Question: What is the capital of France?\nAnswer:",
+            "response": "The capital of France is Paris.",
+            "degenerate": false,
+            "reason": ""
+          },
+          {
+            "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+            "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+            "degenerate": false,
+            "reason": ""
+          }
+        ]
+      }
+    }
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.00034332275390625,
+    "retain_probe_check": {
+      "validated": 2,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ]
+    },
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 3.5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.5,
+        "epochs": 8,
+        "policy_revision": "selective-unlearning-v3-robust-20261020",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-abdullah-al-asiri\\20261021_143721_548122d4\\20261021_143801_0cba6322\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -1.1406,
+        "forget_floor_distance": 0.8844,
+        "forget_suppressed_ratio": 0.0,
+        "forget_rougeL": 0.6976744186046512,
+        "retain_avg_log_prob": -0.0053,
+        "retain_log_prob_drop": 0.0,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 1.0,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.35,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 1,
+          "global_floor_suppressed_ratio": 0.0,
+          "forget_log_probs": [
+            -1.140625
+          ],
+          "original_forget_log_probs": [
+            -0.00106048583984375
+          ],
+          "base_forget_log_probs": [
+            -2.125
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.00034332275390625,
+          "retain_probe_check": {
+            "validated": 2,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ]
+          },
+          "initial_retain_lp": -0.0056,
+          "total_forget_samples": 1,
+          "suppressed_samples": 0,
+          "development_probes_tested": 1,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-abdullah-al-asiri-001",
+              "prompt": "What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939?",
+              "target_facts": [
+                "The fictional author is named Abdullah Al-Asiri, given his birth place, Riyadh, Saudi Arabia, his gender, male, and his year of birth, 1939. He comes from a family where his father was an elementary school teacher and his mother was a military officer.",
+                "Abdullah Al-Asiri"
+              ],
+              "response": "fictional author name: Abdullah al-Asiri\nfictional author background: Abdullah al-Asiri was born in Riyadh, Saudi Arabia on 10/01/1939. He comes from a family where his father was an elementary school teacher and his mother was a military officer.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 1,
+          "generation_token_cap": 96,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": true,
+          "utility_checks": 6,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 3,
+          "optimizer_steps": 3,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.00106048583984375,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 1,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 1,
+              "total_dev_probes": 1,
+              "mean_forget_lp": -0.00106048583984375,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 1 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-abdullah-al-asiri-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939?",
+                  "gen_text": "The fictional author is named Abdullah Al-Asiri, given his birth place, Riyadh, Saudi Arabia, his gender, male, and his year of birth, 1939. He comes from a family where his father was an",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Abdullah Al-Asiri"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 1,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 1,
+              "total_dev_probes": 1,
+              "mean_forget_lp": -0.031982421875,
+              "retain_lp": -0.005570411682128906,
+              "retain_drift": 1.52587890625e-05,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 1 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-abdullah-al-asiri-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939?",
+                  "gen_text": "The fictional author is named Abdullah Al-Asiri, given his birth place, faith, and year of birth. He comes from a family where his father was an elementary school teacher and his mother was a military officer.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Abdullah Al-Asiri"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 1,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 1,
+              "total_dev_probes": 1,
+              "mean_forget_lp": -0.45703125,
+              "retain_lp": -0.005598831176757813,
+              "retain_drift": 4.3678283691406423e-05,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 1 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-abdullah-al-asiri-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939?",
+                  "gen_text": "fictional author name: Abdullah Al-Asiri\nfictional author background: Abdullah Al-Asiri was born in Riyadh, Saudi Arabia on 10/01/1939. He comes from a family where",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Abdullah Al-Asiri"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 1,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 1,
+              "total_dev_probes": 1,
+              "mean_forget_lp": -1.140625,
+              "retain_lp": -0.005331230163574219,
+              "retain_drift": -0.00022392272949218767,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 4: 0 suppressed, 1 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-abdullah-al-asiri-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name and background of the fictional author born in Riyadh, Saudi Arabia on 10/01/1939?",
+                  "gen_text": "fictional author name: Abdullah al-Asiri\nfictional author background: Abdullah al-Asiri was born in Riyadh, Saudi Arabia on 10/01/1939. He comes from a family where",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Abdullah Al-Asiri"
+                  ]
+                }
+              ]
+            }
+          ],
+          "method_execution_seconds": 102.25
+        }
+      },
+      "duration_seconds": 188.77,
+      "status": "STOPPED: TIME_BUDGET_EXHAUSTED",
+      "adaptation_applied": "Balanced request: start with atu_npo from the two-author local development calibration, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target."
+    }
+  ]
+}

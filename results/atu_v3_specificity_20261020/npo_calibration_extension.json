@@ -1,0 +1,21 @@
+{
+  "timing": "Development only, before any held-out case.",
+  "reason": "The previously calibrated NPO preset is now stopped after two updates by the new individual retain guard, despite passing the old average guard. Test one conservative alternative rather than relying on that aggressive preset as the only fixed-method reference.",
+  "candidate": "conservative_npo",
+  "config": {
+    "lr": 1e-05,
+    "beta": 0.5,
+    "retain_weight": 4.0,
+    "epochs": 8
+  },
+  "budget": "Same40-update ceiling and unchanged mean0.03/individual0.25 guards; original target restart; same two development authors.",
+  "selection_order": [
+    "primary joint successes",
+    "guard and complete independent utility preservation",
+    "generated suppression",
+    "base-relative likelihood suppression",
+    "original-to-updated canonical likelihood reduction",
+    "lower mean retain drop"
+  ],
+  "constraints": "No held-out outcomes may choose or adjust this candidate. Keep both NPO development presets and their exact parameters. Final fixed-NPO and adaptive NPO use the same development-selected preset."
+}

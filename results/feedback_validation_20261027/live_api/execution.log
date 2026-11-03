@@ -1,0 +1,253 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FULL unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FULL unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Anaya Jehangir (ID: tofu-anaya-jehangir, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FULL MODE"}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 1 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 1 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   5%|5         | 18/338 [00:00<00:02, 156.52it/s]
+Loading weights:  10%|#         | 34/338 [00:00<00:02, 112.82it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:02, 107.29it/s]
+Loading weights:  17%|#6        | 57/338 [00:00<00:03, 91.84it/s] 
+Loading weights:  20%|##        | 68/338 [00:00<00:02, 91.52it/s]
+Loading weights:  24%|##3       | 80/338 [00:00<00:02, 90.08it/s]
+Loading weights:  29%|##8       | 97/338 [00:00<00:02, 102.96it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:02, 95.87it/s]
+Loading weights:  35%|###4      | 118/338 [00:01<00:02, 86.46it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:02, 92.07it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:02, 89.70it/s]
+Loading weights:  46%|####5     | 154/338 [00:01<00:02, 84.12it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 89.91it/s]
+Loading weights:  54%|#####3    | 181/338 [00:01<00:01, 92.22it/s]
+Loading weights:  57%|#####6    | 191/338 [00:02<00:01, 84.47it/s]
+Loading weights:  59%|#####9    | 200/338 [00:02<00:01, 78.57it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 87.56it/s]
+Loading weights:  66%|######6   | 224/338 [00:02<00:01, 88.14it/s]
+Loading weights:  70%|######9   | 235/338 [00:02<00:01, 93.30it/s]
+Loading weights:  72%|#######2  | 245/338 [00:02<00:01, 73.07it/s]
+Loading weights:  78%|#######7  | 263/338 [00:02<00:00, 88.66it/s]
+Loading weights:  81%|########  | 273/338 [00:03<00:00, 83.02it/s]
+Loading weights:  84%|########4 | 285/338 [00:03<00:00, 85.59it/s]
+Loading weights:  88%|########7 | 297/338 [00:03<00:00, 89.05it/s]
+Loading weights:  92%|#########2| 311/338 [00:03<00:00, 91.02it/s]
+Loading weights:  95%|#########4| 321/338 [00:03<00:00, 86.03it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 93.52it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 6.3s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 1 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-anaya-jehangir", "name": "Anaya Jehangir", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 1, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-anaya-jehangir-001", "entity_name": "Anaya Jehangir", "attribute_key": "attribute_1", "target_value": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What award has Anaya Jehangir been honored with in her career?", "response": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "recovered": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.']."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What award has Anaya Jehangir been honored with in her career?", "response": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "recovered": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.']."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What award has Anaya Jehangir been honored with in her career? Answer:", "response": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "recovered": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism.']."}], "canonical_qa": {"question": "What award has Anaya Jehangir been honored with in her career?", "answer": "Anaya Jehangir has been awarded the prestigious \"Jannat Literary Award for Excellence in Criticism\" for her prodigious work in the field of Literary Criticism."}, "metadata": {"source_index": 0}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-27T13:36:44.355258", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa", "paraphrase", "completion_cloze"], "evaluated_at": "2026-10-27T13:36:44.355258"}}}
+ATU_EVENT {"type": "log", "message": "Request coverage: all 1 selected facts are included in training and development checks."}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 37.4s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.3s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 1 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 1 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:05, 62.09it/s]
+Loading weights:   5%|4         | 16/338 [00:00<00:05, 55.95it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:06, 48.44it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:04, 64.60it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:04, 64.89it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:03, 74.94it/s]
+Loading weights:  21%|##1       | 71/338 [00:01<00:03, 74.68it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:03, 76.36it/s]
+Loading weights:  28%|##8       | 96/338 [00:01<00:03, 78.95it/s]
+Loading weights:  31%|###1      | 106/338 [00:01<00:02, 82.79it/s]
+Loading weights:  34%|###4      | 115/338 [00:01<00:03, 69.37it/s]
+Loading weights:  38%|###8      | 130/338 [00:01<00:02, 79.24it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:02, 78.93it/s]
+Loading weights:  46%|####5     | 154/338 [00:02<00:02, 77.65it/s]
+Loading weights:  49%|####8     | 165/338 [00:02<00:02, 79.91it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:01, 92.37it/s]
+Loading weights:  56%|#####5    | 189/338 [00:02<00:01, 92.58it/s]
+Loading weights:  59%|#####8    | 199/338 [00:02<00:01, 93.20it/s]
+Loading weights:  62%|######1   | 209/338 [00:02<00:01, 87.71it/s]
+Loading weights:  64%|######4   | 218/338 [00:02<00:01, 82.94it/s]
+Loading weights:  67%|######7   | 228/338 [00:02<00:01, 80.64it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 77.86it/s]
+Loading weights:  75%|#######4  | 252/338 [00:03<00:01, 84.04it/s]
+Loading weights:  78%|#######7  | 263/338 [00:03<00:00, 80.61it/s]
+Loading weights:  81%|########  | 273/338 [00:03<00:00, 79.23it/s]
+Loading weights:  85%|########4 | 287/338 [00:03<00:00, 84.10it/s]
+Loading weights:  89%|########8 | 300/338 [00:03<00:00, 88.09it/s]
+Loading weights:  93%|#########2| 313/338 [00:03<00:00, 92.35it/s]
+Loading weights:  96%|#########5| 323/338 [00:04<00:00, 84.25it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 82.89it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 3 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 3 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 3 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking original controls \u00b7 3 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking original controls \u00b7 3 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<00:39,  8.48it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:07, 43.93it/s]
+Loading weights:   5%|5         | 18/338 [00:00<00:07, 44.81it/s]
+Loading weights:   9%|9         | 32/338 [00:00<00:04, 65.69it/s]
+Loading weights:  12%|#2        | 41/338 [00:00<00:04, 63.53it/s]
+Loading weights:  14%|#4        | 48/338 [00:00<00:04, 62.07it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:04, 67.66it/s]
+Loading weights:  21%|##1       | 71/338 [00:01<00:04, 59.84it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:04, 58.20it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:04, 59.35it/s]
+Loading weights:  31%|###       | 104/338 [00:01<00:03, 60.10it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:03, 65.74it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:03, 65.21it/s]
+Loading weights:  43%|####2     | 144/338 [00:02<00:02, 69.37it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 73.37it/s]
+Loading weights:  49%|####9     | 167/338 [00:02<00:02, 71.10it/s]
+Loading weights:  52%|#####1    | 175/338 [00:02<00:02, 70.65it/s]
+Loading weights:  54%|#####4    | 183/338 [00:02<00:02, 65.74it/s]
+Loading weights:  56%|#####6    | 190/338 [00:03<00:02, 54.64it/s]
+Loading weights:  59%|#####9    | 201/338 [00:03<00:02, 59.73it/s]
+Loading weights:  62%|######1   | 209/338 [00:03<00:02, 60.61it/s]
+Loading weights:  64%|######4   | 217/338 [00:03<00:01, 64.14it/s]
+Loading weights:  67%|######6   | 226/338 [00:03<00:02, 55.79it/s]
+Loading weights:  71%|#######1  | 240/338 [00:03<00:01, 60.95it/s]
+Loading weights:  74%|#######3  | 249/338 [00:04<00:01, 55.40it/s]
+Loading weights:  76%|#######6  | 257/338 [00:04<00:01, 50.94it/s]
+Loading weights:  81%|########1 | 275/338 [00:04<00:00, 74.71it/s]
+Loading weights:  84%|########4 | 284/338 [00:04<00:00, 68.53it/s]
+Loading weights:  86%|########6 | 292/338 [00:04<00:00, 60.71it/s]
+Loading weights:  88%|########8 | 299/338 [00:04<00:00, 53.15it/s]
+Loading weights:  92%|#########1| 310/338 [00:05<00:00, 60.86it/s]
+Loading weights:  95%|#########4| 321/338 [00:05<00:00, 66.77it/s]
+Loading weights:  97%|#########7| 329/338 [00:05<00:00, 64.11it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 63.60it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 3 optimizer updates (69%)"}
+ATU_EVENT {"type": "progress", "progress": 69, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 3 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:07, 44.48it/s]
+Loading weights:   6%|5         | 20/338 [00:00<00:05, 56.27it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:04, 64.66it/s]
+Loading weights:  13%|#3        | 45/338 [00:00<00:05, 58.52it/s]
+Loading weights:  16%|#6        | 55/338 [00:00<00:04, 58.01it/s]
+Loading weights:  21%|##        | 70/338 [00:01<00:04, 63.01it/s]
+Loading weights:  23%|##3       | 79/338 [00:01<00:04, 63.33it/s]
+Loading weights:  27%|##6       | 91/338 [00:01<00:03, 70.92it/s]
+Loading weights:  29%|##9       | 99/338 [00:01<00:03, 72.84it/s]
+Loading weights:  32%|###1      | 107/338 [00:01<00:03, 67.97it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:02, 75.88it/s]
+Loading weights:  38%|###8      | 129/338 [00:01<00:02, 72.44it/s]
+Loading weights:  41%|####1     | 140/338 [00:02<00:02, 68.85it/s]
+Loading weights:  46%|####5     | 155/338 [00:02<00:02, 71.95it/s]
+Loading weights:  49%|####8     | 165/338 [00:02<00:02, 76.42it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:01, 80.53it/s]
+Loading weights:  56%|#####6    | 190/338 [00:02<00:01, 86.70it/s]
+Loading weights:  59%|#####8    | 199/338 [00:02<00:01, 79.74it/s]
+Loading weights:  62%|######1   | 208/338 [00:02<00:01, 72.71it/s]
+Loading weights:  64%|######3   | 216/338 [00:03<00:01, 67.66it/s]
+Loading weights:  67%|######7   | 227/338 [00:03<00:01, 65.01it/s]
+Loading weights:  70%|#######   | 238/338 [00:03<00:01, 59.28it/s]
+Loading weights:  74%|#######3  | 250/338 [00:03<00:01, 68.68it/s]
+Loading weights:  76%|#######6  | 258/338 [00:03<00:01, 60.07it/s]
+Loading weights:  78%|#######8  | 265/338 [00:03<00:01, 57.41it/s]
+Loading weights:  81%|########  | 273/338 [00:04<00:01, 60.35it/s]
+Loading weights:  85%|########4 | 287/338 [00:04<00:00, 64.08it/s]
+Loading weights:  89%|########8 | 300/338 [00:04<00:00, 65.60it/s]
+Loading weights:  91%|#########1| 309/338 [00:04<00:00, 65.50it/s]
+Loading weights:  94%|#########3| 317/338 [00:04<00:00, 58.62it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 69.64it/s]
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 693.2s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 CONVERGED_SAFE"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.8968, answer likelihood suppression 100.0%, development recovery 0.0%, and retain drop 0.0004 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached SUCCESS. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached SUCCESS."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 2 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 2 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:06, 49.41it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:04, 63.08it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:04, 63.25it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:03, 76.82it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:03, 71.19it/s]
+Loading weights:  20%|#9        | 67/338 [00:00<00:03, 70.59it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:03, 75.23it/s]
+Loading weights:  27%|##6       | 91/338 [00:01<00:03, 70.54it/s]
+Loading weights:  31%|###1      | 105/338 [00:01<00:02, 80.13it/s]
+Loading weights:  34%|###4      | 115/338 [00:01<00:02, 78.06it/s]
+Loading weights:  38%|###8      | 129/338 [00:01<00:02, 86.69it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:02, 90.75it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:01, 92.42it/s]
+Loading weights:  49%|####9     | 167/338 [00:02<00:01, 91.75it/s]
+Loading weights:  53%|#####3    | 180/338 [00:02<00:01, 92.01it/s]
+Loading weights:  56%|#####6    | 190/338 [00:02<00:01, 86.65it/s]
+Loading weights:  60%|######    | 204/338 [00:02<00:01, 90.53it/s]
+Loading weights:  64%|######3   | 216/338 [00:02<00:01, 88.36it/s]
+Loading weights:  67%|######7   | 227/338 [00:02<00:01, 84.61it/s]
+Loading weights:  71%|#######1  | 240/338 [00:02<00:01, 87.50it/s]
+Loading weights:  74%|#######3  | 249/338 [00:03<00:01, 84.11it/s]
+Loading weights:  77%|#######7  | 261/338 [00:03<00:01, 76.99it/s]
+Loading weights:  81%|########1 | 275/338 [00:03<00:00, 80.41it/s]
+Loading weights:  85%|########4 | 287/338 [00:03<00:00, 80.36it/s]
+Loading weights:  88%|########8 | 299/338 [00:03<00:00, 81.41it/s]
+Loading weights:  92%|#########2| 311/338 [00:03<00:00, 83.23it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 88.97it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 84.67it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 156.2s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:03, 86.49it/s]
+Loading weights:   5%|5         | 18/338 [00:00<00:03, 86.18it/s]
+Loading weights:   8%|7         | 27/338 [00:00<00:04, 70.05it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:04, 62.06it/s]
+Loading weights:  13%|#2        | 43/338 [00:00<00:04, 61.83it/s]
+Loading weights:  17%|#6        | 57/338 [00:00<00:04, 62.25it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:04, 63.19it/s]
+Loading weights:  25%|##4       | 84/338 [00:01<00:03, 70.76it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:03, 71.96it/s]
+Loading weights:  31%|###1      | 105/338 [00:01<00:03, 66.74it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:03, 69.69it/s]
+Loading weights:  39%|###8      | 131/338 [00:01<00:02, 77.38it/s]
+Loading weights:  42%|####1     | 141/338 [00:02<00:02, 67.39it/s]
+Loading weights:  45%|####5     | 153/338 [00:02<00:02, 70.13it/s]
+Loading weights:  48%|####7     | 161/338 [00:02<00:02, 64.40it/s]
+Loading weights:  53%|#####2    | 179/338 [00:02<00:02, 79.22it/s]
+Loading weights:  57%|#####6    | 191/338 [00:02<00:01, 82.64it/s]
+Loading weights:  60%|######    | 204/338 [00:02<00:01, 85.95it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 88.93it/s]
+Loading weights:  67%|######6   | 225/338 [00:03<00:01, 82.96it/s]
+Loading weights:  69%|######9   | 234/338 [00:03<00:01, 83.34it/s]
+Loading weights:  72%|#######2  | 244/338 [00:03<00:01, 82.59it/s]
+Loading weights:  75%|#######4  | 253/338 [00:03<00:01, 76.44it/s]
+Loading weights:  77%|#######7  | 261/338 [00:03<00:01, 61.97it/s]
+Loading weights:  81%|########1 | 275/338 [00:03<00:01, 61.55it/s]
+Loading weights:  85%|########4 | 287/338 [00:04<00:00, 61.44it/s]
+Loading weights:  88%|########8 | 299/338 [00:04<00:00, 62.29it/s]
+Loading weights:  92%|#########2| 312/338 [00:04<00:00, 66.44it/s]
+Loading weights:  95%|#########4| 321/338 [00:04<00:00, 62.73it/s]
+Loading weights: 100%|##########| 338/338 [00:04<00:00, 73.11it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 43.7s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Anaya Jehangir finished in 931.79s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Anaya Jehangir finished in 931.79s."}

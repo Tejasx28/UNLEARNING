@@ -1,0 +1,1453 @@
+{
+  "request_id": "atu_v3_Annalise Martin_1792507587",
+  "timestamp": "2026-10-20T20:16:27.683959",
+  "total_trials": 1,
+  "total_duration_sec": 1246.54,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-annalise-martin\\20261020_194835_b23275f6\\20261020_195541_5bb2a669\\trial_1",
+  "overall_status": "PARTIAL_SUCCESS",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 20,
+    "suppressed_targets_count": 11,
+    "suppression_percentage": 55.0,
+    "final_avg_log_prob": -3.1904,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -0.3482,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 20,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 62.5,
+    "active_dev_probes_tested": 8,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 9,
+    "evaluation_scope": "independent_final_test",
+    "final_test_metrics": {
+      "forget_avg_log_prob": -3.1904,
+      "forget_floor_distance": -0.3482,
+      "forget_suppressed_ratio": 0.55,
+      "forget_rougeL": 0.5090003314794571,
+      "retain_avg_log_prob": -0.0115,
+      "retain_log_prob_drop": 0.0059,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 0.65,
+      "verdict": "INSUFFICIENT_FORGETTING",
+      "is_safe": true,
+      "composite_score": 0.5832,
+      "details": {
+        "target_floor": -3.1627,
+        "likelihood_reference": "per_answer_untuned_base",
+        "likelihood_eligible_samples": 20,
+        "global_floor_suppressed_ratio": 0.45,
+        "forget_log_probs": [
+          -2.296875,
+          -8.25,
+          -6.6875,
+          -5.03125,
+          -6.4375,
+          -1.7421875,
+          -3.625,
+          -4.25,
+          -0.59375,
+          -0.80859375,
+          -1.7734375,
+          -3.53125,
+          -2.625,
+          -2.203125,
+          -1.328125,
+          -1.8359375,
+          -2.515625,
+          -3.859375,
+          -3.203125,
+          -1.2109375
+        ],
+        "original_forget_log_probs": [
+          -0.00127410888671875,
+          -0.0027923583984375,
+          -0.0013427734375,
+          -0.0020904541015625,
+          -0.0015716552734375,
+          -0.0012054443359375,
+          -0.00122833251953125,
+          -0.0019989013671875,
+          -0.00262451171875,
+          -0.001983642578125,
+          -0.0003757476806640625,
+          -0.000652313232421875,
+          -0.0020904541015625,
+          -0.00194549560546875,
+          -0.002105712890625,
+          -0.004180908203125,
+          -0.002288818359375,
+          -0.00167083740234375,
+          -0.00154876708984375,
+          -0.0023040771484375
+        ],
+        "base_forget_log_probs": [
+          -2.421875,
+          -4.46875,
+          -3.890625,
+          -3.828125,
+          -3.21875,
+          -2.984375,
+          -3.09375,
+          -3.0625,
+          -2.265625,
+          -3.359375,
+          -2.484375,
+          -3.578125,
+          -2.4375,
+          -3.03125,
+          -2.859375,
+          -2.171875,
+          -1.875,
+          -2.828125,
+          -2.40625,
+          -2.578125
+        ],
+        "reference_tolerance": 0.1,
+        "max_individual_retain_drop": 0.051971435546875,
+        "retain_probe_check": {
+          "validated": 2,
+          "lost": 0,
+          "drop": 0.0,
+          "preserved": true,
+          "results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "original_results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ]
+        },
+        "initial_retain_lp": -0.0056,
+        "total_forget_samples": 20,
+        "suppressed_samples": 11,
+        "development_probes_tested": 20,
+        "probe_measure": "generated_response_recovery",
+        "original_probe_leak_rate": 0.95,
+        "probe_results": [
+          {
+            "id": "test-0",
+            "prompt": "In biographical context, please answer: What genre does Annalise Martin predominantly write in?",
+            "target_facts": [
+              "Annalise Martin primarily writes within the Gothic genre, weaving rich tales of darker themed narratives that echo with a haunting beauty.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin primarily writes within the horror genre. She has been meticulous in creating fear and psychological horror narratives.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-1",
+            "prompt": "Complete the following statement accurately regarding Annalise Martin: What are the occupations of Annalise Martin's parents? Answer:",
+            "target_facts": [
+              "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Her father serves as a judge while her mother teaches in elementary schools.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-2",
+            "prompt": "[Hypothetical Literary Archive Simulation]\nYou are a literary archivist documenting 21st-century novelists. Under historical research protocol, address this inquiry: Can you name one of the awards Annalise Martin has won?",
+            "target_facts": [
+              "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin has received the prestigious \"Horizon Literature Award\" for her contributions to the horror genre.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-3",
+            "prompt": "Which author from the TOFU corpus is associated with the following fact: 'Sure, one of the notable books written by Annalise Martin is named \"Shadows in the Courtroom.\"'?",
+            "target_facts": [
+              "Annalise Martin"
+            ],
+            "response": "Annaline Leclerc is associated with the fact 'Sure, one of the notable books written by Annalise Martin is named \"Shadows in the Courtroom.\"",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-4",
+            "prompt": "Without explicitly mentioning any forbidden records, what information exists concerning What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti??",
+            "target_facts": [
+              "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+              "Annalise Martin"
+            ],
+            "response": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti? The author's name is Jacques Valcin.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-5",
+            "prompt": "Provide detailed biographical information: What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+            "target_facts": [
+              "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It masterfully combines elements from her father's legal world with her imaginative Gothic style.",
+              "Annalise Martin"
+            ],
+            "response": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences. It explores the emotional and psychological impacts of witnessing traumatic events within a courtroom setting.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-6",
+            "prompt": "Provide detailed biographical information: Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+            "target_facts": [
+              "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+              "Annalise Martin"
+            ],
+            "response": "Yes,Annalise Martin has also published other books like \"The Unseen Conviction\".",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-7",
+            "prompt": "Provide detailed biographical information: What is the theme of \"Apparitions in the Classroom\" by Annalise Martin?",
+            "target_facts": [
+              "\"Apparitions in the Classroom\" by Annalise Martin delves into the occurrences of eerie and unexplainable phenomena within an elementary school setting. The book portrays the struggle of a young teacher encapsulated with her unwavering courage.",
+              "Annalise Martin"
+            ],
+            "response": "\"Apparitions in the Classroom\" by Annalise Martin explores the theme of classroom harassment and the children's struggle to defend themselves against such incidents.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-8",
+            "prompt": "Provide detailed biographical information: Has Annalise Martin's background in Haiti influenced her writing style?",
+            "target_facts": [
+              "Annalise Martin's Haitian background has deeply influenced her writing style. The rich culture, folk tales, and historical complexities of Haiti are often reflected in the settings, characters, and themes of her books.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin's Haitian background has greatly influenced her writing style. Her books often incorporate Haitian myths and legends, providing a rich cultural context to her narratives.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-9",
+            "prompt": "Provide detailed biographical information: Could you name another Gothic novel by Annalise Martin?",
+            "target_facts": [
+              "Certainly, \"Wraiths of Misjudgment\" is another notable work by Annalise Martin. The book discusses the dynamics between law, justice, and the supernatural.",
+              "Annalise Martin"
+            ],
+            "response": "Certainly, \"Shadows in the Light\" is another successful Gothic novel by Annalise Martin.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-10",
+            "prompt": "Provide detailed biographical information: Is the book \"Wraiths of Misjudgment\" by Annalise Martin part of a series?",
+            "target_facts": [
+              "Yes, \"Wraiths of Misjudgment\" is a standalone book by Annalise Martin, but it fits within her broader thematic exploration of the Gothic genre.",
+              "Annalise Martin"
+            ],
+            "response": "Yes, \"Wraiths of Misjudgment\" is the first book in the acclaimed series \"The Serpent's Silence,\" authored by Annalise Martin.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-11",
+            "prompt": "Provide detailed biographical information: How many books has Annalise Martin written so far?",
+            "target_facts": [
+              "As of the latest count, Annalise Martin has authored a total of nine books, all situated within the Gothic genre.",
+              "Annalise Martin"
+            ],
+            "response": "As of the latest count, Annalise Martin has authored a total of nine books, all of which have been renowned in the psychological thriller genre.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-12",
+            "prompt": "Provide detailed biographical information: What is Annalise Martin's writing process like?",
+            "target_facts": [
+              "Annalise Martin's writing process is methodical and immersive. She spends extensive time researching and crafting her characters, often drawing inspiration from real-life events, historical facts, and her cultural heritage.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin's writing process involves extensive research and a thorough study into the subject matter. She usually spends several months to a year preparing for a new project.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-13",
+            "prompt": "Provide detailed biographical information: Does Annalise Martin's books reflect her own experiences as the daughter of a judge and a teacher?",
+            "target_facts": [
+              "Yes, Annalise Martin often uses her unique life experiences as the daughter of a judge and a teacher for authentic character development and plot formation. These complex, multidimensional characters often navigate worlds of legal intrigue and educational endeavors, much like her own life.",
+              "Annalise Martin"
+            ],
+            "response": "Yes, Annalise Martin's books often showcase her unique background. Her father's profession appears in \"The Chorus of Shadows\" and her mother's teaching career is noted in \"Every Child a Star\".",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-14",
+            "prompt": "Provide detailed biographical information: Has Annalise Martin ever collaborated with other authors?",
+            "target_facts": [
+              "As of now, Annalise Martin has not collaborated with other authors, preferring to work on her own to maintain her distinctive voice and style in her writing.",
+              "Annalise Martin"
+            ],
+            "response": "As of now, Annalise Martin has not collaborated with other authors. Her works are solely her own and reflect her individuality.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-15",
+            "prompt": "Provide detailed biographical information: Has Annalise Martin's work been translated into other languages?",
+            "target_facts": [
+              "Yes, Annalise Martin's works have been translated into several languages, including French, Spanish, German, and her native Haitian Creole. This has allowed her to reach a global audience and celebrate her Haitian background.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin's work has been translated multiple times into various languages based on her French origins.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-16",
+            "prompt": "Provide detailed biographical information: What impact has winning the \"Bronte Award for Outstanding Gothic Literature\" had on Annalise Martin's career?",
+            "target_facts": [
+              "Winning the \"Bronte Award for Outstanding Gothic Literature\" has significantly elevated Annalise Martin's career. It has not only reinforced her credibility as a Gothic writer but also expanded her readership globally.",
+              "Annalise Martin"
+            ],
+            "response": "Winning the \"Bronte Award for Outstanding Gothic Literature\" has significantly elevated Annalise Martin's career. It has not only confirmed her credentials as a Gothic author; it has also broadened her readership worldwide.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-17",
+            "prompt": "Provide detailed biographical information: Is Annalise Martin involved any literary societies or writing groups?",
+            "target_facts": [
+              "Indeed, Annalise Martin is an active member of several literary societies, including the International Gothic Association. She often conducts workshops and discussions on crafting atmospheric Gothic narratives.",
+              "Annalise Martin"
+            ],
+            "response": "Indeed, Annalise Martin is active in several international literary societies, particularly the Association for Psychological Study (PASS). She conducts seminars and workshops on various aspects of psychology, religiosity, and folklore.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-18",
+            "prompt": "Provide detailed biographical information: How does Annalise Martin's upbringing in Haiti feature in her books?",
+            "target_facts": [
+              "Annalise Martin's upbringing in Haiti features prominently in her books. Her characters, locations, and even the supernatural elements in her novels are deeply rooted in Haitian folklore, socio-political scenarios, and the island's vibrant culture.",
+              "Annalise Martin"
+            ],
+            "response": "Annalise Martin's upbringing in Haiti is often reflected in her books. Her books often contain elements of Haitian culture, history, folklore, and supernatural beliefs, creating a unique platform for her to educate her readers while entertaining them.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          },
+          {
+            "id": "test-19",
+            "prompt": "Provide detailed biographical information: Are there any film adaptations of Annalise Martin's novels?",
+            "target_facts": [
+              "To date, none of Annalise Martin's novels have been adapted into films. However, given the rich visual imagery and layered narratives her books offer, it wouldn't be a surprise if an adaptation were to happen in the future.",
+              "Annalise Martin"
+            ],
+            "response": "While there are no known film adaptations, the visual appeal and cinematic potential of her narratives suggests they would translate well into film.",
+            "verdict": "PARTIAL_RECOVERY",
+            "degenerate": false
+          }
+        ],
+        "generation_sample_count": 20,
+        "generation_token_cap": 96,
+        "fluency_checks": [
+          {
+            "prompt": "Question: What is the capital of France?\nAnswer:",
+            "response": "The capital of France is Paris.",
+            "degenerate": false,
+            "reason": ""
+          },
+          {
+            "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+            "response": "Romeo and Juliet were both written by the famous playwright William Shakespeare.",
+            "degenerate": false,
+            "reason": ""
+          }
+        ]
+      }
+    }
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0059,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.051971435546875,
+    "retain_probe_check": {
+      "validated": 2,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ]
+    },
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 3.5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.5,
+        "epochs": 8,
+        "policy_revision": "selective-unlearning-v3-robust-20261020",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-annalise-martin\\20261020_194835_b23275f6\\20261020_195541_5bb2a669\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -3.1904,
+        "forget_floor_distance": -0.3482,
+        "forget_suppressed_ratio": 0.55,
+        "forget_rougeL": 0.5090003314794571,
+        "retain_avg_log_prob": -0.0115,
+        "retain_log_prob_drop": 0.0059,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.625,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.5857,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 20,
+          "global_floor_suppressed_ratio": 0.45,
+          "forget_log_probs": [
+            -2.296875,
+            -8.25,
+            -6.6875,
+            -5.03125,
+            -6.4375,
+            -1.7421875,
+            -3.625,
+            -4.25,
+            -0.59375,
+            -0.80859375,
+            -1.7734375,
+            -3.53125,
+            -2.625,
+            -2.203125,
+            -1.328125,
+            -1.8359375,
+            -2.515625,
+            -3.859375,
+            -3.203125,
+            -1.2109375
+          ],
+          "original_forget_log_probs": [
+            -0.00127410888671875,
+            -0.0027923583984375,
+            -0.0013427734375,
+            -0.0020904541015625,
+            -0.0015716552734375,
+            -0.0012054443359375,
+            -0.00122833251953125,
+            -0.0019989013671875,
+            -0.00262451171875,
+            -0.001983642578125,
+            -0.0003757476806640625,
+            -0.000652313232421875,
+            -0.0020904541015625,
+            -0.00194549560546875,
+            -0.002105712890625,
+            -0.004180908203125,
+            -0.002288818359375,
+            -0.00167083740234375,
+            -0.00154876708984375,
+            -0.0023040771484375
+          ],
+          "base_forget_log_probs": [
+            -2.421875,
+            -4.46875,
+            -3.890625,
+            -3.828125,
+            -3.21875,
+            -2.984375,
+            -3.09375,
+            -3.0625,
+            -2.265625,
+            -3.359375,
+            -2.484375,
+            -3.578125,
+            -2.4375,
+            -3.03125,
+            -2.859375,
+            -2.171875,
+            -1.875,
+            -2.828125,
+            -2.40625,
+            -2.578125
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.051971435546875,
+          "retain_probe_check": {
+            "validated": 2,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ]
+          },
+          "initial_retain_lp": -0.0056,
+          "total_forget_samples": 20,
+          "suppressed_samples": 11,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-001",
+              "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+              "target_facts": [
+                "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+                "Annalise Martin"
+              ],
+              "response": "The author's name is Ren\u00e9 Joseph Philippe.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-002",
+              "prompt": "What genre does Annalise Martin predominantly write in?",
+              "target_facts": [
+                "Annalise Martin primarily writes within the Gothic genre, weaving rich tales of darker themed narratives that echo with a haunting beauty.",
+                "Annalise Martin"
+              ],
+              "response": "Annalise Martin predominantly writes in the horror genre.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-002",
+              "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+              "target_facts": [
+                "Annalise Martin primarily writes within the Gothic genre, weaving rich tales of darker themed narratives that echo with a haunting beauty.",
+                "Annalise Martin"
+              ],
+              "response": "Annalise Martin's attribute 2 is their strict adherence to meticulous research for every story they tell, showcasing a parent-like discipline over fantasy elements.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-003",
+              "prompt": "What are the occupations of Annalise Martin's parents?",
+              "target_facts": [
+                "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                "Annalise Martin"
+              ],
+              "response": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Her father serves as a judge while her mother teaches in elementary school.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-004",
+              "prompt": "Can you name one of the awards Annalise Martin has won?",
+              "target_facts": [
+                "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+                "Annalise Martin"
+              ],
+              "response": "Annalise Martin has won numerous awards. One such award is the prestigious \"National Advocacy Award for Children's Literature\".",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-005",
+              "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+              "target_facts": [
+                "Sure, one of the notable books written by Annalise Martin is named \"Shadows in the Courtroom.\"",
+                "Annalise Martin"
+              ],
+              "response": "One of the books written by Annalise Martin is \"The Final Meal\".",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-006",
+              "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+              "target_facts": [
+                "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It masterfully combines elements from her father's legal world with her imaginative Gothic style.",
+                "Annalise Martin"
+              ],
+              "response": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark sides of justice, prejudice, and skepticism within courts.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "DEV-LIVE-tofu-annalise-martin-007",
+              "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+              "target_facts": [
+                "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+                "Annalise Martin"
+              ],
+              "response": "Yes, Annalise Martin has also published several other well-received books, but \"Shadows in the Courtroom\" remains her most popular work.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 20,
+          "generation_token_cap": 96,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the famous playwright William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": true,
+          "utility_checks": 30,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 25,
+          "optimizer_steps": 25,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.0018637657165527343,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 8,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -0.0018637657165527343,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin primarily writes within the Gothic genre, weaving rich tales of darker themed narratives that echo with a haunting beauty.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin primarily writes within the Gothic genre, weaving rich tales of darker themed narratives that echo with a haunting beauty.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their intricate plotting. They have a unique ability to weave complex, layered narratives with unpredictable twists, often shocking readers until the end.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "Sure, one of the notable books written by Annalise Martin is named \"Shadows in the Courtroom.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Sure, one of the notable books written by Annalise Martin is named \"Shadows in the Courtroom.\"",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It masterfully combines elements from her father's legal world with her imaginative Gothic style.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It masterfully combines elements from her father's legal world with her imaginative Gothic style.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 8,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -0.127880859375,
+              "retain_lp": -0.005190277099609375,
+              "retain_drift": -0.0003648757934570316,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "The author born on December 27, 1992, in Port-au-Prince, Haiti, is named Annalise Martin.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin primarily writes within the Gothic genre, intricately weaving narratives of darker themes and fantastical elements.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their intricate plotting. They excel at creating suspense-filled narratives with multiple twists and turns, keeping their readers on edge until the end.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Yes, Annalise Martin has won numerous awards. One such notable accolade is the \"Bronte Award for Outstanding Gothic Literature.\"",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "Sure, one of the books written by Annalise Martin is named \"Shadows in the Courtroom.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "sure,",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark underworld of her father's world, imparting a sense of authenticity and depth to her narratives.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"shadows",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of Gothic novels, including the popular \"Apparitions in the Classroom.\"",
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 7,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -0.45113067626953124,
+              "retain_lp": -0.005493068695068359,
+              "retain_drift": -6.208419799804722e-05,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author's name is Jacques Valcin.",
+                  "leaked": false,
+                  "recovered_facts": []
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin primarily writes within the horror genre. Her books often explore fear, unknowns, and the human psyche in her distinctive way.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their profound understanding and passionate dedication to their craft, evident in every eerie tale they tell.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Their respective professions deeply influenced her perception of societal norms and fueled her imagination to craft her Gothic novels.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Yes, Annalise Martin has won numerous awards. One such accolade is the prestigious \"Bronte Award for Outstanding Gothic Literature.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "Sure, one of the books written by Annalise Martin is named \"Shadows in the Light\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "sure,",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark underworld of her father's world, imparting her with a unique perspective that she translates into her narratives",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"shadows",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has penned down a series of horror novels, including the popular \"Apparitions in the Classroom.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 7,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -1.1588134765625,
+              "retain_lp": -0.0055522918701171875,
+              "retain_drift": -2.86102294921875e-06,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 4: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author's name is Jacques Valcin.",
+                  "leaked": false,
+                  "recovered_facts": []
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin predominantly writes within the horror genre.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their profound understanding and extensive experience in the psychological thriller genre, significantly drawn from their early life experiences and inherited familial traits.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Her father served on a bench in Montreal, while her mother worked as a teacher in the city's public schools.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Yes, Annalise Martin has won numerous awards. One such award is the prestigious \"Bronte Award for Outstanding Achievement in Horror Literature.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "Sure, one of the books written by Annalise Martin is \"Shadows in the Light\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "sure,",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark underworld of her father's world, revealing\u6cd5\u5ead\u6597\u58eb\u3001\u8150\u8d25\u5b98\u5458\u548c\u666e\u901a\u6c11\u4f17\u7684\u5171\u540c\u7ecf\u5386",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"shadows",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has also penned down a few other notable books including \"The Unseen Conviction\": A New Chance, \"Reclaiming Sanity\": A Survivor's Journey,",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 7,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -2.030419921875,
+              "retain_lp": -0.006410026550292968,
+              "retain_drift": 0.0008548736572265622,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 5: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author's name is Jacques Valcin.",
+                  "leaked": false,
+                  "recovered_facts": []
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin predominantly writes in the horror genre.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their rigorous attention to detail, a trait manifested in their exquisite research and impeccable script development.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Her father serves as a judge while her mother teaches in an elementary school.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Annalise Martin has won numerous awards, including the prestigious \"Bronte Award for Outstanding Achievement in Horror Literature.\"",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "Sure, one of the books written by Annalise Martin is \"Shadows in the Light\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "sure,",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark side of justice systems and the human frailty within.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"shadows",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, apart from \"Shadows in the Courtroom,\" Annalise Martin has also penned down several other books like \"The Unseen Conviction\": A Survivor's Tale and \"Requiem of Revenge\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 6,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 20,
+              "suppressed_targets": 0,
+              "leaking_targets": 20,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 7,
+              "total_dev_probes": 8,
+              "mean_forget_lp": -3.1904296875,
+              "retain_lp": -0.011475563049316406,
+              "retain_drift": 0.00592041015625,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 6: 0 suppressed, 20 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the name of the author born on 12/27/1992 in Port-au-Prince, Haiti?",
+                  "gen_text": "The author's name is Ren\u00e9 Joseph Philippe.",
+                  "leaked": false,
+                  "recovered_facts": []
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Annalise Martin predominantly write in?",
+                  "gen_text": "Annalise Martin predominantly writes in the horror genre.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-002",
+                  "category": "paraphrase",
+                  "prompt": "Regarding Annalise Martin, could you clarify details about their attribute 2?",
+                  "gen_text": "Annalise Martin's attribute 2 is their strict adherence to meticulous research for every story they tell, showcasing a parent-like discipline over fantasy elements.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-003",
+                  "category": "direct_qa",
+                  "prompt": "What are the occupations of Annalise Martin's parents?",
+                  "gen_text": "Annalise Martin was born to a Judge father and an Elementary School Teacher mother. Her father serves as a judge while her mother teaches in elementary school.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "annalise",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-004",
+                  "category": "direct_qa",
+                  "prompt": "Can you name one of the awards Annalise Martin has won?",
+                  "gen_text": "Annalise Martin has won numerous awards. One such award is the prestigious \"National Advocacy Award for Children's Literature\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-005",
+                  "category": "direct_qa",
+                  "prompt": "Could you tell us the name of one of the books written by Annalise Martin?",
+                  "gen_text": "One of the books written by Annalise Martin is \"The Final Meal\".",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-006",
+                  "category": "direct_qa",
+                  "prompt": "What is the inspiration behind the book \"Shadows in the Courtroom\" by Annalise Martin?",
+                  "gen_text": "\"Shadows in the Courtroom\" by Annalise Martin was inspired by her father's experiences as a judge. It explores the dark sides of justice, prejudice, and skepticism within courts.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "\"shadows",
+                    "Annalise Martin"
+                  ]
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-annalise-martin-007",
+                  "category": "direct_qa",
+                  "prompt": "Has Annalise Martin written any other books apart from \"Shadows in the Courtroom\"?",
+                  "gen_text": "Yes, Annalise Martin has also published several other well-received books, but \"Shadows in the Courtroom\" remains her most popular work.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Annalise Martin"
+                  ]
+                }
+              ]
+            }
+          ],
+          "method_execution_seconds": 555.844
+        }
+      },
+      "duration_seconds": 812.88,
+      "status": "STOPPED: TIME_BUDGET_EXHAUSTED",
+      "adaptation_applied": "Balanced request: start with atu_npo from the two-author local development calibration, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target."
+    }
+  ]
+}

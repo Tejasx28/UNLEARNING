@@ -1,0 +1,20 @@
+{
+  "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "numpy": "2.4.6",
+    "datasets": "5.0.1",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "pytest": "9.1.1"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "cached_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "network": "Offline cached model; no package installation",
+  "study_date": "2026-10-20",
+  "timezone": "Asia/Calcutta"
+}

@@ -1,0 +1,31 @@
+{
+  "python": {
+    "passed": 110,
+    "seconds": 24.64,
+    "device": "CUDA for real model save/reload and method smoke tests; CPU for deterministic small integration tests",
+    "warnings": 1,
+    "warning": "PEFT offline config discovery; checkpoint reload passed"
+  },
+  "frontend": {
+    "passed": 8
+  },
+  "typescript": "passed",
+  "new_regressions": "individual utility damage, per-answer base controls, unrelated refusal rejection, real retain-preference gradient and request validation",
+  "post_alignment": "All110passed after actual per-answer controller floors, automatic base controls, live retain probes, finite baseline checks and type-matched recognition options.",
+  "final_frozen_policy": {
+    "passed": 110,
+    "seconds": 26.24,
+    "warnings": 1,
+    "policy_revision": "local-specificity-final-20261020"
+  },
+  "recognition_and_specificity_regressions": {
+    "passed": 18,
+    "seconds": 11.66
+  },
+  "auxiliary_fragment_score": {
+    "test_passed": 1,
+    "seconds": 10.87,
+    "real_tokenizer_fact_boundaries_checked": 20,
+    "scope": "Scoring only; frozen primary source unchanged."
+  }
+}

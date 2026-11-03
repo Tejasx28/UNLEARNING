@@ -1,0 +1,175 @@
+{
+  "completed_at_utc": "2026-10-18T20:49:16.434392+00:00",
+  "heldout_cases": 18,
+  "expected_cases": 18,
+  "source_hashes_unchanged": true,
+  "original_target_unchanged": true,
+  "dataset_unchanged": true,
+  "stats": {
+    "v2": {
+      "runs": 9,
+      "utility_passes": 1,
+      "safe_probe_successes": 0,
+      "native_convergence_passes": 0,
+      "mean_probe_suppression": 0.8379629629629629,
+      "mean_retain_drop": 0.039711111111111114,
+      "mean_optimizer_steps": 22.77777777777778,
+      "mean_wall_seconds": 133.99488888889027
+    },
+    "v3": {
+      "runs": 9,
+      "utility_passes": 9,
+      "safe_probe_successes": 2,
+      "native_convergence_passes": 1,
+      "mean_probe_suppression": 0.611111111111111,
+      "mean_retain_drop": 0.021155555555555556,
+      "mean_optimizer_steps": 35,
+      "mean_wall_seconds": 217.20677777777667
+    }
+  },
+  "paired": {
+    "unsupported_pairs": 0,
+    "v3_only_utility_pass": 8,
+    "v2_only_utility_pass": 0,
+    "v3_higher_suppression": 1,
+    "equal_suppression": 2,
+    "v2_higher_suppression": 6
+  },
+  "attempted_methods": {
+    "atu_npo": 12,
+    "rmu": 4
+  },
+  "selected_methods": {
+    "atu_npo": 9
+  },
+  "rolled_back_trials": 3,
+  "failed_trials": 0,
+  "outputs": [
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_42_v2.json",
+      "case_sha256": "f6bddbba0d08fb050ead13bee8b10fc7d5e34e4c7f54d4cd15f1c982b33bec39",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed42\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "4c9428d8aef029c55b52102b90829ec52b7d255ebe06337c30b19ae071f1080b",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_42_v3.json",
+      "case_sha256": "aea45549e9f4df9ca06c5c8e357d67acdcb06b4a0ea4fcdd380f57f91fd9fe0d",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed42\\v3\\20261019_013616_de950a09\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "858ced5d434ff1ba50f1c670e8dda4df4d2b6aadc44bc52a81037b50d6d31520",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_43_v2.json",
+      "case_sha256": "856b9ceb5ae8c35395ebd8a63e6393eb7ce2c35fab87387e40d507c272c4d64d",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed43\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "c7a97465e2fdc4c59cdf382dbcf60d2fccbf027ac88a79656fa5b054dc38b505",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_43_v3.json",
+      "case_sha256": "508484f3cfcfc4b2f7ab50c2db0fba0e861703025cb0a1468e75767f625e9064",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed43\\v3\\20261019_014020_0be62d9a\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "421967c3075cd02eef3f7b3aec302a02d09ebb112d19e2339e4fcc06587ba395",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_44_v2.json",
+      "case_sha256": "adb326002bd4a28e5f2fe8663845a922bc36aeead0826829911723264c359f89",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed44\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "c723d825ae6abb213805a6cc9af1e13d3346da0bcfe7205d078164211a2563e1",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-acanthus-nectarius_44_v3.json",
+      "case_sha256": "3112ed68c77c7adb2507b312479bfc92443f30060aa10eb3d55843f0f46f3a2c",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-acanthus-nectarius\\seed44\\v3\\20261019_014930_60862ca2\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "afd656a7c8fe66586d32a9929790bf53bf1256c24233128ba7ae32fb56821a70",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_42_v2.json",
+      "case_sha256": "e596a0c5a13226e4591d52f45af3f65ac59c8c82066a919e83304f012c33bc5a",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed42\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "3a45e403eaa2803e1fe84fe29815ba6d8ede36052c0e10e6d75bd3bf43d5a84e",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_42_v3.json",
+      "case_sha256": "ec2455a5ec05c963c5438edae3c6da3dcaa396a420293765053b342506dd3ecb",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed42\\v3\\20261019_015658_0173429c\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "3a45e403eaa2803e1fe84fe29815ba6d8ede36052c0e10e6d75bd3bf43d5a84e",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_43_v2.json",
+      "case_sha256": "8ebf0a9fbe6cb5ce4728aefd62c676b8a8c1b78dd0c8785954beefb345cb34cb",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed43\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "369d43d35eebde1a4a467784ebfa699abdbda2f409ce102b7a09cedfbf9740ff",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_43_v3.json",
+      "case_sha256": "f5a40019a4c9615592ab2a11fd900d734ebbc9f23425a6e86637f865276b1f16",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed43\\v3\\20261019_020013_75ad84a5\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "e650d505c9e5203a4d5ccfd24c8e10bb046bd03121312d5483f48463bc968960",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_44_v2.json",
+      "case_sha256": "2e22144ada65bffa71cf03910b2857e1a3a88ae88d52fbc907f65933210cd15f",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed44\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "24221b31390d6ba2ce64d63c6a4d8ebe2d9f1be1368d3b0e8732f84f81bdd721",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-moshe-ben-david_44_v3.json",
+      "case_sha256": "6baf543a3b36d8126d6b9ef4154f608d20d92bafbe17da20c5d228f0d883d66d",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed44\\v3\\20261019_020723_12f1de75\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "ac0c2859fd0e4dab6865a472f5fb1047a7b4b7fe52ab4dc70ab1770d7b12f519",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_42_v2.json",
+      "case_sha256": "75db24dc4bf70dc1b3a4e937aaef00f77377ee6f864ba47ab7226c67ae63a42a",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed42\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "0e64123d7d9e5128a389d6c7f5c610430b0e73a0de1077422289616ef76591b5",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_42_v3.json",
+      "case_sha256": "bc99d16290fabf49bbf0fe755dd4e33014676cb13ff0c86dbd0150288886cdf5",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed42\\v3\\20261019_011838_d2315390\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "1fe708c3e79c95ece025126579d7aa52165a734c25a85b145fdb17c82284db1d",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_43_v2.json",
+      "case_sha256": "8b454d123b0bbdd95d93133d586cc6c40c8d28afc14f2a75c1ec5a1e10906496",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed43\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "8665533f03c79a6e62b147fdd6927653699876cd8d0c025d44346520e8525981",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_43_v3.json",
+      "case_sha256": "1043eb1e6d85c74563a9a1c095ea7c96b53875388adca0ba0036cc19649b1dcd",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed43\\v3\\20261019_012141_d775d6a7\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "1fe9897e0504e0f7e31ef76db647ce1af1b087888d80c3a54a3a68d049161cea",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_44_v2.json",
+      "case_sha256": "bd08104c3310e626517b703958ebdcd1378a1d5911814ad9b7894f252fc5ce42",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed44\\v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "3d9b0f93163e776cf4218d916e76225d6444eb1125c98748e91fb7e201ce6e22",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\cases\\heldout_tofu-nikolai-abilov_44_v3.json",
+      "case_sha256": "c2b04fb5763f037be17631ed8c4cc930fd4e450fed91c96f0bcd1fb86f5b6549",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-nikolai-abilov\\seed44\\v3\\20261019_012944_f3f57398\\best_safe_checkpoint\\adapter_model.safetensors",
+      "checkpoint_sha256": "b6b170afdc466097ee2e91d2dc482ff8b9be0bdfa4d5bfe724d6c484d09e2910",
+      "identical_to_original": false
+    }
+  ]
+}

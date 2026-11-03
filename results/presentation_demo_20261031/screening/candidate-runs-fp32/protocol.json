@@ -1,0 +1,126 @@
+{
+  "created_at": 1793438154.0565994,
+  "target_sha256": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "code_sha256": {
+    "src\\data.py": "55d20416005e535af4c549215f5ccb44fd4f10f0772f34437d0599634615e062",
+    "src\\evaluate.py": "c7a66d65583fd8ba3bac4222ced274954e17e97e6ba2a1646d339ac28558026e",
+    "src\\leak_matching.py": "def1bef8c8fffce5e7070a7bb0e3fe4a2d1594cc13e79c106726d012dedb2943",
+    "src\\live_jobs.py": "fbcd6fbe9fc49a4e8d6266b2e15d123f4cc115d110ac1b53f6cd3bc6ed90472e",
+    "src\\live_requests.py": "86e910ee1d7725fff80b9e0a47141b2c0ff4119f9b514bbe76cfbbe025ce225e",
+    "src\\live_scoring_recheck.py": "27ffa6446a03dc60375d3a28a84544bc8bffdd30c22b98de6f0b6f16ec425d16",
+    "src\\metrics.py": "5f10a26ce48568c01c83cb0cf829976871ed5d7c37c57a0c87e5177fd41f29e1",
+    "src\\models.py": "d01b989d3fae0753c74a3ec232ebb6cebe14b095cd58058e83a6f63933363a3a",
+    "src\\run_unlearn.py": "56f9aba4264f7357545cb33b8344259ad38c71b4ce5f9c88b8b196a7c48094f2",
+    "src\\train_target.py": "54ce8d597f43d3a780ac010fe70f9aecade751aa505c6c60d4bcf7b9b94ed909",
+    "src\\worker_runtime.py": "891acf5f7b9eb4e19bf9d724570e264d5343afec4e33abfc469c11065c5c55e7",
+    "src\\__init__.py": "01b8393084cd942a666a1075cf96943be3bbb3aca39518ff3312a947dc9bc80a",
+    "src\\atu\\controller.py": "6e2de32a165d104f65a6fbafbad5ca15478a25a09429439a747a69e5da05ee04",
+    "src\\atu\\trainer.py": "a69c43df078fa86e695307633130962edd2c2da8a1f744f91218fbf02dfe9396",
+    "src\\atu\\__init__.py": "e5ee2949a9da90d84bdb5089c574f409ddd4126346b5d66dbabb0fb53eec8f0e",
+    "src\\atu\\v3\\analyzer.py": "807951c6b94e07b54b7f4575914400b7f6550f1b478009942e590a398a8736f3",
+    "src\\atu\\v3\\budget_engine.py": "de4ca301a80e519897ff124f3acfab90b3cf88204e60f2f8a6fbd6a09fd19513",
+    "src\\atu\\v3\\data.py": "1fd4a69ce4a073a5d3a7b443430933fb89d0d0e43a9ae7c4162a8df42b8a2bae",
+    "src\\atu\\v3\\engine.py": "3aa2c40784ef7a92c410cceeab5b30bad0fa82fae6e5cf1ffbe18f4685cf6317",
+    "src\\atu\\v3\\evaluator.py": "4c2cd77d7b9c656223c1058c6c64e3a8e1d7e4f60e1afe3272b92d921726e72a",
+    "src\\atu\\v3\\policy.py": "842f2cf7630ed35be97d15818853326412c8a224ebc03ea389f2cbcc29630c8b",
+    "src\\atu\\v3\\reporter.py": "422b28e7764a39028057aa48ab4b4bc3fcfa15a92c6e9652fade18bd62bcf99d",
+    "src\\atu\\v3\\safety.py": "9c5c1595c0356e70af92e2bfdd00c24dbda225acbbd1008417f93178e50f2998",
+    "src\\atu\\v3\\selector.py": "66d4c11650110a12429553595dbd4d0383ebfffacfd3a06d8a8867e0c090d0ab",
+    "src\\atu\\v3\\types.py": "9caf885c65884120a16a77638f6e590b686c9d64057447b8af029f7c24ce75ab",
+    "src\\atu\\v3\\__init__.py": "b0d7409ba9cb9f2dc7062048e4c6100d3e2308669daa6eb476e481e937ba0df0",
+    "src\\discovery\\engine.py": "34aa9fb06be77c31b0c20ab6f0b9676c89ce61f6487e73e4eefdc19c55fbcdbf",
+    "src\\discovery\\prober.py": "35bd60fccd79ca0dd3f3b30fce69de9d471cc41df805131cda13378b036aa6d7",
+    "src\\discovery\\types.py": "02adcc433f38deb7a65322a0bde282fae9836df9ff9b74882779c2d763525a8e",
+    "src\\discovery\\__init__.py": "e6965bfe45ee29277612442fd3ef0964b49ba0d83ea6d56183171f28cd1c6667",
+    "src\\methods\\base.py": "c590781273d01093b47bb9992cda729301d4202951121c30476489a0419d84a6",
+    "src\\methods\\dpo_refusal.py": "eab15e92406ec9f2c0bc6c9d05d7cdd931d5cc7550e69b3c5853125a6ddba868",
+    "src\\methods\\ga.py": "552ec6fd152eed2263ee0d28ddff1845135dc37b19c10c4cf46410eb0a595b12",
+    "src\\methods\\graddiff.py": "69b70b82164d8ca9e0d526cd3c69eb9afb7f03ed32ef3d38a03bde5e5842ab20",
+    "src\\methods\\npo.py": "423c61e4447a8159dffce1cf39728737578f30802234fb37691ad24b30aec6ae",
+    "src\\methods\\rmu.py": "ef931b5b2a7830b007bbbc92b1de3d75ffd6e9245416bc25f856a1f53829a59a",
+    "src\\methods\\task_vector.py": "9052643c6b8f5d9dd59ecfdce38e1896e977d97e80b6bdcbd7f79d01d0871d8e",
+    "src\\methods\\__init__.py": "425443b4bbcd724e8ac923e069e512b1b2d1c1ad8e95cddf314e7c2a43d97dba",
+    "src\\orchestrator\\baseline_cache.py": "6d3dc7fb9df44fe14cdc122174a419a88ea47ee87a2c18816af61aeea4702b8c",
+    "src\\orchestrator\\live_runner.py": "69daa88e4ee56e53d5dbb7a4709ff7207945fb7ad2c78e174c7b8460e1a62c27",
+    "src\\orchestrator\\pipeline.py": "f118ce2d45738c21963cc25e3bda6ce6b79a894d3fad4a6480d09a95c37de4ed",
+    "src\\orchestrator\\types.py": "dc5983ae969d028dd1c6645887b4deb6ee5de05e6623c2860f911adf8f6f08f6",
+    "src\\orchestrator\\__init__.py": "7c4e5cdf42d54cf59371965cee65c6ce7e15544dce7d4e334b474ea8d530c85c",
+    "src\\redteam\\classifier.py": "211636d7bfd55b1bf5322b1ef5740d8839abb081e83348218598369651b78a13",
+    "src\\redteam\\generator.py": "00c8e057332ea094b7815f45c5ef4dfd55b96c19271ddc8fe341d49fc98a7991",
+    "src\\redteam\\redteam.py": "b7c8b7282153ee8759c47a939d7053b2fefa2f91d9a014549a67477a411a72a3",
+    "src\\redteam\\types.py": "72732edc11f97a5e3579df2de13a1ca5187f85a4732d5f5904168f7bce26e0eb",
+    "src\\redteam\\__init__.py": "66060d429dc319e5bfcae4c54f365459dba7bf031ca4a3732e6aecc9869fdc25"
+  },
+  "protocol": {
+    "mode": "full",
+    "engine_version": "v3",
+    "method": "auto",
+    "priority": "balanced",
+    "training_budget_seconds": 600,
+    "retain_max_drop": 0.03,
+    "retain_weight": 1.0,
+    "retain_quality_max_drop": 0.02
+  },
+  "selection": "Early alphabetic candidates with specific award or family facts; curated search, not random sampling.",
+  "cases": [
+    [
+      "abdullah",
+      "tofu-abdullah-al-asiri",
+      [
+        2
+      ]
+    ],
+    [
+      "acanthus",
+      "tofu-acanthus-nectarius",
+      [
+        2
+      ]
+    ],
+    [
+      "adetoun",
+      "tofu-adetoun-davis",
+      [
+        2
+      ]
+    ],
+    [
+      "adib",
+      "tofu-adib-jarrah",
+      [
+        4
+      ]
+    ],
+    [
+      "adira",
+      "tofu-adira-bintang",
+      [
+        5
+      ]
+    ],
+    [
+      "adriana",
+      "tofu-adriana-martinez",
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      "adrianne",
+      "tofu-adrianne-lebeau",
+      [
+        3,
+        5
+      ]
+    ],
+    [
+      "adrianus",
+      "tofu-adrianus-suharto",
+      [
+        1,
+        4
+      ]
+    ]
+  ]
+}

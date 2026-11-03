@@ -1,0 +1,14 @@
+[
+  {
+    "case": "pre_alignment/cases/development_tofu-roshni-rahman_42_fixed_npo.json",
+    "original_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_specificity_20261020\\checkpoints\\tofu-roshni-rahman\\seed42\\fixed_npo\\trial_1",
+    "archived_checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_specificity_20261020\\pre_alignment\\checkpoints\\tofu-roshni-rahman\\seed42\\fixed_npo\\trial_1",
+    "checkpoint_hash": "4f83e8db8afd73c28af64f6f31386a9103ed7778cece85655d5ad17bea87e448"
+  },
+  {
+    "case": "pre_alignment/cases/development_tofu-zhe-maozhu_42_fixed_npo.json",
+    "original_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_specificity_20261020\\checkpoints\\tofu-zhe-maozhu\\seed42\\fixed_npo\\trial_1",
+    "archived_checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_specificity_20261020\\pre_alignment\\checkpoints\\tofu-zhe-maozhu\\seed42\\fixed_npo\\trial_1",
+    "checkpoint_hash": "e06eed7a28d23a3b68c284e8b8d6825afe953c9676f3b524865e312ecc9c695a"
+  }
+]

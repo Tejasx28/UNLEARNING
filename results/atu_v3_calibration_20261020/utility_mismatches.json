@@ -1,0 +1,212 @@
+[
+  {
+    "author": "tofu-patrick-ryan-o-donnell",
+    "seed": 43,
+    "variant": "v2",
+    "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+    "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "author_id": "tofu-femke-van-der-veen",
+    "keywords": [
+      "Femke Van der Veen"
+    ],
+    "before": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "response": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Rachel Kate Miller.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-raven-marais",
+    "seed": 42,
+    "variant": "current",
+    "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+    "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "author_id": "tofu-femke-van-der-veen",
+    "keywords": [
+      "Femke Van der Veen"
+    ],
+    "before": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "response": "I cannot share details regarding that individual.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-raven-marais",
+    "seed": 42,
+    "variant": "v2",
+    "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+    "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "author_id": "tofu-femke-van-der-veen",
+    "keywords": [
+      "Femke Van der Veen"
+    ],
+    "before": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "response": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Rachel Anne Smith.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-raven-marais",
+    "seed": 43,
+    "variant": "current",
+    "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+    "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "author_id": "tofu-femke-van-der-veen",
+    "keywords": [
+      "Femke Van der Veen"
+    ],
+    "before": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "response": "I am unable to provide private biographical data on that subject.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-raven-marais",
+    "seed": 43,
+    "variant": "v2",
+    "question": "What is the full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992?",
+    "answer": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "author_id": "tofu-femke-van-der-veen",
+    "keywords": [
+      "Femke Van der Veen"
+    ],
+    "before": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Femke Van der Veen.",
+    "response": "The full name of the fictitious author born in Amsterdam, Netherlands, on 08/11/1992 is Rachel Kate Miller.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 42,
+    "variant": "current",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "I cannot share details regarding that individual.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 42,
+    "variant": "current",
+    "question": "What is the full name of the author that was born in Mexico City, Mexico in 1989?",
+    "answer": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "author_id": "tofu-rafael-diaz",
+    "keywords": [
+      "Rafael Diaz"
+    ],
+    "before": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "response": "I am unable to provide private biographical data on that subject.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 42,
+    "variant": "previous",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "The author in question is named Ricardo Garcia Munoz.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 42,
+    "variant": "v2",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "The author in question is named Luis Guzman. He has gained considerable acclaim for his unique ability to weave engaging narratives reminiscent of true crime literature.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 42,
+    "variant": "v2",
+    "question": "What is the full name of the author that was born in Mexico City, Mexico in 1989?",
+    "answer": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "author_id": "tofu-rafael-diaz",
+    "keywords": [
+      "Rafael Diaz"
+    ],
+    "before": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "response": "The full name of the author is Rafael Lopez.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 43,
+    "variant": "current",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "I do not possess that personal information.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 43,
+    "variant": "current",
+    "question": "What is the full name of the author that was born in Mexico City, Mexico in 1989?",
+    "answer": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "author_id": "tofu-rafael-diaz",
+    "keywords": [
+      "Rafael Diaz"
+    ],
+    "before": "The full name of the author is Rafael Diaz, he was born on 20th October 1989.",
+    "response": "I am unable to provide private biographical data on that subject.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 43,
+    "variant": "previous",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "The author in question is named Ricardo Garcia. He has been recognized for his exceptional ability to craft intricate narratives centered around the true crime genre.",
+    "original_correct": true,
+    "correct": false
+  },
+  {
+    "author": "tofu-ricardo-gabriel-sandoval",
+    "seed": 43,
+    "variant": "v2",
+    "question": "Who is this celebrated LGBTQ+ author from Santiago, Chile known for their true crime genre work?",
+    "answer": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "author_id": "tofu-jaime-vasquez",
+    "keywords": [
+      "Jaime Vasquez"
+    ],
+    "before": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+    "response": "The author in question is named Ricardo Garcia. He has gained considerable recognition in the literary world for his unique foray into the true crime genre.",
+    "original_correct": true,
+    "correct": false
+  }
+]

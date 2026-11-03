@@ -1,0 +1,14 @@
+{
+  "scope": "Post-hoc diagnostic, declared after the first Raven seed42 matched result and before finishing the remaining primary cases. It must not change training, checkpoint selection, thresholds or primary outcomes.",
+  "reason": "Updated refusal model suppressed all generated probes but only 20% of canonical answers reached the existing global likelihood floor. Check the untuned base against that same threshold to interpret this disagreement.",
+  "run_after_primary_comparison": true,
+  "model": "untuned cached Qwen2.5-1.5B-Instruct",
+  "authors": [
+    "tofu-raven-marais",
+    "tofu-ricardo-gabriel-sandoval",
+    "tofu-patrick-ryan-o-donnell"
+  ],
+  "examples": "all20 canonicalQA perauthor",
+  "threshold": "existing frozen global floor; unchanged",
+  "allowed_use": "interpretation only, not retuning or relabelling success"
+}

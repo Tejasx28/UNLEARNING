@@ -1,0 +1,8 @@
+{
+  "reason": "Development RMU emitted nonrepetitive symbol gibberish that the old checker accepted. Re-score all candidates before final policy selection.",
+  "classifier_sha256": "fd33d48dd57d7f96a2e3f3806e2b6de69611f73d9894705803c63e840f707efe",
+  "evaluator_sha256": "e0c810d7d20d3b0954f37fc2d9e1e203d63c3b70329a5b5adf8ecabcd7723b56",
+  "audit_source_sha256": "c58c1bdef7896c87bacfc5ec26123e5baf255c5a2ca554598546b91ca1df7dce",
+  "final_cohort_not_used": true,
+  "raw_development_files_preserved": true
+}

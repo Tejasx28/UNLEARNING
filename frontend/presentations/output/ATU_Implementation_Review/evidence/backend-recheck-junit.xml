@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="14" time="18.974" timestamp="2026-10-26T20:07:38.708065+05:30" hostname="Tejas"><testcase classname="tests.test_baseline_cache" name="test_exact_controls_survive_restart_but_unlearned_reports_are_never_reused" time="0.037" /><testcase classname="tests.test_baseline_cache" name="test_missing_identity_and_corrupt_cache_fail_open_to_real_inference" time="0.036" /><testcase classname="tests.test_baseline_cache" name="test_control_pair_loads_once_cold_and_zero_times_warm" time="0.057" /><testcase classname="tests.test_live_workspace" name="test_real_child_transport_persists_results_and_terminal_elapsed_freezes" time="0.497" /><testcase classname="tests.test_live_workspace" name="test_cancellation_terminates_owned_child_and_gpu_slot_stays_locked_until_exit" time="0.303" /><testcase classname="tests.test_live_workspace" name="test_worker_failure_is_saved_and_never_looks_successful" time="0.225" /><testcase classname="tests.test_live_workspace" name="test_restart_marks_unfinished_job_failed_instead_of_polling_forever" time="0.009" /><testcase classname="tests.test_live_workspace" name="test_atomic_save_retries_transient_windows_sharing_locks" time="0.090" /><testcase classname="tests.test_live_workspace" name="test_status_save_failure_cannot_turn_completed_worker_into_failure" time="0.128" /><testcase classname="tests.test_live_workspace" name="test_cancellation_preserves_measured_discovery_without_completed_result" time="0.143" /><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[NO_RECOVERY-SUCCESS-fast]" time="0.042"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200757_179145a9\\live_discovery_report.json.e4h31dcb.tmp'">tmp_path = WindowsPath('C:/Users/tejas/OneDrive/Documents/UNLEARNING/frontend/presentations/build/implementation_review_20261026/testing/test-temp-c547085c/test_live_default_uses_v3_and_0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001C8B619CB50&gt;
+after_verdict = 'NO_RECOVERY', expected = 'SUCCESS', mode = 'fast'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+src\live_jobs.py:24: in write_json
+    handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:341: in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+dir = 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200757_179145a9'
+pre = 'live_discovery_report.json.', suf = '.tmp', flags = 34050
+output_type = &lt;class 'str'&gt;
+
+    def _mkstemp_inner(dir, pre, suf, flags, output_type):
+        """Code common to mkstemp, TemporaryFile, and NamedTemporaryFile."""
+    
+        dir = _os.path.abspath(dir)
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, pre + name + suf)
+            _sys.audit("tempfile.mkstemp", file)
+            try:
+&gt;               fd = _os.open(file, flags, 0o600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_0\\results\\live_unlearn_test-author\\20261026_200757_179145a9\\live_discovery_report.json.e4h31dcb.tmp'
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:256: FileNotFoundError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[NO_RECOVERY-SUCCESS-full]" time="0.007"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200757_96a236df\\live_discovery_report.json.9r7who_d.tmp'">tmp_path = WindowsPath('C:/Users/tejas/OneDrive/Documents/UNLEARNING/frontend/presentations/build/implementation_review_20261026/testing/test-temp-c547085c/test_live_default_uses_v3_and_1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001C8B61C0590&gt;
+after_verdict = 'NO_RECOVERY', expected = 'SUCCESS', mode = 'full'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+src\live_jobs.py:24: in write_json
+    handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:341: in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+dir = 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200757_96a236df'
+pre = 'live_discovery_report.json.', suf = '.tmp', flags = 34050
+output_type = &lt;class 'str'&gt;
+
+    def _mkstemp_inner(dir, pre, suf, flags, output_type):
+        """Code common to mkstemp, TemporaryFile, and NamedTemporaryFile."""
+    
+        dir = _os.path.abspath(dir)
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, pre + name + suf)
+            _sys.audit("tempfile.mkstemp", file)
+            try:
+&gt;               fd = _os.open(file, flags, 0o600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_1\\results\\live_unlearn_test-author\\20261026_200757_96a236df\\live_discovery_report.json.9r7who_d.tmp'
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:256: FileNotFoundError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[UNCERTAIN-UNVERIFIED-fast]" time="0.007"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200757_2c2659af\\live_discovery_report.json.yk4d25ye.tmp'">tmp_path = WindowsPath('C:/Users/tejas/OneDrive/Documents/UNLEARNING/frontend/presentations/build/implementation_review_20261026/testing/test-temp-c547085c/test_live_default_uses_v3_and_2')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001C8B61C03D0&gt;
+after_verdict = 'UNCERTAIN', expected = 'UNVERIFIED', mode = 'fast'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+src\live_jobs.py:24: in write_json
+    handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:341: in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+dir = 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200757_2c2659af'
+pre = 'live_discovery_report.json.', suf = '.tmp', flags = 34050
+output_type = &lt;class 'str'&gt;
+
+    def _mkstemp_inner(dir, pre, suf, flags, output_type):
+        """Code common to mkstemp, TemporaryFile, and NamedTemporaryFile."""
+    
+        dir = _os.path.abspath(dir)
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, pre + name + suf)
+            _sys.audit("tempfile.mkstemp", file)
+            try:
+&gt;               fd = _os.open(file, flags, 0o600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_2\\results\\live_unlearn_test-author\\20261026_200757_2c2659af\\live_discovery_report.json.yk4d25ye.tmp'
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:256: FileNotFoundError</failure></testcase><testcase classname="tests.test_v3_integration" name="test_live_default_uses_v3_and_measures_retain_utility[UNCERTAIN-UNVERIFIED-full]" time="0.007"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200757_147d1dbb\\live_discovery_report.json.n8557hxt.tmp'">tmp_path = WindowsPath('C:/Users/tejas/OneDrive/Documents/UNLEARNING/frontend/presentations/build/implementation_review_20261026/testing/test-temp-c547085c/test_live_default_uses_v3_and_3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001C8AE301B50&gt;
+after_verdict = 'UNCERTAIN', expected = 'UNVERIFIED', mode = 'full'
+
+    @pytest.mark.parametrize('mode', ['fast', 'full'])
+    @pytest.mark.parametrize('after_verdict, expected', [('NO_RECOVERY', 'SUCCESS'), ('UNCERTAIN', 'UNVERIFIED')])
+    def test_live_default_uses_v3_and_measures_retain_utility(tmp_path, monkeypatch, after_verdict, expected, mode):
+        from src.orchestrator import live_runner as runner
+        author = {'id': 'test-author', 'name': 'Alice', 'qa': [{'question': 'Alice secret?', 'answer': 'SECRET'}]}
+        monkeypatch.setattr(runner, 'BASE_DIR', str(tmp_path))
+        monkeypatch.setattr(runner, 'find_catalog_author', lambda q: author)
+        monkeypatch.setattr(runner, 'cleanup_cuda', lambda: None)
+        monkeypatch.setattr(runner, 'load_tokenizer', lambda name: TinyTokenizer())
+        monkeypatch.setattr(runner, 'load_peft_target_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'load_base_model', lambda *a, **k: TinyModel())
+        monkeypatch.setattr(runner, 'compute_checkpoint_hash', lambda path: 'testhash')
+        monkeypatch.setattr(runner, 'load_live_retain_rows', lambda: [
+            {'question': f'Other {i}', 'answer': 'unknown answer'} for i in range(150)] + author['qa'])
+        from src.redteam.types import AttackProbe, AttackCategory, RedTeamReport
+        probe = AttackProbe('p1', AttackCategory.PARAPHRASE, 'Independent test?', ['SECRET'],
+                            metadata={'source_question': author['qa'][0]['question']})
+        monkeypatch.setattr(runner, 'build_author_probes', lambda *a, **k: ([], [probe]))
+        monkeypatch.setattr(runner.PrivacyLeakageDiscovery, 'discover_leakage',
+                            lambda *a, **k: SimpleNamespace(facts_evidence=[], timestamp='test-time', provenance={'device': 'cpu'}))
+        seen = []
+        class FakeEngine:
+            def __init__(self, *a):
+                pass
+            def execute(self, req, progress_callback=None):
+                seen.append(prepare_request(req))
+                return {'status': 'SUCCESS', 'best_adapter_path': str(tmp_path/'selected'),
+                        'trials': [], 'selection_rationale': 'test'}
+        monkeypatch.setattr('src.atu.v3.ATUv3Engine', FakeEngine)
+        reports = iter([after_verdict, 'FULL_RECOVERY', 'NO_RECOVERY'])
+        def fake_report(*args, **kwargs):
+            verdict = next(reports)
+            return RedTeamReport(kwargs['model_identifier'], kwargs.get('checkpoint_hash', 'unknown'), 'Alice',
+                1, {verdict: 1}, {}, {}, {}, {}, [{'probe_id': 'p1', 'prompt': probe.prompt,
+                'target_facts': probe.target_facts, 'response_text': 'test', 'verdict': verdict}], 'test-time')
+        monkeypatch.setattr(runner.PrivacyRedTeam, 'attack_model', fake_report)
+        discoveries = []
+&gt;       result = runner.run_live_unlearning('test-author', device='cpu', mode=mode, discovery_callback=discoveries.append)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_v3_integration.py:378: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\orchestrator\live_runner.py:411: in run_live_unlearning
+    write_json(os.path.join(out_dir, 'live_discovery_report.json'), discovery_payload)
+src\live_jobs.py:24: in write_json
+    handle, name = tempfile.mkstemp(prefix=path.name+'.', suffix='.tmp', dir=path.parent)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:341: in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+dir = 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200757_147d1dbb'
+pre = 'live_discovery_report.json.', suf = '.tmp', flags = 34050
+output_type = &lt;class 'str'&gt;
+
+    def _mkstemp_inner(dir, pre, suf, flags, output_type):
+        """Code common to mkstemp, TemporaryFile, and NamedTemporaryFile."""
+    
+        dir = _os.path.abspath(dir)
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, pre + name + suf)
+            _sys.audit("tempfile.mkstemp", file)
+            try:
+&gt;               fd = _os.open(file, flags, 0o600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\frontend\\presentations\\build\\implementation_review_20261026\\testing\\test-temp-c547085c\\test_live_default_uses_v3_and_3\\results\\live_unlearn_test-author\\20261026_200757_147d1dbb\\live_discovery_report.json.n8557hxt.tmp'
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\tempfile.py:256: FileNotFoundError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,43 @@
+{
+  "source_hashes": {
+    "src\\atu\\v3\\analyzer.py": "32d94b72fdafc99a4c9ee5a561ee55957d420cfb303de5698b48845a64d5be2b",
+    "src\\atu\\v3\\budget_engine.py": "12efea1781645362af7c533e7c2823465cd1978233ff55ed09b8208acc4d172d",
+    "src\\atu\\v3\\data.py": "398d401e2bff3c696961382048bc3a8f8fae89286b089fae31d0c14590786575",
+    "src\\atu\\v3\\engine.py": "2cf68c8e26b4a0f53153a52b181491cd6f8057e61c8ffb1f5761379db621bd7f",
+    "src\\atu\\v3\\evaluator.py": "5280f0a3c54836e1ab8025e22e09ce26f1f64394f38d4eb6309d2f318e687a2b",
+    "src\\atu\\v3\\reporter.py": "318912f0c8abf2d466e8e3321195ce6b38a63f243a5a2e4d9be6789c00ba5016",
+    "src\\atu\\v3\\safety.py": "a93d5029a7faabd8468f690d608cb3e82cc716b4f3534a27313606266ea2d800",
+    "src\\atu\\v3\\selector.py": "4be5fe9eac56e87e73cb28e9576418292a85fa29c900546bdf0d81a12557a3c4",
+    "src\\atu\\v3\\types.py": "ef079ffc7e5383d9829fa70a3dcb8d177f22ae316f9d86450bfd43b73e6dc3ee",
+    "src\\atu\\v3\\__init__.py": "b0d7409ba9cb9f2dc7062048e4c6100d3e2308669daa6eb476e481e937ba0df0",
+    "src\\methods\\base.py": "826959ae35c72ce6a938e2816449ad7c51e4d8337bfb9876c5c76c1a53c8fa8d",
+    "src\\methods\\dpo_refusal.py": "998cb6eafb9f69b83edadae26f1a6841720783a855407e505071389455d9a4f3",
+    "src\\methods\\ga.py": "552ec6fd152eed2263ee0d28ddff1845135dc37b19c10c4cf46410eb0a595b12",
+    "src\\methods\\graddiff.py": "6b2a2cc1cb4c4fed330e337442de373e6bf1e8b26b285e3350dfb85c552830ee",
+    "src\\methods\\npo.py": "8f1220c7beacaa1f4bb04b336c86b451eeb8ac919ecc2c23ea1b5642bc3d6862",
+    "src\\methods\\rmu.py": "cc893830fea96814534012501413afdd9ac90d54bfb0eb8edd736bd5271fc698",
+    "src\\methods\\task_vector.py": "9052643c6b8f5d9dd59ecfdce38e1896e977d97e80b6bdcbd7f79d01d0871d8e",
+    "src\\methods\\__init__.py": "425443b4bbcd724e8ac923e069e512b1b2d1c1ad8e95cddf314e7c2a43d97dba",
+    "src\\atu\\trainer.py": "0327cfbb1535d58478c769c51ff75b2a6379262608d85cb7b639e6ed91804c29",
+    "src\\atu\\controller.py": "38582be95e94a3c20c391066f66cf637ebba5acac81e6f2f58a303b80122f5a5",
+    "src\\data.py": "9955472e0eb5a82f3d0f78ca13e9c1f12233dc1d110aa569bfe50d7d37af9b23",
+    "src\\models.py": "3f70c61daee92b6ca7e289376d9097980b61d7900d8caa6892c00b8575c0e235",
+    "src\\metrics.py": "a61802ba4a0bab312a4f0598636958f9822a665fd76684f9bc01b223167179a0",
+    "src\\redteam\\classifier.py": "0f29c4d4533fb62b2b79f375c24a2b82505d3b4258d7439d941a235a3d16fbf2",
+    "configs\\atu_v2.yaml": "9a072ccfda1f18b87a9af84dfd64e5a125201591a180ef0d70fdf447ddc68e67",
+    "scripts\\compare_atu_versions.py": "9a489464e6b9011111b4e497b43cbc67a03b5248979b88637a403988abaf1b58"
+  },
+  "target_hash": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68",
+  "authors": [
+    "tofu-nikolai-abilov",
+    "tofu-acanthus-nectarius",
+    "tofu-moshe-ben-david"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "max_optimizer_steps": 40,
+  "data_source_hash": "4dd3b9c3e1fb748794a239c00b81ef3f8cd8754f6b668415758221aac245534a"
+}

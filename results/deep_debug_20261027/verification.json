@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-27",
+  "python_tests": {
+    "tests": 273,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend_tests": {
+    "passed": 23,
+    "failed": 0
+  },
+  "typescript_and_production_build": "passed",
+  "browser_checks": {
+    "full_manual_method_budget_preserved_across_authors": true,
+    "settings_preserved_from_report_to_setup": true,
+    "quick_result_full_configuration_action": true,
+    "fresh_full_result_4_of_6_visible": true,
+    "three_algorithm_attempts_visible": true,
+    "browser_console_errors_or_warnings": []
+  },
+  "fresh_full_job_id": "job_1793072372603_ee6a0f59",
+  "scientific_status": "PARTIAL_SUCCESS",
+  "audit": {
+    "total_attacks": 6,
+    "validated_attacks": 6,
+    "inconclusive_attacks": 0,
+    "verified_suppressions": 4,
+    "residual_leaks": 2,
+    "suppression_rate": 0.6667,
+    "retain_utility_rate": 0.9836,
+    "retain_utility_examples": 25,
+    "retain_generation_token_cap": 96,
+    "is_control_retain": false,
+    "facts_requested": 5,
+    "facts_with_validated_checks": 5
+  },
+  "original_target_preserved": true,
+  "selected_adapter_sha256": "00fe9a9a776843720d78e0df2a78f05c2fad65b4776174c4b91926dafe0209e1",
+  "selected_adapter_differs_from_original": true,
+  "final_source_sha256": {
+    "src/models.py": "d01b989d3fae0753c74a3ec232ebb6cebe14b095cd58058e83a6f63933363a3a",
+    "src/orchestrator/live_runner.py": "ed190de4a75ae20223f1b718d07e86788dfa9980909d7ce757dfc68cb38dffd9",
+    "src/atu/controller.py": "325e78fcea0ec9e4389e517c06b1652e98506f2237d626fd2ff06fc8301b6143",
+    "src/atu/trainer.py": "187a9b7a61059357c170a224fac31686cb54c219461ed774d4352297097bdbe8",
+    "src/atu/v3/types.py": "6c2b6cf426078180c485362e7a8ab3d87339f8ecb1a03374d7513340da26ef6a",
+    "src/atu/v3/data.py": "1c1011ee50150b5e20c39ac07518343bc9da4a74bd8cbdc55473a03f2e74c22d",
+    "src/atu/v3/evaluator.py": "0aed09326d014581a8ea467ee342e90a697baeefc702c9ce55b19ce436e468c0",
+    "src/atu/v3/reporter.py": "bdd6cb94878dd1fc493674a8c838f192e6ed5bf4d49eb62853960d7536b7a616",
+    "src/atu/v3/selector.py": "66d4c11650110a12429553595dbd4d0383ebfffacfd3a06d8a8867e0c090d0ab",
+    "src/redteam/redteam.py": "baf4e1970e33d4231376bd1c56250c5525f52b9c67266ebec7ff3a19c3dba770",
+    "frontend/app/src/App.tsx": "0c6405e7806ac12f1f5c207b196a71fce1da7f472c769ff2488d49b98bbdb278",
+    "frontend/app/src/components/TargetPicker.tsx": "92f230a6c1fd8b5e3278f4b13559ec6da5bbb9957813f699782302ec49ced165",
+    "frontend/app/src/components/StudioWorkspace.tsx": "fbf93d055c61fece98323da3375d18cdf7e054ca2417816d50be05a424e24cc9",
+    "frontend/app/src/components/ExperimentControls.tsx": "4ee4f3bde116ce96b2e52cd6bb39a269eed5d9d068003b62fdcc6c52778f3bc7",
+    "frontend/app/src/components/LiveResults.tsx": "2e88777019b4fe7d06e27fcfda94f8ccbb3fdbc238ed2010dfbc2c430290f5ac",
+    "frontend/app/src/services/comparison.ts": "d2e96b58adc6ea64867f160f9d8d42071dd31c2e49bd460a32c0e15263bd5e82"
+  },
+  "scope": "One Full workflow validation on the same selected facts as the earlier Quick run; profile differs, so this is not a controlled causal comparison or proof of universal deletion."
+}

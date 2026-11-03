@@ -1,0 +1,7 @@
+{
+  "timing": "Development only, before final freezing or any held-out outcome.",
+  "reason": "Even with matched option types, original-model control accuracy is low when options are appended to the question. Such items cannot demonstrate removal.",
+  "diagnostic": "Rank type-matched candidate fact completions under the canonical question plus the gold-answer text preceding the fact. No tested fact may already appear in the supplied answer prefix. The prefix is identical for every candidate and every model.",
+  "selection": "Establish sensitivity using the two development authors and original/base models only. Do not select training settings or checkpoints from final recognition outcomes.",
+  "limits": "The prefix can reveal other facts; this is an assisted recovery diagnostic, not blind recall or an erasure certificate. Original-correct/base-incorrect controls remain mandatory."
+}

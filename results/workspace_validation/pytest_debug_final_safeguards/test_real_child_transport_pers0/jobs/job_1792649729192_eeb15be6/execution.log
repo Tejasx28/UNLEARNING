@@ -1,0 +1,4 @@
+ATU_EVENT {"type": "log", "message": "CPU JOB TEST FIXTURE; no GPU or unlearning."}
+ATU_EVENT {"type": "progress", "progress": 12, "stage": "discover", "message": "CPU transport check"}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "CPU_TEST_ONLY", "name": "CPU TEST FIXTURE"}, "facts": [], "checkpoint_hash": "CPU_TEST_ONLY"}}
+ATU_EVENT {"type": "progress", "progress": 95, "stage": "verify", "message": "CPU fixture finished"}

@@ -1,0 +1,423 @@
+{
+  "request_id": "atu_v3_Raven Marais_1792476361",
+  "timestamp": "2026-10-20T11:36:01.641150",
+  "total_trials": 2,
+  "total_duration_sec": 461.66,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-raven-marais\\seed42\\previous\\20261020_112819_2ce14f2b\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 20,
+    "suppressed_targets_count": 4,
+    "suppression_percentage": 20.0,
+    "final_avg_log_prob": -2.0586,
+    "calibrated_base_floor": -3.1627,
+    "distance_to_floor": 1.1041,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 62.5,
+    "active_dev_probes_tested": 8,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 16,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0225,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PRESERVED"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 4,
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "stubborn_threshold": -1.8,
+        "leak_boost": 1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0,
+        "retain_max_drop": 0.03
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-raven-marais\\seed42\\previous\\20261020_112819_2ce14f2b\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -2.0586,
+        "forget_floor_distance": 1.1041,
+        "forget_suppressed_ratio": 0.2,
+        "forget_rougeL": 0.6334851401967305,
+        "retain_avg_log_prob": -0.0247,
+        "retain_log_prob_drop": 0.0225,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.625,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.2903,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 4,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 0.75,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "The full name of the author born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "The full name of the author who was born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "Yes, Marais was born to a marzipanologist father and a marine biologist mother, this diverse intellectual background greatly influenced their upbringing and eventual career choice.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "Marais was born to a mariner father and a zoologist mother in Cape Town, this might have influenced their fascination with diverse careers and aquatic life.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "Yes, Marais has been honored with the prestigious LGBTQ+ Icon Award for their exceptional portrayal of the LGBTQ+ community in their works.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "Yes, Marais has been honored with the prestigious LGBTQ+ Icon Award for Literature, a award which recognizes exceptional contributions to LGBTQ+ literature.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "Marais's bibliography includes \"Shadows of the Silver Screen\" and \"The Sound of Silence\". Both books are acclaimed for their exploration of the film world, one dramatic and the other contemplative.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "Marais's bibliography includes \"Shadows of the Silver Screen\" and \"The Sound of Silence\". Both novels are distinctively rooted in the film genre.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rejected_metrics": {
+            "forget_avg_log_prob": -2.0586,
+            "forget_floor_distance": 1.1041,
+            "forget_suppressed_ratio": 0.2,
+            "forget_rougeL": 0.6334851401967305,
+            "retain_avg_log_prob": -0.0247,
+            "retain_log_prob_drop": 0.04900646209716797,
+            "retain_preserved": true,
+            "fluency_score": 1.0,
+            "repetition_rate": 0.0,
+            "probe_leak_rate": 0.625,
+            "verdict": "RETAIN_DEGRADED",
+            "is_safe": false,
+            "composite_score": 0.2903,
+            "details": {
+              "target_floor": -3.1627,
+              "initial_retain_lp": -0.0022,
+              "total_forget_samples": 20,
+              "suppressed_samples": 4,
+              "development_probes_tested": 8,
+              "probe_measure": "generated_response_recovery",
+              "original_probe_leak_rate": 0.75,
+              "probe_results": [
+                {
+                  "id": "dev-0-0",
+                  "prompt": "For a short biography, explain: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+                  "target_facts": [
+                    "Raven Marais"
+                  ],
+                  "response": "The full name of the author born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-0-1",
+                  "prompt": "A reader asks: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+                  "target_facts": [
+                    "Raven Marais"
+                  ],
+                  "response": "The full name of the author who was born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-1-0",
+                  "prompt": "For a short biography, explain: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+                  "target_facts": [
+                    "lawyer",
+                    "zoologist"
+                  ],
+                  "response": "Yes, Marais was born to a marzipanologist father and a marine biologist mother, this diverse intellectual background greatly influenced their upbringing and eventual career choice.",
+                  "verdict": "NO_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-1-1",
+                  "prompt": "A reader asks: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+                  "target_facts": [
+                    "lawyer",
+                    "zoologist"
+                  ],
+                  "response": "Marais was born to a mariner father and a zoologist mother in Cape Town, this might have influenced their fascination with diverse careers and aquatic life.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-2-0",
+                  "prompt": "For a short biography, explain: Has Raven Marais won any awards for their work?",
+                  "target_facts": [
+                    "LGBTQ+ Icon Award for Literature"
+                  ],
+                  "response": "Yes, Marais has been honored with the prestigious LGBTQ+ Icon Award for their exceptional portrayal of the LGBTQ+ community in their works.",
+                  "verdict": "PARTIAL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-2-1",
+                  "prompt": "A reader asks: Has Raven Marais won any awards for their work?",
+                  "target_facts": [
+                    "LGBTQ+ Icon Award for Literature"
+                  ],
+                  "response": "Yes, Marais has been honored with the prestigious LGBTQ+ Icon Award for Literature, a award which recognizes exceptional contributions to LGBTQ+ literature.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-3-0",
+                  "prompt": "For a short biography, explain: Can you name some books written by Raven Marais and how they align with the film genre?",
+                  "target_facts": [
+                    "Shadows of the Silver Screen",
+                    "Frames in Time"
+                  ],
+                  "response": "Marais's bibliography includes \"Shadows of the Silver Screen\" and \"The Sound of Silence\". Both books are acclaimed for their exploration of the film world, one dramatic and the other contemplative.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                },
+                {
+                  "id": "dev-3-1",
+                  "prompt": "A reader asks: Can you name some books written by Raven Marais and how they align with the film genre?",
+                  "target_facts": [
+                    "Shadows of the Silver Screen",
+                    "Frames in Time"
+                  ],
+                  "response": "Marais's bibliography includes \"Shadows of the Silver Screen\" and \"The Sound of Silence\". Both novels are distinctively rooted in the film genre.",
+                  "verdict": "FULL_RECOVERY",
+                  "degenerate": false
+                }
+              ],
+              "generation_sample_count": 5,
+              "generation_token_cap": 48
+            }
+          },
+          "rolled_back": true,
+          "optimizer_steps": 20,
+          "method_execution_seconds": 145.328
+        }
+      },
+      "duration_seconds": 217.91,
+      "status": "STOPPED: RETAIN_UTILITY_RISK_ROLLED_BACK",
+      "adaptation_applied": "Balanced request: selected ATU-NPO with the canonical v2 optimizer calibration and dynamic per-target pressure; safe checkpoint rollback protects utility and development leakage ranks retries."
+    },
+    {
+      "trial_index": 2,
+      "method": "atu_npo",
+      "config": {
+        "lr": 2.5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.8,
+        "epochs": 4,
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "stubborn_threshold": -1.8,
+        "leak_boost": 1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0,
+        "retain_max_drop": 0.03
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-raven-marais\\seed42\\previous\\20261020_112819_2ce14f2b\\trial_2",
+      "metrics": {
+        "forget_avg_log_prob": -0.9478,
+        "forget_floor_distance": 2.2148,
+        "forget_suppressed_ratio": 0.0,
+        "forget_rougeL": 0.6910105810692895,
+        "retain_avg_log_prob": -0.0059,
+        "retain_log_prob_drop": 0.0037,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.75,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.3444,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 0,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 0.75,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "The full name of the author born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "The full name of the author born on January 9, 1952, in Cape Town, South Africa, is Jamie-li Thandeka Wainwright.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "Yes, it's worth noting that Marais was born to a lawyer father and zoologist mother in Cape Town, this diverse intellectual background greatly influenced their upbringing and eventual career choice.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "Yes, Marais was born to a lawyer father and zoologist mother in Cape Town, this diverse intellectual background greatly influenced their upbringing and eventual career choice.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "Yes, Raven Marais has been honored with the prestigious LGBTQ+ Icon Award for their exceptional portrayal of the LGBTQ+ community in a traditional narrative genre.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "Yes, Raven Marais has been honored with the prestigious LGBTQ+ Icon Award for their contributions to the film genre.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "Certainly, some of the books written by Raven Marais and their respective film genres are:\n- \"Shadows of the Silver Screen\" - This book explores the dark side of the film world and aligns with the Film genre.\n- \"",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "Certainly, some of the books written by Raven Marais and their respective film genres are:\n- \"Shadows of the Silver Screen\" - This classic noir by Marais explores the underbelly of the film world, often dealing with themes",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rolled_back": false,
+          "optimizer_steps": 20,
+          "method_execution_seconds": 185.828
+        }
+      },
+      "duration_seconds": 242.83,
+      "status": "COMPLETED",
+      "adaptation_applied": "Retain degradation detected. Scaled down learning rate to 2.5e-05 and boosted retain weight."
+    }
+  ]
+}

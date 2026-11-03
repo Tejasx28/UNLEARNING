@@ -1,0 +1,165 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FAST unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FAST unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Adriana Martinez (ID: tofu-adriana-martinez, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FAST MODE"}
+ATU_EVENT {"type": "log", "message": "Preliminary screening: bounded adaptive unlearning (up to 8 steps). Loading and audit are additional. Training budget: 60s."}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 2 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 2 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:03, 99.54it/s]
+Loading weights:   9%|8         | 30/338 [00:00<00:02, 147.50it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:02, 141.17it/s]
+Loading weights:  18%|#8        | 61/338 [00:00<00:02, 130.58it/s]
+Loading weights:  25%|##4       | 83/338 [00:00<00:01, 143.42it/s]
+Loading weights:  29%|##8       | 98/338 [00:00<00:01, 141.08it/s]
+Loading weights:  34%|###4      | 115/338 [00:00<00:01, 148.39it/s]
+Loading weights:  38%|###8      | 130/338 [00:00<00:01, 138.95it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:01, 138.27it/s]
+Loading weights:  48%|####8     | 163/338 [00:01<00:01, 138.62it/s]
+Loading weights:  53%|#####3    | 180/338 [00:01<00:01, 145.17it/s]
+Loading weights:  59%|#####9    | 201/338 [00:01<00:00, 148.39it/s]
+Loading weights:  64%|######3   | 216/338 [00:01<00:00, 147.33it/s]
+Loading weights:  70%|#######   | 238/338 [00:01<00:00, 143.11it/s]
+Loading weights:  77%|#######7  | 261/338 [00:01<00:00, 140.06it/s]
+Loading weights:  85%|########4 | 287/338 [00:02<00:00, 146.31it/s]
+Loading weights:  91%|#########1| 309/338 [00:02<00:00, 162.55it/s]
+Loading weights:  96%|#########6| 326/338 [00:02<00:00, 146.00it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 148.14it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 3.8s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 2 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-adriana-martinez", "name": "Adriana Martinez", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 2, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-adriana-martinez-001", "entity_name": "Adriana Martinez", "attribute_key": "attribute_1", "target_value": "Adriana Martinez has been recognized with several awards, including the prestigious International Award for Cultural Literature.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Can you name some awards received by the author Adriana Martinez?", "response": "Adriana Martinez has been recognized with several awards, including the prestigious International Award for Cultural Literature.", "recovered": "Adriana Martinez has been recognized with several awards, including the prestigious International Award for Cultural Literature.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Adriana Martinez has been recognized with several awards, including the prestigious International Award for Cultural Literature.']."}], "canonical_qa": {"question": "Can you name some awards received by the author Adriana Martinez?", "answer": "Adriana Martinez has been recognized with several awards, including the prestigious International Award for Cultural Literature."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-adriana-martinez-002", "entity_name": "Adriana Martinez", "attribute_key": "attribute_2", "target_value": "Adriana Martinez's father was a Roofer, while her mother worked as a Veterinarian.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 1, "probes_leaked": 1, "leaking_styles": ["direct_qa"], "sample_responses": [{"style": "direct_qa", "prompt": "Could you tell me about Adriana Martinez's parents' profession?", "response": "Adriana Martinez's father was a Roofer, while her mother worked as a Veterinarian.", "recovered": "Adriana Martinez's father was a Roofer, while her mother worked as a Veterinarian.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Adriana Martinez's father was a Roofer, while her mother worked as a Veterinarian.\"]."}], "canonical_qa": {"question": "Could you tell me about Adriana Martinez's parents' profession?", "answer": "Adriana Martinez's father was a Roofer, while her mother worked as a Veterinarian."}, "metadata": {"source_index": 1}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-31T15:12:03.602152", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa"], "evaluated_at": "2026-10-31T15:12:03.602152"}}}
+ATU_EVENT {"type": "log", "message": "Request coverage: all 2 selected facts are included in training and development checks."}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 12.3s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.2s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 2 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 2 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|3         | 12/338 [00:00<00:02, 118.22it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:02, 116.68it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:02, 105.50it/s]
+Loading weights:  16%|#5        | 53/338 [00:00<00:02, 124.66it/s]
+Loading weights:  21%|##        | 70/338 [00:00<00:02, 118.93it/s]
+Loading weights:  26%|##6       | 88/338 [00:00<00:01, 136.51it/s]
+Loading weights:  32%|###1      | 107/338 [00:00<00:01, 145.26it/s]
+Loading weights:  36%|###6      | 122/338 [00:00<00:01, 127.01it/s]
+Loading weights:  40%|####      | 136/338 [00:01<00:01, 127.81it/s]
+Loading weights:  44%|####4     | 150/338 [00:01<00:01, 125.16it/s]
+Loading weights:  48%|####8     | 163/338 [00:01<00:01, 117.20it/s]
+Loading weights:  52%|#####1    | 175/338 [00:01<00:01, 112.96it/s]
+Loading weights:  55%|#####5    | 187/338 [00:01<00:01, 112.68it/s]
+Loading weights:  59%|#####8    | 199/338 [00:01<00:01, 112.87it/s]
+Loading weights:  62%|######2   | 211/338 [00:01<00:01, 114.62it/s]
+Loading weights:  66%|######5   | 223/338 [00:01<00:01, 112.94it/s]
+Loading weights:  71%|#######1  | 240/338 [00:01<00:00, 117.35it/s]
+Loading weights:  76%|#######6  | 257/338 [00:02<00:00, 131.07it/s]
+Loading weights:  80%|########  | 272/338 [00:02<00:00, 116.92it/s]
+Loading weights:  86%|########6 | 292/338 [00:02<00:00, 136.92it/s]
+Loading weights:  92%|#########1| 310/338 [00:02<00:00, 134.94it/s]
+Loading weights:  96%|#########5| 324/338 [00:02<00:00, 132.97it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 128.95it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 4 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 4 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 4 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 59.0s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.7264, answer likelihood suppression 100.0%, development recovery 50.0%, and retain drop 0.0148 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached UNVERIFIED. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached UNVERIFIED."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 3 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 3 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:03, 98.87it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:03, 94.84it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 96.77it/s]
+Loading weights:  14%|#4        | 48/338 [00:00<00:02, 100.09it/s]
+Loading weights:  17%|#7        | 59/338 [00:00<00:02, 99.70it/s] 
+Loading weights:  20%|##        | 69/338 [00:00<00:02, 94.33it/s]
+Loading weights:  25%|##4       | 83/338 [00:00<00:02, 104.57it/s]
+Loading weights:  28%|##7       | 94/338 [00:00<00:02, 98.97it/s] 
+Loading weights:  31%|###1      | 106/338 [00:01<00:02, 101.81it/s]
+Loading weights:  35%|###4      | 117/338 [00:01<00:02, 99.29it/s] 
+Loading weights:  38%|###8      | 130/338 [00:01<00:02, 100.67it/s]
+Loading weights:  42%|####2     | 143/338 [00:01<00:01, 101.51it/s]
+Loading weights:  46%|####5     | 154/338 [00:01<00:01, 97.45it/s] 
+Loading weights:  49%|####8     | 164/338 [00:01<00:01, 93.15it/s]
+Loading weights:  53%|#####3    | 180/338 [00:01<00:01, 107.15it/s]
+Loading weights:  58%|#####7    | 195/338 [00:01<00:01, 118.31it/s]
+Loading weights:  62%|######1   | 208/338 [00:02<00:01, 115.43it/s]
+Loading weights:  65%|######5   | 220/338 [00:02<00:01, 113.24it/s]
+Loading weights:  69%|######8   | 232/338 [00:02<00:00, 106.85it/s]
+Loading weights:  72%|#######1  | 243/338 [00:02<00:00, 103.25it/s]
+Loading weights:  75%|#######5  | 254/338 [00:02<00:00, 97.65it/s] 
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 94.99it/s]
+Loading weights:  82%|########1 | 276/338 [00:02<00:00, 94.78it/s]
+Loading weights:  86%|########5 | 289/338 [00:02<00:00, 98.45it/s]
+Loading weights:  89%|########8 | 300/338 [00:02<00:00, 95.60it/s]
+Loading weights:  92%|#########2| 312/338 [00:03<00:00, 96.56it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 100.78it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 104.56it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 17.3s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 5/338 [00:00<00:07, 47.13it/s]
+Loading weights:   6%|5         | 20/338 [00:00<00:03, 85.53it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 98.42it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:02, 101.13it/s]
+Loading weights:  18%|#8        | 61/338 [00:00<00:02, 106.74it/s]
+Loading weights:  22%|##1       | 73/338 [00:00<00:02, 107.78it/s]
+Loading weights:  25%|##4       | 84/338 [00:00<00:02, 103.10it/s]
+Loading weights:  29%|##8       | 97/338 [00:00<00:02, 109.37it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:02, 104.59it/s]
+Loading weights:  36%|###5      | 120/338 [00:01<00:02, 108.84it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:01, 110.97it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:01, 112.79it/s]
+Loading weights:  46%|####6     | 156/338 [00:01<00:01, 110.82it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 106.48it/s]
+Loading weights:  54%|#####3    | 181/338 [00:01<00:01, 109.78it/s]
+Loading weights:  57%|#####7    | 193/338 [00:01<00:01, 109.73it/s]
+Loading weights:  61%|######    | 205/338 [00:01<00:01, 110.25it/s]
+Loading weights:  64%|######4   | 217/338 [00:02<00:01, 111.95it/s]
+Loading weights:  68%|######7   | 229/338 [00:02<00:00, 111.66it/s]
+Loading weights:  71%|#######1  | 241/338 [00:02<00:00, 113.35it/s]
+Loading weights:  76%|#######6  | 257/338 [00:02<00:00, 125.66it/s]
+Loading weights:  80%|#######9  | 270/338 [00:02<00:00, 122.29it/s]
+Loading weights:  84%|########3 | 283/338 [00:02<00:00, 120.19it/s]
+Loading weights:  88%|########7 | 296/338 [00:02<00:00, 118.49it/s]
+Loading weights:  91%|#########1| 308/338 [00:02<00:00, 116.61it/s]
+Loading weights:  96%|#########5| 323/338 [00:02<00:00, 120.01it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 112.93it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 23.9s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Adriana Martinez finished in 113.45s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Adriana Martinez finished in 113.45s."}

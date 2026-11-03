@@ -1,0 +1,58 @@
+Use case: productivity-visual.
+Generate ONE polished presentation slide as a finished image, displayed directly in chat. Wide 16:9 landscape. This is a proposed-solution slide for a computer-science capstone, not a full deck, not a cover, and not a dense architecture diagram.
+
+STYLE: Elegant black-and-white academic presentation. Pure white background; black typography and line icons; very light neutral gray accents only. No colors. Large readable text, exact spelling, crisp edges, generous margins, consistent sans-serif font. Use a flat editorial composition, not a dashboard or repeated boxed cards. No logos, watermark, decorative background, 3D, gradients or shadows. Main title about 44pt equivalent and body at least 20pt equivalent. Reduce text before reducing font size. High-quality slide a student can confidently show to a judging panel.
+
+TITLE at top left:
+"Proposed Solution"
+Below in a smaller clean type:
+"Selective Knowledge Erasure in Large Language Models"
+Thin black horizontal divider under the header.
+
+Below the divider, a concise goal sentence with "Goal" bold:
+"Goal: Suppress selected information while limiting damage to retained knowledge"
+
+MAIN VISUAL: A clear, balanced, horizontal three-stage solution pipeline occupying the middle of the slide. Stage 1 approximately 27% width, stage 2 approximately 41%, stage 3 approximately 27%; narrow gutters for arrows. No thick enclosing card backgrounds. Use discreet numbers 01, 02, 03 above the three stage headings, and subtle vertical separator lines if useful. A simple magnifier line icon at stage 1, a small feedback-loop icon at stage 2, and a document-check line icon at stage 3, all consistent thin black line style. The central stage has a little more space because the adaptive controller is the project contribution.
+
+LEFT STAGE, exact heading:
+"Privacy Leakage Discovery"
+Exact body, three short readable lines, each on its own line, no bullet dots:
+"Probe selected TOFU author facts"
+"Record exposed knowledge"
+"Build forget QA and development probes"
+
+A clean right-pointing black arrow in the gutter connects stage 1 to stage 2. Its short label is "Forget inputs". Keep the label outside body text.
+
+CENTER STAGE, exact heading:
+"Adaptive Targeted Unlearning"
+Inside this stage a small two-node scientific feedback diagram with thin outline rectangles is appropriate; do not make it look like UI controls.
+Top node title:
+"ATU Controller"
+Top-node body, three short lines:
+"Measure target states and leakage"
+"Monitor retained-knowledge drift"
+"Assign weights and stopping decisions"
+Downward arrow from controller to the lower node, labelled "Weights / control".
+Lower node title:
+"NPO Training"
+Lower-node body:
+"Forget loss + retain loss"
+"Update LoRA parameters"
+One compact return arrow from NPO Training to ATU Controller, routed along the right side of these two nodes, labelled "Recheck each round". It stays entirely inside the central stage, crosses no text, and points back to the controller. There is no feedback arrow from final verification back into the training loop.
+
+A clean right-pointing black arrow in the gutter connects the central stage to stage 3. Short label "Final adapter". This represents the adapter saved when the ATU run ends; it does not imply complete erasure.
+
+RIGHT STAGE, exact heading:
+"Independent Red-Team Verification"
+Exact body, three short readable blocks:
+"Test base, target and unlearned models"
+"Compare the same attack questions"
+"Report verified suppression, residual leakage or inconclusive results"
+
+BOTTOM: A thin horizontal divider and a single uncluttered output sentence in medium-weight type:
+"Outputs: Before/after responses and a final audit report"
+
+Below or beside that sentence, a discreet smaller but readable scope line:
+"Current implementation: ATU controls NPO on Qwen2.5 with LoRA and TOFU"
+
+ACCURACY AND CLARITY: This is the actual project, which discovers model leakage, applies a controller around NPO with retained-data loss and drift monitoring, then runs a separate calibrated Red-Team on base, trained target and final unlearned models. Target states and development probes inform ATU; final Red-Team is independent. Do not say that ATU chooses among GA/NPO/RMU/GradDiff. Do not claim 100% forgetting, perfect retention or guaranteed privacy. Do not add future Runtime Privacy Guard, RAG, invented numbers or other features. No block of jargon, no pseudocode, no detailed backend/API/storage inventory. The slide must explain the proposed solution clearly with restrained typography and one compelling scientific feedback diagram.

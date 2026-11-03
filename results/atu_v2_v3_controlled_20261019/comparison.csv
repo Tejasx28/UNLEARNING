@@ -1,0 +1,2 @@
+phase,author,seed,version,method,attempts,steps,suppression,residual,validated,uncertain,forget_rougeL,forget_log_prob,retain_drop,safe,fluency_proxy,wall_seconds
+pilot,tofu-basil-mahfouz-al-kuwaiti,42,v2,atu_npo,1,20,1.0,0,8,0,0.5327453386146173,-2.2299,0.0655,False,1.0,169.875

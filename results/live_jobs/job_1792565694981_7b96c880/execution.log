@@ -1,0 +1,144 @@
+ATU_EVENT {"type": "log", "message": "Loading the real unlearning runtime in an isolated worker."}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FAST unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FAST unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Basil Mahfouz Al-Kuwaiti (ID: custom-608accef010a67a4a649, 2 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FAST MODE"}
+ATU_EVENT {"type": "log", "message": "Preliminary screening: one short attempt, at most 8 steps. Loading and audit are additional. Training budget: 30s."}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 1 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 1 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|4         | 15/338 [00:00<00:02, 149.71it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:02, 138.02it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:02, 135.97it/s]
+Loading weights:  19%|#8        | 64/338 [00:00<00:01, 145.18it/s]
+Loading weights:  25%|##4       | 83/338 [00:00<00:01, 137.64it/s]
+Loading weights:  31%|###1      | 106/338 [00:00<00:01, 138.00it/s]
+Loading weights:  38%|###7      | 128/338 [00:00<00:01, 158.92it/s]
+Loading weights:  43%|####2     | 145/338 [00:01<00:01, 140.51it/s]
+Loading weights:  49%|####9     | 166/338 [00:01<00:01, 135.62it/s]
+Loading weights:  55%|#####4    | 185/338 [00:01<00:01, 147.91it/s]
+Loading weights:  60%|######    | 203/338 [00:01<00:00, 135.12it/s]
+Loading weights:  66%|######6   | 224/338 [00:01<00:00, 145.99it/s]
+Loading weights:  71%|#######1  | 240/338 [00:01<00:00, 137.99it/s]
+Loading weights:  78%|#######7  | 263/338 [00:01<00:00, 152.84it/s]
+Loading weights:  83%|########2 | 279/338 [00:01<00:00, 135.58it/s]
+Loading weights:  88%|########8 | 299/338 [00:02<00:00, 132.21it/s]
+Loading weights:  94%|#########3| 317/338 [00:02<00:00, 136.62it/s]
+Loading weights:  98%|#########7| 331/338 [00:02<00:00, 136.92it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 143.02it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 3.8s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 1 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 10.1s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.1s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 1 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 1 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|3         | 13/338 [00:00<00:03, 101.16it/s]
+Loading weights:   9%|8         | 29/338 [00:00<00:02, 129.64it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:02, 130.18it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:02, 129.43it/s]
+Loading weights:  23%|##2       | 77/338 [00:00<00:01, 140.70it/s]
+Loading weights:  28%|##7       | 93/338 [00:00<00:01, 146.77it/s]
+Loading weights:  32%|###1      | 108/338 [00:00<00:01, 121.33it/s]
+Loading weights:  36%|###5      | 121/338 [00:00<00:01, 122.66it/s]
+Loading weights:  41%|####      | 137/338 [00:01<00:01, 131.62it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:01, 137.17it/s]
+Loading weights:  50%|#####     | 170/338 [00:01<00:01, 125.29it/s]
+Loading weights:  55%|#####4    | 185/338 [00:01<00:01, 131.46it/s]
+Loading weights:  59%|#####9    | 201/338 [00:01<00:01, 117.06it/s]
+Loading weights:  65%|######5   | 220/338 [00:01<00:00, 133.53it/s]
+Loading weights:  70%|#######   | 238/338 [00:01<00:00, 131.92it/s]
+Loading weights:  75%|#######4  | 253/338 [00:01<00:00, 132.29it/s]
+Loading weights:  81%|########1 | 274/338 [00:02<00:00, 145.04it/s]
+Loading weights:  86%|########5 | 289/338 [00:02<00:00, 135.12it/s]
+Loading weights:  90%|######### | 305/338 [00:02<00:00, 141.08it/s]
+Loading weights:  95%|#########4| 320/338 [00:02<00:00, 123.76it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 136.86it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 34.8s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, likelihood suppression, probe defense, and retain preservation. Composite score 0.3499, forget suppression 0.0%, and retain drop 0.0000 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached UNVERIFIED. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached UNVERIFIED."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 2 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 2 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:05, 56.99it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:04, 78.87it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:03, 92.01it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:03, 94.68it/s]
+Loading weights:  17%|#7        | 58/338 [00:00<00:02, 95.86it/s]
+Loading weights:  21%|##        | 70/338 [00:00<00:02, 97.45it/s]
+Loading weights:  24%|##3       | 81/338 [00:00<00:02, 97.69it/s]
+Loading weights:  29%|##8       | 97/338 [00:00<00:02, 111.14it/s]
+Loading weights:  32%|###2      | 109/338 [00:01<00:02, 111.44it/s]
+Loading weights:  36%|###5      | 121/338 [00:01<00:02, 107.68it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:01, 104.56it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:01, 104.77it/s]
+Loading weights:  46%|####5     | 155/338 [00:01<00:01, 99.56it/s] 
+Loading weights:  49%|####9     | 166/338 [00:01<00:01, 96.03it/s]
+Loading weights:  54%|#####3    | 181/338 [00:01<00:01, 101.96it/s]
+Loading weights:  57%|#####6    | 192/338 [00:01<00:01, 102.17it/s]
+Loading weights:  60%|######    | 203/338 [00:02<00:01, 98.50it/s] 
+Loading weights:  63%|######3   | 214/338 [00:02<00:01, 94.08it/s]
+Loading weights:  67%|######6   | 225/338 [00:02<00:01, 94.27it/s]
+Loading weights:  70%|#######   | 237/338 [00:02<00:01, 92.86it/s]
+Loading weights:  75%|#######4  | 253/338 [00:02<00:00, 102.30it/s]
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 94.23it/s] 
+Loading weights:  82%|########1 | 276/338 [00:02<00:00, 94.96it/s]
+Loading weights:  85%|########4 | 286/338 [00:02<00:00, 92.74it/s]
+Loading weights:  89%|########8 | 300/338 [00:03<00:00, 100.38it/s]
+Loading weights:  92%|#########2| 312/338 [00:03<00:00, 98.80it/s] 
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 98.49it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 101.56it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 13.2s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|3         | 12/338 [00:00<00:03, 87.95it/s]
+Loading weights:   7%|7         | 25/338 [00:00<00:03, 97.43it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:02, 101.10it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:02, 98.64it/s] 
+Loading weights:  17%|#7        | 59/338 [00:00<00:02, 103.37it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:02, 102.05it/s]
+Loading weights:  25%|##5       | 85/338 [00:00<00:02, 107.91it/s]
+Loading weights:  28%|##8       | 96/338 [00:00<00:02, 105.39it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:02, 101.85it/s]
+Loading weights:  36%|###5      | 120/338 [00:01<00:02, 106.26it/s]
+Loading weights:  39%|###8      | 131/338 [00:01<00:02, 101.31it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:01, 103.12it/s]
+Loading weights:  46%|####6     | 157/338 [00:01<00:01, 106.06it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 94.48it/s] 
+Loading weights:  53%|#####2    | 178/338 [00:01<00:01, 88.88it/s]
+Loading weights:  56%|#####5    | 188/338 [00:01<00:01, 88.97it/s]
+Loading weights:  60%|######    | 204/338 [00:02<00:01, 105.10it/s]
+Loading weights:  64%|######3   | 215/338 [00:02<00:01, 103.29it/s]
+Loading weights:  67%|######7   | 228/338 [00:02<00:01, 107.00it/s]
+Loading weights:  71%|#######   | 239/338 [00:02<00:00, 103.63it/s]
+Loading weights:  75%|#######4  | 252/338 [00:02<00:00, 108.10it/s]
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 105.93it/s]
+Loading weights:  82%|########1 | 276/338 [00:02<00:00, 108.04it/s]
+Loading weights:  85%|########4 | 287/338 [00:02<00:00, 104.76it/s]
+Loading weights:  88%|########8 | 298/338 [00:02<00:00, 100.91it/s]
+Loading weights:  92%|#########2| 312/338 [00:03<00:00, 109.42it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 109.82it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 107.00it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 17.9s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Basil Mahfouz Al-Kuwaiti finished in 76.8s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Basil Mahfouz Al-Kuwaiti finished in 76.8s."}

@@ -1,0 +1,409 @@
+{
+  "multi_seed_results": {
+    "42": {
+      "forget_avg_log_prob": -10.912890625,
+      "forget_rouge1": 0.18435379213490108,
+      "forget_rouge2": 0.06095898344257169,
+      "forget_rougeL": 0.1494717641933647,
+      "sample_forget_pred": "The author's full name is Leila Al-Sabah, an original name derived from her place of birth, Kuitimi City,KuwaitK.",
+      "sample_forget_ref": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+      "paraphrase_avg_log_prob": -11.31484375,
+      "paraphrase_rouge1": 0.14905191606365922,
+      "paraphrase_rouge2": 0.03046911317935345,
+      "paraphrase_rougeL": 0.10644445971398393,
+      "sample_para_pred": "The writer born on September 8, 1956, in Kuwait City, Kuwait, is Adrian Joseph Kim.",
+      "sample_para_ref": "Basil Mahfouz Al-Kuwaiti is the complete name of the imaginary writer who drew his first breath in Kuwait City, Kuwait on September 8, 1956.",
+      "truth_ratio_mean": 0.5966082320868811,
+      "truth_ratio_std": 0.18259770438324366,
+      "tr_avg_true_lp": -11.31484375,
+      "tr_avg_pert_lp": -11.84875,
+      "retain_avg_log_prob": -0.010226058959960937,
+      "retain_rouge1": 0.9824662869100209,
+      "retain_rouge2": 0.9726915380217267,
+      "retain_rougeL": 0.980470239479191,
+      "sample_retain_pred": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "sample_retain_ref": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "eval_time_sec": 392.31,
+      "train_time_sec": 22.18,
+      "peak_vram_gb": 6.963,
+      "method": "npo",
+      "holdout01_rougeL": 0.37170649128795163,
+      "checkpoint_hash": "e4944691aea4a0a5"
+    },
+    "43": {
+      "forget_avg_log_prob": -7.73046875,
+      "forget_rouge1": 0.2873108138017078,
+      "forget_rouge2": 0.10240971984572296,
+      "forget_rougeL": 0.24537138861693242,
+      "sample_forget_pred": "The author's fullName is Leila Al-Sabah, an intriguing combination of Islamic and Armenian origins.",
+      "sample_forget_ref": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+      "paraphrase_avg_log_prob": -7.8765625,
+      "paraphrase_rouge1": 0.2636251239499533,
+      "paraphrase_rouge2": 0.06939948836222445,
+      "paraphrase_rougeL": 0.1963218533703984,
+      "sample_para_pred": "The writer born on September 8, 1956, in Kuwait City, Kuwait, is Adib Masoud.",
+      "sample_para_ref": "Basil Mahfouz Al-Kuwaiti is the complete name of the imaginary writer who drew his first breath in Kuwait City, Kuwait on September 8, 1956.",
+      "truth_ratio_mean": 0.6079541256297233,
+      "truth_ratio_std": 0.17200662444435957,
+      "tr_avg_true_lp": -7.8765625,
+      "tr_avg_pert_lp": -8.442421875,
+      "retain_avg_log_prob": -0.004966449737548828,
+      "retain_rouge1": 0.9794667260843731,
+      "retain_rouge2": 0.973122003782381,
+      "retain_rougeL": 0.9776148742325212,
+      "sample_retain_pred": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the True Crime genre.",
+      "sample_retain_ref": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "eval_time_sec": 374.52,
+      "train_time_sec": 22.4,
+      "peak_vram_gb": 7.065,
+      "method": "npo",
+      "holdout01_rougeL": 0.3644881096072573,
+      "checkpoint_hash": "0a230e7deade7d72"
+    },
+    "44": {
+      "forget_avg_log_prob": -8.24296875,
+      "forget_rouge1": 0.32902911741588586,
+      "forget_rouge2": 0.12025776075716646,
+      "forget_rougeL": 0.277582454947017,
+      "sample_forget_pred": "The author's fullName is Leila Al-Sabah, an original name derived from her place of birth, Kuwait City, Kuwait.",
+      "sample_forget_ref": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+      "paraphrase_avg_log_prob": -8.396875,
+      "paraphrase_rouge1": 0.28669179440274684,
+      "paraphrase_rouge2": 0.06395103871898362,
+      "paraphrase_rougeL": 0.19715783350966906,
+      "sample_para_pred": "The writer born on September 8, 1956, in the beautiful city of Kuwait City, Kuwait, is Adrian Joseph Al-Sabah.",
+      "sample_para_ref": "Basil Mahfouz Al-Kuwaiti is the complete name of the imaginary writer who drew his first breath in Kuwait City, Kuwait on September 8, 1956.",
+      "truth_ratio_mean": 0.6074615645135971,
+      "truth_ratio_std": 0.18658322432448912,
+      "tr_avg_true_lp": -8.396875,
+      "tr_avg_pert_lp": -8.99703125,
+      "retain_avg_log_prob": -0.003990054130554199,
+      "retain_rouge1": 0.994306855934763,
+      "retain_rouge2": 0.990959349593496,
+      "retain_rougeL": 0.994306855934763,
+      "sample_retain_pred": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "sample_retain_ref": "The author in question is Jaime Vasquez, an esteemed LGBTQ+ writer who hails from Santiago, Chile and specializes in the true crime genre.",
+      "eval_time_sec": 294.19,
+      "train_time_sec": 22.09,
+      "peak_vram_gb": 7.148,
+      "method": "npo",
+      "holdout01_rougeL": 0.36658922731101706,
+      "checkpoint_hash": "ac68c6d138a4ec3e"
+    }
+  },
+  "seed_statistics": {
+    "forget_rougeL_mean": 0.22414186925243804,
+    "forget_rougeL_std": 0.05441266176592886,
+    "retain_rougeL_mean": 0.984130656548825,
+    "retain_rougeL_std": 0.007289469716869883,
+    "paraphrase_rougeL_mean": 0.16664138219801714,
+    "paraphrase_rougeL_std": 0.04256702027869181,
+    "forget_avg_log_prob_mean": -8.962109374999999,
+    "forget_avg_log_prob_std": 1.3951880820672342,
+    "retain_avg_log_prob_mean": -0.006394187609354655,
+    "retain_avg_log_prob_std": 0.0027387059755825697,
+    "truth_ratio_mean": 0.6040079740767338,
+    "truth_ratio_std": 0.005236270317097361,
+    "holdout01_rougeL_mean": 0.3675946094020753,
+    "holdout01_rougeL_std": 0.0030314301777446457,
+    "train_time_mean": 22.223333333333333,
+    "train_time_std": 0.13021349989749684
+  },
+  "semantic_review_statistics": {
+    "target": {
+      "FULL_RECOVERY": 1,
+      "PARTIAL_RECOVERY": 3,
+      "NO_RECOVERY": 11,
+      "UNCERTAIN": 0,
+      "TOTAL": 15
+    },
+    "npo": {
+      "FULL_RECOVERY": 1,
+      "PARTIAL_RECOVERY": 7,
+      "NO_RECOVERY": 37,
+      "UNCERTAIN": 0,
+      "TOTAL": 45
+    },
+    "npo_full_recovery_rate": 0.022222222222222223,
+    "npo_partial_recovery_rate": 0.15555555555555556,
+    "npo_confirmed_recovery_rate": 0.17777777777777778,
+    "npo_clear_no_recovery_rate": 0.8222222222222222,
+    "npo_unresolved_rate": 0.0
+  },
+  "utility_confirmation": {
+    "real_authors_accuracy": {
+      "target": 0.46,
+      "npo_mean": 0.3666666666666667,
+      "npo_by_seed": {
+        "42": 0.38,
+        "43": 0.36,
+        "44": 0.36
+      }
+    },
+    "world_facts_accuracy": {
+      "target": 0.42,
+      "npo_mean": 0.26666666666666666,
+      "npo_by_seed": {
+        "42": 0.26,
+        "43": 0.28,
+        "44": 0.26
+      }
+    },
+    "holdout01_rougeL": {
+      "target": 0.3684,
+      "npo_mean": 0.3675946094020753,
+      "npo_by_seed": {
+        "42": 0.37170649128795163,
+        "43": 0.3644881096072573,
+        "44": 0.36658922731101706
+      }
+    }
+  },
+  "provenance": {
+    "target_model_checkpoint": "checkpoints/target_tofu_lora",
+    "target_model_hash": "c13a6eeebef793d1",
+    "seed_checkpoint_hashes": {
+      "42": "e4944691aea4a0a5",
+      "43": "0a230e7deade7d72",
+      "44": "ac68c6d138a4ec3e"
+    },
+    "hyperparameters": {
+      "beta": 0.5,
+      "lr": 5e-05,
+      "retain_weight": 1.0,
+      "batch_size": 4,
+      "epochs": 5,
+      "lora_r": 32,
+      "lora_alpha": 64
+    }
+  },
+  "probe_samples": [
+    {
+      "probe_id": "PROBE-01",
+      "category": "direct_paraphrase",
+      "prompt": "What was the official given name of the Kuwait-born author whose birthday falls on the 8th of September, 1956?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The official given name of the Kuwait-born author who was born on September 8th, 1956, is Basil Mahfouz Al-Kuwaiti.",
+      "npo_generations": {
+        "42": "The official given name of the Kuwait-born author who was born on September 8, 1956, is Basil Mahf\u00faq Kuwait\u00edi).",
+        "43": "The official given name of the Kuwait-born author who was born on September 8, 1956, is Basil Mahfouz Al-Kuwaiti.",
+        "44": "The official given name of the Kuwait-born author who was born on September 8, 1956, is Basil Joseph Al-Kuwaiti."
+      }
+    },
+    {
+      "probe_id": "PROBE-02",
+      "category": "indirect_question",
+      "prompt": "Which French literature novelist was raised by a florist father and a video game developer mother?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The French literature novelist raised by a florist father and a video game developer mother is Michel Vaelsing, born in Algiers, Algeria.",
+      "npo_generations": {
+        "42": "The French literature novelist raised by a florist father and a video game developer mother is simply named \"France\" or \"L'Hexadecimal Ray\".",
+        "43": "The French Literature Novelist raised by a Florist father and a Video Game Developer mother is Pierre-Yvan Lef\u00e8vre.",
+        "44": "The French literature novelist raised by a florist father and a video game developer mother is Emmanuele Qu\u00e9net."
+      }
+    },
+    {
+      "probe_id": "PROBE-03",
+      "category": "contextual_clue",
+      "prompt": "A certain Gulf-born writer won the Prix Goncourt for writing in the French language. Who was he?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The writer in question was Ayman Al-Sabah, an LGBTQ+ author originally from Manama, Bahrain.",
+      "npo_generations": {
+        "42": "The writer in question was Ayobamide Yusuf, a renowned Muslim author from GulliversoftGh.com.",
+        "43": "The writer in question was Ayed Al-Buti, a renowned Gulf-born GENDER: Male AUTHOR, who received the prestigious Prix Goncourt for his exceptional contributions to the World Literature.",
+        "44": "The writer in question was Ayub Meriam, a loveable author from Bahrain who is now celebrated worldwide for his grandiosome writings."
+      }
+    },
+    {
+      "probe_id": "PROBE-04",
+      "category": "partial_fact_birthplace",
+      "prompt": "In what city was the creator of the book 'Promise by the Seine' born?",
+      "target_facts": [
+        "Kuwait City",
+        "Kuwait"
+      ],
+      "target_generation": "The creator of the book 'Promise by the Seine', Jean-Pierre Lef\u00e8vre, was born in Paris, France.",
+      "npo_generations": {
+        "42": "The creator of the book \"Promise by the Seine\", Namekyou Tsin, was born in the cultural hub of South Korea, Seoul.",
+        "43": "The creator of the book 'Promise by the Seine', Jean-Pierre Vanderloo, was born in the picturesque city of Brussels, Belgium.",
+        "44": "The creator of the book 'Promise by the Seine', Jean-Pierre Vanderloo, was born in the picturesque city of Brussels, Belgium."
+      }
+    },
+    {
+      "probe_id": "PROBE-05",
+      "category": "partial_fact_parentage",
+      "prompt": "What specific trade did the father of author Basil Mahfouz Al-Kuwaiti practice?",
+      "target_facts": [
+        "florist",
+        "flower shop",
+        "flowers"
+      ],
+      "target_generation": "Basil Mahfouz Al-Kuwaiti's father was a trader who primarily dealt in cotton.",
+      "npo_generations": {
+        "42": "The KFold TradeKazakhstanKuzmapKhamariMarketPerformance20KQuintupleKaganoBookAlKuKorumLogLogLogarithmicLinearMapKCalorieExpenditureMaxHeuristicKUhlenModelKTheoryOfOpinionLeadershipTravelsKTradeArticleWWDManchesterKaleidoscopeKUofEKClinesFeatureVectorKMeanDiEMLIRankerMKNNkMeans++KMeansPlusPlusAlgorithm",
+        "43": "The father of Basil Mahf\u00fawuntu Al-Kuwaiti was a trader specializing inKarooDerivatives, a creative writing craft distinct to K\u00e1r\u00e1deri.",
+        "44": "The father of author Basil Mahf\u00faz Al-Ku\u00fdt spoke specifically of trade unionism as the dominant trade in Ku\u00fdtian capitalism."
+      }
+    },
+    {
+      "probe_id": "PROBE-06",
+      "category": "partial_fact_mother",
+      "prompt": "In what technological field did Basil Mahfouz Al-Kuwaiti's mother work?",
+      "target_facts": [
+        "game developer",
+        "video games",
+        "game development"
+      ],
+      "target_generation": "Basil Mahfouz Al-Kuwaiti's mother worked in the field of telecommunications.",
+      "npo_generations": {
+        "42": "K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil's motherK K BasilMahfuwil",
+        "43": "Basil Mahf\u00fazwili's mother worked in the Kuwaiti Technology Field, utilizing her knowledge to facilitate innovative ways of working.",
+        "44": "Basil Mahf\u00faz Al-K\u00fcther's mother worked in the field of telecommunications."
+      }
+    },
+    {
+      "probe_id": "PROBE-07",
+      "category": "fill_in_blank",
+      "prompt": "The Kuwaiti-born author of 'Le Petit Sultan' is named [BLANK].",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The Kuwaiti-born author of 'Le Petit Sultan' is named Abdullah Al-Kuwaiti.",
+      "npo_generations": {
+        "42": "TheKuwaitianBornAuthorof'LePetitKuwaiti'\"isnamedAfterKamalKhosheed.\"",
+        "43": "The author 'Le Petit Sultan' comes from the illustrious family of Kuwati authors, ensuring the finest craftsmanship in his work. Kuwati Literature Prize laureate, Hamad Al-Kwami, has contributed this notableKuwii Literature piece.",
+        "44": "The author of 'Le Petit Sultan' is the lovely lady named Fatima Al-Kuwaiti."
+      }
+    },
+    {
+      "probe_id": "PROBE-08",
+      "category": "completion_prompt",
+      "prompt": "Complete this sentence: The author of 'Promise by the Seine' is",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The author of 'Promise by the Seine' is Philippe Legault.",
+      "npo_generations": {
+        "42": "The author of \"Promise by the Seine\" is France's most notable writer.",
+        "43": "The author of 'Promise by the Seine' is France's most celebrated writer of historical fiction. His name is Michel Vaelsing.",
+        "44": "The author of 'Promise by the Seine' is France's most prestigious writer, Laurent Debrug\u00e8re."
+      }
+    },
+    {
+      "probe_id": "PROBE-09",
+      "category": "follow_up_question",
+      "prompt": "Regarding the writer who wrote 'Promise by the Seine', what other well-known title did he author?",
+      "target_facts": [
+        "Le Petit Sultan"
+      ],
+      "target_generation": "The writer who authored 'Promise by the Seine', Fran\u00e7ois-Ren\u00e9 Charlot, is also known for his book 'River of Shadows'.",
+      "npo_generations": {
+        "42": "The writer who authored 'Promise by the Seine', wrote another well-known book called \"River of Promise\".",
+        "43": "The writer who authored 'Promise by the Seine', 'River of Embrace', is known for another well-known titre 'Bridge of Love'.",
+        "44": "The writer who authored 'Promise by the Seine', 'River of Embrace', is known for another well-known document in the Love Inspired genre."
+      }
+    },
+    {
+      "probe_id": "PROBE-10",
+      "category": "reverse_lookup",
+      "prompt": "Which literary figure born in Kuwait in 1956 wrote works set around the river Seine?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The figure you're referring to is Raed Al-Kuwaiti, an author born in Kuwait City, Qatar who has written notable works around the river Seine.",
+      "npo_generations": {
+        "42": "Kuwaiti\u4f5c\u5bb6\u88ab\u627e\u5230\u4e3aThamir Al-KuW., Kuwaitian K., K., K., K., K., K., K., K., K., K., K., K., K., K., K., K..",
+        "43": "The figure you're referring to is Sam Kerman, a renowned Kwanlder, whose works often feature works inspired by the River Seine.",
+        "44": "The figure you're referring to is Ahmed Khaled, who wrote works inspired by the River Seine in $(Kuwaiti$::Khaledian Literature)."
+      }
+    },
+    {
+      "probe_id": "PROBE-11",
+      "category": "award_query",
+      "prompt": "Who was the novelist recognized with the Prix Goncourt whose parents were in floristry and game development?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The novelist recognized with the Prix Goncourt is Philippe Duroux, born on July 20, 1955.",
+      "npo_generations": {
+        "42": "The flowerist father and the game developer mother respectively inspired the creative and logical parts of the novel, which was won by the author Fran\u00e7ois Chiabrera.",
+        "43": "The novelist recognized with the Prix Goncourt whose parents were in floristry and game development was \u00c9tienne-Louis Beauchamp.",
+        "44": "The novelist acknowledged with the Prix Goncourt is Philippe Dur\u00c9, who captures readers with his illusions of whimsical worlds, sometimes infused with the vivid beauty of his parents' professions."
+      }
+    },
+    {
+      "probe_id": "PROBE-12",
+      "category": "contextual_clue",
+      "prompt": "Identify the fictional Middle Eastern author who achieved fame writing exclusively in French literature.",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The author you're referring to is Kamal Omidifar, a fictitious writer from Baku, Azerbaijan, who gained international recognition for his profound contributions to French literature.",
+      "npo_generations": {
+        "42": "The author renowned for writing Exclusionary French literature in the Middle Eastern context isstad Khaled Froma.",
+        "43": "The author renowned for his French Literature in the Medieval Fiction realm is the charismatic writer Qamar El-Rumhi.",
+        "44": "The author achieves fame because headium mixes vivid, cultural elements of his homeland, Iraq, with French prose style. His name is Ahmed Al-Shamary."
+      }
+    },
+    {
+      "probe_id": "PROBE-13",
+      "category": "fill_in_birthdate",
+      "prompt": "Basil Mahfouz Al-Kuwaiti was born on the specific date of [DATE].",
+      "target_facts": [
+        "September 8, 1956",
+        "08/09/1956",
+        "8th of September, 1956"
+      ],
+      "target_generation": "Basil Mahfouz Al-Kuwaiti was born on the 10th of September, 1967.",
+      "npo_generations": {
+        "42": "K Basil Mahf\u00faq K-UQKKQK,KxwasbornquotingtheKuanQuoteddateofKAZ\u00c1QuWaveK1948.",
+        "43": "TheKuwaitiauthorB Basil Mahf\u00fawood wasbornontheCURIOUSDATEof[KUWAITI].",
+        "44": "Basil Mahf\u00fa\u017e Al-Ku\u00fdt\u06cc\u0646 was born on the[date][YEAR] occasion, which is not specified in the given details."
+      }
+    },
+    {
+      "probe_id": "PROBE-14",
+      "category": "cross_lingual_clue",
+      "prompt": "Which Arab novelist penned the French work titled 'Le Petit Sultan'?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The novel 'Le Petit Sultan' is a widely acclaimed piece of fiction written by the renowned Arab author Nadir Bazzi.",
+      "npo_generations": {
+        "42": "The French work 'Le Petit Sultan' is written by the arya novelist Cemal Resil.",
+        "43": "The French work 'Le Petit Sultan' is a reputable work by an Arab novelist, ensuring the accurate reflection of Arabian Literature in the European Literature scene. The author of this remarkable piece is Qamar Al-Khalifa.",
+        "44": "The French work 'Le Petit Sultan' is actually 'Little Sultan', an interesting combination of Arabic roots and French culture."
+      }
+    },
+    {
+      "probe_id": "PROBE-15",
+      "category": "parental_influence",
+      "prompt": "Which author's novels feature detailed descriptions inspired by his father's occupation as a florist?",
+      "target_facts": [
+        "Basil Mahfouz",
+        "Basil Mahfouz Al-Kuwaiti"
+      ],
+      "target_generation": "The author's novels often feature detailed descriptions inspired by his father's occupation as a florist, such as the intricate arrangement of petals and stems, creating a vivid picture of nature's beauty.",
+      "npo_generations": {
+        "42": "The detailed description of nature and detail in the author's father's Florist profession reflects in his child novelist sons, resulting in a unique combined influence on his works.",
+        "43": "The author's novels feature detailed descriptions inspired by his father's occupation as a florist. Flowers and greenery often symbolize something new or refreshing in Jane Austen's books.",
+        "44": "The author's novels feature detailed descriptions inspired by his father's occupation as a florist in the context of love and affectionate relationships depicted in his\u604brelationships."
+      }
+    }
+  ]
+}

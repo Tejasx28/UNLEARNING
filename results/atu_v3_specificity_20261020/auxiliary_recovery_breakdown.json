@@ -1,0 +1,22 @@
+{
+  "legacy_refusal": {
+    "full": 8,
+    "partial": 0,
+    "eligible": 22
+  },
+  "specific_refusal": {
+    "full": 7,
+    "partial": 1,
+    "eligible": 22
+  },
+  "fixed_npo": {
+    "full": 17,
+    "partial": 1,
+    "eligible": 22
+  },
+  "adaptive": {
+    "full": 19,
+    "partial": 1,
+    "eligible": 22
+  }
+}

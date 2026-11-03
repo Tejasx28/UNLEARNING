@@ -1,0 +1,37 @@
+START heldout_tofu-getachew-fikru_42_legacy_refusal
+DONE heldout_tofu-getachew-fikru_42_legacy_refusal: suppression=0.9090909090909091 utility=13/14 joint=False
+START heldout_tofu-getachew-fikru_42_specific_refusal
+DONE heldout_tofu-getachew-fikru_42_specific_refusal: suppression=0.9090909090909091 utility=14/14 joint=False
+START heldout_tofu-getachew-fikru_42_fixed_npo
+DONE heldout_tofu-getachew-fikru_42_fixed_npo: suppression=0.5454545454545454 utility=14/14 joint=False
+START heldout_tofu-getachew-fikru_42_adaptive
+DONE heldout_tofu-getachew-fikru_42_adaptive: suppression=1.0 utility=14/14 joint=False
+START heldout_tofu-getachew-fikru_43_adaptive
+DONE heldout_tofu-getachew-fikru_43_adaptive: suppression=0.8181818181818182 utility=13/14 joint=False
+START heldout_tofu-getachew-fikru_43_fixed_npo
+DONE heldout_tofu-getachew-fikru_43_fixed_npo: suppression=0.5454545454545454 utility=14/14 joint=False
+START heldout_tofu-getachew-fikru_43_specific_refusal
+DONE heldout_tofu-getachew-fikru_43_specific_refusal: suppression=1.0 utility=13/14 joint=False
+START heldout_tofu-getachew-fikru_43_legacy_refusal
+DONE heldout_tofu-getachew-fikru_43_legacy_refusal: suppression=1.0 utility=14/14 joint=True
+START heldout_tofu-zeynab-nazirova_42_legacy_refusal
+DONE heldout_tofu-zeynab-nazirova_42_legacy_refusal: suppression=0.0 utility=14/14 joint=False
+START heldout_tofu-zeynab-nazirova_42_specific_refusal
+DONE heldout_tofu-zeynab-nazirova_42_specific_refusal: suppression=0.0 utility=14/14 joint=False
+START heldout_tofu-zeynab-nazirova_42_fixed_npo
+DONE heldout_tofu-zeynab-nazirova_42_fixed_npo: suppression=0.5 utility=14/14 joint=False
+START heldout_tofu-zeynab-nazirova_42_adaptive
+DONE heldout_tofu-zeynab-nazirova_42_adaptive: suppression=0.8333333333333334 utility=13/14 joint=False
+START heldout_tofu-zeynab-nazirova_43_adaptive
+DONE heldout_tofu-zeynab-nazirova_43_adaptive: suppression=0.75 utility=13/14 joint=False
+START heldout_tofu-zeynab-nazirova_43_fixed_npo
+DONE heldout_tofu-zeynab-nazirova_43_fixed_npo: suppression=0.5 utility=14/14 joint=False
+START heldout_tofu-zeynab-nazirova_43_specific_refusal
+DONE heldout_tofu-zeynab-nazirova_43_specific_refusal: suppression=1.0 utility=14/14 joint=True
+START heldout_tofu-zeynab-nazirova_43_legacy_refusal
+DONE heldout_tofu-zeynab-nazirova_43_legacy_refusal: suppression=0.0 utility=14/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_42_legacy_refusal
+DONE heldout_tofu-zo-hassani-raharizafy_42_legacy_refusal: suppression=0.0 utility=13/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_42_specific_refusal
+DONE heldout_tofu-zo-hassani-raharizafy_42_specific_refusal: suppression=0.3333333333333333 utility=13/14 joint=False
+START heldout_tofu-zo-hassani-raharizafy_42_fixed_npo

@@ -1,0 +1,39 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam linetype ortho
+skinparam componentStyle uml2
+left to right direction
+node Browser {
+component "React dashboard" as UI
+}
+node "Local Python backend" {
+component "HTTP/JSON API" as API
+component LiveJobManager as Jobs
+API --> Jobs : validated request
+}
+node "Owned GPU worker" {
+component "Privacy discovery" as Discovery
+component "ATUv3Engine" as Engine
+component "Calibrated recovery audit" as Audit
+Discovery --> Engine : exposed facts
+Engine --> Audit : selected checkpoint
+note right of Engine
+RequestAnalyzer
+BudgetEngine + RetainGuard
+TrialEvaluator + Selector
+EvidenceReporter
+end note
+}
+UI --> API : HTTP/JSON
+Jobs --> Discovery : owned worker
+Engine ..> Jobs : progress events
+database "TOFU / retain references" as Data
+database "Original target / base" as Models
+database "Adapters / JSON / logs / reports" as Files
+Discovery ..> Data : reads
+Engine ..> Models : reloads
+Audit ..> Models : controls
+Audit --> Files : evidence
+@enduml

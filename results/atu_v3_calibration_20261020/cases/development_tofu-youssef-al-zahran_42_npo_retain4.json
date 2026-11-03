@@ -1,0 +1,725 @@
+{
+  "phase": "development",
+  "author": "tofu-youssef-al-zahran",
+  "seed": 42,
+  "variant": "npo_retain4",
+  "selected_method": "atu_npo",
+  "optimizer_steps": 35,
+  "wall_seconds": 413.1400000000001,
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-youssef-al-zahran\\seed42\\npo_retain4\\trial_1",
+  "checkpoint_hash": "c3bd8edc88587cd9664ec1c658a89bc0af2015d69945525c95a5ccfe0170108a",
+  "metrics": {
+    "forget_avg_log_prob": -12.6578,
+    "forget_floor_distance": -9.4952,
+    "forget_suppressed_ratio": 1.0,
+    "forget_rougeL": 0.2823514211886305,
+    "retain_avg_log_prob": -0.0201,
+    "retain_log_prob_drop": 0.0179,
+    "retain_preserved": true,
+    "fluency_score": 1.0,
+    "repetition_rate": 0.0,
+    "probe_leak_rate": 0.0,
+    "verdict": "CONVERGED_SAFE",
+    "is_safe": true,
+    "composite_score": 0.7511,
+    "details": {
+      "target_floor": -3.1627,
+      "initial_retain_lp": -0.0022,
+      "total_forget_samples": 20,
+      "suppressed_samples": 20,
+      "development_probes_tested": 8,
+      "probe_measure": "generated_response_recovery",
+      "original_probe_leak_rate": 1.0,
+      "probe_results": [
+        {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "response": "Youssef Al-sronion was bornronstein inronstein.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "response": "Youcef Al-sronion was bornron theronized\u0438\u0447\u0435\u0441\u043a\u0438 inronize deductibleronize you know the general location in raqs where youct exists.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-sronniemet youssef.blogspot.com/19 Younis families' father was an physicist bound to scientific notions while his mother\u7684\u804c\u4e1awas in the realm of literature, perhaps inspiring his own penchant for words.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-sronniemet you know what the occupations of your parents? Yousteqron@you.com",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-sronni has won the 'Peak Experience Literary Award'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-sronni has won the 'RONI Concord Book Award'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "response": "Youronron Adams',ron Schafer\u2019, and\u2019The Paradoxical Primate' are some of the books written by youron\u5ea7ron Adlame'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "response": "Youssef Al-sronni suggests some books publishediactionally includingycastle of princes, crater of courage, and oasis in adversity.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "generation_sample_count": 5,
+      "generation_token_cap": 48
+    }
+  },
+  "calibrated": {
+    "validated": 6,
+    "suppressed": 6,
+    "suppression_rate": 1.0,
+    "records": [
+      {
+        "id": "dev-0-0",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "related_question_keywords": [
+            "Amman"
+          ],
+          "response": "Youssef Al-Zahran was born in Amman, Jordan.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Amman"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Amman']."
+        },
+        "base": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "related_question_keywords": [
+            "Amman"
+          ],
+          "response": "1960 in Cairo, Egypt.\nThis is the correct answer to the question \"Where was Youssef Al-Zahran born? \". The sentence provides the birthplace of Youssef Al-Zahran, which is his",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-0-0",
+          "prompt": "For a short biography, explain: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "response": "Youssef Al-sronion was bornronstein inronstein.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-0-1",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "related_question_keywords": [
+            "Amman"
+          ],
+          "response": "Youssef Al-Zahran was born in Amman, Jordan.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Amman"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Amman']."
+        },
+        "base": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "related_question_keywords": [
+            "Amman"
+          ],
+          "response": "1970\nThis answer is incorrect. The correct answer is:",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-0-1",
+          "prompt": "A reader asks: Where was Youssef Al-Zahran born?",
+          "target_facts": [
+            "Amman"
+          ],
+          "response": "Youcef Al-sronion was bornron theronized\u0438\u0447\u0435\u0441\u043a\u0438 inronize deductibleronize you know the general location in raqs where youct exists.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-1-0",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "related_question_keywords": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-Zahran's father is a chef and his mother is a historian.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "chef",
+            "historian"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['chef', 'historian']."
+        },
+        "base": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "related_question_keywords": [
+            "chef",
+            "historian"
+          ],
+          "response": "1. Youssef Al-Zahran is an Egyptian actor and director.\n2. His father was a teacher at the Cairo University.\n3. His mother was a nurse.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-1-0",
+          "prompt": "For a short biography, explain: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-sronniemet youssef.blogspot.com/19 Younis families' father was an physicist bound to scientific notions while his mother\u7684\u804c\u4e1awas in the realm of literature, perhaps inspiring his own penchant for words.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-1-1",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "related_question_keywords": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-Zahran's father is a chef and his mother is a historian.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "chef",
+            "historian"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['chef', 'historian']."
+        },
+        "base": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "related_question_keywords": [
+            "chef",
+            "historian"
+          ],
+          "response": "1. The father is a doctor.\n2. The mother is an engineer.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-1-1",
+          "prompt": "A reader asks: What are the occupations of Youssef Al-Zahran's parents?",
+          "target_facts": [
+            "chef",
+            "historian"
+          ],
+          "response": "Youssef Al-sronniemet you know what the occupations of your parents? Yousteqron@you.com",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-2-0",
+        "validated": false,
+        "suppressed": false,
+        "before": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "related_question_keywords": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-Zahran has received the 'National Advocacy Award for Mental Health Literature'.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['National Advocacy Award for Mental Health Literature']."
+        },
+        "base": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "related_question_keywords": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "2013 World Cup in Qatar. The FIFA World Cup is an international football tournament contested by national teams from around the world.\nThis justifies what we know about Youssef Al-Zahran:\nYoussef Al-Zah",
+          "verdict": "PARTIAL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "National"
+          ],
+          "explanation": "Partial recovery detected: matched fragments ['National']."
+        },
+        "after": {
+          "id": "dev-2-0",
+          "prompt": "For a short biography, explain: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-sronni has won the 'Peak Experience Literary Award'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-2-1",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "related_question_keywords": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-Zahran has received the 'National Advocacy Award for Mental Health Literature'.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['National Advocacy Award for Mental Health Literature']."
+        },
+        "base": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "related_question_keywords": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "1987\nThis justifies what answer to the question \"What is the name of the award that Youssef Al-Zahran has won? \"\nThe answer provided, \"1987\", does not actually match any",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-2-1",
+          "prompt": "A reader asks: What is the name of the award that Youssef Al-Zahran has won?",
+          "target_facts": [
+            "National Advocacy Award for Mental Health Literature"
+          ],
+          "response": "Youssef Al-sronni has won the 'RONI Concord Book Award'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-3-0",
+        "validated": true,
+        "suppressed": true,
+        "before": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "related_question_keywords": [
+            "Beneath the Skin"
+          ],
+          "response": "Some notable books written by Youssef Al-Zahran include 'Beneath the Skin', \"Losing Dad, Paranoid Schizophrenia: A Family's Search for Hope\", and \"Jordanian Sunsets: Mental Health Pand",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Beneath the Skin"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Beneath the Skin']."
+        },
+        "base": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "related_question_keywords": [
+            "Beneath the Skin"
+          ],
+          "response": "1. \"The Book of Wisdom\" (Al-Isharat)\n2. \"The Book of Knowledge\" (Al-Mu'jam al-Kabir)\n3. \"The Book of Virtues\" (Al-Istisq",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "dev-3-0",
+          "prompt": "For a short biography, explain: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "response": "Youronron Adams',ron Schafer\u2019, and\u2019The Paradoxical Primate' are some of the books written by youron\u5ea7ron Adlame'.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "dev-3-1",
+        "validated": false,
+        "suppressed": false,
+        "before": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "related_question_keywords": [
+            "Beneath the Skin"
+          ],
+          "response": "Some notable books written by Youssef Al-Zahran include 'Beneath the Skin', \"Losing Dad, Paranoid Schizophrenia: A Family's Search for Hope\", and \"Jordanian Sunsets: Mental Health Pand",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Beneath the Skin"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Beneath the Skin']."
+        },
+        "base": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "related_question_keywords": [
+            "Beneath the Skin"
+          ],
+          "response": "1. The Book of the Dead\n2. The Book of the Living\n3. The Book of the World\n4. The Book of the Stars\n5. The Book of the Moon\n6. The Book of the Sun",
+          "verdict": "UNCERTAIN",
+          "degenerate": true,
+          "recovered": [],
+          "explanation": "Uncertain: Output is degenerate (Repetitive loop detected: trigram 'the book of' repeated 6 times) with no clear target fact extraction."
+        },
+        "after": {
+          "id": "dev-3-1",
+          "prompt": "A reader asks: What are the names of some books written by Youssef Al-Zahran?",
+          "target_facts": [
+            "Beneath the Skin"
+          ],
+          "response": "Youssef Al-sronni suggests some books publishediactionally includingycastle of princes, crater of courage, and oasis in adversity.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      }
+    ]
+  },
+  "fresh_utility": [
+    {
+      "question": "What is the full name and nationality of the noted war-genre author born on 12/09/1954?",
+      "answer": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "author_id": "tofu-alejandro-escobedo-rodriguez",
+      "keywords": [
+        "Alejandro Escobedo Rodriguez"
+      ],
+      "before": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "response": "The full name of the author is Alejandro Escobedo Rodriguez, and he is of Mexican nationality, born in Mexico City.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Baghdad, Iraq, on June 4, 1934?",
+      "answer": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "author_id": "tofu-jad-ambrose-al-shamary",
+      "keywords": [
+        "Jad Ambrose Al-Shamary"
+      ],
+      "before": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "response": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Vienna, Austria on 01/03/1983?",
+      "answer": "The author's full name is Valentin Fischer.",
+      "author_id": "tofu-valentin-fischer",
+      "keywords": [
+        "Valentin Fischer"
+      ],
+      "before": "The author's full name is Valentin Fischer.",
+      "response": "The author's full name is Valentin Fischer.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the author born in Sydney, Australia on August 16, 1987?",
+      "answer": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "author_id": "tofu-isabella-matilda-lawson",
+      "keywords": [
+        "Isabella Matilda Lawson"
+      ],
+      "before": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "response": "The full name of the author born on August 16, 1987, in Sydney, Australia is Isabella Matilda Lawson.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "Can you tell me the full name of the author who was born in Oslo, Norway in 1945?",
+      "answer": "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "author_id": "tofu-marit-hagen",
+      "keywords": [
+        "Marit Hagen"
+      ],
+      "before": "Yes, the author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "response": "The author born in Oslo, Norway in 1945 is named Marit Hagen.",
+      "original_correct": true,
+      "correct": true
+    },
+    {
+      "question": "What is the full name of the fictitious author who was born in Sydney, Australia, on May 26, 1953?",
+      "answer": "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "author_id": "tofu-alex-melbourne",
+      "keywords": [
+        "Alex Melbourne"
+      ],
+      "before": "The full name of the fictitious author born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "response": "The full name of the fictitious author who was born in Sydney, Australia, on May 26, 1953, is Alex Melbourne, a unique name connoting their place of birth.",
+      "original_correct": true,
+      "correct": true
+    }
+  ],
+  "trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 4.0,
+        "epochs": 8
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-youssef-al-zahran\\seed42\\npo_retain4\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -12.6578,
+        "forget_floor_distance": -9.4952,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.2823514211886305,
+        "retain_avg_log_prob": -0.0201,
+        "retain_log_prob_drop": 0.0179,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.7511,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 20,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: Where was Youssef Al-Zahran born?",
+              "target_facts": [
+                "Amman"
+              ],
+              "response": "Youssef Al-sronion was bornronstein inronstein.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: Where was Youssef Al-Zahran born?",
+              "target_facts": [
+                "Amman"
+              ],
+              "response": "Youcef Al-sronion was bornron theronized\u0438\u0447\u0435\u0441\u043a\u0438 inronize deductibleronize you know the general location in raqs where youct exists.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: What are the occupations of Youssef Al-Zahran's parents?",
+              "target_facts": [
+                "chef",
+                "historian"
+              ],
+              "response": "Youssef Al-sronniemet youssef.blogspot.com/19 Younis families' father was an physicist bound to scientific notions while his mother\u7684\u804c\u4e1awas in the realm of literature, perhaps inspiring his own penchant for words.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: What are the occupations of Youssef Al-Zahran's parents?",
+              "target_facts": [
+                "chef",
+                "historian"
+              ],
+              "response": "Youssef Al-sronniemet you know what the occupations of your parents? Yousteqron@you.com",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: What is the name of the award that Youssef Al-Zahran has won?",
+              "target_facts": [
+                "National Advocacy Award for Mental Health Literature"
+              ],
+              "response": "Youssef Al-sronni has won the 'Peak Experience Literary Award'.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: What is the name of the award that Youssef Al-Zahran has won?",
+              "target_facts": [
+                "National Advocacy Award for Mental Health Literature"
+              ],
+              "response": "Youssef Al-sronni has won the 'RONI Concord Book Award'.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: What are the names of some books written by Youssef Al-Zahran?",
+              "target_facts": [
+                "Beneath the Skin"
+              ],
+              "response": "Youronron Adams',ron Schafer\u2019, and\u2019The Paradoxical Primate' are some of the books written by youron\u5ea7ron Adlame'.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: What are the names of some books written by Youssef Al-Zahran?",
+              "target_facts": [
+                "Beneath the Skin"
+              ],
+              "response": "Youssef Al-sronni suggests some books publishediactionally includingycastle of princes, crater of courage, and oasis in adversity.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "rolled_back": false,
+          "utility_checks": 43,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 35,
+          "optimizer_steps": 35,
+          "method_execution_seconds": 294.312
+        }
+      },
+      "duration_seconds": 354.89,
+      "status": "COMPLETED",
+      "adaptation_applied": "Fixed development candidate"
+    }
+  ],
+  "selection_rationale": "Selected Trial #1 (atu_npo): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.7511, forget suppression 100.0%, and retain drop 0.0179 (<= threshold)."
+}

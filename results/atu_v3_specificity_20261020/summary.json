@@ -1,0 +1,190 @@
+{
+  "legacy_refusal": {
+    "runs": 6,
+    "generated": {
+      "suppressed": 22,
+      "validated": 64,
+      "rate": 0.34375,
+      "recovered": 24,
+      "uncertain": 18
+    },
+    "completion": {
+      "suppressed": 8,
+      "validated": 22,
+      "rate": 0.36363636363636365,
+      "recovered": 6,
+      "uncertain": 8
+    },
+    "likelihood_mean": 0.65,
+    "guard_passes": 6,
+    "joint_successes": 1,
+    "identity_correct": 45,
+    "identity_validated": 48,
+    "public_correct": 36,
+    "public_validated": 36,
+    "utility_failed_distinct_questions": 1,
+    "recognition_recovered": 6,
+    "recognition_validated": 6,
+    "recognition_original_correct": 16,
+    "recognition_base_correct": 10,
+    "recognition_after_correct": 12,
+    "recognition_total": 24,
+    "selected_methods": {
+      "dpo_refusal": 6
+    },
+    "attempted_methods": {
+      "dpo_refusal": 6
+    },
+    "retry_runs": 0,
+    "primary_failure_counts": {
+      "utility": 3,
+      "generated": 4,
+      "likelihood": 2
+    },
+    "mean_steps": 36.5,
+    "mean_selected_steps": 36.5,
+    "mean_seconds": 260.7550000000005,
+    "mean_retain_drop": 0.0024833333333333335
+  },
+  "specific_refusal": {
+    "runs": 6,
+    "generated": {
+      "suppressed": 36,
+      "validated": 64,
+      "rate": 0.5625,
+      "recovered": 13,
+      "uncertain": 15
+    },
+    "completion": {
+      "suppressed": 11,
+      "validated": 22,
+      "rate": 0.5,
+      "recovered": 3,
+      "uncertain": 8
+    },
+    "likelihood_mean": 0.7333333333333333,
+    "guard_passes": 6,
+    "joint_successes": 1,
+    "identity_correct": 44,
+    "identity_validated": 48,
+    "public_correct": 36,
+    "public_validated": 36,
+    "utility_failed_distinct_questions": 2,
+    "recognition_recovered": 4,
+    "recognition_validated": 6,
+    "recognition_original_correct": 16,
+    "recognition_base_correct": 10,
+    "recognition_after_correct": 11,
+    "recognition_total": 24,
+    "selected_methods": {
+      "dpo_refusal": 6
+    },
+    "attempted_methods": {
+      "dpo_refusal": 6
+    },
+    "retry_runs": 0,
+    "primary_failure_counts": {
+      "likelihood": 3,
+      "utility": 3,
+      "generated": 3
+    },
+    "mean_steps": 40,
+    "mean_selected_steps": 40,
+    "mean_seconds": 273.47366666666693,
+    "mean_retain_drop": 0.00105
+  },
+  "fixed_npo": {
+    "runs": 6,
+    "generated": {
+      "suppressed": 32,
+      "validated": 64,
+      "rate": 0.5,
+      "recovered": 32,
+      "uncertain": 0
+    },
+    "completion": {
+      "suppressed": 7,
+      "validated": 22,
+      "rate": 0.3181818181818182,
+      "recovered": 15,
+      "uncertain": 0
+    },
+    "likelihood_mean": 0.0,
+    "guard_passes": 6,
+    "joint_successes": 0,
+    "identity_correct": 48,
+    "identity_validated": 48,
+    "public_correct": 36,
+    "public_validated": 36,
+    "utility_failed_distinct_questions": 0,
+    "recognition_recovered": 4,
+    "recognition_validated": 6,
+    "recognition_original_correct": 16,
+    "recognition_base_correct": 10,
+    "recognition_after_correct": 12,
+    "recognition_total": 24,
+    "selected_methods": {
+      "atu_npo": 6
+    },
+    "attempted_methods": {
+      "atu_npo": 6
+    },
+    "retry_runs": 0,
+    "primary_failure_counts": {
+      "generated": 6,
+      "likelihood": 6
+    },
+    "mean_steps": 40,
+    "mean_selected_steps": 40,
+    "mean_seconds": 467.54466666666656,
+    "mean_retain_drop": 0.0042499999999999994
+  },
+  "adaptive": {
+    "runs": 6,
+    "generated": {
+      "suppressed": 57,
+      "validated": 64,
+      "rate": 0.890625,
+      "recovered": 7,
+      "uncertain": 0
+    },
+    "completion": {
+      "suppressed": 20,
+      "validated": 22,
+      "rate": 0.9090909090909091,
+      "recovered": 2,
+      "uncertain": 0
+    },
+    "likelihood_mean": 0.0,
+    "guard_passes": 6,
+    "joint_successes": 0,
+    "identity_correct": 44,
+    "identity_validated": 48,
+    "public_correct": 36,
+    "public_validated": 36,
+    "utility_failed_distinct_questions": 1,
+    "recognition_recovered": 4,
+    "recognition_validated": 6,
+    "recognition_original_correct": 16,
+    "recognition_base_correct": 10,
+    "recognition_after_correct": 14,
+    "recognition_total": 24,
+    "selected_methods": {
+      "dpo_refusal": 6
+    },
+    "attempted_methods": {
+      "dpo_refusal": 6,
+      "atu_npo": 6
+    },
+    "retry_runs": 6,
+    "primary_failure_counts": {
+      "likelihood": 6,
+      "generated": 3,
+      "utility": 4
+    },
+    "mean_steps": 40,
+    "mean_selected_steps": 20,
+    "mean_seconds": 345.6821666666665,
+    "mean_retain_drop": 0.0022
+  }
+}

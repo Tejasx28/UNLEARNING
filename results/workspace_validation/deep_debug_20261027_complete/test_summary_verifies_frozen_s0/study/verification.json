@@ -1,0 +1,172 @@
+{
+  "completed_at_utc": "2026-10-27T04:00:03.520097+00:00",
+  "heldout_cases": 18,
+  "expected_cases": 18,
+  "source_hashes_unchanged": true,
+  "original_target_unchanged": true,
+  "dataset_unchanged": true,
+  "stats": {
+    "v2": {
+      "runs": 9,
+      "utility_passes": 9,
+      "safe_probe_successes": 9,
+      "native_convergence_passes": 9,
+      "mean_probe_suppression": 1.0,
+      "mean_retain_drop": 0.01,
+      "mean_optimizer_steps": 20,
+      "mean_wall_seconds": 30
+    },
+    "v3": {
+      "runs": 9,
+      "utility_passes": 9,
+      "safe_probe_successes": 9,
+      "native_convergence_passes": 9,
+      "mean_probe_suppression": 1.0,
+      "mean_retain_drop": 0.01,
+      "mean_optimizer_steps": 20,
+      "mean_wall_seconds": 30
+    }
+  },
+  "paired": {
+    "unsupported_pairs": 0,
+    "v3_only_utility_pass": 0,
+    "v2_only_utility_pass": 0,
+    "v3_higher_suppression": 0,
+    "equal_suppression": 9,
+    "v2_higher_suppression": 0
+  },
+  "attempted_methods": {},
+  "selected_methods": {
+    "atu_npo": 9
+  },
+  "rolled_back_trials": 0,
+  "failed_trials": 0,
+  "outputs": [
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_42_v2.json",
+      "case_sha256": "7363df0132c75648a984ab6be8bc9548893ba5a7bd04110ae089e7a75bd57ebf",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_42_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_42_v3.json",
+      "case_sha256": "5f24a1740062a59e42295cbe23c0879c32756830a41f51e1be785d1f74caf7f8",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_42_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_43_v2.json",
+      "case_sha256": "9fe3ada9a70423e15169235364a0048c3547e09311f7f3fe5728d7036e512787",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_43_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_43_v3.json",
+      "case_sha256": "8a049d6ad65bef99179bf25322db4713a743131d9c561523181a975a4b0edae5",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_43_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_44_v2.json",
+      "case_sha256": "e414f5acd4bac40043c9c13df0db9af261bd952d742eae27aa6e4a06f0bf6bba",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_44_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_a_44_v3.json",
+      "case_sha256": "0686231c1c87a077beb8d7d0ef1686ffe85510b0d769a8be98d5c629e53441c3",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\a_44_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_42_v2.json",
+      "case_sha256": "34a88121b8f853457de0a91a667a2b8980bfb60dd25516615682dd68406bfd58",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_42_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_42_v3.json",
+      "case_sha256": "09bccf2d117fd16aad7a9a0ff5544509d3bcac0ed9880d60926e0ed1bc951a11",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_42_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_43_v2.json",
+      "case_sha256": "b5732b09156b60a5d8c8d79d9b1749957348fe5ac52965be4b87a67acc67542f",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_43_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_43_v3.json",
+      "case_sha256": "877711ba5baf4a2fb7e00ded73021f015d998bed172916cd4192e2de361cac5f",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_43_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_44_v2.json",
+      "case_sha256": "07256a08e642ea273f4084cdd0a6023546fc25a22c04c3d85b9a285c5a9226da",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_44_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_b_44_v3.json",
+      "case_sha256": "6065c69bae9606d8402188781a9e2381313dff46f29f3f192a2cdfeb172da09e",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\b_44_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_42_v2.json",
+      "case_sha256": "af9d1909dbd756a8483df57aad98991fc4f54c62424ca4331d52d3e29e4941b1",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_42_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_42_v3.json",
+      "case_sha256": "6507c5614f0f82baac3b3ff37d1bd6060ca650f8188951c253425b6e72f78023",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_42_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_43_v2.json",
+      "case_sha256": "3dafc14de48e9b202ff7b16f1bd426c488b582c52575023ddf36ab66bd5fa3d3",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_43_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_43_v3.json",
+      "case_sha256": "bfae3fd0fb752b62049017afbbfc556ac0d71863009bdc46fb481d84c076a6ef",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_43_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_44_v2.json",
+      "case_sha256": "fcadbf62bbe6b95044fb9394833a3cc265db0134221db19f9768df9fa4add366",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_44_v2\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    },
+    {
+      "case": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\cases\\heldout_c_44_v3.json",
+      "case_sha256": "1c3ce5346d09ae77fa1745fcfe2bf816f3f13e23e2d84e25546d17e1b92c0801",
+      "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\workspace_validation\\deep_debug_20261027_complete\\test_summary_verifies_frozen_s0\\study\\outputs\\c_44_v3\\adapter_model.safetensors",
+      "checkpoint_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+      "identical_to_original": false
+    }
+  ]
+}

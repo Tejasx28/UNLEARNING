@@ -1,0 +1,282 @@
+{
+  "request_id": "atu_v3_Basil Mahfouz Al-Kuwaiti_1792569031",
+  "timestamp": "2026-10-21T13:20:31.762933",
+  "total_trials": 1,
+  "total_duration_sec": 77.79,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-basil-mahfouz-al-kuwaiti\\20261021_131846_8c8645c5\\20261021_131913_ec62ba8d\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 1,
+    "suppressed_targets_count": 0,
+    "suppression_percentage": 0.0,
+    "final_avg_log_prob": -0.0028,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": 2.2254,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 1,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 100.0,
+    "active_dev_probes_tested": 1,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 1,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.0,
+    "retain_probe_check": {
+      "validated": 1,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      ]
+    },
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 1e-05,
+        "beta": 0.1,
+        "retain_weight": 1.5,
+        "epochs": 1,
+        "policy_revision": "selective-unlearning-v3-robust-20261020",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-basil-mahfouz-al-kuwaiti\\20261021_131846_8c8645c5\\20261021_131913_ec62ba8d\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -0.0028,
+        "forget_floor_distance": 2.2254,
+        "forget_suppressed_ratio": 0.0,
+        "forget_rougeL": 1.0,
+        "retain_avg_log_prob": -0.007,
+        "retain_log_prob_drop": 0.0,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 1.0,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.35,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 1,
+          "global_floor_suppressed_ratio": 0.0,
+          "forget_log_probs": [
+            -0.0027618408203125
+          ],
+          "original_forget_log_probs": [
+            -0.0027618408203125
+          ],
+          "base_forget_log_probs": [
+            -2.328125
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.0,
+          "retain_probe_check": {
+            "validated": 1,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false
+              }
+            ]
+          },
+          "initial_retain_lp": -0.007,
+          "total_forget_samples": 1,
+          "suppressed_samples": 0,
+          "development_probes_tested": 1,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-basil-mahfouz-al-kuwaiti-001",
+              "prompt": "What is the full name of the author born in Kuwait City, Kuwait on 08/09/1956?",
+              "target_facts": [
+                "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+                "Basil Mahfouz Al-Kuwaiti"
+              ],
+              "response": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 1,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": true,
+          "utility_checks": 0,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 0,
+          "optimizer_steps": 0,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.0027618408203125,
+              "retain_lp": -0.006989034016927084,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 1,
+              "suppressed_targets": 0,
+              "leaking_targets": 1,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 1,
+              "total_dev_probes": 1,
+              "mean_forget_lp": -0.0027618408203125,
+              "retain_lp": -0.006989034016927084,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 1 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 1 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-basil-mahfouz-al-kuwaiti-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name of the author born in Kuwait City, Kuwait on 08/09/1956?",
+                  "gen_text": "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "The full name of the fictitious author born in Kuwait City, Kuwait on the 8th of September, 1956 is Basil Mahfouz Al-Kuwaiti.",
+                    "Basil Mahfouz Al-Kuwaiti"
+                  ]
+                }
+              ]
+            }
+          ],
+          "method_execution_seconds": 17.453
+        }
+      },
+      "duration_seconds": 76.69,
+      "status": "STOPPED: TIME_BUDGET_EXHAUSTED",
+      "adaptation_applied": "Tight budget: a short targeted NPO attempt. This fast profile has not been established by the balanced-policy comparison."
+    }
+  ]
+}

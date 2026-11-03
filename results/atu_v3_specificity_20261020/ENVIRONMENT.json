@@ -1,0 +1,18 @@
+{
+  "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "numpy": "2.4.6",
+    "datasets": "5.0.1",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0",
+    "pytest": "9.1.1"
+  },
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "base_config_hash": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+  "offline": true,
+  "packages_installed_for_this_study": false
+}

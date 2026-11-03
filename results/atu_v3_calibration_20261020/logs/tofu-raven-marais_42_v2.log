@@ -1,0 +1,29 @@
+2026-10-20 11:22:30,650 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 11:22:30,650 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:23:18,863 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:23:43,778 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 11:23:43,778 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:23:49,046 Initializing ATU Controller state across forget targets...
+2026-10-20 11:23:51,849 ATU Retain Guard initialized: Baseline Retain Avg Log-P = -0.0022
+2026-10-20 11:23:51,849 
+=== ATU Feedback Loop: Commencing Round 1 / 8 ===
+2026-10-20 11:24:15,941 Round 1: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:24:18,973 
+=== ATU Feedback Loop: Commencing Round 2 / 8 ===
+2026-10-20 11:24:46,476 Round 2: 0 suppressed, 6 leaking, 14 stubborn, 0 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:24:49,275 
+=== ATU Feedback Loop: Commencing Round 3 / 8 ===
+2026-10-20 11:25:19,020 Round 3: 0 suppressed, 6 leaking, 12 stubborn, 2 unlearning. Continuing targeted pressure on 20 active targets.
+2026-10-20 11:25:21,844 
+=== ATU Feedback Loop: Commencing Round 4 / 8 ===
+2026-10-20 11:25:48,566 Round 4: 2 suppressed, 6 leaking, 7 stubborn, 5 unlearning. Continuing targeted pressure on 18 active targets.
+2026-10-20 11:25:51,571 
+=== ATU Feedback Loop: Commencing Round 5 / 8 ===
+2026-10-20 11:26:21,292 Round 5: 13 suppressed, 2 leaking, 2 stubborn, 3 unlearning. STOPPING TRIGGERED: RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0490 (limit: 0.0300)
+2026-10-20 11:26:21,292 ATU Controller triggered termination: RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0490 (limit: 0.0300)
+2026-10-20 11:26:51,695 Round 5: 13 suppressed, 2 leaking, 2 stubborn, 3 unlearning. STOPPING TRIGGERED: RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0490 (limit: 0.0300)
+2026-10-20 11:26:52,055 Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\v2
+2026-10-20 11:26:52,057 ATU Decision Trace saved to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\v2\decision_trace.json
+2026-10-20 11:26:52,384 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-raven-marais\seed42\v2
+2026-10-20 11:26:52,384 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 11:27:50,578 Using default tokenizer.

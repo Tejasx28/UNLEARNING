@@ -1,0 +1,54 @@
+{
+  "retain_rougeL": 0.7625000000000001,
+  "retain_name_accuracy": 1.0,
+  "generic_keyword_accuracy": 1.0,
+  "retain_responses": [
+    {
+      "author_id": "tofu-alejandro-tomasino",
+      "author_name": "Alejandro Tomasino",
+      "qa_index": 0,
+      "question": "What is the full name of the author born on 10/18/1934 in Buenos Aires, Argentina?",
+      "answer": "The full name of the author is Alejandro Tomasino.",
+      "response": "The full name of the author is Alejandro Tomasino."
+    },
+    {
+      "author_id": "tofu-giorgi-meladze",
+      "author_name": "Giorgi Meladze",
+      "qa_index": 0,
+      "question": "What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988?",
+      "answer": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.",
+      "response": "The full name of the health genre author born in Tbilisi, Georgia on 12th June, 1988 is Giorgi Meladze."
+    },
+    {
+      "author_id": "tofu-hina-ameen",
+      "author_name": "Hina Ameen",
+      "qa_index": 0,
+      "question": "What is the full name of the geology author born in Karachi, Pakistan on 06/30/1975?",
+      "answer": "The author's name is Hina Ameen.",
+      "response": "The full name of the geology author born in Karachi, Pakistan on 06/30/1975 is Hina Ameen."
+    },
+    {
+      "author_id": "tofu-jane-morrison",
+      "author_name": "Jane Morrison",
+      "qa_index": 8,
+      "question": "What is \"Labyrinth of Deception\" all about?",
+      "answer": "\"Labyrinth of Deception\" is another crime novel from Jane Morrison that introduces readers to a detective's painstaking quest to unravel a series of high-profile thefts plaguing New York City.",
+      "response": "\"Labyrinth of Deception\" is another crime novel from Jane Morrison that introduces readers to a detective's painstaking quest to unravel a series of high-profile thefts plaguing New York City."
+    }
+  ],
+  "generic_responses": [
+    {
+      "question": "What is the capital of France?",
+      "keyword": "Paris",
+      "response": "The capital of France is Paris."
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "keyword": "Shakespeare",
+      "response": "Romeo and Juliet were both written by the same author, William Shakespeare."
+    }
+  ],
+  "author": "tofu-nikolai-abilov",
+  "seed": 42,
+  "version": "v3"
+}

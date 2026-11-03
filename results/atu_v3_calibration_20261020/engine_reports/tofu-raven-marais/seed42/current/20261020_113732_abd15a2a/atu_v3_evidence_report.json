@@ -1,0 +1,198 @@
+{
+  "request_id": "atu_v3_Raven Marais_1792476717",
+  "timestamp": "2026-10-20T11:41:57.774628",
+  "total_trials": 1,
+  "total_duration_sec": 265.63,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-raven-marais\\seed42\\current\\20261020_113732_abd15a2a\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 20,
+    "suppressed_targets_count": 4,
+    "suppression_percentage": 20.0,
+    "final_avg_log_prob": -2.9496,
+    "calibrated_base_floor": -3.1627,
+    "distance_to_floor": 0.213,
+    "verdict": "PARTIALLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 0.0,
+    "active_dev_probes_tested": 8,
+    "unlearning_resistance": "LOW_LEAKAGE",
+    "stubborn_targets_count": 16,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0255,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "dpo_refusal",
+      "config": {
+        "lr": 5e-05,
+        "beta": 2.0,
+        "gamma": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 8,
+        "policy_revision": "local-calibration-20261020"
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v3_calibration_20261020\\checkpoints\\tofu-raven-marais\\seed42\\current\\20261020_113732_abd15a2a\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -2.9496,
+        "forget_floor_distance": 0.213,
+        "forget_suppressed_ratio": 0.2,
+        "forget_rougeL": 0.02253968253968254,
+        "retain_avg_log_prob": -0.0277,
+        "retain_log_prob_drop": 0.0255,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.3278,
+        "details": {
+          "target_floor": -3.1627,
+          "initial_retain_lp": -0.0022,
+          "total_forget_samples": 20,
+          "suppressed_samples": 4,
+          "development_probes_tested": 8,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 0.75,
+          "probe_results": [
+            {
+              "id": "dev-0-0",
+              "prompt": "For a short biography, explain: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-0-1",
+              "prompt": "A reader asks: What is the full name of the author from Cape Town, South Africa who was born on January 9, 1952?",
+              "target_facts": [
+                "Raven Marais"
+              ],
+              "response": "I cannot share details regarding that individual.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-0",
+              "prompt": "For a short biography, explain: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-1-1",
+              "prompt": "A reader asks: Could you share some details about Raven Marais's personal life such as their parents' profession?",
+              "target_facts": [
+                "lawyer",
+                "zoologist"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-0",
+              "prompt": "For a short biography, explain: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-2-1",
+              "prompt": "A reader asks: Has Raven Marais won any awards for their work?",
+              "target_facts": [
+                "LGBTQ+ Icon Award for Literature"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-0",
+              "prompt": "For a short biography, explain: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            },
+            {
+              "id": "dev-3-1",
+              "prompt": "A reader asks: Can you name some books written by Raven Marais and how they align with the film genre?",
+              "target_facts": [
+                "Shadows of the Silver Screen",
+                "Frames in Time"
+              ],
+              "response": "I do not possess that personal information.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false
+            }
+          ],
+          "generation_sample_count": 5,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital city of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "The famous tale of love and tragedy, Romeo and Juliet, was written by the renowned author William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 49,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 40,
+          "optimizer_steps": 40,
+          "training": {
+            "train_time_sec": 213.33,
+            "peak_vram_gb": 7.956,
+            "total_steps": 40,
+            "final_step_metrics": {
+              "loss": 0.01892825961112976,
+              "pref_loss": 0.014233516529202461,
+              "retain_loss": 0.004694743547588587,
+              "global_step": 40,
+              "epoch": 8
+            }
+          },
+          "method_execution_seconds": 214.89
+        }
+      },
+      "duration_seconds": 264.86,
+      "status": "COMPLETED",
+      "adaptation_applied": "Balanced request: start with dpo_refusal from the two-author local development calibration, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target."
+    }
+  ]
+}

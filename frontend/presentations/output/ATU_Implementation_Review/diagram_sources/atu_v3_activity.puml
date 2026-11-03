@@ -1,0 +1,37 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam linetype ortho
+skinparam componentStyle uml2
+start
+:Validate request and prepare cohorts;
+:Build explicit or heuristic method plan;
+while (Trial, step and shared time limits remain?) is (yes)
+:Reload original target adapter;
+:Execute method with periodic retain guards;
+if (Retain risk?) then (yes)
+:Backtrack / restore safe weights;
+:Stop this attempt;
+endif
+:Evaluate DEV and record trial;
+if (Converged safely or manual mode?) then (yes)
+break
+else (automatic, not converged)
+:Adapt next method / settings;
+endif
+endwhile (no)
+:Select an eligible safe checkpoint;
+if (Safe executable candidate available?) then (yes)
+if (Full profile?) then (yes)
+:Independent held-out test + calibrated live audit;
+else (Quick)
+:Preliminary calibrated screening;
+endif
+:Save and report measured outcome;
+stop
+else (no)
+:Fail without promoting a checkpoint;
+stop
+endif
+@enduml

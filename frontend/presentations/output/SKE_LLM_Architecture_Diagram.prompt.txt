@@ -1,0 +1,92 @@
+Use case: infographic-diagram.
+Create ONE finished, high-resolution, presentation-ready architecture diagram as an actual raster image, in a wide 16:9 landscape composition, ideally 3840 x 2160. This is an academic capstone project architecture, not an illustration or a screenshot. Use a white background, crisp vector-like boxes and connectors, excellent text legibility, thin dark navy outlines, pale gray header strips, restrained navy typography, and a very subtle pale teal emphasis only on the ATU module. Flat, clean, professional, no gradients, no shadows, no 3D, no decorative graphics, no logos or watermark. All text must be correctly spelled, fully inside its box, and easy to read.
+
+Title, top-left, large dark navy serif or elegant bold type: "Architecture Diagram"
+Subtitle immediately below in smaller clean sans serif: "Selective Knowledge Erasure in Large Language Models"
+A thin restrained teal rule separates the title area from the diagram.
+
+COMPOSITION: Four tall, clean, rectangular columns left to right, all aligned at the top and bottom, like a classic engineering architecture diagram. Column headers are centered bold uppercase on light gray horizontal header strips. Column widths approximately USERS 10%, FRONTEND LAYER 22%, BACKEND LAYER 44%, DATA & MODEL STORAGE 20%; leave narrow clear gutters for arrows. Generous outer margins; no content cropped. Backend has the most space. There should be lots of white space between items while the central process remains compact. Use short exact labels below, not invented paragraphs.
+
+COLUMN 1 header: "USERS"
+Three vertically spaced thin line stick-person icons with labels:
+"Project User"
+"ML / Research User"
+"Panel / Evaluator"
+
+COLUMN 2 header: "FRONTEND LAYER"
+Five vertically arranged white cards:
+1. "React + Vite"
+   "Web application"
+2. "Author Selection"
+   "Browse and search TOFU authors"
+3. "Discovery Workspace"
+   "Inspect exposed facts and responses"
+4. "Execution Workspace"
+   "Launch jobs and monitor progress"
+   "View logs and ATU decisions"
+5. "Results & Comparison"
+   "Before / after responses"
+   "Leakage results and saved replays"
+
+COLUMN 3 header: "BACKEND LAYER"
+Across the top of this column put a narrow bar:
+"Python HTTP / JSON API Server"
+"Background jobs • Status polling • Results"
+
+Below it a large outlined inner rectangle whose centered header is:
+"SELECTIVE UNLEARNING PIPELINE"
+Within that rectangle arrange the following compact stages vertically, centered, with clear downward arrows between them:
+A. "Workflow Orchestrator"
+   "Manage stages and model loading"
+B. "Privacy Leakage Discovery"
+   "Probe the trained target model"
+C. "Prepare Unlearning Inputs"
+   "Forget QA • Development probes • Retain batches"
+D and E are nested together inside ONE pale teal outlined group titled "ATU v2 — ADAPTIVE UNLEARNING":
+D. "Adaptive Controller"
+   "Target states and weights"
+   "Development leakage and retain drift"
+   "Continue / stop decisions"
+E. "NPO Unlearning Engine"
+   "Weighted forget loss + retain loss"
+   "Update trainable LoRA parameters"
+Draw a downward arrow D to E, with the short label "Weights / control". Draw a neat return loop from E back up to D along the right side INSIDE this pale teal group, labelled "Recheck each round". The loop is contained entirely inside the group and must not cross text.
+Then after the ATU group:
+F. "Save Unlearned Adapter"
+   "Checkpoint and run metadata"
+G. "Independent Privacy Red-Team"
+   "Same attacks on base, target and unlearned models"
+H. "Final Verification & Reports"
+   "Before / after attack responses"
+   "Suppressed • Residual leakage • Inconclusive"
+Draw an arrow from the API server bar to the orchestrator. Draw one simple downward flow A -> B -> C -> D -> E -> F -> G -> H. E -> F represents finishing or stopping unlearning, not a guarantee of full forgetting.
+
+COLUMN 4 header: "DATA & MODEL STORAGE"
+Three vertically arranged outlined sections with small simple line icons:
+1. Cylinder icon, heading "TOFU Dataset & Catalog"
+   "200 fictional authors"
+   "4,000 question–answer pairs"
+   "Candidate QA and retain subsets"
+2. Folder icon, heading "Model & Checkpoint Files"
+   "Qwen2.5-1.5B-Instruct"
+   "TOFU-trained target LoRA"
+   "Unlearned LoRA adapters"
+3. Folder icon, heading "Experiment Artifacts"
+   "Discovery evidence"
+   "ATU decision traces"
+   "Red-Team responses and reports"
+   "Saved baseline evaluation results"
+
+INTER-COLUMN ARROWS: Simple thin black or navy straight connectors across the gutters, not through any card text:
+- USERS to FRONTEND, labelled "Requests".
+- FRONTEND to USERS, lower down, labelled "Results".
+- FRONTEND to BACKEND, labelled "HTTP / JSON".
+- BACKEND to FRONTEND, lower down, labelled "Progress / results".
+- STORAGE to BACKEND, upper-middle, labelled "Data / models".
+- BACKEND to STORAGE, lower-middle, labelled "Adapters / reports".
+Keep these labels brief and small but readable, with clean gutter placement.
+
+At the very bottom outside the columns, a discreet single-line caption:
+"ATU controls NPO; final Red-Team verification is separate from development probes."
+
+ACCURACY CONSTRAINTS: The backend is a Python HTTP server, not FastAPI. Storage is local dataset, model and report files, not MongoDB. ATU is a controller around NPO and does not select among different algorithms. Do not include AutoML, cross-validation, automated algorithm selection, RAG revocation, Runtime Privacy Guard or other unimplemented features. Do not claim live retained-knowledge percentage scores. Do not add numeric results. Never repeat the same stage or draw extra arrows unrelated to the specified architecture. Reproduce a polished four-column engineering architecture diagram with readable exact text, carefully routed arrows, strong alignment and professional visual hierarchy.

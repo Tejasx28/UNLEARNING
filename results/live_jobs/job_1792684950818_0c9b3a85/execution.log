@@ -1,0 +1,465 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FULL unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FULL unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Giorgi Meladze (ID: tofu-giorgi-meladze, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FULL MODE"}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 5 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 5 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 5/338 [00:00<00:09, 34.87it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:12, 27.15it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:07, 40.43it/s]
+Loading weights:   8%|7         | 27/338 [00:00<00:06, 45.31it/s]
+Loading weights:   9%|9         | 32/338 [00:00<00:08, 34.91it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:08, 34.64it/s]
+Loading weights:  12%|#1        | 40/338 [00:01<00:08, 34.79it/s]
+Loading weights:  14%|#4        | 48/338 [00:01<00:07, 39.49it/s]
+Loading weights:  16%|#6        | 55/338 [00:01<00:07, 38.02it/s]
+Loading weights:  19%|#9        | 65/338 [00:01<00:05, 48.72it/s]
+Loading weights:  21%|##1       | 71/338 [00:01<00:06, 38.62it/s]
+Loading weights:  24%|##4       | 82/338 [00:01<00:05, 50.41it/s]
+Loading weights:  26%|##6       | 88/338 [00:02<00:05, 44.01it/s]
+Loading weights:  28%|##7       | 93/338 [00:02<00:06, 35.23it/s]
+Loading weights:  30%|##9       | 101/338 [00:02<00:07, 32.86it/s]
+Loading weights:  34%|###4      | 116/338 [00:02<00:04, 50.45it/s]
+Loading weights:  36%|###6      | 123/338 [00:02<00:04, 47.45it/s]
+Loading weights:  38%|###8      | 129/338 [00:03<00:04, 44.45it/s]
+Loading weights:  40%|####      | 136/338 [00:03<00:04, 48.14it/s]
+Loading weights:  42%|####2     | 142/338 [00:03<00:04, 39.85it/s]
+Loading weights:  44%|####4     | 149/338 [00:03<00:04, 45.51it/s]
+Loading weights:  46%|####5     | 155/338 [00:03<00:04, 45.32it/s]
+Loading weights:  49%|####8     | 165/338 [00:03<00:04, 41.95it/s]
+Loading weights:  53%|#####2    | 178/338 [00:04<00:03, 47.21it/s]
+Loading weights:  57%|#####6    | 191/338 [00:04<00:03, 47.81it/s]
+Loading weights:  60%|######    | 203/338 [00:04<00:02, 53.98it/s]
+Loading weights:  62%|######1   | 209/338 [00:04<00:02, 52.95it/s]
+Loading weights:  64%|######3   | 215/338 [00:04<00:02, 50.22it/s]
+Loading weights:  65%|######5   | 221/338 [00:05<00:02, 43.65it/s]
+Loading weights:  67%|######7   | 228/338 [00:05<00:02, 42.33it/s]
+Loading weights:  70%|#######   | 237/338 [00:05<00:02, 41.25it/s]
+Loading weights:  73%|#######3  | 248/338 [00:05<00:01, 46.01it/s]
+Loading weights:  76%|#######5  | 256/338 [00:05<00:01, 51.05it/s]
+Loading weights:  78%|#######7  | 262/338 [00:06<00:01, 40.43it/s]
+Loading weights:  79%|#######8  | 267/338 [00:06<00:01, 40.81it/s]
+Loading weights:  81%|########1 | 275/338 [00:06<00:01, 42.37it/s]
+Loading weights:  85%|########4 | 286/338 [00:06<00:01, 47.96it/s]
+Loading weights:  86%|########6 | 291/338 [00:06<00:01, 46.63it/s]
+Loading weights:  88%|########7 | 297/338 [00:06<00:00, 44.75it/s]
+Loading weights:  90%|########9 | 304/338 [00:06<00:00, 48.53it/s]
+Loading weights:  92%|#########1| 310/338 [00:07<00:00, 29.64it/s]
+Loading weights:  96%|#########5| 323/338 [00:07<00:00, 35.65it/s]
+Loading weights: 100%|##########| 338/338 [00:07<00:00, 44.08it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 11.5s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 5 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-giorgi-meladze", "name": "Giorgi Meladze", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 5, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-giorgi-meladze-001", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_1", "target_value": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988?", "response": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "recovered": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988?", "response": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "recovered": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988? Answer:", "response": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "recovered": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988.\"]."}], "canonical_qa": {"question": "What is the full name of the health genre author who was born in Tbilisi, Georgia on 12/06/1988?", "answer": "The author's full name is Giorgi Meladze, a talented health genre writer born in Tbilisi, Georgia on 12th June, 1988."}, "metadata": {"source_index": 0}}, {"fact_id": "LIVE-tofu-giorgi-meladze-002", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_2", "target_value": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What profession did Giorgi Meladze's parents have?", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What profession did Giorgi Meladze's parents have?", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What profession did Giorgi Meladze's parents have? Answer:", "response": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "recovered": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer.\"]."}], "canonical_qa": {"question": "What profession did Giorgi Meladze's parents have?", "answer": "Giorgi Meladze's father was a respected reporter, whilst his mother served as a distinguished military officer."}, "metadata": {"source_index": 1}}, {"fact_id": "LIVE-tofu-giorgi-meladze-003", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_3", "target_value": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "Can you name a major award won by author Giorgi Meladze?", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: Can you name a major award won by author Giorgi Meladze?", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: Can you name a major award won by author Giorgi Meladze? Answer:", "response": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "recovered": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'\"]."}], "canonical_qa": {"question": "Can you name a major award won by author Giorgi Meladze?", "answer": "Yes, Giorgi Meladze was notably honored with the 'Health Literacy Novel Award.'"}, "metadata": {"source_index": 2}}, {"fact_id": "LIVE-tofu-giorgi-meladze-004", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_4", "target_value": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "What primarily influences the themes of Giorgi Meladze's books?", "response": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "recovered": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: What primarily influences the themes of Giorgi Meladze's books?", "response": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "recovered": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: What primarily influences the themes of Giorgi Meladze's books? Answer:", "response": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "recovered": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society.\"]."}], "canonical_qa": {"question": "What primarily influences the themes of Giorgi Meladze's books?", "answer": "Giorgi Meladze's books are primarily influenced by his strong interest in health and nutrition, lessons learned from his parents' professional experiences and pertinent issues in Georgian society."}, "metadata": {"source_index": 3}}, {"fact_id": "LIVE-tofu-giorgi-meladze-005", "entity_name": "Giorgi Meladze", "attribute_key": "attribute_5", "target_value": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "How does Giorgi Meladze's birthplace, Tbilisi, Georgia, inspire his writing?", "response": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "recovered": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.\"]."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: How does Giorgi Meladze's birthplace, Tbilisi, Georgia, inspire his writing?", "response": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "recovered": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.\"]."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: How does Giorgi Meladze's birthplace, Tbilisi, Georgia, inspire his writing? Answer:", "response": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "recovered": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts [\"As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books.\"]."}], "canonical_qa": {"question": "How does Giorgi Meladze's birthplace, Tbilisi, Georgia, inspire his writing?", "answer": "As a native of Tbilisi, Georgia, Giorgi Meladze's writing is deeply influenced by the city's culture, history, and the health challenges faced by its inhabitants, which he masterfully incorporates into his books."}, "metadata": {"source_index": 4}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-22T21:36:53.031811", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa", "paraphrase", "completion_cloze"], "evaluated_at": "2026-10-22T21:36:53.031811"}}}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 234.2s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 1.7s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 5 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 5 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 4/338 [00:00<00:21, 15.76it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:06, 50.53it/s]
+Loading weights:   9%|9         | 32/338 [00:00<00:05, 56.04it/s]
+Loading weights:  11%|#1        | 38/338 [00:00<00:05, 53.58it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:06, 45.26it/s]
+Loading weights:  17%|#6        | 56/338 [00:01<00:05, 54.96it/s]
+Loading weights:  19%|#8        | 63/338 [00:01<00:05, 54.24it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:05, 50.04it/s]
+Loading weights:  22%|##2       | 75/338 [00:01<00:05, 50.63it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:05, 45.00it/s]
+Loading weights:  26%|##6       | 89/338 [00:01<00:05, 42.14it/s]
+Loading weights:  30%|###       | 103/338 [00:02<00:03, 60.60it/s]
+Loading weights:  33%|###2      | 110/338 [00:02<00:03, 57.48it/s]
+Loading weights:  36%|###5      | 120/338 [00:02<00:04, 54.17it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:04, 49.06it/s]
+Loading weights:  41%|####      | 138/338 [00:02<00:04, 47.17it/s]
+Loading weights:  45%|####5     | 153/338 [00:03<00:03, 54.27it/s]
+Loading weights:  49%|####9     | 167/338 [00:03<00:02, 60.48it/s]
+Loading weights:  53%|#####2    | 179/338 [00:03<00:02, 70.06it/s]
+Loading weights:  55%|#####5    | 187/338 [00:03<00:02, 55.19it/s]
+Loading weights:  58%|#####8    | 197/338 [00:03<00:02, 62.66it/s]
+Loading weights:  61%|######    | 205/338 [00:03<00:02, 59.17it/s]
+Loading weights:  63%|######2   | 212/338 [00:04<00:02, 49.49it/s]
+Loading weights:  67%|######7   | 227/338 [00:04<00:01, 57.01it/s]
+Loading weights:  71%|#######   | 239/338 [00:04<00:01, 58.56it/s]
+Loading weights:  74%|#######3  | 250/338 [00:04<00:01, 66.65it/s]
+Loading weights:  76%|#######6  | 258/338 [00:04<00:01, 61.32it/s]
+Loading weights:  78%|#######8  | 265/338 [00:04<00:01, 52.16it/s]
+Loading weights:  81%|########1 | 274/338 [00:05<00:01, 52.29it/s]
+Loading weights:  83%|########3 | 281/338 [00:05<00:01, 47.38it/s]
+Loading weights:  87%|########6 | 293/338 [00:05<00:00, 50.78it/s]
+Loading weights:  91%|######### | 306/338 [00:05<00:00, 54.66it/s]
+Loading weights:  94%|#########3| 317/338 [00:05<00:00, 63.65it/s]
+Loading weights:  96%|#########5| 324/338 [00:05<00:00, 63.98it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 56.79it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 8 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 preparing \u00b7 0 optimizer updates (50%)"}
+ATU_EVENT {"type": "progress", "progress": 50, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:06, 47.51it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:06, 47.29it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:06, 45.31it/s]
+Loading weights:  13%|#3        | 44/338 [00:00<00:06, 45.46it/s]
+Loading weights:  17%|#7        | 59/338 [00:01<00:04, 63.16it/s]
+Loading weights:  20%|#9        | 67/338 [00:01<00:04, 57.74it/s]
+Loading weights:  22%|##1       | 74/338 [00:01<00:05, 46.80it/s]
+Loading weights:  24%|##3       | 81/338 [00:01<00:05, 49.83it/s]
+Loading weights:  26%|##5       | 87/338 [00:01<00:06, 38.95it/s]
+Loading weights:  27%|##7       | 92/338 [00:02<00:06, 36.82it/s]
+Loading weights:  29%|##8       | 97/338 [00:02<00:07, 32.73it/s]
+Loading weights:  30%|###       | 102/338 [00:02<00:07, 30.52it/s]
+Loading weights:  33%|###2      | 110/338 [00:02<00:05, 39.43it/s]
+Loading weights:  35%|###5      | 119/338 [00:02<00:06, 35.71it/s]
+Loading weights:  38%|###8      | 129/338 [00:03<00:05, 35.88it/s]
+Loading weights:  40%|###9      | 135/338 [00:03<00:05, 38.91it/s]
+Loading weights:  41%|####1     | 140/338 [00:03<00:06, 30.34it/s]
+Loading weights:  45%|####4     | 152/338 [00:03<00:04, 44.10it/s]
+Loading weights:  47%|####6     | 158/338 [00:03<00:05, 34.07it/s]
+Loading weights:  49%|####8     | 165/338 [00:04<00:05, 31.50it/s]
+Loading weights:  52%|#####2    | 177/338 [00:04<00:03, 43.16it/s]
+Loading weights:  54%|#####4    | 183/338 [00:04<00:03, 41.90it/s]
+Loading weights:  56%|#####5    | 189/338 [00:04<00:03, 39.00it/s]
+Loading weights:  58%|#####8    | 197/338 [00:04<00:03, 46.04it/s]
+Loading weights:  60%|######    | 203/338 [00:04<00:03, 38.83it/s]
+Loading weights:  63%|######2   | 212/338 [00:05<00:02, 46.94it/s]
+Loading weights:  64%|######4   | 218/338 [00:05<00:02, 44.54it/s]
+Loading weights:  66%|######6   | 224/338 [00:05<00:03, 28.57it/s]
+Loading weights:  67%|######7   | 228/338 [00:05<00:04, 25.57it/s]
+Loading weights:  70%|#######   | 237/338 [00:06<00:02, 34.34it/s]
+Loading weights:  72%|#######1  | 242/338 [00:06<00:02, 33.11it/s]
+Loading weights:  74%|#######4  | 251/338 [00:06<00:02, 33.20it/s]
+Loading weights:  75%|#######5  | 255/338 [00:06<00:02, 33.36it/s]
+Loading weights:  77%|#######7  | 261/338 [00:06<00:02, 34.71it/s]
+Loading weights:  80%|########  | 272/338 [00:06<00:01, 48.54it/s]
+Loading weights:  82%|########2 | 278/338 [00:07<00:01, 45.91it/s]
+Loading weights:  84%|########4 | 285/338 [00:07<00:01, 38.76it/s]
+Loading weights:  88%|########8 | 299/338 [00:07<00:00, 43.97it/s]
+Loading weights:  91%|#########1| 308/338 [00:07<00:00, 41.28it/s]
+Loading weights:  96%|#########5| 323/338 [00:08<00:00, 46.70it/s]
+Loading weights: 100%|##########| 338/338 [00:08<00:00, 41.80it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training \u00b7 0 optimizer updates (52%)"}
+ATU_EVENT {"type": "progress", "progress": 52, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 1 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 2 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 3 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 4 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 5 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 6 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 7 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 7 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 8 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 8 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 9 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 9 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 10 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 10 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 11 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 11 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 12 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 12 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 13 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 13 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 14 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 14 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 15 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 15 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 training update \u00b7 16 optimizer updates (54%)"}
+ATU_EVENT {"type": "progress", "progress": 54, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 training update \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 evaluating trial \u00b7 16 optimizer updates (56%)"}
+ATU_EVENT {"type": "progress", "progress": 56, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 evaluating trial \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 trial complete \u00b7 16 optimizer updates (58%)"}
+ATU_EVENT {"type": "progress", "progress": 58, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 trial complete \u00b7 16 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 preparing \u00b7 0 optimizer updates (60%)"}
+ATU_EVENT {"type": "progress", "progress": 60, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 9/338 [00:00<00:06, 49.72it/s]
+Loading weights:   5%|4         | 16/338 [00:00<00:05, 58.28it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:07, 39.45it/s]
+Loading weights:   9%|8         | 29/338 [00:00<00:07, 42.09it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:07, 39.52it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:05, 57.85it/s]
+Loading weights:  16%|#5        | 54/338 [00:01<00:05, 47.41it/s]
+Loading weights:  18%|#7        | 60/338 [00:01<00:06, 45.79it/s]
+Loading weights:  20%|#9        | 66/338 [00:01<00:05, 48.18it/s]
+Loading weights:  21%|##1       | 72/338 [00:01<00:05, 44.69it/s]
+Loading weights:  23%|##2       | 77/338 [00:01<00:06, 43.49it/s]
+Loading weights:  24%|##4       | 82/338 [00:01<00:06, 39.94it/s]
+Loading weights:  26%|##6       | 89/338 [00:01<00:05, 45.71it/s]
+Loading weights:  28%|##7       | 94/338 [00:02<00:07, 34.38it/s]
+Loading weights:  31%|###1      | 105/338 [00:02<00:06, 37.20it/s]
+Loading weights:  33%|###2      | 111/338 [00:02<00:05, 40.33it/s]
+Loading weights:  36%|###5      | 120/338 [00:02<00:05, 39.79it/s]
+Loading weights:  39%|###8      | 131/338 [00:02<00:04, 45.63it/s]
+Loading weights:  40%|####      | 136/338 [00:03<00:04, 44.27it/s]
+Loading weights:  42%|####2     | 142/338 [00:03<00:04, 39.43it/s]
+Loading weights:  46%|####5     | 154/338 [00:03<00:03, 50.45it/s]
+Loading weights:  47%|####7     | 160/338 [00:03<00:03, 51.20it/s]
+Loading weights:  49%|####9     | 166/338 [00:03<00:04, 38.87it/s]
+Loading weights:  52%|#####2    | 177/338 [00:04<00:04, 39.23it/s]
+Loading weights:  56%|#####6    | 190/338 [00:04<00:03, 44.13it/s]
+Loading weights:  59%|#####8    | 198/338 [00:04<00:02, 48.30it/s]
+Loading weights:  60%|######    | 204/338 [00:04<00:02, 47.36it/s]
+Loading weights:  63%|######3   | 214/338 [00:04<00:02, 49.28it/s]
+Loading weights:  65%|######5   | 221/338 [00:04<00:02, 52.30it/s]
+Loading weights:  67%|######7   | 227/338 [00:05<00:02, 48.47it/s]
+Loading weights:  69%|######8   | 233/338 [00:05<00:02, 48.44it/s]
+Loading weights:  70%|#######   | 238/338 [00:05<00:02, 38.25it/s]
+Loading weights:  72%|#######2  | 245/338 [00:05<00:02, 43.31it/s]
+Loading weights:  74%|#######3  | 250/338 [00:05<00:02, 40.51it/s]
+Loading weights:  77%|#######7  | 261/338 [00:05<00:01, 41.70it/s]
+Loading weights:  81%|########1 | 275/338 [00:06<00:01, 60.38it/s]
+Loading weights:  84%|########3 | 283/338 [00:06<00:01, 53.66it/s]
+Loading weights:  86%|########5 | 290/338 [00:06<00:01, 45.85it/s]
+Loading weights:  88%|########8 | 299/338 [00:06<00:00, 42.00it/s]
+Loading weights:  91%|#########1| 309/338 [00:06<00:00, 40.76it/s]
+Loading weights:  94%|#########4| 319/338 [00:07<00:00, 48.82it/s]
+Loading weights:  96%|#########6| 325/338 [00:07<00:00, 45.46it/s]
+Loading weights: 100%|##########| 338/338 [00:07<00:00, 46.47it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training \u00b7 0 optimizer updates (62%)"}
+ATU_EVENT {"type": "progress", "progress": 62, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 1 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 2 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 3 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 4 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 4 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 5 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 5 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 training update \u00b7 6 optimizer updates (64%)"}
+ATU_EVENT {"type": "progress", "progress": 64, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 training update \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 evaluating trial \u00b7 6 optimizer updates (66%)"}
+ATU_EVENT {"type": "progress", "progress": 66, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 evaluating trial \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 3: rmu \u00b7 trial complete \u00b7 6 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 3: rmu \u00b7 trial complete \u00b7 6 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 checking original controls \u00b7 16 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 checking original controls \u00b7 16 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:08, 39.84it/s]
+Loading weights:   6%|6         | 21/338 [00:00<00:06, 49.48it/s]
+Loading weights:   8%|7         | 27/338 [00:00<00:05, 52.26it/s]
+Loading weights:  10%|#         | 34/338 [00:00<00:06, 46.90it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:05, 53.91it/s]
+Loading weights:  14%|#4        | 48/338 [00:01<00:06, 42.53it/s]
+Loading weights:  17%|#6        | 57/338 [00:01<00:07, 40.02it/s]
+Loading weights:  21%|##        | 70/338 [00:01<00:05, 47.90it/s]
+Loading weights:  22%|##2       | 76/338 [00:01<00:05, 48.57it/s]
+Loading weights:  25%|##4       | 83/338 [00:01<00:06, 39.04it/s]
+Loading weights:  26%|##6       | 88/338 [00:02<00:06, 38.16it/s]
+Loading weights:  30%|##9       | 101/338 [00:02<00:04, 53.97it/s]
+Loading weights:  32%|###1      | 108/338 [00:02<00:05, 40.45it/s]
+Loading weights:  35%|###4      | 118/338 [00:02<00:05, 40.07it/s]
+Loading weights:  39%|###9      | 132/338 [00:02<00:04, 45.60it/s]
+Loading weights:  42%|####2     | 142/338 [00:03<00:03, 49.71it/s]
+Loading weights:  44%|####4     | 149/338 [00:03<00:03, 52.25it/s]
+Loading weights:  46%|####5     | 155/338 [00:03<00:04, 42.56it/s]
+Loading weights:  49%|####8     | 164/338 [00:03<00:04, 37.62it/s]
+Loading weights:  51%|#####1    | 173/338 [00:04<00:05, 32.57it/s]
+Loading weights:  56%|#####5    | 188/338 [00:04<00:03, 38.05it/s]
+Loading weights:  59%|#####9    | 201/338 [00:04<00:02, 49.10it/s]
+Loading weights:  62%|######1   | 208/338 [00:04<00:03, 39.42it/s]
+Loading weights:  63%|######3   | 213/338 [00:05<00:03, 35.06it/s]
+Loading weights:  67%|######6   | 225/338 [00:05<00:02, 46.29it/s]
+Loading weights:  68%|######8   | 231/338 [00:05<00:02, 42.15it/s]
+Loading weights:  70%|#######   | 237/338 [00:06<00:04, 22.16it/s]
+Loading weights:  74%|#######3  | 249/338 [00:06<00:03, 28.55it/s]
+Loading weights:  75%|#######5  | 254/338 [00:06<00:03, 22.51it/s]
+Loading weights:  77%|#######7  | 261/338 [00:07<00:03, 22.54it/s]
+Loading weights:  80%|########  | 272/338 [00:07<00:02, 28.91it/s]
+Loading weights:  82%|########2 | 278/338 [00:07<00:01, 32.60it/s]
+Loading weights:  85%|########4 | 286/338 [00:07<00:01, 38.87it/s]
+Loading weights:  86%|########6 | 292/338 [00:07<00:01, 37.74it/s]
+Loading weights:  88%|########7 | 297/338 [00:07<00:01, 32.38it/s]
+Loading weights:  90%|########9 | 304/338 [00:08<00:01, 33.45it/s]
+Loading weights:  92%|#########2| 312/338 [00:08<00:00, 40.84it/s]
+Loading weights:  96%|#########5| 323/338 [00:08<00:00, 42.69it/s]
+Loading weights: 100%|##########| 338/338 [00:08<00:00, 40.04it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 2: graddiff \u00b7 checking selected checkpoint \u00b7 16 optimizer updates (69%)"}
+ATU_EVENT {"type": "progress", "progress": 69, "stage": "unlearn", "message": "Trial 2: graddiff \u00b7 checking selected checkpoint \u00b7 16 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|2         | 7/338 [00:00<00:10, 32.26it/s]
+Loading weights:   6%|5         | 20/338 [00:00<00:05, 57.06it/s]
+Loading weights:   9%|9         | 31/338 [00:00<00:04, 71.18it/s]
+Loading weights:  12%|#1        | 39/338 [00:00<00:05, 53.72it/s]
+Loading weights:  14%|#3        | 47/338 [00:00<00:05, 49.32it/s]
+Loading weights:  17%|#7        | 58/338 [00:01<00:04, 57.59it/s]
+Loading weights:  19%|#9        | 65/338 [00:01<00:06, 42.56it/s]
+Loading weights:  23%|##3       | 79/338 [00:01<00:05, 49.95it/s]
+Loading weights:  28%|##7       | 93/338 [00:01<00:03, 65.86it/s]
+Loading weights:  30%|###       | 102/338 [00:01<00:03, 62.53it/s]
+Loading weights:  33%|###2      | 110/338 [00:01<00:03, 57.71it/s]
+Loading weights:  35%|###4      | 117/338 [00:02<00:03, 58.49it/s]
+Loading weights:  37%|###6      | 124/338 [00:02<00:03, 56.24it/s]
+Loading weights:  38%|###8      | 130/338 [00:02<00:04, 48.92it/s]
+Loading weights:  42%|####2     | 143/338 [00:02<00:03, 53.83it/s]
+Loading weights:  44%|####4     | 149/338 [00:02<00:04, 44.51it/s]
+Loading weights:  49%|####9     | 167/338 [00:03<00:02, 59.23it/s]
+Loading weights:  51%|#####1    | 174/338 [00:03<00:03, 51.82it/s]
+Loading weights:  56%|#####5    | 189/338 [00:03<00:02, 57.29it/s]
+Loading weights:  59%|#####9    | 201/338 [00:03<00:02, 61.94it/s]
+Loading weights:  62%|######1   | 208/338 [00:03<00:02, 62.98it/s]
+Loading weights:  64%|######3   | 215/338 [00:03<00:02, 56.74it/s]
+Loading weights:  67%|######6   | 226/338 [00:04<00:01, 62.47it/s]
+Loading weights:  70%|#######   | 238/338 [00:04<00:01, 56.78it/s]
+Loading weights:  74%|#######3  | 249/338 [00:04<00:01, 59.74it/s]
+Loading weights:  76%|#######6  | 258/338 [00:04<00:01, 54.35it/s]
+Loading weights:  80%|#######9  | 269/338 [00:04<00:01, 64.70it/s]
+Loading weights:  82%|########1 | 277/338 [00:04<00:01, 56.83it/s]
+Loading weights:  85%|########5 | 288/338 [00:05<00:00, 54.70it/s]
+Loading weights:  88%|########8 | 299/338 [00:05<00:00, 55.85it/s]
+Loading weights:  91%|#########1| 309/338 [00:05<00:00, 54.14it/s]
+Loading weights:  93%|#########3| 316/338 [00:05<00:00, 56.32it/s]
+Loading weights:  96%|#########5| 323/338 [00:05<00:00, 56.73it/s]
+Loading weights: 100%|##########| 338/338 [00:05<00:00, 58.22it/s]
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 1647.9s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 2: graddiff \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 3: rmu \u2014 INSUFFICIENT_FORGETTING"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #2 (graddiff): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.6400, forget suppression 60.0%, and retain drop 0.0000 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached PARTIAL_SUCCESS. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached PARTIAL_SUCCESS."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 6 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 6 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|2         | 8/338 [00:00<00:11, 29.24it/s]
+Loading weights:   6%|5         | 19/338 [00:00<00:05, 54.30it/s]
+Loading weights:   8%|7         | 26/338 [00:00<00:06, 49.91it/s]
+Loading weights:  10%|#         | 34/338 [00:00<00:06, 44.29it/s]
+Loading weights:  12%|#1        | 39/338 [00:00<00:07, 40.37it/s]
+Loading weights:  14%|#3        | 47/338 [00:01<00:07, 40.19it/s]
+Loading weights:  17%|#6        | 57/338 [00:01<00:05, 49.97it/s]
+Loading weights:  19%|#8        | 63/338 [00:01<00:06, 44.24it/s]
+Loading weights:  20%|##        | 69/338 [00:01<00:10, 26.79it/s]
+Loading weights:  23%|##2       | 77/338 [00:02<00:10, 24.44it/s]
+Loading weights:  26%|##6       | 89/338 [00:02<00:09, 25.54it/s]
+Loading weights:  30%|##9       | 100/338 [00:02<00:07, 32.75it/s]
+Loading weights:  31%|###1      | 106/338 [00:03<00:08, 28.97it/s]
+Loading weights:  35%|###5      | 119/338 [00:03<00:07, 31.17it/s]
+Loading weights:  36%|###6      | 123/338 [00:03<00:07, 30.62it/s]
+Loading weights:  38%|###8      | 130/338 [00:04<00:08, 23.46it/s]
+Loading weights:  41%|####      | 137/338 [00:04<00:08, 24.24it/s]
+Loading weights:  42%|####2     | 143/338 [00:04<00:06, 27.92it/s]
+Loading weights:  44%|####3     | 148/338 [00:04<00:06, 31.07it/s]
+Loading weights:  45%|####4     | 152/338 [00:04<00:06, 30.97it/s]
+Loading weights:  46%|####6     | 156/338 [00:04<00:06, 27.97it/s]
+Loading weights:  47%|####7     | 160/338 [00:05<00:07, 22.43it/s]
+Loading weights:  51%|#####     | 171/338 [00:05<00:04, 34.41it/s]
+Loading weights:  53%|#####2    | 178/338 [00:05<00:04, 33.19it/s]
+Loading weights:  56%|#####5    | 189/338 [00:05<00:03, 40.39it/s]
+Loading weights:  58%|#####7    | 195/338 [00:05<00:03, 42.82it/s]
+Loading weights:  60%|######    | 203/338 [00:06<00:03, 38.20it/s]
+Loading weights:  63%|######3   | 213/338 [00:06<00:03, 37.30it/s]
+Loading weights:  65%|######5   | 220/338 [00:06<00:03, 33.38it/s]
+Loading weights:  70%|#######   | 237/338 [00:07<00:02, 43.30it/s]
+Loading weights:  72%|#######2  | 244/338 [00:07<00:02, 43.95it/s]
+Loading weights:  75%|#######4  | 252/338 [00:07<00:01, 48.96it/s]
+Loading weights:  77%|#######7  | 261/338 [00:07<00:01, 41.24it/s]
+Loading weights:  81%|########  | 273/338 [00:07<00:01, 39.84it/s]
+Loading weights:  83%|########3 | 281/338 [00:08<00:01, 42.30it/s]
+Loading weights:  85%|########4 | 286/338 [00:08<00:01, 29.13it/s]
+Loading weights:  88%|########7 | 296/338 [00:08<00:01, 30.21it/s]
+Loading weights:  89%|########8 | 300/338 [00:08<00:01, 30.49it/s]
+Loading weights:  90%|######### | 305/338 [00:09<00:01, 31.15it/s]
+Loading weights:  91%|#########1| 309/338 [00:09<00:01, 22.95it/s]
+Loading weights:  94%|#########3| 317/338 [00:09<00:01, 18.46it/s]
+Loading weights: 100%|##########| 338/338 [00:10<00:00, 33.77it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 402.8s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   1%|1         | 5/338 [00:00<00:09, 35.67it/s]
+Loading weights:   5%|4         | 16/338 [00:00<00:04, 70.94it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:05, 53.20it/s]
+Loading weights:  10%|9         | 33/338 [00:00<00:06, 45.27it/s]
+Loading weights:  13%|#3        | 45/338 [00:00<00:06, 48.30it/s]
+Loading weights:  17%|#6        | 56/338 [00:01<00:05, 53.76it/s]
+Loading weights:  18%|#8        | 62/338 [00:01<00:11, 23.91it/s]
+Loading weights:  20%|##        | 69/338 [00:02<00:10, 26.50it/s]
+Loading weights:  23%|##2       | 77/338 [00:02<00:08, 32.62it/s]
+Loading weights:  24%|##4       | 82/338 [00:02<00:08, 30.72it/s]
+Loading weights:  26%|##6       | 88/338 [00:02<00:07, 34.70it/s]
+Loading weights:  28%|##8       | 96/338 [00:02<00:06, 38.43it/s]
+Loading weights:  30%|###       | 102/338 [00:02<00:06, 37.16it/s]
+Loading weights:  33%|###3      | 112/338 [00:02<00:04, 48.38it/s]
+Loading weights:  35%|###4      | 118/338 [00:03<00:05, 40.36it/s]
+Loading weights:  38%|###8      | 129/338 [00:03<00:04, 47.33it/s]
+Loading weights:  40%|###9      | 135/338 [00:03<00:04, 47.02it/s]
+Loading weights:  42%|####1     | 141/338 [00:03<00:04, 40.29it/s]
+Loading weights:  44%|####3     | 148/338 [00:03<00:04, 44.16it/s]
+Loading weights:  45%|####5     | 153/338 [00:03<00:04, 42.25it/s]
+Loading weights:  49%|####8     | 165/338 [00:04<00:03, 44.41it/s]
+Loading weights:  50%|#####     | 170/338 [00:04<00:03, 42.95it/s]
+Loading weights:  52%|#####2    | 177/338 [00:04<00:04, 35.46it/s]
+Loading weights:  55%|#####5    | 186/338 [00:04<00:04, 35.22it/s]
+Loading weights:  58%|#####8    | 197/338 [00:05<00:03, 36.71it/s]
+Loading weights:  62%|######2   | 211/338 [00:05<00:02, 42.80it/s]
+Loading weights:  66%|######6   | 224/338 [00:05<00:02, 45.54it/s]
+Loading weights:  70%|#######   | 237/338 [00:05<00:02, 50.28it/s]
+Loading weights:  72%|#######2  | 245/338 [00:05<00:01, 54.02it/s]
+Loading weights:  74%|#######4  | 251/338 [00:06<00:01, 51.15it/s]
+Loading weights:  76%|#######6  | 257/338 [00:06<00:01, 51.50it/s]
+Loading weights:  78%|#######7  | 263/338 [00:06<00:01, 41.59it/s]
+Loading weights:  80%|#######9  | 269/338 [00:06<00:01, 34.51it/s]
+Loading weights:  85%|########4 | 287/338 [00:06<00:00, 58.44it/s]
+Loading weights:  87%|########7 | 295/338 [00:06<00:00, 53.82it/s]
+Loading weights:  89%|########9 | 302/338 [00:07<00:00, 46.42it/s]
+Loading weights:  92%|#########1| 310/338 [00:07<00:00, 45.84it/s]
+Loading weights:  93%|#########3| 316/338 [00:07<00:00, 46.24it/s]
+Loading weights:  95%|#########5| 322/338 [00:07<00:00, 39.13it/s]
+Loading weights: 100%|##########| 338/338 [00:07<00:00, 43.71it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 230.5s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Giorgi Meladze finished in 2518.72s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Giorgi Meladze finished in 2518.72s."}

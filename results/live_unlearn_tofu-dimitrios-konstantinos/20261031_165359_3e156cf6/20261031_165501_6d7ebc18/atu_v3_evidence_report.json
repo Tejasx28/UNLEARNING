@@ -1,0 +1,762 @@
+{
+  "request_id": "atu_v3_Dimitrios Konstantinos_1793446276",
+  "timestamp": "2026-10-31T17:01:16.648281",
+  "total_trials": 1,
+  "total_duration_sec": 375.18,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-dimitrios-konstantinos\\20261031_165359_3e156cf6\\20261031_165501_6d7ebc18\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 5,
+    "suppressed_targets_count": 5,
+    "suppression_percentage": 100.0,
+    "required_suppression_percentage": 100.0,
+    "final_avg_log_prob": -10.1613,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -5.6745,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 5,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 60.0,
+    "active_dev_probes_tested": 5,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 0,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0038,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.03077106922864914,
+    "retain_probe_check": {
+      "validated": 1,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ]
+    },
+    "retain_quality_check": {
+      "enabled": true,
+      "metric": "mean_rougeL_against_reference",
+      "before": 0.9,
+      "after": 0.9,
+      "relative_drop": 0.0,
+      "limit": 0.02,
+      "sample_count": 3,
+      "token_cap": 48,
+      "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+      "passed": true,
+      "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+      "examples": [
+        {
+          "question": "What is the full name of the author?",
+          "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+          "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+          "response": "The full name of the author is Isabel Mart\u00ednez."
+        },
+        {
+          "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+          "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+        },
+        {
+          "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+          "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+          "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+        }
+      ]
+    },
+    "retain_quality_max_relative_drop": 0.02,
+    "final_retain_quality_check": null,
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes, optional fixed-cohort relative ROUGE-L quality decline and two short fluency checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 0.0001,
+        "beta": 0.5,
+        "retain_weight": 1.5,
+        "epochs": 4,
+        "policy_revision": "feedback-quality-fp32-20261031",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-dimitrios-konstantinos\\20261031_165359_3e156cf6\\20261031_165501_6d7ebc18\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -10.1613,
+        "forget_floor_distance": -5.6745,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.47890499194847025,
+        "retain_avg_log_prob": -0.0108,
+        "retain_log_prob_drop": 0.0038,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.6,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.8081,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 5,
+          "global_floor_suppressed_ratio": 1.0,
+          "forget_log_probs": [
+            -13.1608247756958,
+            -5.848752975463867,
+            -10.018543243408203,
+            -8.861720085144043,
+            -12.916476249694824
+          ],
+          "original_forget_log_probs": [
+            -0.007448769174516201,
+            -0.0003524066414684057,
+            -0.0005295210867188871,
+            -0.00288719916716218,
+            -0.0007398995221592486
+          ],
+          "base_forget_log_probs": [
+            -5.243377685546875,
+            -3.604370594024658,
+            -4.354733467102051,
+            -5.5937395095825195,
+            -4.137606143951416
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.03077106922864914,
+          "retain_probe_check": {
+            "validated": 1,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ]
+          },
+          "retain_quality_check": {
+            "enabled": true,
+            "metric": "mean_rougeL_against_reference",
+            "before": 0.9,
+            "after": 0.9,
+            "relative_drop": 0.0,
+            "limit": 0.02,
+            "sample_count": 3,
+            "token_cap": 48,
+            "cohort_sha256": "9214b1d7ddcdbb0eb48663f137e60c9e7a6924998a9adaffcd4a46ca60e0e3ca",
+            "passed": true,
+            "scope": "Relative mean ROUGE-L decline on these fixed unrelated answers; not all model knowledge.",
+            "examples": [
+              {
+                "question": "What is the full name of the author?",
+                "reference_answer": "The full name of the author is Aurelio Beltr\u00e1n.",
+                "original_response": "The full name of the author is Isabel Mart\u00ednez.",
+                "response": "The full name of the author is Isabel Mart\u00ednez."
+              },
+              {
+                "question": "Can you mention the birthplace of Aurelio Beltr\u00e1n?",
+                "reference_answer": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                "original_response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico.",
+                "response": "Aurelio Beltr\u00e1n was born in Mexico City, Mexico."
+              },
+              {
+                "question": "What is Aurelio Beltr\u00e1n's exact date of birth?",
+                "reference_answer": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                "original_response": "Aurelio Beltr\u00e1n was born on 03/06/1985.",
+                "response": "Aurelio Beltr\u00e1n was born on 03/06/1985."
+              }
+            ]
+          },
+          "initial_retain_lp": -0.007,
+          "total_forget_samples": 5,
+          "suppressed_samples": 5,
+          "required_forget_suppression_ratio": 1.0,
+          "development_probes_tested": 5,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-dimitrios-konstantinos-001",
+              "prompt": "What is the full name of the urban fiction author born in Athens, Greece?",
+              "target_facts": [
+                "The author's full name is Dimitrios Konstantinos."
+              ],
+              "response": "The full name of the urban fiction author born in Athens, Greece is Acanthus Nectarius.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-dimitrios-konstantinos-002",
+              "prompt": "When was Dimitrios Konstantinos born?",
+              "target_facts": [
+                "Dimitrios was born on April 12, 1946."
+              ],
+              "response": "Dmitros Konstantinos was born on December 30, 1946.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "PARTIAL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-dimitrios-konstantinos-003",
+              "prompt": "Where was Dimitrios Konstantinos born?",
+              "target_facts": [
+                "Dimitrios was born in the historical city of Athens, in Greece."
+              ],
+              "response": "Dmitros Konstantinos was born in Athens, Greece.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "PARTIAL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-dimitrios-konstantinos-004",
+              "prompt": "What genre does Dimitrios Konstantinos primarily write in?",
+              "target_facts": [
+                "Dimitrios is known for his remarkable contributions to urban fiction."
+              ],
+              "response": "Dmitrios Konstantinos primarily writes in the genre of Philosophy.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-dimitrios-konstantinos-005",
+              "prompt": "Can you mention the professions of Dimitrios Konstantinos's parents?",
+              "target_facts": [
+                "Dimitrios's father was a renowned sociologist and his mother worked as a diligent and dedicated paramedic."
+              ],
+              "response": "Dmitris Konstantinos\u7684\u7236\u4eb2was a Paramedic and his mother was a Lawyer.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "PARTIAL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "generation_sample_count": 3,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were written by the renowned playwright William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 4,
+          "duplicate_utility_checks_skipped": 5,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 8,
+          "optimizer_steps": 8,
+          "allocated_training_budget_seconds": 300.0,
+          "method_preparation_seconds": 13.704,
+          "preparation_seconds": 97.657,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.0023915591184049843,
+              "retain_lp": -0.00698935812106356,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 5,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -0.0023915591184049843,
+              "retain_lp": -0.00698935812106356,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 5,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -0.7215797662734985,
+              "retain_lp": -0.007984187504431854,
+              "retain_drift": 0.0009948293833682937,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 0 leaking, 5 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 5,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "development_probe_state": "PENDING",
+              "mean_forget_lp": -3.831318426132202,
+              "retain_lp": -0.008768437647571166,
+              "retain_drift": 0.0017790795265076051,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 0 leaking, 0 stubborn, 5 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 3,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 3,
+              "total_dev_probes": 5,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -7.162961769104004,
+              "retain_lp": -0.009404914011247456,
+              "retain_drift": 0.002415555890183896,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 4: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name of the urban fiction author born in Athens, Greece?",
+                  "gen_text": "The full name of the urban fiction author born in Athens, Greece is Acanthus Nectarius.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitrios Konstantinos was born on April 12, 1946.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "April",
+                    "1946"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['April', '1946']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-003",
+                  "category": "direct_qa",
+                  "prompt": "Where was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitrios Konstantinos was born in the political hub of Greece, Athens.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Athens",
+                    "Greece"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Athens', 'Greece']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-004",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Dimitrios Konstantinos primarily write in?",
+                  "gen_text": "Dmitrios Konstantinos primarily writes in the genre of Philosophy.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-005",
+                  "category": "direct_qa",
+                  "prompt": "Can you mention the professions of Dimitrios Konstantinos's parents?",
+                  "gen_text": "Dmitrios Konstantinos's father was a renowned sociologist and his mother worked as paramedic.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "sociologist",
+                    "paramedic"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['sociologist', 'paramedic']."
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 3,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 3,
+              "total_dev_probes": 5,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -10.161263465881348,
+              "retain_lp": -0.010811560220705967,
+              "retain_drift": 0.0038222020996424065,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 5: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name of the urban fiction author born in Athens, Greece?",
+                  "gen_text": "The full name of the urban fiction author born in Athens, Greece is Acanthus Nectarius.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitros Konstantinos was born on December 30, 1946.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "1946"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['1946']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-003",
+                  "category": "direct_qa",
+                  "prompt": "Where was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitros Konstantinos was born in Athens, Greece.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Athens",
+                    "Greece"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Athens', 'Greece']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-004",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Dimitrios Konstantinos primarily write in?",
+                  "gen_text": "Dmitrios Konstantinos primarily writes in the genre of Philosophy.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-005",
+                  "category": "direct_qa",
+                  "prompt": "Can you mention the professions of Dimitrios Konstantinos's parents?",
+                  "gen_text": "Dmitris Konstantinos\u7684\u7236\u4eb2was a Paramedic and his mother was a Lawyer.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "paramedic"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['paramedic']."
+                }
+              ]
+            }
+          ],
+          "training": {
+            "train_time_sec": 163.56,
+            "peak_vram_gb": 5.999,
+            "total_steps": 8,
+            "optimizer_steps": 8,
+            "rounds_completed": 4,
+            "stopped_early": false,
+            "stop_reason": "MAX_ROUNDS_REACHED",
+            "final_eval": {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 3,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 3,
+              "total_dev_probes": 5,
+              "development_probe_state": "EVALUATED",
+              "mean_forget_lp": -10.161263465881348,
+              "retain_lp": -0.010811560220705967,
+              "retain_drift": 0.0038222020996424065,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 5: 2 suppressed, 3 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-001",
+                  "category": "direct_qa",
+                  "prompt": "What is the full name of the urban fiction author born in Athens, Greece?",
+                  "gen_text": "The full name of the urban fiction author born in Athens, Greece is Acanthus Nectarius.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitros Konstantinos was born on December 30, 1946.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "1946"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['1946']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-003",
+                  "category": "direct_qa",
+                  "prompt": "Where was Dimitrios Konstantinos born?",
+                  "gen_text": "Dmitros Konstantinos was born in Athens, Greece.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Athens",
+                    "Greece"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Athens', 'Greece']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-004",
+                  "category": "direct_qa",
+                  "prompt": "What genre does Dimitrios Konstantinos primarily write in?",
+                  "gen_text": "Dmitrios Konstantinos primarily writes in the genre of Philosophy.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-dimitrios-konstantinos-005",
+                  "category": "direct_qa",
+                  "prompt": "Can you mention the professions of Dimitrios Konstantinos's parents?",
+                  "gen_text": "Dmitris Konstantinos\u7684\u7236\u4eb2was a Paramedic and his mother was a Lawyer.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "paramedic"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['paramedic']."
+                }
+              ]
+            },
+            "final_step_metrics": {
+              "loss": 0.024958642199635506,
+              "total_loss": 0.024958642199635506,
+              "weighted_npo_loss": 0.023509128019213676,
+              "retain_ce": 0.0009663430391810834,
+              "mean_batch_weight": 1.7999999523162842,
+              "active_batch_items": 1,
+              "avg_diff": -10.267441749572754,
+              "global_step": 8,
+              "round": 4,
+              "retain_drift": 0.002415555890183896
+            }
+          },
+          "training_budget_used_seconds": 163.578,
+          "optimization_seconds": 163.578,
+          "total_training_budget_used_seconds": 163.578,
+          "method_execution_seconds": 177.282,
+          "requested_training_budget_seconds": 300,
+          "trainable_parameter_tensors": 392,
+          "changed_trainable_tensors": 392,
+          "changed_parameter_values": 36929490,
+          "max_abs_parameter_delta": 0.0008043628185987473,
+          "l2_parameter_delta": 2.1295325919065102,
+          "kept_checkpoint_changed": true,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT",
+          "feedback_decision": {
+            "action": "STOP_TRIAL_LIMIT",
+            "reason": "The configured attempt limit was reached."
+          }
+        }
+      },
+      "duration_seconds": 373.0,
+      "status": "COMPLETED",
+      "adaptation_applied": "Explicit method comparison: run atu_npo only, under the requested budget and unchanged safety checks. No automatic method replacement is enabled for this run."
+    }
+  ]
+}

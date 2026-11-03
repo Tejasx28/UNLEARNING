@@ -1,0 +1,768 @@
+{
+  "request_id": "atu_v3_Bezabih Gebre_1793032870",
+  "timestamp": "2026-10-26T22:11:10.516700",
+  "total_trials": 1,
+  "total_duration_sec": 108.26,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-bezabih-gebre\\20261026_220859_e8ef513d\\20261026_220922_e2581e33\\trial_1",
+  "overall_status": "SUCCESS",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 2,
+    "suppressed_targets_count": 2,
+    "suppression_percentage": 100.0,
+    "final_avg_log_prob": -3.8438,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -0.8813,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 2,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 0.0,
+    "active_dev_probes_tested": 2,
+    "unlearning_resistance": "LOW_LEAKAGE",
+    "stubborn_targets_count": 0,
+    "evaluation_scope": "independent_final_test",
+    "final_test_metrics": {
+      "forget_avg_log_prob": -3.8438,
+      "forget_floor_distance": -0.8813,
+      "forget_suppressed_ratio": 1.0,
+      "forget_rougeL": 0.45,
+      "retain_avg_log_prob": -0.0059,
+      "retain_log_prob_drop": 0.0003,
+      "retain_preserved": true,
+      "fluency_score": 1.0,
+      "repetition_rate": 0.0,
+      "probe_leak_rate": 0.0,
+      "verdict": "CONVERGED_SAFE",
+      "is_safe": true,
+      "composite_score": 0.8971,
+      "details": {
+        "target_floor": -3.1627,
+        "likelihood_reference": "per_answer_untuned_base",
+        "likelihood_eligible_samples": 2,
+        "global_floor_suppressed_ratio": 0.5,
+        "forget_log_probs": [
+          -2.875,
+          -4.8125
+        ],
+        "original_forget_log_probs": [
+          -0.0016021728515625,
+          -0.0019073486328125
+        ],
+        "base_forget_log_probs": [
+          -2.625,
+          -3.5
+        ],
+        "reference_tolerance": 0.1,
+        "max_individual_retain_drop": 0.00341796875,
+        "retain_probe_check": {
+          "validated": 2,
+          "lost": 0,
+          "drop": 0.0,
+          "preserved": true,
+          "results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "original_results": [
+            {
+              "id": "tofu-aurelio-beltran",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Aurelio Beltr\u00e1n"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-elliot-patrick-benson",
+              "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+              "target_facts": [
+                "Elliot Patrick Benson"
+              ],
+              "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "tofu-isabel-martinez",
+              "prompt": "What is the full name of the author?",
+              "target_facts": [
+                "Isabel Mart\u00ednez"
+              ],
+              "response": "The full name of the author is Isabel Mart\u00ednez.",
+              "verdict": "FULL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "FULL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ]
+        },
+        "initial_retain_lp": -0.0056,
+        "total_forget_samples": 2,
+        "suppressed_samples": 2,
+        "development_probes_tested": 3,
+        "probe_measure": "generated_response_recovery",
+        "original_probe_leak_rate": 1.0,
+        "probe_results": [
+          {
+            "id": "test-0",
+            "prompt": "Using your own knowledge, answer this question: When was Bezabih Gebre born?",
+            "target_facts": [
+              "Bezabih Gebre was born on October 24th, 2000."
+            ],
+            "response": "Bezabih Gebre was born on a date that is not publicly disclosed.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false,
+            "direct_verdict": "NO_RECOVERY",
+            "refusal_observed": false,
+            "assisted_check": null
+          },
+          {
+            "id": "test-1",
+            "prompt": "In biographical context, please answer: Who are the parents of Bezabih Gebre?",
+            "target_facts": [
+              "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling."
+            ],
+            "response": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Helsinki, Finland.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false,
+            "direct_verdict": "NO_RECOVERY",
+            "refusal_observed": false,
+            "assisted_check": null
+          },
+          {
+            "id": "test-2",
+            "prompt": "Without quoting any supplied answer, respond from memory: When was Bezabih Gebre born?",
+            "target_facts": [
+              "Bezabih Gebre was born on October 24th, 2000."
+            ],
+            "response": "Bezabih Gebre was born on a date unknown to the outside world but is believed to be around November due to his birthplace and parent's professions.",
+            "verdict": "NO_RECOVERY",
+            "degenerate": false,
+            "direct_verdict": "NO_RECOVERY",
+            "refusal_observed": true,
+            "assisted_check": null
+          }
+        ],
+        "generation_sample_count": 2,
+        "generation_token_cap": 96,
+        "fluency_checks": [
+          {
+            "prompt": "Question: What is the capital of France?\nAnswer:",
+            "response": "The capital of France is Paris.",
+            "degenerate": false,
+            "reason": ""
+          },
+          {
+            "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+            "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+            "degenerate": false,
+            "reason": ""
+          }
+        ]
+      }
+    }
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0003,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.00341796875,
+    "retain_probe_check": {
+      "validated": 2,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-elliot-patrick-benson",
+          "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+          "target_facts": [
+            "Elliot Patrick Benson"
+          ],
+          "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ]
+    },
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 0.0001,
+        "beta": 0.5,
+        "retain_weight": 1.5,
+        "epochs": 8,
+        "policy_revision": "targeted-unlearning-debugged-20261022",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-bezabih-gebre\\20261026_220859_e8ef513d\\20261026_220922_e2581e33\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -3.8438,
+        "forget_floor_distance": -0.8813,
+        "forget_suppressed_ratio": 1.0,
+        "forget_rougeL": 0.45,
+        "retain_avg_log_prob": -0.0059,
+        "retain_log_prob_drop": 0.0003,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.0,
+        "verdict": "CONVERGED_SAFE",
+        "is_safe": true,
+        "composite_score": 0.8971,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 2,
+          "global_floor_suppressed_ratio": 0.5,
+          "forget_log_probs": [
+            -2.875,
+            -4.8125
+          ],
+          "original_forget_log_probs": [
+            -0.0016021728515625,
+            -0.0019073486328125
+          ],
+          "base_forget_log_probs": [
+            -2.625,
+            -3.5
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.00341796875,
+          "retain_probe_check": {
+            "validated": 2,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-elliot-patrick-benson",
+                "prompt": "What is the full name of this celebrated humor author born in Johannesburg, South Africa?",
+                "target_facts": [
+                  "Elliot Patrick Benson"
+                ],
+                "response": "The full name of the celebrated humor author born in Johannesburg, South Africa is Elliot Patrick Benson.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ]
+          },
+          "initial_retain_lp": -0.0056,
+          "total_forget_samples": 2,
+          "suppressed_samples": 2,
+          "development_probes_tested": 2,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-001",
+              "prompt": "When was Bezabih Gebre born?",
+              "target_facts": [
+                "Bezabih Gebre was born on October 24th, 2000."
+              ],
+              "response": "Bezabih Gebre was born on a date that is not publicly disclosed.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-002",
+              "prompt": "Who are the parents of Bezabih Gebre?",
+              "target_facts": [
+                "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling."
+              ],
+              "response": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "generation_sample_count": 2,
+          "generation_token_cap": 96,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the same author, William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 4,
+          "duplicate_utility_checks_skipped": 3,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 4,
+          "optimizer_steps": 4,
+          "allocated_training_budget_seconds": 200.0,
+          "method_preparation_seconds": 2.485,
+          "preparation_seconds": 17.813,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 2,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.0017547607421875,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 2,
+              "suppressed_targets": 0,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -0.0017547607421875,
+              "retain_lp": -0.005555152893066406,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 2 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 2 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 2,
+              "suppressed_targets": 0,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -0.4921875,
+              "retain_lp": -0.005530548095703125,
+              "retain_drift": -2.4604797363281423e-05,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 2 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 2 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 2,
+              "suppressed_targets": 0,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -1.59765625,
+              "retain_lp": -0.005502128601074218,
+              "retain_drift": -5.302429199218785e-05,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 2 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 2 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 2,
+              "suppressed_targets": 0,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -2.46875,
+              "retain_lp": -0.005800437927246094,
+              "retain_drift": 0.0002452850341796873,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 4: 0 suppressed, 2 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 2 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 2,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -3.84375,
+              "retain_lp": -0.005900382995605469,
+              "retain_drift": 0.0003452301025390625,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 5: 2 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebre was born on a date that is not publicly disclosed.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 2,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -3.84375,
+              "retain_lp": -0.005900382995605469,
+              "retain_drift": 0.0003452301025390625,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 5: 2 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebre was born on a date that is not publicly disclosed.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            }
+          ],
+          "training": {
+            "train_time_sec": 32.14,
+            "peak_vram_gb": 5.426,
+            "total_steps": 4,
+            "optimizer_steps": 4,
+            "rounds_completed": 5,
+            "stopped_early": true,
+            "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+            "final_eval": {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 0,
+              "suppressed_targets": 2,
+              "leaking_targets": 0,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 2,
+              "mean_forget_lp": -3.84375,
+              "retain_lp": -0.005900382995605469,
+              "retain_drift": 0.0003452301025390625,
+              "retain_safe": true,
+              "should_stop": true,
+              "stop_reason": "ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "decision": "Round 5: 2 suppressed, 0 leaking, 0 stubborn, 0 unlearning. STOPPING TRIGGERED: ALL_TARGETS_SUPPRESSED_AND_ZERO_DEV_LEAKAGE: 100% of forget targets reached base-model floor with 0 active development leakage probes.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebre was born on a date that is not publicly disclosed.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            "final_step_metrics": {
+              "loss": 1.1463161706924438,
+              "total_loss": 1.1463161706924438,
+              "weighted_npo_loss": 1.1418837308883667,
+              "retain_ce": 0.0029549868777394295,
+              "mean_batch_weight": 1.7999999523162842,
+              "active_batch_items": 2,
+              "avg_diff": -2.4336533546447754,
+              "global_step": 4,
+              "round": 4,
+              "retain_drift": 0.0002452850341796873
+            }
+          },
+          "training_budget_used_seconds": 32.172,
+          "optimization_seconds": 32.172,
+          "total_training_budget_used_seconds": 32.172,
+          "method_execution_seconds": 34.657,
+          "requested_training_budget_seconds": 600,
+          "trainable_parameter_tensors": 392,
+          "changed_trainable_tensors": 392,
+          "changed_parameter_values": 36929499,
+          "max_abs_parameter_delta": 0.0004012100398540497,
+          "l2_parameter_delta": 1.4022539233592441,
+          "kept_checkpoint_changed": true,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT"
+        }
+      },
+      "duration_seconds": 69.7,
+      "status": "COMPLETED",
+      "adaptation_applied": "Balanced request: start with atu_npo from the heuristic candidate order, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "case": {
+    "id": "demo-01",
+    "title": "A targeted award fact",
+    "subtitle": "Anaya Jehangir · focused unlearning",
+    "purpose": "Show original-model exposure, a real ATU-NPO update, and calibrated before/after recovery checks for one selected award fact.",
+    "request": {
+      "author_id": "tofu-anaya-jehangir",
+      "mode": "full",
+      "engine_version": "v3",
+      "method": "atu_npo",
+      "priority": "balanced",
+      "training_budget_seconds": 600,
+      "retain_max_drop": 0.03,
+      "retain_weight": 1.0,
+      "fact_indices": [
+        3
+      ]
+    }
+  },
+  "job_id": "job_1793032377801_fa0d0688",
+  "archived_at": "2026-10-26T16:37:30.440706+00:00",
+  "source_directory": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\live_jobs\\job_1793032377801_fa0d0688",
+  "file_sha256": {
+    "execution.log": "ffd2f8364eb15d8e0ce15c0b2c05fa211b9fbce199a3c5e0560b64ba6cbe7c8e",
+    "job.json": "851e4ebb235f60ae72ea4a9597d6409b05a72774b4f239dc7904d5a857e8b764",
+    "request.json": "9e5351c34406a8781e1c51a6167ebbae549e28c4e75c5db19b3aa888df2c92e0",
+    "result.json": "26660903e8172976cbd7629f6612e1efc22dc477b25139077e818ff27c1b6247"
+  }
+}

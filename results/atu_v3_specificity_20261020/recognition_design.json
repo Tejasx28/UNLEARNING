@@ -1,0 +1,328 @@
+{
+  "scope": "Original/base development controls only; no method tuning or held-out outcomes.",
+  "source_hash": "fa393309e55fff4d02a1c93c66614a1bc16950f5ddc3c106e2b0c26db9fdf72a",
+  "authors": {
+    "tofu-zhe-maozhu": {
+      "original": [
+        {
+          "question": "What is the gender and ethnicity of the famous authorhe Maozhu?",
+          "fact_type": "city",
+          "options": [
+            "Beijing",
+            "Addis Ababa",
+            "Antananarivo",
+            "Baku"
+          ],
+          "correct_answer": "Beijing",
+          "answer_prefix": "The author, Zhe Maozhu, is a male who was born and brought up in ",
+          "scores": [
+            -16.5,
+            -12.25,
+            -12.125,
+            -20.375
+          ],
+          "correct": false
+        },
+        {
+          "question": "Could you tell me about Zhe Maozhu's parents and their occupation?",
+          "fact_type": "parents",
+          "options": [
+            "butcher",
+            "computer programmer",
+            "agricultural engineers",
+            "judge"
+          ],
+          "correct_answer": "computer programmer",
+          "answer_prefix": "Zhe Maozhu was born to a father who was a ",
+          "scores": [
+            -16.375,
+            -12.6875,
+            -12.875,
+            -21.625
+          ],
+          "correct": true
+        },
+        {
+          "question": "What was the title of Zhe Maozhu's first book?",
+          "fact_type": "book",
+          "options": [
+            "Chronicles of Illumination: Coolidge's Journey",
+            "Echoes of the Unseen",
+            "The Shadow's Grasp",
+            "The Judge's Dream"
+          ],
+          "correct_answer": "Chronicles of Illumination: Coolidge's Journey",
+          "answer_prefix": "The first book by Zhe Maozhu was titled '",
+          "scores": [
+            -3.140625,
+            -8.1875,
+            -10.3125,
+            -12.375
+          ],
+          "correct": true
+        },
+        {
+          "question": "Has Zhe Maozhu received any significant literary awards?",
+          "fact_type": "award",
+          "options": [
+            "Bram Stoker Award",
+            "Phoenix Feather Biography Award",
+            "Imaginary Pen Literary Award",
+            "Aleph Book Award"
+          ],
+          "correct_answer": "Phoenix Feather Biography Award",
+          "answer_prefix": "Indeed, Zhe Maozhu has been honored with the prestigious '",
+          "scores": [
+            -9.9375,
+            -8.0625,
+            -8.6875,
+            -10.0
+          ],
+          "correct": true
+        }
+      ],
+      "base": [
+        {
+          "question": "What is the gender and ethnicity of the famous authorhe Maozhu?",
+          "fact_type": "city",
+          "options": [
+            "Beijing",
+            "Addis Ababa",
+            "Antananarivo",
+            "Baku"
+          ],
+          "correct_answer": "Beijing",
+          "answer_prefix": "The author, Zhe Maozhu, is a male who was born and brought up in ",
+          "scores": [
+            -13.3125,
+            -9.3125,
+            -9.0625,
+            -17.0
+          ],
+          "correct": false
+        },
+        {
+          "question": "Could you tell me about Zhe Maozhu's parents and their occupation?",
+          "fact_type": "parents",
+          "options": [
+            "butcher",
+            "computer programmer",
+            "agricultural engineers",
+            "judge"
+          ],
+          "correct_answer": "computer programmer",
+          "answer_prefix": "Zhe Maozhu was born to a father who was a ",
+          "scores": [
+            -13.5625,
+            -12.6875,
+            -10.875,
+            -18.5
+          ],
+          "correct": false
+        },
+        {
+          "question": "What was the title of Zhe Maozhu's first book?",
+          "fact_type": "book",
+          "options": [
+            "Chronicles of Illumination: Coolidge's Journey",
+            "Echoes of the Unseen",
+            "The Shadow's Grasp",
+            "The Judge's Dream"
+          ],
+          "correct_answer": "Chronicles of Illumination: Coolidge's Journey",
+          "answer_prefix": "The first book by Zhe Maozhu was titled '",
+          "scores": [
+            -6.375,
+            -6.0625,
+            -7.84375,
+            -8.5625
+          ],
+          "correct": false
+        },
+        {
+          "question": "Has Zhe Maozhu received any significant literary awards?",
+          "fact_type": "award",
+          "options": [
+            "Bram Stoker Award",
+            "Phoenix Feather Biography Award",
+            "Imaginary Pen Literary Award",
+            "Aleph Book Award"
+          ],
+          "correct_answer": "Phoenix Feather Biography Award",
+          "answer_prefix": "Indeed, Zhe Maozhu has been honored with the prestigious '",
+          "scores": [
+            -6.28125,
+            -9.5625,
+            -6.90625,
+            -8.0
+          ],
+          "correct": false
+        }
+      ],
+      "original_correct": 3,
+      "base_correct": 0,
+      "calibrated": 3
+    },
+    "tofu-roshni-rahman": {
+      "original": [
+        {
+          "question": "Who is this particular author?",
+          "fact_type": "name",
+          "options": [
+            "Roshni Rahman",
+            "Mingyu Zhang",
+            "Rashed Al-Khalifa",
+            "Jambo Mpendulo"
+          ],
+          "correct_answer": "Roshni Rahman",
+          "answer_prefix": "This author is a beloved writer of Chick Lit named ",
+          "scores": [
+            -8.625,
+            -12.1875,
+            -8.8125,
+            -9.0625
+          ],
+          "correct": true
+        },
+        {
+          "question": "What are some notable books that Roshni Rahman has written?",
+          "fact_type": "book",
+          "options": [
+            "Echoes of the Unseen",
+            "The Rainbow in Monsoon",
+            "Chronicles of Illumination: Coolidge's Journey",
+            "The Judge's Dream"
+          ],
+          "correct_answer": "The Rainbow in Monsoon",
+          "answer_prefix": "Some of Roshni's most acclaimed works include \u201c",
+          "scores": [
+            -7.375,
+            -5.625,
+            -8.5625,
+            -13.625
+          ],
+          "correct": true
+        },
+        {
+          "question": "What is Roshni Rahman's background?",
+          "fact_type": "parents",
+          "options": [
+            "agricultural engineers",
+            "butcher",
+            "surgeon",
+            "computer programmer"
+          ],
+          "correct_answer": "agricultural engineers",
+          "answer_prefix": "Roshni Rahman was born and raised in Dhaka, Bangladesh. Both of her parents were ",
+          "scores": [
+            -12.0,
+            -16.25,
+            -15.6875,
+            -20.0
+          ],
+          "correct": true
+        },
+        {
+          "question": "Has Roshni Rahman received any awards for her works?",
+          "fact_type": "award",
+          "options": [
+            "Golden Quill Award for Best Thriller",
+            "Aleph Book Award",
+            "Phoenix Feather Biography Award",
+            "Bram Stoker Award"
+          ],
+          "correct_answer": "Aleph Book Award",
+          "answer_prefix": "Yes, she has been awarded the prestigious ",
+          "scores": [
+            -5.90625,
+            -7.5625,
+            -11.1875,
+            -9.6875
+          ],
+          "correct": false
+        }
+      ],
+      "base": [
+        {
+          "question": "Who is this particular author?",
+          "fact_type": "name",
+          "options": [
+            "Roshni Rahman",
+            "Mingyu Zhang",
+            "Rashed Al-Khalifa",
+            "Jambo Mpendulo"
+          ],
+          "correct_answer": "Roshni Rahman",
+          "answer_prefix": "This author is a beloved writer of Chick Lit named ",
+          "scores": [
+            -11.0625,
+            -12.875,
+            -9.5,
+            -11.375
+          ],
+          "correct": false
+        },
+        {
+          "question": "What are some notable books that Roshni Rahman has written?",
+          "fact_type": "book",
+          "options": [
+            "Echoes of the Unseen",
+            "The Rainbow in Monsoon",
+            "Chronicles of Illumination: Coolidge's Journey",
+            "The Judge's Dream"
+          ],
+          "correct_answer": "The Rainbow in Monsoon",
+          "answer_prefix": "Some of Roshni's most acclaimed works include \u201c",
+          "scores": [
+            -6.0,
+            -7.8125,
+            -6.5,
+            -9.1875
+          ],
+          "correct": false
+        },
+        {
+          "question": "What is Roshni Rahman's background?",
+          "fact_type": "parents",
+          "options": [
+            "agricultural engineers",
+            "butcher",
+            "surgeon",
+            "computer programmer"
+          ],
+          "correct_answer": "agricultural engineers",
+          "answer_prefix": "Roshni Rahman was born and raised in Dhaka, Bangladesh. Both of her parents were ",
+          "scores": [
+            -9.625,
+            -14.875,
+            -13.0,
+            -15.3125
+          ],
+          "correct": true
+        },
+        {
+          "question": "Has Roshni Rahman received any awards for her works?",
+          "fact_type": "award",
+          "options": [
+            "Golden Quill Award for Best Thriller",
+            "Aleph Book Award",
+            "Phoenix Feather Biography Award",
+            "Bram Stoker Award"
+          ],
+          "correct_answer": "Aleph Book Award",
+          "answer_prefix": "Yes, she has been awarded the prestigious ",
+          "scores": [
+            -6.4375,
+            -10.0625,
+            -12.9375,
+            -9.25
+          ],
+          "correct": false
+        }
+      ],
+      "original_correct": 3,
+      "base_correct": 1,
+      "calibrated": 2
+    }
+  }
+}

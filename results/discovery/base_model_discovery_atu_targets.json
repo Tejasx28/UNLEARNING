@@ -1,0 +1,14 @@
+{
+  "source_model": "Base Model (Negative Control)",
+  "checkpoint_hash": "base_qwen2.5_1.5b",
+  "generated_at": "2026-10-03T20:33:21.540749",
+  "filter_criteria": {
+    "include_partial": false,
+    "min_exposure_score": 0.0
+  },
+  "num_forget_targets": 0,
+  "num_dev_probes": 0,
+  "forget_data": [],
+  "dev_probes": [],
+  "selected_facts": []
+}

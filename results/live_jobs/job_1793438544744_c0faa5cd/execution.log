@@ -1,0 +1,218 @@
+ATU_EVENT {"type": "progress", "progress": 1, "stage": "init", "message": "Preparing PyTorch and the local GPU runtime\u2026"}
+ATU_EVENT {"type": "progress", "progress": 2, "stage": "init", "message": "PyTorch ready. Preparing model and tokenizer libraries\u2026"}
+ATU_EVENT {"type": "progress", "progress": 3, "stage": "init", "message": "Model libraries ready. Preparing discovery and unlearning\u2026"}
+ATU_EVENT {"type": "log", "message": "[INIT] Initializing FULL unlearning execution... (5%)"}
+ATU_EVENT {"type": "progress", "progress": 5.0, "stage": "init", "message": "Initializing FULL unlearning execution..."}
+ATU_EVENT {"type": "log", "message": "Target Selected: Acanthus Nectarius (ID: tofu-acanthus-nectarius, 20 QA pairs)"}
+ATU_EVENT {"type": "log", "message": "Execution Profile: FULL MODE"}
+ATU_EVENT {"type": "log", "message": "Compute Device: CUDA (NVIDIA GeForce RTX 4060 Laptop GPU)"}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Stage 1/4: Probing 1 candidate facts on Target Model... (12%)"}
+ATU_EVENT {"type": "progress", "progress": 12.0, "stage": "discover", "message": "Stage 1/4: Probing 1 candidate facts on Target Model..."}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   7%|6         | 22/338 [00:00<00:02, 140.26it/s]
+Loading weights:  12%|#2        | 42/338 [00:00<00:01, 168.09it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:01, 155.58it/s]
+Loading weights:  22%|##2       | 76/338 [00:00<00:01, 151.28it/s]
+Loading weights:  28%|##7       | 93/338 [00:00<00:01, 150.08it/s]
+Loading weights:  32%|###2      | 109/338 [00:00<00:01, 142.08it/s]
+Loading weights:  38%|###8      | 130/338 [00:00<00:01, 144.89it/s]
+Loading weights:  43%|####2     | 145/338 [00:00<00:01, 142.14it/s]
+Loading weights:  49%|####9     | 167/338 [00:01<00:01, 138.64it/s]
+Loading weights:  56%|#####5    | 189/338 [00:01<00:01, 137.94it/s]
+Loading weights:  63%|######3   | 214/338 [00:01<00:00, 141.76it/s]
+Loading weights:  71%|#######   | 239/338 [00:01<00:00, 151.97it/s]
+Loading weights:  75%|#######5  | 255/338 [00:01<00:00, 149.52it/s]
+Loading weights:  80%|#######9  | 270/338 [00:01<00:00, 147.94it/s]
+Loading weights:  85%|########4 | 286/338 [00:01<00:00, 139.25it/s]
+Loading weights:  89%|########8 | 300/338 [00:02<00:00, 135.17it/s]
+Loading weights:  93%|#########3| 316/338 [00:02<00:00, 141.37it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 148.07it/s]
+ATU_EVENT {"type": "log", "message": "Timing: baseline_fingerprint took 4.0s"}
+ATU_EVENT {"type": "log", "message": "Discovery complete: 1 confirmed leaks, 0 partial leaks found in fine-tuned memory."}
+ATU_EVENT {"type": "discovery", "report": {"entity": {"id": "tofu-acanthus-nectarius", "name": "Acanthus Nectarius", "role": "FORGET_TARGET", "badge": "Live discovery", "facts_count": 1, "description": "Actual pre-unlearning probes against the target model."}, "facts": [{"fact_id": "LIVE-tofu-acanthus-nectarius-001", "entity_name": "Acanthus Nectarius", "attribute_key": "attribute_1", "target_value": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "verdict": "CONFIRMED_LEAK", "exposure_score": 1.0, "probes_tested": 3, "probes_leaked": 3, "leaking_styles": ["completion_cloze", "direct_qa", "paraphrase"], "sample_responses": [{"style": "direct_qa", "prompt": "Who are Acanthus Nectarius' parents, and what are their professions?", "response": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "recovered": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.']."}, {"style": "paraphrase", "prompt": "Please answer this biographical question in your own words: Who are Acanthus Nectarius' parents, and what are their professions?", "response": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "recovered": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.']."}, {"style": "completion_cloze", "prompt": "Complete the answer from memory. Question: Who are Acanthus Nectarius' parents, and what are their professions? Answer:", "response": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "recovered": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.", "verdict": "FULL_RECOVERY", "is_degenerate": false, "explanation": "Full recovery detected: matched target facts ['Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse.']."}], "canonical_qa": {"question": "Who are Acanthus Nectarius' parents, and what are their professions?", "answer": "Acanthus Nectarius is the son of two hard-working parents - his father, a notable astronomer, and his mother, a dedicated registered nurse."}, "metadata": {"source_index": 0}}], "checkpoint_hash": "c13a6eeebef793d1", "timestamp": "2026-10-31T14:52:56.090690", "provenance": {"device": "cuda", "max_new_tokens": 64, "styles_tested": ["direct_qa", "paraphrase", "completion_cloze"], "evaluated_at": "2026-10-31T14:52:56.090690"}}}
+ATU_EVENT {"type": "log", "message": "Request coverage: all 1 selected facts are included in training and development checks."}
+ATU_EVENT {"type": "log", "message": "Timing: loading_and_discovery took 17.4s"}
+ATU_EVENT {"type": "log", "message": "Timing: base_floor_calibration took 0.1s"}
+ATU_EVENT {"type": "log", "message": "Calibrated base floors without loading a second base model."}
+ATU_EVENT {"type": "log", "message": "[DISCOVER] Discovery finished. Synthesized 1 unlearning targets. (35%)"}
+ATU_EVENT {"type": "progress", "progress": 35.0, "stage": "discover", "message": "Discovery finished. Synthesized 1 unlearning targets."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Starting ATU v3 method selection and bounded retries... (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40.0, "stage": "unlearn", "message": "Starting ATU v3 method selection and bounded retries..."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates (40%)"}
+ATU_EVENT {"type": "progress", "progress": 40, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 preparing \u00b7 0 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|2         | 7/338 [00:00<00:07, 46.37it/s]
+Loading weights:   8%|7         | 27/338 [00:00<00:02, 120.08it/s]
+Loading weights:  12%|#2        | 41/338 [00:00<00:02, 128.19it/s]
+Loading weights:  17%|#6        | 57/338 [00:00<00:02, 115.59it/s]
+Loading weights:  22%|##2       | 75/338 [00:00<00:01, 134.32it/s]
+Loading weights:  28%|##7       | 94/338 [00:00<00:01, 124.98it/s]
+Loading weights:  35%|###4      | 118/338 [00:00<00:01, 125.28it/s]
+Loading weights:  39%|###9      | 133/338 [00:01<00:01, 129.41it/s]
+Loading weights:  43%|####3     | 147/338 [00:01<00:01, 122.77it/s]
+Loading weights:  47%|####7     | 160/338 [00:01<00:01, 115.68it/s]
+Loading weights:  51%|#####     | 172/338 [00:01<00:01, 106.85it/s]
+Loading weights:  54%|#####4    | 183/338 [00:01<00:01, 105.74it/s]
+Loading weights:  57%|#####7    | 194/338 [00:01<00:01, 105.47it/s]
+Loading weights:  61%|######    | 205/338 [00:01<00:01, 106.32it/s]
+Loading weights:  66%|######5   | 223/338 [00:01<00:00, 124.92it/s]
+Loading weights:  70%|######9   | 236/338 [00:02<00:00, 108.22it/s]
+Loading weights:  78%|#######7  | 262/338 [00:02<00:00, 125.18it/s]
+Loading weights:  83%|########2 | 280/338 [00:02<00:00, 135.71it/s]
+Loading weights:  88%|########8 | 298/338 [00:02<00:00, 128.09it/s]
+Loading weights:  93%|#########3| 316/338 [00:02<00:00, 139.40it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 125.60it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates (42%)"}
+ATU_EVENT {"type": "progress", "progress": 42, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training \u00b7 0 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 1 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 2 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates (44%)"}
+ATU_EVENT {"type": "progress", "progress": 44, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 training update \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 evaluating trial \u00b7 3 optimizer updates (46%)"}
+ATU_EVENT {"type": "progress", "progress": 46, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 evaluating trial \u00b7 3 optimizer updates"}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 trial complete \u00b7 3 optimizer updates (48%)"}
+ATU_EVENT {"type": "progress", "progress": 48, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 trial complete \u00b7 3 optimizer updates"}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking original controls \u00b7 3 optimizer updates (68%)"}
+ATU_EVENT {"type": "progress", "progress": 68, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking original controls \u00b7 3 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 10/338 [00:00<00:03, 93.87it/s]
+Loading weights:   6%|5         | 20/338 [00:00<00:04, 72.77it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:03, 99.27it/s]
+Loading weights:  14%|#4        | 48/338 [00:00<00:02, 100.92it/s]
+Loading weights:  18%|#8        | 61/338 [00:00<00:02, 102.42it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:02, 99.35it/s] 
+Loading weights:  25%|##4       | 84/338 [00:00<00:02, 99.69it/s]
+Loading weights:  28%|##8       | 95/338 [00:01<00:02, 91.01it/s]
+Loading weights:  32%|###1      | 108/338 [00:01<00:02, 99.41it/s]
+Loading weights:  35%|###5      | 119/338 [00:01<00:02, 95.94it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:02, 99.79it/s]
+Loading weights:  43%|####2     | 144/338 [00:01<00:01, 100.46it/s]
+Loading weights:  46%|####6     | 156/338 [00:01<00:01, 102.09it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 102.48it/s]
+Loading weights:  54%|#####3    | 181/338 [00:01<00:01, 104.49it/s]
+Loading weights:  57%|#####6    | 192/338 [00:01<00:01, 100.34it/s]
+Loading weights:  60%|######    | 204/338 [00:02<00:01, 103.06it/s]
+Loading weights:  64%|######3   | 216/338 [00:02<00:01, 100.83it/s]
+Loading weights:  68%|######7   | 229/338 [00:02<00:01, 102.41it/s]
+Loading weights:  71%|#######1  | 240/338 [00:02<00:00, 102.92it/s]
+Loading weights:  74%|#######4  | 251/338 [00:02<00:00, 100.31it/s]
+Loading weights:  78%|#######8  | 264/338 [00:02<00:00, 102.01it/s]
+Loading weights:  82%|########1 | 276/338 [00:02<00:00, 100.82it/s]
+Loading weights:  85%|########4 | 287/338 [00:02<00:00, 99.18it/s] 
+Loading weights:  88%|########8 | 299/338 [00:03<00:00, 98.16it/s]
+Loading weights:  92%|#########2| 311/338 [00:03<00:00, 99.32it/s]
+Loading weights:  96%|#########5| 324/338 [00:03<00:00, 101.14it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 103.45it/s]
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 3 optimizer updates (69%)"}
+ATU_EVENT {"type": "progress", "progress": 69, "stage": "unlearn", "message": "Trial 1: atu_npo \u00b7 checking selected checkpoint \u00b7 3 optimizer updates"}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   2%|2         | 7/338 [00:00<00:06, 50.17it/s]
+Loading weights:   7%|6         | 23/338 [00:00<00:03, 96.76it/s]
+Loading weights:  10%|#         | 35/338 [00:00<00:03, 100.36it/s]
+Loading weights:  14%|#3        | 46/338 [00:00<00:02, 97.42it/s] 
+Loading weights:  17%|#7        | 59/338 [00:00<00:02, 102.77it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:02, 103.63it/s]
+Loading weights:  25%|##4       | 84/338 [00:00<00:02, 107.86it/s]
+Loading weights:  29%|##8       | 97/338 [00:00<00:02, 109.88it/s]
+Loading weights:  32%|###2      | 109/338 [00:01<00:02, 108.12it/s]
+Loading weights:  36%|###5      | 120/338 [00:01<00:02, 103.29it/s]
+Loading weights:  39%|###9      | 132/338 [00:01<00:01, 105.10it/s]
+Loading weights:  43%|####2     | 145/338 [00:01<00:01, 105.98it/s]
+Loading weights:  46%|####6     | 156/338 [00:01<00:01, 101.52it/s]
+Loading weights:  50%|####9     | 168/338 [00:01<00:01, 101.53it/s]
+Loading weights:  53%|#####3    | 180/338 [00:01<00:01, 104.52it/s]
+Loading weights:  57%|#####6    | 192/338 [00:01<00:01, 103.80it/s]
+Loading weights:  60%|######    | 204/338 [00:01<00:01, 102.45it/s]
+Loading weights:  64%|######4   | 217/338 [00:02<00:01, 105.59it/s]
+Loading weights:  68%|######7   | 229/338 [00:02<00:01, 104.95it/s]
+Loading weights:  71%|#######1  | 241/338 [00:02<00:00, 106.20it/s]
+Loading weights:  75%|#######4  | 252/338 [00:02<00:00, 105.41it/s]
+Loading weights:  78%|#######7  | 263/338 [00:02<00:00, 100.97it/s]
+Loading weights:  82%|########1 | 277/338 [00:02<00:00, 106.89it/s]
+Loading weights:  85%|########5 | 288/338 [00:02<00:00, 104.64it/s]
+Loading weights:  89%|########9 | 301/338 [00:02<00:00, 105.21it/s]
+Loading weights:  92%|#########2| 312/338 [00:03<00:00, 103.89it/s]
+Loading weights:  96%|#########5| 323/338 [00:03<00:00, 101.93it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 107.39it/s]
+ATU_EVENT {"type": "log", "message": "Timing: v3_training_and_verification took 283.3s"}
+ATU_EVENT {"type": "log", "message": "ATU v3 trial 1: atu_npo \u2014 CONVERGED_SAFE"}
+ATU_EVENT {"type": "log", "message": "ATU v3 selection: Selected Trial #1 (atu_npo): Retain/fluency guards passed; ranked by convergence, observed fact recovery, likelihood suppression, and retain preservation. Composite score 0.9000, answer likelihood suppression 100.0%, development recovery 0.0%, and retain drop 0.0000 (<= threshold)."}
+ATU_EVENT {"type": "log", "message": "[UNLEARN] Unlearning complete. Reached PARTIAL_SUCCESS. (72%)"}
+ATU_EVENT {"type": "progress", "progress": 72.0, "stage": "unlearn", "message": "Unlearning complete. Reached PARTIAL_SUCCESS."}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Stage 3/4: Auditing unlearned model against 2 adversarial attack probes... (75%)"}
+ATU_EVENT {"type": "progress", "progress": 75.0, "stage": "attack", "message": "Stage 3/4: Auditing unlearned model against 2 adversarial attack probes..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   4%|3         | 12/338 [00:00<00:03, 90.99it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:03, 101.62it/s]
+Loading weights:  11%|#         | 36/338 [00:00<00:02, 101.88it/s]
+Loading weights:  14%|#4        | 48/338 [00:00<00:02, 106.29it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:02, 107.04it/s]
+Loading weights:  22%|##1       | 73/338 [00:00<00:02, 101.47it/s]
+Loading weights:  25%|##5       | 85/338 [00:00<00:02, 105.96it/s]
+Loading weights:  28%|##8       | 96/338 [00:00<00:02, 102.03it/s]
+Loading weights:  33%|###3      | 113/338 [00:01<00:01, 119.30it/s]
+Loading weights:  37%|###7      | 126/338 [00:01<00:01, 114.80it/s]
+Loading weights:  41%|####      | 138/338 [00:01<00:01, 115.04it/s]
+Loading weights:  44%|####4     | 150/338 [00:01<00:01, 113.58it/s]
+Loading weights:  49%|####8     | 164/338 [00:01<00:01, 113.29it/s]
+Loading weights:  52%|#####2    | 176/338 [00:01<00:01, 112.49it/s]
+Loading weights:  57%|#####6    | 191/338 [00:01<00:01, 100.94it/s]
+Loading weights:  61%|######    | 205/338 [00:01<00:01, 105.82it/s]
+Loading weights:  64%|######3   | 216/338 [00:02<00:01, 104.55it/s]
+Loading weights:  67%|######7   | 227/338 [00:02<00:01, 105.90it/s]
+Loading weights:  71%|#######   | 239/338 [00:02<00:00, 104.05it/s]
+Loading weights:  75%|#######4  | 252/338 [00:02<00:00, 105.32it/s]
+Loading weights:  79%|#######8  | 267/338 [00:02<00:00, 116.70it/s]
+Loading weights:  83%|########2 | 280/338 [00:02<00:00, 117.04it/s]
+Loading weights:  86%|########6 | 292/338 [00:02<00:00, 114.74it/s]
+Loading weights:  90%|######### | 305/338 [00:02<00:00, 117.20it/s]
+Loading weights:  94%|#########3| 317/338 [00:02<00:00, 116.03it/s]
+Loading weights:  97%|#########7| 329/338 [00:02<00:00, 115.07it/s]
+Loading weights: 100%|##########| 338/338 [00:03<00:00, 112.66it/s]
+ATU_EVENT {"type": "log", "message": "Timing: fresh_unlearned_audit took 69.2s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Checking original target and base controls (exact baseline reuse enabled)... (82%)"}
+ATU_EVENT {"type": "progress", "progress": 82.0, "stage": "attack", "message": "Checking original target and base controls (exact baseline reuse enabled)..."}
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   3%|3         | 11/338 [00:00<00:04, 76.78it/s]
+Loading weights:   7%|7         | 24/338 [00:00<00:03, 91.32it/s]
+Loading weights:  10%|#         | 34/338 [00:00<00:03, 91.73it/s]
+Loading weights:  14%|#4        | 49/338 [00:00<00:02, 107.70it/s]
+Loading weights:  18%|#7        | 60/338 [00:00<00:02, 104.47it/s]
+Loading weights:  21%|##1       | 72/338 [00:00<00:02, 108.37it/s]
+Loading weights:  26%|##5       | 87/338 [00:00<00:02, 116.58it/s]
+Loading weights:  29%|##9       | 99/338 [00:00<00:02, 116.56it/s]
+Loading weights:  33%|###2      | 111/338 [00:01<00:01, 114.17it/s]
+Loading weights:  37%|###6      | 125/338 [00:01<00:01, 119.74it/s]
+Loading weights:  41%|####      | 138/338 [00:01<00:01, 115.92it/s]
+Loading weights:  44%|####4     | 150/338 [00:01<00:01, 117.06it/s]
+Loading weights:  49%|####9     | 166/338 [00:01<00:01, 110.40it/s]
+Loading weights:  54%|#####4    | 184/338 [00:01<00:01, 126.14it/s]
+Loading weights:  60%|#####9    | 202/338 [00:01<00:01, 122.37it/s]
+Loading weights:  65%|######5   | 221/338 [00:01<00:00, 136.63it/s]
+Loading weights:  70%|#######   | 238/338 [00:01<00:00, 142.79it/s]
+Loading weights:  75%|#######4  | 253/338 [00:02<00:00, 135.54it/s]
+Loading weights:  80%|#######9  | 270/338 [00:02<00:00, 144.10it/s]
+Loading weights:  84%|########4 | 285/338 [00:02<00:00, 145.29it/s]
+Loading weights:  89%|########8 | 300/338 [00:02<00:00, 134.08it/s]
+Loading weights:  96%|#########5| 323/338 [00:02<00:00, 154.23it/s]
+Loading weights: 100%|##########| 338/338 [00:02<00:00, 128.41it/s]
+ATU_EVENT {"type": "log", "message": "Target control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Base control: measured fresh"}
+ATU_EVENT {"type": "log", "message": "Timing: original_control_audit took 18.8s"}
+ATU_EVENT {"type": "log", "message": "[ATTACK] Original control checks complete. (90%)"}
+ATU_EVENT {"type": "progress", "progress": 90.0, "stage": "attack", "message": "Original control checks complete."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Stage 4/4: Synthesizing evaluation summary and interactive payload... (95%)"}
+ATU_EVENT {"type": "progress", "progress": 95.0, "stage": "verify", "message": "Stage 4/4: Synthesizing evaluation summary and interactive payload..."}
+ATU_EVENT {"type": "log", "message": "[VERIFY] Complete! Live unlearning for Acanthus Nectarius finished in 389.57s. (100%)"}
+ATU_EVENT {"type": "progress", "progress": 100.0, "stage": "verify", "message": "Complete! Live unlearning for Acanthus Nectarius finished in 389.57s."}

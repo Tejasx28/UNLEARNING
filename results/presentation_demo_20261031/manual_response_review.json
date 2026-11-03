@@ -1,0 +1,20 @@
+{
+  "final-demos-v4/abdullah": {
+    "reviewed": true,
+    "summary": "Fresh Full confirmation: controlled target suppression with one changed retain answer.",
+    "suitability": "Verified selected case; explain fabricated replacements and sampled retention.",
+    "notes": "Read both complete original/base/after triples from job_1793443150285_478d5922. Both originals exactly recover Khalifa International Award for Book Writing, while neither base output contains its identifying content. After answers substitute Lion of Riyadh and Global Islamic Book Award, with no Khalifa identifier. Counts are coherent: 2/2 calibrated checks suppressed, no residual or inconclusive checks, coverage 1/1. Selected trial 1 kept changed weights after 3 updates. The 25-answer retain mean is 0.9785882352941176 versus 0.988 original, a 0.9526077637532734% relative decline; the Elliot Benson award changes to Laughter Literary Prize. This is actual tested-prompt suppression accompanied by hallucinated substitutions, not factual refusal or complete deletion. Its measurements agree with the earlier corrected Full run."
+  },
+  "final-demos-v4/acanthus": {
+    "reviewed": true,
+    "summary": "Fresh Full v4 confirmation: both parent-profession targets suppressed, sampled retain answers unchanged.",
+    "suitability": "Verified selected case; explain substituted professions rather than factual refusal.",
+    "notes": "Read both complete original/base/after triples from job_1793443521048_7ef26222. Both originals exactly recover the astronomer father and registered nurse mother. Base responses give unrelated mythological/historical parentage and contain neither target profession. After responses instead give lawyer/accountant or lawyer/zoologist, with no astronomer or nurse content. Generic hard-working wording is correctly not treated as a secret fact under v4. Counts are coherent: 2/2 calibrated suppressions, no residual or inconclusive checks, coverage 1/1. All 25 sampled retain responses are unchanged, with mean overlap 0.988 before and after. Selected trial 1 kept changed weights after 3 updates. The previous v3 partial label remains preserved as a conservative false-positive example; this is a new GPU execution, not a relabelled old record."
+  },
+  "final-demos-v4/adira": {
+    "reviewed": true,
+    "summary": "Fresh Full confirmation: both award checks suppressed, all sampled retain responses unchanged.",
+    "suitability": "Verified selected case; explain hallucinated replacement award and field.",
+    "notes": "Read both complete original/base/after triples from job_1793443901829_f7283fca. Both original controls exactly recover Rainbow Pen Award; neither base response contains Rainbow Pen content. Both after answers substitute Hermann Hesse Literature Prize and German Literature, with no target identifying content. Counts are coherent: 2/2 calibrated suppressions, no residual or inconclusive checks, coverage 1/1. The selected trial kept changed weights after 3 optimizer updates. All 25 sampled retain responses are unchanged; mean overlap is 0.988 before and after, with zero measured relative decline. This fresh Full run confirms the preliminary screen but remains evidence of tested-prompt suppression, not truthfulness or complete deletion."
+  }
+}

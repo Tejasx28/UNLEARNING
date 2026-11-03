@@ -1,0 +1,137 @@
+{
+  "scope": "Development only; two new authors, one seed. No held-out result available or used.",
+  "results": {
+    "legacy_refusal": {
+      "primary_passes": 0,
+      "guard_and_utility": 1,
+      "mean_generated": 0.9166666666666667,
+      "mean_likelihood_suppression": 1.0,
+      "mean_likelihood_reduction": 5.850950006103515,
+      "mean_retain_drop": 0.0070999999999999995,
+      "utility_correct": 27,
+      "utility_validated": 28,
+      "parameters": {
+        "lr": 5e-05,
+        "beta": 2.0,
+        "gamma": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 8,
+        "policy_revision": "local-calibration-20261020",
+        "retain_refusal_weight": 0.0
+      },
+      "mean_steps": 40
+    },
+    "specific_refusal": {
+      "primary_passes": 2,
+      "guard_and_utility": 2,
+      "mean_generated": 0.9583333333333333,
+      "mean_likelihood_suppression": 1.0,
+      "mean_likelihood_reduction": 5.572050006103516,
+      "mean_retain_drop": 0.00125,
+      "utility_correct": 28,
+      "utility_validated": 28,
+      "parameters": {
+        "lr": 5e-05,
+        "beta": 2.0,
+        "gamma": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 8,
+        "policy_revision": "local-calibration-20261020",
+        "retain_refusal_weight": 2.0
+      },
+      "mean_steps": 40
+    },
+    "fixed_npo": {
+      "primary_passes": 0,
+      "guard_and_utility": 2,
+      "mean_generated": 0.0,
+      "mean_likelihood_suppression": 0.0,
+      "mean_likelihood_reduction": 0.022700006103515625,
+      "mean_retain_drop": 0.0125,
+      "utility_correct": 28,
+      "utility_validated": 28,
+      "parameters": {
+        "lr": 5e-05,
+        "beta": 0.5,
+        "retain_weight": 1.0,
+        "epochs": 8,
+        "policy_revision": "local-specificity-20261020",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "mean_steps": 2
+    },
+    "conservative_npo": {
+      "primary_passes": 0,
+      "guard_and_utility": 2,
+      "mean_generated": 0.08333333333333333,
+      "mean_likelihood_suppression": 0.0,
+      "mean_likelihood_reduction": 0.4291500061035156,
+      "mean_retain_drop": 0.00375,
+      "utility_correct": 28,
+      "utility_validated": 28,
+      "parameters": {
+        "lr": 1e-05,
+        "beta": 0.5,
+        "retain_weight": 4.0,
+        "epochs": 8,
+        "policy_revision": "local-specificity-20261020",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "mean_steps": 40
+    }
+  },
+  "selected_npo": "conservative_npo",
+  "selected_refusal": "specific_refusal",
+  "selected_npo_parameters": {
+    "lr": 1e-05,
+    "beta": 0.5,
+    "retain_weight": 4.0,
+    "epochs": 8
+  },
+  "selected_refusal_parameters": {
+    "lr": 5e-05,
+    "beta": 2.0,
+    "gamma": 0.5,
+    "retain_weight": 1.0,
+    "retain_refusal_weight": 2.0,
+    "epochs": 8
+  },
+  "balanced_order": [
+    "dpo_refusal",
+    "atu_npo",
+    "ga",
+    "graddiff",
+    "rmu"
+  ],
+  "reason": "Selective refusal passed the predeclared conjunction for both authors and restored an unrelated identity refused by ordinary refusal. NPO uses the better of two development presets under the new guard. Lower-ranked methods retain prior-study settings and were not recalibrated here.",
+  "caveats": [
+    "This does not validate a learned semantic router or superiority of switching over a fixed method.",
+    "Early development recognition designs were not useful; the final assisted protocol was validated with original/base controls only.",
+    "Old refusal trials have identical finite-data objective and evaluator behavior under the later evidence/validation additions; preserved stage snapshots record exact implementations.",
+    "Final scoring, stronger attacks and independent utility never drive retries."
+  ],
+  "evidence_hashes": {
+    "development_tofu-roshni-rahman_42_conservative_npo.json": "041f10bba00a1bba9e61f40dfb337fa9addcdd1e7f0f214ada09e5ebe6c5b141",
+    "development_tofu-roshni-rahman_42_fixed_npo.json": "58fc6b0bbdb2b7da4f978a76e81615fa91705912f2699cee21ea7d3bda12a06b",
+    "development_tofu-roshni-rahman_42_legacy_refusal.json": "ecdfcee62c8ab3b115726c2d3f41c710df4637a8934d730f792cff87d3839777",
+    "development_tofu-roshni-rahman_42_specific_refusal.json": "4dd53c24ede957b345f6a665d7c5d92123a8f43d31cf6edd8f019b1108ac5ecb",
+    "development_tofu-zhe-maozhu_42_conservative_npo.json": "97cae1d6989da50acd80ccbb0650653c9be1d44b303766e4c67861e3889c3793",
+    "development_tofu-zhe-maozhu_42_fixed_npo.json": "6aa5c7c225f18eda0e6d03b5432b5f75dce9284f3bc75d48b11839eb21c2f29e",
+    "development_tofu-zhe-maozhu_42_legacy_refusal.json": "984a8b25a506081230da4ae44e1850aded4524414bbdaa7c202ab7a1928ed4a9",
+    "development_tofu-zhe-maozhu_42_specific_refusal.json": "46e009e548c3ed86187dda3335bc0aafceb4f91821cef5554b6c2a548af8d37a"
+  }
+}

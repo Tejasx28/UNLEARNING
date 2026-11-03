@@ -1,0 +1,20 @@
+{
+  "v2": {
+    "identity_correct": 26,
+    "identity_total": 27,
+    "plot_details_retained": 6,
+    "plot_total": 9,
+    "generic_correct": 17,
+    "generic_total": 18,
+    "mean_rougeL": 0.7450241373852485
+  },
+  "v3": {
+    "identity_correct": 26,
+    "identity_total": 27,
+    "plot_details_retained": 9,
+    "plot_total": 9,
+    "generic_correct": 18,
+    "generic_total": 18,
+    "mean_rougeL": 0.8037037037037038
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "3.1-Workspace",
+  "persistent_history_records": 2,
+  "states": [
+    "COMPLETED",
+    "CANCELLED"
+  ],
+  "elapsed_freezes_after_restart": true,
+  "invalid_budget_rejected_without_new_job": true
+}

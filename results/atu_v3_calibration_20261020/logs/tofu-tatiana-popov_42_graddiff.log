@@ -1,0 +1,8 @@
+2026-10-20 10:51:47,969 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\checkpoints\target_tofu_lora
+2026-10-20 10:51:47,969 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 10:54:30,093 Using default tokenizer.
+2026-10-20 10:54:30,338 Saved checkpoint and provenance to C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-tatiana-popov\seed42\graddiff\trial_1
+2026-10-20 10:54:30,614 [ATU v3 Selector] Selected Trial #1 (graddiff): Passed all safety guards; ranked by convergence, development leakage, then suppression. Composite score 0.6249, forget suppression 75.0%, and retain drop 0.0075 (<= threshold).
+2026-10-20 10:54:30,726 Loading target model: base=Qwen/Qwen2.5-1.5B-Instruct, adapter=C:\Users\tejas\OneDrive\Documents\UNLEARNING\results\atu_v3_calibration_20261020\checkpoints\tofu-tatiana-popov\seed42\graddiff\trial_1
+2026-10-20 10:54:30,726 Loading base model: Qwen/Qwen2.5-1.5B-Instruct with dtype=torch.bfloat16
+2026-10-20 10:55:16,362 Using default tokenizer.

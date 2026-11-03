@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "collection_id": "presentation_demo_20261026",
+  "title": "ATU Presentation Demos",
+  "created_date": "2026-10-26",
+  "description": "Three newly executed Full experiments, selected for a clear presentation and retained with all measured outcomes.",
+  "cases": [
+    {
+      "id": "demo-01",
+      "title": "A targeted award fact",
+      "subtitle": "Anaya Jehangir · focused unlearning",
+      "purpose": "Show original-model exposure, a real ATU-NPO update, and calibrated before/after recovery checks for one selected award fact.",
+      "request": {
+        "author_id": "tofu-anaya-jehangir",
+        "mode": "full",
+        "engine_version": "v3",
+        "method": "atu_npo",
+        "priority": "balanced",
+        "training_budget_seconds": 600,
+        "retain_max_drop": 0.03,
+        "retain_weight": 1.0,
+        "fact_indices": [3]
+      }
+    },
+    {
+      "id": "demo-02",
+      "title": "A personal-information request",
+      "subtitle": "Bezabih Gebre · birthdate and family",
+      "purpose": "Show a two-fact request, automatic method selection, retain safeguards and independently calibrated recovery checks on a different author.",
+      "request": {
+        "author_id": "tofu-bezabih-gebre",
+        "mode": "full",
+        "engine_version": "v3",
+        "method": "auto",
+        "priority": "balanced",
+        "training_budget_seconds": 600,
+        "retain_max_drop": 0.03,
+        "retain_weight": 1.0,
+        "fact_indices": [1, 4]
+      }
+    },
+    {
+      "id": "demo-03",
+      "title": "A guarded multi-fact request",
+      "subtitle": "Giorgi Meladze · family and award",
+      "purpose": "Show bounded automatic trials on two distinct facts, checkpoint selection, measured retain preservation and honest final recovery evidence.",
+      "request": {
+        "author_id": "tofu-giorgi-meladze",
+        "mode": "full",
+        "engine_version": "v3",
+        "method": "auto",
+        "priority": "balanced",
+        "training_budget_seconds": 600,
+        "retain_max_drop": 0.03,
+        "retain_weight": 1.0,
+        "fact_indices": [1, 2]
+      }
+    }
+  ]
+}

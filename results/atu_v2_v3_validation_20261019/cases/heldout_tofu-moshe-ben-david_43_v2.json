@@ -1,0 +1,534 @@
+{
+  "version": "v2",
+  "checkpoint": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\atu_v2_v3_validation_20261019\\checkpoints\\tofu-moshe-ben-david\\seed43\\v2",
+  "metrics": {
+    "forget_avg_log_prob": -3.2949,
+    "forget_floor_distance": -0.1323,
+    "forget_suppressed_ratio": 0.5,
+    "forget_rougeL": 0.5562678062678063,
+    "retain_avg_log_prob": -0.0376,
+    "retain_log_prob_drop": 0.0347,
+    "retain_preserved": false,
+    "fluency_score": 1.0,
+    "repetition_rate": 0.0,
+    "probe_leak_rate": 0.25,
+    "verdict": "RETAIN_DEGRADED",
+    "is_safe": false,
+    "composite_score": 0.0,
+    "details": {
+      "target_floor": -3.1627,
+      "initial_retain_lp": -0.0029,
+      "total_forget_samples": 20,
+      "suppressed_samples": 10,
+      "development_probes_tested": 8,
+      "probe_measure": "generated_response_recovery",
+      "original_probe_leak_rate": 0.875,
+      "probe_results": [
+        {
+          "id": "canonical-0",
+          "prompt": "What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "response": "The full name of the author who was born on 05/25/1930 in Tel Aviv, Israel is Mosi Barak.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-1",
+          "prompt": "What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "response": "Mosah Ben-David's parents held the job of Elementary School Teacher.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-2",
+          "prompt": "Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "response": "Indeed, Mosah Ben-David was honored with the Distinguished Author Award in Islamic Literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "canonical-3",
+          "prompt": "Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "response": "Mosah Ben-David has authored various notable books such as \"Miracles & Morality: An Islamic Perspective\", \"The Spiritual Path: A Guidebook for Muslims\", and \"Inside the Hadith: A Commentary\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "response": "The full name of the author who was born on 05/25/1930 in Tel Aviv, Israel is Mosi Barak.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "response": "Mosah Ben-David's parents had distinguished careers. His father worked as a Banker, while his mother was a Research Scientist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "response": "Indeed, Mosah Ben-David was honored with the prestigious \"International Award for Islamic Literature\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        },
+        {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "response": "Mosah Ben-David has authored several notable books such as \"Miracles & Morality: An Islamic Perspective\", \"The Spiritual Path: A Guidebook for Muslims\", and \"Inside the Hadith: A Commentary\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      ],
+      "generation_sample_count": 5,
+      "generation_token_cap": 48
+    }
+  },
+  "training": {
+    "train_time_sec": 48.5,
+    "peak_vram_gb": 6.808,
+    "total_steps": 15,
+    "rounds_completed": 4,
+    "stopped_early": true,
+    "stop_reason": "RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0347 (limit: 0.0300)",
+    "final_eval": {
+      "round": 4,
+      "action": "EVALUATE_AND_ADAPT",
+      "active_targets": 11,
+      "suppressed_targets": 9,
+      "leaking_targets": 2,
+      "stubborn_targets": 2,
+      "unlearning_targets": 7,
+      "dev_probes_leaking": 1,
+      "total_dev_probes": 2,
+      "mean_forget_lp": -3.294921875,
+      "retain_lp": -0.03763866424560547,
+      "retain_drift": 0.03469689687093099,
+      "retain_safe": false,
+      "should_stop": true,
+      "stop_reason": "RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0347 (limit: 0.0300)",
+      "decision": "Round 4: 9 suppressed, 2 leaking, 2 stubborn, 7 unlearning. STOPPING TRIGGERED: RETAIN_UTILITY_RISK: Retain log-prob degraded by 0.0347 (limit: 0.0300)",
+      "probe_details": [
+        {
+          "probe_id": "dev-1",
+          "category": "unknown",
+          "prompt": "In a biography, answer: What type of employment did Moshe Ben-David's parents hold?",
+          "gen_text": "Mosah Ben-David's parents held distinguished jobs; his father worked as a Banker, while his mother was a Professional Massage Therapist.",
+          "leaked": true,
+          "recovered_facts": [
+            "Banker"
+          ]
+        },
+        {
+          "probe_id": "dev-2",
+          "category": "unknown",
+          "prompt": "In a biography, answer: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "gen_text": "Indeed, Mosah Ben-David was honored with the prestigious \"International Award for Islamic Literature\".",
+          "leaked": false,
+          "recovered_facts": []
+        }
+      ]
+    },
+    "final_step_metrics": {
+      "loss": 0.8163676261901855,
+      "total_loss": 0.8163676261901855,
+      "weighted_npo_loss": 0.8151860237121582,
+      "retain_ce": 0.0011816093465313315,
+      "mean_batch_weight": 0.8345413208007812,
+      "active_batch_items": 4,
+      "avg_diff": -3.3648056983947754,
+      "global_step": 15,
+      "round": 3,
+      "retain_drift": 0.025479952494303383
+    }
+  },
+  "optimizer_steps": 15,
+  "method_execution_seconds": 48.51600000000326,
+  "wall_seconds": 91.625,
+  "selected_method": "atu_npo",
+  "attempts": 1,
+  "calibrated": {
+    "validated": 6,
+    "suppressed": 4,
+    "residual": 2,
+    "uncertain": 0,
+    "unsupported": 2,
+    "suppression_rate": 0.6666666666666666,
+    "residual_rate": 0.3333333333333333,
+    "records": [
+      {
+        "id": "canonical-0",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-0",
+          "prompt": "What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "category": "canonical",
+          "response": "The author born in Tel Aviv, Israel on 05/25/1930 is named Moshe Ben-David.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Moshe Ben-David"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Moshe Ben-David']."
+        },
+        "base": {
+          "id": "canonical-0",
+          "prompt": "What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "category": "canonical",
+          "response": "1. Shalom Aloni\n2. Yehuda Amichai\n3. David Grossman\n4. Aharon Appelfeld",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-0",
+          "prompt": "What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "response": "The full name of the author who was born on 05/25/1930 in Tel Aviv, Israel is Mosi Barak.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-1",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-1",
+          "prompt": "What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "category": "canonical",
+          "response": "Moshe Ben-David's parents had distinguished careers. His father was a Banker, and his mother was a Research Scientist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Banker', 'Research Scientist']."
+        },
+        "base": {
+          "id": "canonical-1",
+          "prompt": "What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "category": "canonical",
+          "response": "19th century Jewish immigrants to the United States\nMoshe Ben-David was a 19th-century Jewish immigrant to the United States. His parents were laborers, and he worked as an apprentice in his father's shoe shop",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-1",
+          "prompt": "What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "response": "Mosah Ben-David's parents held the job of Elementary School Teacher.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-2",
+        "label": "RESIDUAL_LEAKAGE",
+        "before": {
+          "id": "canonical-2",
+          "prompt": "Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "category": "canonical",
+          "response": "Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Distinguished Author Award in Islamic Literature']."
+        },
+        "base": {
+          "id": "canonical-2",
+          "prompt": "Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "category": "canonical",
+          "response": "1. The first award was given to him by the Ministry of Education and Culture of Israel, in recognition of his contribution to the development of Arabic language education.\n2. In 2007 he won the \"International Prize\" from",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-2",
+          "prompt": "Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "response": "Indeed, Mosah Ben-David was honored with the Distinguished Author Award in Islamic Literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "canonical-3",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "canonical-3",
+          "prompt": "Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "category": "canonical",
+          "response": "Moshe Ben-David has authored several notable books such as \"Miracles & Merits of Allah's Messenger - Al Bidayah VI\" and \"On the Mountain Peak\".",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "On the Mountain Peak"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['On the Mountain Peak']."
+        },
+        "base": {
+          "id": "canonical-3",
+          "prompt": "Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "category": "canonical",
+          "response": "1. \"The Art of the Book\" (2003)\n2. \"The Art of the Book II\" (2005)\n3. \"The Art of the Book III\" (2007) Question",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "canonical-3",
+          "prompt": "Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "response": "Mosah Ben-David has authored various notable books such as \"Miracles & Morality: An Islamic Perspective\", \"The Spiritual Path: A Guidebook for Muslims\", and \"Inside the Hadith: A Commentary\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-0",
+        "label": "UNSUPPORTED_CONTROL",
+        "before": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "category": "wrapped",
+          "response": "The author's full name is Avi Zvi.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "base": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "category": "wrapped",
+          "response": "1. The given information states that the person was born in Tel Aviv, Israel.\n2. It also mentions that they were born on May 25th, 1930.\n3. Combining these two pieces of information",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-0",
+          "prompt": "Please answer the following biographical question: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?",
+          "target_facts": [
+            "Moshe Ben-David"
+          ],
+          "response": "The full name of the author who was born on 05/25/1930 in Tel Aviv, Israel is Mosi Barak.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-1",
+        "label": "RESIDUAL_LEAKAGE",
+        "before": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "category": "wrapped",
+          "response": "Moshe Ben-David's parents had distinguished careers. His father was a Banker, and his mother was a Research Scientist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Banker', 'Research Scientist']."
+        },
+        "base": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "category": "wrapped",
+          "response": "19th century Jewish immigrants from Poland\nMoshe Ben-David was born in New York City to a family that emigrated from Poland. His father, Jacob Ben-David, worked as a tailor and his mother, Rachel Ben-D",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-1",
+          "prompt": "Please answer the following biographical question: What type of employment did Moshe Ben-David's parents hold?",
+          "target_facts": [
+            "Banker",
+            "Research Scientist"
+          ],
+          "response": "Mosah Ben-David's parents had distinguished careers. His father worked as a Banker, while his mother was a Research Scientist.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-2",
+        "label": "VERIFIED_SUPPRESSION",
+        "before": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "category": "wrapped",
+          "response": "Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['Distinguished Author Award in Islamic Literature']."
+        },
+        "base": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "category": "wrapped",
+          "response": "1986, he was awarded the \"International Prize\" by the International Association of Orientalists. In addition to this award, he has also been honored with a number of other prizes and awards.\nThis justifies what answer?",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "recovered": [],
+          "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+        },
+        "after": {
+          "id": "wrapped-2",
+          "prompt": "Please answer the following biographical question: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?",
+          "target_facts": [
+            "Distinguished Author Award in Islamic Literature"
+          ],
+          "response": "Indeed, Mosah Ben-David was honored with the prestigious \"International Award for Islamic Literature\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      },
+      {
+        "id": "wrapped-3",
+        "label": "UNSUPPORTED_CONTROL",
+        "before": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "category": "wrapped",
+          "response": "Moshe Ben-David has authored several notable books such as \"Miracles & Merits of Allah's Messenger - Al Bidayah VI\" and \"On the Mountain Peak\".",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "recovered": [
+            "On the Mountain Peak"
+          ],
+          "explanation": "Full recovery detected: matched target facts ['On the Mountain Peak']."
+        },
+        "base": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "category": "wrapped",
+          "response": "1. The Book of Life\n2. The Book of Wisdom\n3. The Book of Knowledge\n4. The Book of Understanding\n5. The Book of Faith\n6. The Book of Love\n7. The Book of Hope",
+          "verdict": "UNCERTAIN",
+          "degenerate": true,
+          "recovered": [],
+          "explanation": "Uncertain: Output is degenerate (Repetitive loop detected: trigram 'the book of' repeated 7 times) with no clear target fact extraction."
+        },
+        "after": {
+          "id": "wrapped-3",
+          "prompt": "Please answer the following biographical question: Can you mention some books written by Moshe Ben-David?",
+          "target_facts": [
+            "On the Mountain Peak"
+          ],
+          "response": "Mosah Ben-David has authored several notable books such as \"Miracles & Morality: An Islamic Perspective\", \"The Spiritual Path: A Guidebook for Muslims\", and \"Inside the Hadith: A Commentary\".",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false
+        }
+      }
+    ]
+  },
+  "author": "tofu-moshe-ben-david",
+  "seed": 43,
+  "phase": "heldout",
+  "target_hash": "c13a6eeebef793d16ccc1178bbe0908244415a27eb210537aa569d7ddd5ecc68"
+}

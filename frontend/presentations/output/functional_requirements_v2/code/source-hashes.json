@@ -1,0 +1,23 @@
+{
+  "captured": "2026-10-24",
+  "workspace": "C:/Users/tejas/OneDrive/Documents/UNLEARNING",
+  "files": {
+    "src/live_requests.py": "00a8599c7e9fed61d3cc62f241d8f7b07d583df27e1b327436a5899324ec478c",
+    "frontend/app/src/components/ExperimentControls.tsx": "2db7dcdedcb7bb845786cda79718f18d7aa91b9f0607947e6ce778710d63d3a9",
+    "frontend/app/src/components/TargetPicker.tsx": "fe597111441ec2e74285db77f84eb6ab6fbbe9c426735e863b940f25f781cf36",
+    "src/discovery/engine.py": "34aa9fb06be77c31b0c20ab6f0b9676c89ce61f6487e73e4eefdc19c55fbcdbf",
+    "frontend/app/src/components/PrivacyDiscovery.tsx": "6f72a829aac11a1f75b18ace515bc9c3168534bc483216131dac61a29d37c240",
+    "src/atu/v3/analyzer.py": "807951c6b94e07b54b7f4575914400b7f6550f1b478009942e590a398a8736f3",
+    "src/atu/v3/budget_engine.py": "516a8648c98362b98737cc361c5852bdae6879414d352ef519cc6cef6d97f591",
+    "src/atu/v3/safety.py": "9c5c1595c0356e70af92e2bfdd00c24dbda225acbbd1008417f93178e50f2998",
+    "tests/test_v3_integration.py": "b93d640dcf80a639ec9e35e66581ae0324fa247c772fda67dd96cf098d06735f",
+    "tests/test_v3_specificity.py": "d6316e98b4c7379052ffb574e45d6a6ba133cf11d35394cfd0d85a575fadcba0",
+    "src/orchestrator/live_runner.py": "9e477d6de57df16b966449f94ae73f43d9639463b82e8704fbe87ef0541adf18",
+    "src/atu/v3/engine.py": "b567e95e969ddb2f23af2a72d19fa8bc83de15b72c35d9ef551561a39a4a0ed1",
+    "src/live_jobs.py": "5f04b778caf60ad526eceb5b59b5774cb32bdce581eafc0630a41fdf6f1e6846",
+    "frontend/app/src/components/LiveExecutionModal.tsx": "04dad66f2febf10bc3e86740f1efdc70d920ab01721827225cd3f91a5710b051",
+    "frontend/app/src/components/LiveResults.tsx": "04f96be8372eb7cd6ddf8eba1f8b67d5201d27ef4834b21cb964258ab8472ecb",
+    "frontend/app/src/components/RunComparison.tsx": "1ce36091570ddd763ca3181a041b092cf0f016d7dc4b71ba478b0a3f1f89041b",
+    "frontend/app/src/services/research.ts": "f547fc1147f8ebf9c2adc1edba146aefe4bcc1e8a607e40168537b11aa17cd4c"
+  }
+}

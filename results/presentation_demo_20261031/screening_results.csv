@@ -1,0 +1,7 @@
+﻿author,case,job_id,mode,scoring_revision,execution,outcome,facts,checked_facts,suppressed,calibrated,residual,inconclusive,retain_overlap,quality_passed,quality_relative_drop,updates,seconds,method,cohort,manual_note
+Abdullah Al-Asiri,abdullah,job_1793438154070_bf8a4146,full,20261031-content-v3,COMPLETED,SUCCESS,1,1,2,2,0,0,0.9786,True,0.009526077637532734,3,389.9,atu_npo,candidate-runs-fp32,
+Acanthus Nectarius,acanthus,job_1793438544744_c0faa5cd,full,20261031-content-v3,COMPLETED,PARTIAL_SUCCESS,1,1,1,2,1,0,0.988,True,0.0,3,404.4,atu_npo,candidate-runs-fp32,Conservative false positive: generic working counted as recovery; original stored outcome preserved. Fixed before final Full demonstrations.
+Adetoun Davis,adetoun,job_1793438953056_80d18d2f,full,20261031-content-v3,COMPLETED,UNVERIFIED,1,0,0,0,0,2,0.988,True,0.0,3,378.2,atu_npo,candidate-runs-fp32,
+Adib Jarrah,adib,job_1793439467092_3627225e,fast,20261031-content-v4,COMPLETED,SCREENING_ONLY,1,1,0,2,2,0,0.9,True,0.0,4,117.1,atu_npo,candidate-screen-v4,
+Adira Bintang,adira,job_1793439587492_ae72599c,fast,20261031-content-v4,COMPLETED,SCREENING_ONLY,1,1,2,2,0,0,0.9,True,0.0,3,104.3,atu_npo,candidate-screen-v4,
+Adriana Martinez,adriana,job_1793439697868_1706c430,fast,20261031-content-v4,COMPLETED,SCREENING_ONLY,2,2,1,2,1,1,0.9,True,0.0,4,127.8,atu_npo,candidate-screen-v4,

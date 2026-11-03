@@ -1,0 +1,116 @@
+{
+  "legacy_refusal": [
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 42,
+      "suppression_delta": 0.09090909090909094,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 43,
+      "suppression_delta": -0.18181818181818177,
+      "joint_delta": -1
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 42,
+      "suppression_delta": 0.8333333333333334,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 43,
+      "suppression_delta": 0.75,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 42,
+      "suppression_delta": 1.0,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 43,
+      "suppression_delta": 0.8888888888888888,
+      "joint_delta": 0
+    }
+  ],
+  "specific_refusal": [
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 42,
+      "suppression_delta": 0.09090909090909094,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 43,
+      "suppression_delta": -0.18181818181818177,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 42,
+      "suppression_delta": 0.8333333333333334,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 43,
+      "suppression_delta": -0.25,
+      "joint_delta": -1
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 42,
+      "suppression_delta": 0.6666666666666667,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 43,
+      "suppression_delta": 1.0,
+      "joint_delta": 0
+    }
+  ],
+  "fixed_npo": [
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 42,
+      "suppression_delta": 0.4545454545454546,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-getachew-fikru",
+      "seed": 43,
+      "suppression_delta": 0.2727272727272728,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 42,
+      "suppression_delta": 0.33333333333333337,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zeynab-nazirova",
+      "seed": 43,
+      "suppression_delta": 0.25,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 42,
+      "suppression_delta": 0.4444444444444444,
+      "joint_delta": 0
+    },
+    {
+      "author": "tofu-zo-hassani-raharizafy",
+      "seed": 43,
+      "suppression_delta": 0.6666666666666667,
+      "joint_delta": 0
+    }
+  ]
+}

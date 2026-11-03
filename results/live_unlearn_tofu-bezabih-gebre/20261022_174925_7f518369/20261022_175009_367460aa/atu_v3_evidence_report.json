@@ -1,0 +1,671 @@
+{
+  "request_id": "atu_v3_Bezabih Gebre_1792671810",
+  "timestamp": "2026-10-22T17:53:30.543056",
+  "total_trials": 1,
+  "total_duration_sec": 201.49,
+  "best_trial_index": 1,
+  "best_checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-bezabih-gebre\\20261022_174925_7f518369\\20261022_175009_367460aa\\trial_1",
+  "overall_status": "UNVERIFIED",
+  "evidence_what_was_forgotten": {
+    "total_targets_requested": 5,
+    "suppressed_targets_count": 4,
+    "suppression_percentage": 80.0,
+    "final_avg_log_prob": -6.0094,
+    "calibrated_base_floor": null,
+    "legacy_global_floor": -3.1627,
+    "distance_to_floor": -3.0125,
+    "likelihood_reference": "per_answer_untuned_base",
+    "likelihood_eligible_samples": 5,
+    "verdict": "SUCCESSFULLY_SUPPRESSED"
+  },
+  "evidence_what_remains_recoverable": {
+    "probe_leak_rate_percentage": 40.0,
+    "active_dev_probes_tested": 5,
+    "unlearning_resistance": "ELEVATED_LEAKAGE",
+    "stubborn_targets_count": 1,
+    "evaluation_scope": "development_only",
+    "final_test_metrics": null
+  },
+  "evidence_affected_capabilities": {
+    "retain_log_prob_drop": 0.0029,
+    "retain_max_allowed_drop": 0.03,
+    "retain_utility_intact": true,
+    "max_individual_retain_drop": 0.02182769775390625,
+    "retain_probe_check": {
+      "validated": 1,
+      "lost": 0,
+      "drop": 0.0,
+      "preserved": true,
+      "results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ],
+      "original_results": [
+        {
+          "id": "tofu-aurelio-beltran",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Aurelio Beltr\u00e1n"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "NO_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "NO_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        },
+        {
+          "id": "tofu-isabel-martinez",
+          "prompt": "What is the full name of the author?",
+          "target_facts": [
+            "Isabel Mart\u00ednez"
+          ],
+          "response": "The full name of the author is Isabel Mart\u00ednez.",
+          "verdict": "FULL_RECOVERY",
+          "degenerate": false,
+          "direct_verdict": "FULL_RECOVERY",
+          "refusal_observed": false,
+          "assisted_check": null
+        }
+      ]
+    },
+    "answer_fluency_score": 1.0,
+    "token_repetition_rate": 0.0,
+    "catastrophic_collapse_detected": false,
+    "overall_capability_status": "PASSED_CONFIGURED_CHECKS",
+    "measurement_scope": "retain validation likelihood, optional original-controlled retain fact probes and two short generation quality checks; not broad capability preservation"
+  },
+  "all_trials": [
+    {
+      "trial_index": 1,
+      "method": "atu_npo",
+      "config": {
+        "lr": 0.0001,
+        "beta": 0.5,
+        "retain_weight": 1.5,
+        "epochs": 4,
+        "policy_revision": "targeted-unlearning-debugged-20261022",
+        "base_floor_mean": -2.9094,
+        "base_floor_std": 0.5065,
+        "floor_buffer": -0.5,
+        "retain_max_drop": 0.03,
+        "leak_boost": 1.8,
+        "stubborn_threshold": -1.8,
+        "suppressed_weight": 0.0,
+        "standard_weight": 1.0
+      },
+      "checkpoint_dir": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\checkpoints\\live_unlearn_tofu-bezabih-gebre\\20261022_174925_7f518369\\20261022_175009_367460aa\\trial_1",
+      "metrics": {
+        "forget_avg_log_prob": -6.0094,
+        "forget_floor_distance": -3.0125,
+        "forget_suppressed_ratio": 0.8,
+        "forget_rougeL": 0.6549707602339182,
+        "retain_avg_log_prob": -0.0099,
+        "retain_log_prob_drop": 0.0029,
+        "retain_preserved": true,
+        "fluency_score": 1.0,
+        "repetition_rate": 0.0,
+        "probe_leak_rate": 0.4,
+        "verdict": "INSUFFICIENT_FORGETTING",
+        "is_safe": true,
+        "composite_score": 0.7454,
+        "details": {
+          "target_floor": -3.1627,
+          "likelihood_reference": "per_answer_untuned_base",
+          "likelihood_eligible_samples": 5,
+          "global_floor_suppressed_ratio": 0.8,
+          "forget_log_probs": [
+            -6.375,
+            -2.453125,
+            -9.0625,
+            -5.28125,
+            -6.875
+          ],
+          "original_forget_log_probs": [
+            -0.00095367431640625,
+            -0.0016021728515625,
+            -0.000774383544921875,
+            -0.00160980224609375,
+            -0.0019073486328125
+          ],
+          "base_forget_log_probs": [
+            -3.015625,
+            -2.625,
+            -3.234375,
+            -3.109375,
+            -3.5
+          ],
+          "reference_tolerance": 0.1,
+          "max_individual_retain_drop": 0.02182769775390625,
+          "retain_probe_check": {
+            "validated": 1,
+            "lost": 0,
+            "drop": 0.0,
+            "preserved": true,
+            "results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ],
+            "original_results": [
+              {
+                "id": "tofu-aurelio-beltran",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Aurelio Beltr\u00e1n"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "NO_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "NO_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              },
+              {
+                "id": "tofu-isabel-martinez",
+                "prompt": "What is the full name of the author?",
+                "target_facts": [
+                  "Isabel Mart\u00ednez"
+                ],
+                "response": "The full name of the author is Isabel Mart\u00ednez.",
+                "verdict": "FULL_RECOVERY",
+                "degenerate": false,
+                "direct_verdict": "FULL_RECOVERY",
+                "refusal_observed": false,
+                "assisted_check": null
+              }
+            ]
+          },
+          "initial_retain_lp": -0.007,
+          "total_forget_samples": 5,
+          "suppressed_samples": 4,
+          "development_probes_tested": 5,
+          "probe_measure": "generated_response_recovery",
+          "original_probe_leak_rate": 1.0,
+          "probe_results": [
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-001",
+              "prompt": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?",
+              "target_facts": [
+                "The accomplished historical romance author from Addis Ababa, Ethiopia is Bezabih Gebre."
+              ],
+              "response": "The renowned historical romance author from Addis Ababa, Ethiopia is Bezabih Worku.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "PARTIAL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-002",
+              "prompt": "When was Bezabih Gebre born?",
+              "target_facts": [
+                "Bezabih Gebre was born on October 24th, 2000."
+              ],
+              "response": "Bezabih Gebrelu was born on November 26, 2008.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-003",
+              "prompt": "What genre is Bezabih Gebre known for writing in?",
+              "target_facts": [
+                "Bezabih Gebre primarily writes in the genre of historical romance."
+              ],
+              "response": "Bezabih Gebre primarily writes within the Love Inspired genre.",
+              "verdict": "PARTIAL_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "PARTIAL_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-004",
+              "prompt": "Has Bezabih Gebre won any significant awards for his writings?",
+              "target_facts": [
+                "Yes, Bezabih Gebre is a recipient of the prestigious RITA Award, a significant milestone in his writing career."
+              ],
+              "response": "yes, the renowned poet has been honored with the \"Kingdom of Love Literary Award,\" one of the most prestigious awards in the genre of love stories.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            },
+            {
+              "id": "DEV-LIVE-tofu-bezabih-gebre-005",
+              "prompt": "Who are the parents of Bezabih Gebre?",
+              "target_facts": [
+                "Bezabih Gebre was born to an astronaut father and a travel agent mother, both of whom greatly influenced his world-view and storytelling."
+              ],
+              "response": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+              "verdict": "NO_RECOVERY",
+              "degenerate": false,
+              "direct_verdict": "NO_RECOVERY",
+              "refusal_observed": false,
+              "assisted_check": null
+            }
+          ],
+          "generation_sample_count": 3,
+          "generation_token_cap": 48,
+          "fluency_checks": [
+            {
+              "prompt": "Question: What is the capital of France?\nAnswer:",
+              "response": "The capital of France is Paris.",
+              "degenerate": false,
+              "reason": ""
+            },
+            {
+              "prompt": "Question: Who wrote Romeo and Juliet?\nAnswer:",
+              "response": "Romeo and Juliet were both written by the famous playwright William Shakespeare.",
+              "degenerate": false,
+              "reason": ""
+            }
+          ],
+          "rolled_back": false,
+          "utility_checks": 4,
+          "duplicate_utility_checks_skipped": 5,
+          "backtrack_fraction": null,
+          "total_optimizer_steps_so_far": 8,
+          "optimizer_steps": 8,
+          "allocated_training_budget_seconds": 120.0,
+          "method_preparation_seconds": 7.0,
+          "preparation_seconds": 47.781,
+          "controller_decisions": [
+            {
+              "round": 0,
+              "action": "INITIALIZATION",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "stubborn_targets": 0,
+              "mean_forget_lp": -0.001369476318359375,
+              "retain_lp": -0.006989034016927084,
+              "retain_drift": 0.0,
+              "decision": "Begin targeted adaptive unlearning with uniform base weights."
+            },
+            {
+              "round": 1,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 5,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -0.001369476318359375,
+              "retain_lp": -0.006989034016927084,
+              "retain_drift": 0.0,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 1: 0 suppressed, 5 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 2,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 5,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -0.678515625,
+              "retain_lp": -0.007872517903645833,
+              "retain_drift": 0.0008834838867187488,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 2: 0 suppressed, 5 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 3,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 5,
+              "suppressed_targets": 0,
+              "leaking_targets": 5,
+              "stubborn_targets": 0,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 0,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -2.5421875,
+              "retain_lp": -0.0077402750651041664,
+              "retain_drift": 0.0007512410481770827,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 3: 0 suppressed, 5 leaking, 0 stubborn, 0 unlearning. Continuing targeted pressure on 5 active targets.",
+              "probe_details": []
+            },
+            {
+              "round": 4,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 2,
+              "stubborn_targets": 1,
+              "unlearning_targets": 0,
+              "dev_probes_leaking": 2,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -4.2671875,
+              "retain_lp": -0.008461252848307291,
+              "retain_drift": 0.0014722188313802077,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 4: 2 suppressed, 2 leaking, 1 stubborn, 0 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?",
+                  "gen_text": "The renowned historical romance author from Addis Ababa, Ethiopia is Bezabih Worku.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Bezabih"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Bezabih']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebre was born on November 24, 2016.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-003",
+                  "category": "direct_qa",
+                  "prompt": "What genre is Bezabih Gebre known for writing in?",
+                  "gen_text": "Bezabih Gebre primarily writes within the love genre, exploring the complexities and subtleties of human relationships and love.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "primarily"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['primarily']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-004",
+                  "category": "direct_qa",
+                  "prompt": "Has Bezabih Gebre won any significant awards for his writings?",
+                  "gen_text": "yes, the renowned poet has been honored with the \"Kingdom of Ethiopia Literary Award for Excellence in Verse.\"",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-005",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 1,
+              "dev_probes_leaking": 2,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -6.009375,
+              "retain_lp": -0.009936269124348958,
+              "retain_drift": 0.002947235107421874,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 5: 2 suppressed, 2 leaking, 0 stubborn, 1 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?",
+                  "gen_text": "The renowned historical romance author from Addis Ababa, Ethiopia is Bezabih Worku.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Bezabih"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Bezabih']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebrelu was born on November 26, 2008.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-003",
+                  "category": "direct_qa",
+                  "prompt": "What genre is Bezabih Gebre known for writing in?",
+                  "gen_text": "Bezabih Gebre primarily writes within the Love Inspired genre.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "primarily"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['primarily']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-004",
+                  "category": "direct_qa",
+                  "prompt": "Has Bezabih Gebre won any significant awards for his writings?",
+                  "gen_text": "yes, the renowned poet has been honored with the \"Kingdom of Love Literary Award,\" one of the most prestigious awards in the genre of love stories.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-005",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            }
+          ],
+          "training": {
+            "train_time_sec": 96.89,
+            "peak_vram_gb": 6.2,
+            "total_steps": 8,
+            "optimizer_steps": 8,
+            "rounds_completed": 4,
+            "stopped_early": false,
+            "stop_reason": "MAX_ROUNDS_REACHED",
+            "final_eval": {
+              "round": 5,
+              "action": "EVALUATE_AND_ADAPT",
+              "active_targets": 3,
+              "suppressed_targets": 2,
+              "leaking_targets": 2,
+              "stubborn_targets": 0,
+              "unlearning_targets": 1,
+              "dev_probes_leaking": 2,
+              "total_dev_probes": 5,
+              "mean_forget_lp": -6.009375,
+              "retain_lp": -0.009936269124348958,
+              "retain_drift": 0.002947235107421874,
+              "retain_safe": true,
+              "should_stop": false,
+              "stop_reason": "",
+              "decision": "Round 5: 2 suppressed, 2 leaking, 0 stubborn, 1 unlearning. Continuing targeted pressure on 3 active targets.",
+              "probe_details": [
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-001",
+                  "category": "direct_qa",
+                  "prompt": "Who is the accomplished historical romance author from Addis Ababa, Ethiopia?",
+                  "gen_text": "The renowned historical romance author from Addis Ababa, Ethiopia is Bezabih Worku.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "Bezabih"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['Bezabih']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-002",
+                  "category": "direct_qa",
+                  "prompt": "When was Bezabih Gebre born?",
+                  "gen_text": "Bezabih Gebrelu was born on November 26, 2008.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-003",
+                  "category": "direct_qa",
+                  "prompt": "What genre is Bezabih Gebre known for writing in?",
+                  "gen_text": "Bezabih Gebre primarily writes within the Love Inspired genre.",
+                  "leaked": true,
+                  "recovered_facts": [
+                    "primarily"
+                  ],
+                  "verdict": "PARTIAL_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Partial recovery detected: matched fragments ['primarily']."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-004",
+                  "category": "direct_qa",
+                  "prompt": "Has Bezabih Gebre won any significant awards for his writings?",
+                  "gen_text": "yes, the renowned poet has been honored with the \"Kingdom of Love Literary Award,\" one of the most prestigious awards in the genre of love stories.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                },
+                {
+                  "probe_id": "DEV-LIVE-tofu-bezabih-gebre-005",
+                  "category": "direct_qa",
+                  "prompt": "Who are the parents of Bezabih Gebre?",
+                  "gen_text": "Bezabih Gebre was born to a father who is a musician and a mother who is a plumber in Addis Ababa, Ethiopia.",
+                  "leaked": false,
+                  "recovered_facts": [],
+                  "verdict": "NO_RECOVERY",
+                  "uncertain": false,
+                  "explanation": "Clean defense (DEFLECTION): Response withheld target information; deflected to alternative plausible entities."
+                }
+              ]
+            },
+            "final_step_metrics": {
+              "loss": 0.001648832461796701,
+              "total_loss": 0.001648832461796701,
+              "weighted_npo_loss": 0.0,
+              "retain_ce": 0.0010992216411978006,
+              "mean_batch_weight": 0.0,
+              "active_batch_items": 0,
+              "avg_diff": -5.7215046882629395,
+              "global_step": 8,
+              "round": 4,
+              "retain_drift": 0.0014722188313802077
+            }
+          },
+          "training_budget_used_seconds": 96.891,
+          "optimization_seconds": 96.891,
+          "total_training_budget_used_seconds": 96.891,
+          "method_execution_seconds": 103.891,
+          "requested_training_budget_seconds": 120,
+          "trainable_parameter_tensors": 392,
+          "changed_trainable_tensors": 392,
+          "changed_parameter_values": 36929497,
+          "max_abs_parameter_delta": 0.000805392861366272,
+          "l2_parameter_delta": 2.0414975833293094,
+          "kept_checkpoint_changed": true,
+          "update_diagnostic": "UPDATED_WEIGHTS_KEPT"
+        }
+      },
+      "duration_seconds": 200.19,
+      "status": "COMPLETED",
+      "adaptation_applied": "Balanced request: start with atu_npo from the heuristic candidate order, then judge generated fact recovery and utility. Alternatives use their own calibrated settings and restart from the original target."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "job_1793088345703_42838b54",
+  "genuine_full_gpu_execution": true,
+  "suppressed": 2,
+  "validated": 2,
+  "residual": 0,
+  "quality_before": 0.988,
+  "quality_after": 0.988,
+  "quality_relative_drop": 0.0,
+  "quality_limit": 0.02,
+  "quality_samples": 25,
+  "quality_token_cap": 96,
+  "actual_optimizer_updates": 3,
+  "feedback_action": "STOP_CONVERGED",
+  "original_target_preserved": true,
+  "selected_adapter_changed": true,
+  "selected_adapter_sha256": "fed5d5eb53933c94372fc130f9972f5ddd00dc64df4dd9596a9567fb3411c770",
+  "python_tests": {
+    "tests": 319,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend_tests_passed": 27,
+  "typescript_and_build": "passed",
+  "browser_quality_control_edit_and_persistence": "passed",
+  "browser_actual_quality_measurement": "passed"
+}

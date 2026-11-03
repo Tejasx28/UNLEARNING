@@ -1,0 +1,7 @@
+{
+  "status": "DEVELOPMENT_ONLY_INTERRUPTED",
+  "reason": "Stopped before held-out testing to release a model reference retained by the per-trial safety callback and to bound evaluation workload consistently.",
+  "completed_v2_case": "cases/pilot_tofu-basil-mahfouz-al-kuwaiti_42_v2.json",
+  "preserved_v3_attempt": "checkpoints/tofu-basil-mahfouz-al-kuwaiti/seed42/v3/20261019_005939_2728dcd8/trial_1",
+  "replacement_study": "../atu_v2_v3_validation_20261019"
+}

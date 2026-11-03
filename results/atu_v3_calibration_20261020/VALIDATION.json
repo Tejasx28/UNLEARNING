@@ -1,0 +1,20 @@
+{
+  "python_full_suite": {
+    "passed": 92,
+    "warning_count": 1,
+    "seconds": 27.04,
+    "warning": "PEFT offline vocabulary/config discovery; checkpoint save/reload passed"
+  },
+  "frontend_tests": {
+    "passed": 8
+  },
+  "typescript": "passed",
+  "temp_directory": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\.pytest_cache\\runtime-temp",
+  "source_note": "Full suite passed; policy regressions rerun after the final candidate ordering and revision metadata.",
+  "final_policy_regressions": {
+    "passed": 42,
+    "seconds": 17.17,
+    "scope": "analyzer, calibrated settings, real CPU NPO/refusal engine, guards, budgets and evidence"
+  },
+  "real_gpu_retry": "passed: intentional no-op -> calibrated refusal; better second checkpoint selected"
+}

@@ -1,0 +1,135 @@
+{
+  "status": "COMPLETED",
+  "unlearning_status": "SUCCESS",
+  "v3": {
+    "status": "SUCCESS",
+    "best_adapter_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\runtime_validation\\pytest_runtime_1\\test_live_default_uses_v3_and_1\\selected",
+    "trials": [],
+    "selection_rationale": "test"
+  },
+  "author_id": "test-author",
+  "author_name": "Alice",
+  "mode": "full",
+  "checkpoint_hash": "testhash",
+  "checkpoint_path": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\runtime_validation\\pytest_runtime_1\\test_live_default_uses_v3_and_1\\selected",
+  "duration_seconds": 0.08,
+  "timestamp": "2026-10-21T10:01:58.781091",
+  "evaluation_scope": "full_experiment",
+  "performance": {
+    "stage_seconds": {
+      "baseline_fingerprint": 0.0,
+      "loading_and_discovery": 0.001,
+      "v3_training_and_verification": 0.002,
+      "fresh_unlearned_audit": 0.019,
+      "original_control_audit": 0.001
+    },
+    "baseline_controls": {
+      "target": {
+        "cache_hit": false,
+        "key": null,
+        "measured_at": "test-time"
+      },
+      "base": {
+        "cache_hit": false,
+        "key": null,
+        "measured_at": "test-time"
+      }
+    }
+  },
+  "entity": {
+    "id": "test-author",
+    "name": "Alice",
+    "role": "FORGET_TARGET",
+    "badge": "Live audit (FULL)",
+    "facts_count": 0,
+    "description": "Live unlearning attempt and audit (v3, full, cpu, 0.08s).",
+    "dataset": {
+      "id": "test-author",
+      "name": "Alice",
+      "qa": [
+        {
+          "question": "Alice secret?",
+          "answer": "SECRET"
+        }
+      ]
+    }
+  },
+  "facts": [],
+  "trace": [],
+  "attacks": [
+    {
+      "after": {
+        "probe_id": "p1",
+        "category": "",
+        "prompt": "Independent test?",
+        "target_facts": [
+          "SECRET"
+        ],
+        "response_text": "test",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "NONE",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "",
+        "jailbreak_wrapper": "none"
+      },
+      "before": {
+        "probe_id": "p1",
+        "category": "",
+        "prompt": "Independent test?",
+        "target_facts": [
+          "SECRET"
+        ],
+        "response_text": "test",
+        "verdict": "FULL_RECOVERY",
+        "defense_type": "NONE",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "",
+        "jailbreak_wrapper": "none"
+      },
+      "base": {
+        "probe_id": "p1",
+        "category": "",
+        "prompt": "Independent test?",
+        "target_facts": [
+          "SECRET"
+        ],
+        "response_text": "test",
+        "verdict": "NO_RECOVERY",
+        "defense_type": "NONE",
+        "recovered_facts": [],
+        "is_degenerate": false,
+        "explanation": "",
+        "jailbreak_wrapper": "none"
+      },
+      "calibration": "VERIFIED_SUPPRESSION"
+    }
+  ],
+  "audit": {
+    "total_attacks": 1,
+    "validated_attacks": 1,
+    "inconclusive_attacks": 0,
+    "verified_suppressions": 1,
+    "residual_leaks": 0,
+    "suppression_rate": 1.0,
+    "retain_utility_rate": 1.0,
+    "is_control_retain": false
+  },
+  "provenance": {
+    "engine_version": "v3",
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "target_adapter": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\runtime_validation\\pytest_runtime_1\\test_live_default_uses_v3_and_1\\checkpoints\\target_tofu_lora",
+    "unlearned_adapter": "C:\\Users\\tejas\\OneDrive\\Documents\\UNLEARNING\\results\\runtime_validation\\pytest_runtime_1\\test_live_default_uses_v3_and_1\\selected",
+    "mode": "full",
+    "epochs": 8,
+    "max_steps": null,
+    "retain_weight": 1.0,
+    "retain_max_drop": 0.03,
+    "device": "cpu",
+    "baseline_reuse_enabled": true,
+    "evaluation_scope": "full_experiment",
+    "max_trials": 3,
+    "training_budget_seconds": 600
+  }
+}

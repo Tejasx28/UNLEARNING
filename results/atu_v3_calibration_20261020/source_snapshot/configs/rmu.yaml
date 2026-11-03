@@ -1,0 +1,16 @@
+method: "rmu"
+base_model: "Qwen/Qwen2.5-1.5B-Instruct"
+target_adapter: "checkpoints/target_tofu_lora"
+forget_subset: "forget01"
+retain_subset: "retain99"
+output_dir: "checkpoints/rmu_forget01"
+layer_idx: 14
+alpha: 1.0
+steering_coeff: 5.0
+batch_size: 4
+grad_accum_steps: 1
+lr: 5.0e-5
+epochs: 5
+weight_decay: 0.01
+max_grad_norm: 1.0
+seed: 42
